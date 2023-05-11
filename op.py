@@ -1,4 +1,4 @@
-from pulp import *
+import pulp
 
 import streamlit as st
 
