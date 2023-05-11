@@ -7,7 +7,7 @@ def m(valores):
     prob = LpProblem("Mi problema de optimización", LpMinimize)
     p_1 = LpVariable("p_1", lowBound=0)
     precio_compra_1=p_1
-    cantidad_1=30000
+    cantidad_1=valores[0]
     frecuencia_1=1
     lt_plantapuerto_1=1
     dias_cxp_1=90/7
