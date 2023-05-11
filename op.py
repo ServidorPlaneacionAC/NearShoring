@@ -1,6 +1,5 @@
-import pulp
-
 import streamlit as st
+from pulp import *
 
 def m(valores):
     # Aquí va tu método m
