@@ -98,7 +98,7 @@ for i in range(15):
 
 # Crear botón para ejecutar el métodorun
 if st.button("Ejecutar método"):
-    resultado = m(*valores)
+    resultado = m(valores)
     st.write(f"El resultado es: {resultado}")
 
 
