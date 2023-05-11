@@ -87,7 +87,7 @@ def m(valores):
     prob += c_1 - c_0 == 0
     status = prob.solve()
 #     return (p_1.value())
-    return "ingreso bueno"
+    return f"ingreso bueno {p_1.value()}"
 
 st.title("Mi aplicación Streamlit")
 
