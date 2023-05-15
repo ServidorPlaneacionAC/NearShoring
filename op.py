@@ -119,7 +119,7 @@ with col1:
     # Crear 15 campos numéricos
     valores = []
     for i in range(14):
-        valores.append(st.number_input(f"{nombres[i]} objeto1", min_value=0, max_value=10000))
+        valores.append(st.number_input(f"{nombres[i]}", min_value=0, max_value=10000))
     
 # Columna derecha
 with col2:
