@@ -118,16 +118,16 @@ nombres=(
 with col1:
     st.subheader("Escenario nacional")
     # Aquí puedes mostrar los 15 datos correspondientes
-    # Crear 15 campos numéricos
+    # Crear 14 campos numéricos
     valores = []
     for i in range(14):
         valores.append(st.number_input(f"{nombres[i]}   ", min_value=0, max_value=10000))
     
 # Columna derecha
 with col2:
-    st.subheader("Escenario nacional")
+    st.subheader("Escenario internacional")
     # Aquí puedes mostrar los 14 datos correspondientes
-    # Crear 14 campos numéricos
+    # Crear 15 campos numéricos
     valores_2 = []
     for i in range(15):
         valores_2.append(st.number_input(f"{nombres[i]}", min_value=0, max_value=10000))
