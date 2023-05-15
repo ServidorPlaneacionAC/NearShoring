@@ -100,17 +100,18 @@ with col1:
     st.subheader("Visual A la Izquierda")
     # Aquí puedes mostrar los 15 datos correspondientes
     # Crear 15 campos numéricos
-    valores_2 = []
-    for i in range(15):
-        valores_2.append(st.number_input(f"Valor_2 {i+1}", min_value=0, max_value=10000))
+    valores = []
+    for i in range(14):
+        valores.append(st.number_input(f"Valor {i+1}", min_value=0, max_value=10000))
+    
 # Columna derecha
 with col2:
     st.subheader("Visual A la Derecha")
     # Aquí puedes mostrar los 14 datos correspondientes
     # Crear 14 campos numéricos
-    valores = []
-    for i in range(14):
-        valores.append(st.number_input(f"Valor {i+1}", min_value=0, max_value=10000))
+    valores_2 = []
+    for i in range(15):
+        valores_2.append(st.number_input(f"Valor_2 {i+1}", min_value=0, max_value=10000))
 
 
 
