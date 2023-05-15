@@ -112,7 +112,7 @@ nombres=(
 "lt_gz",
 "lt_gzplanta",
 "transporte_gz")
-nombres_2"=(
+nombres_2=(
 "precio_compra",
 "cantidad",
 "frecuencia",
