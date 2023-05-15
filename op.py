@@ -97,6 +97,22 @@ import streamlit as st
 col1, col2 = st.beta_columns(2)
 # nombres
 nombres=(
+
+"cantidad",
+"frecuencia",
+"lt_plantapuerto",
+"dias_cxp",
+"moq",
+"adu",
+"factor_lt",
+"factor_var",
+"estandar_pos",
+"lt_tiempoadmon",
+"lt_puertopuerto",
+"lt_gz",
+"lt_gzplanta",
+"transporte_gz")
+nombres_2"=(
 "precio_compra",
 "cantidad",
 "frecuencia",
@@ -128,7 +144,7 @@ with col2:
     # Crear 14 campos numéricos
     valores_2 = []
     for i in range(15):
-        valores_2.append(st.number_input(f"{nombres[i]}", min_value=0, max_value=10000))
+        valores_2.append(st.number_input(f"{nombres_2"[i]}", min_value=0, max_value=10000))
 
 
 
