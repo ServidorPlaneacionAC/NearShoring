@@ -99,7 +99,7 @@ for i in range(14):
 # Crear 15 campos numéricos
 valores_2 = []
 for i in range(15):
-    valores_2.append(st.number_input(f"Valor {i+1}", min_value=0, max_value=10000))
+    valores_2.append(st.number_input(f"Valor_2 {i+1}", min_value=0, max_value=10000))
 
 # Crear botón para ejecutar el métodorun
 if st.button("Ejecutar método"):
