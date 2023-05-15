@@ -97,22 +97,6 @@ import streamlit as st
 col1, col2 = st.beta_columns(2)
 # nombres
 nombres=(
-
-"cantidad",
-"frecuencia",
-"lt_plantapuerto",
-"dias_cxp",
-"moq",
-"adu",
-"factor_lt",
-"factor_var",
-"estandar_pos",
-"lt_tiempoadmon",
-"lt_puertopuerto",
-"lt_gz",
-"lt_gzplanta",
-"transporte_gz")
-nombres_2=(
 "precio_compra",
 "cantidad",
 "frecuencia",
@@ -128,6 +112,7 @@ nombres_2=(
 "lt_gz",
 "lt_gzplanta",
 "transporte_gz")
+
 # Columna izquierda
 with col1:
     st.subheader("Visual A la Izquierda")
@@ -135,7 +120,7 @@ with col1:
     # Crear 15 campos numéricos
     valores = []
     for i in range(14):
-        valores.append(st.number_input(f"{nombres[i]}", min_value=0, max_value=10000))
+        valores.append(st.number_input(f"{nombres[i]}objeto1", min_value=0, max_value=10000))
     
 # Columna derecha
 with col2:
