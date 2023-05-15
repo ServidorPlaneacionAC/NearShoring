@@ -90,16 +90,30 @@ def m(valores,valores_2):
     return f"ingreso bueno {p_1.value()}  {valores[0]}"
 
 st.title("Mi aplicación Streamlit")
+import streamlit as st
 
-# Crear 14 campos numéricos
-valores = []
-for i in range(14):
-    valores.append(st.number_input(f"Valor {i+1}", min_value=0, max_value=10000))
+# Definir la disposición en dos columnas
+col1, col2 = st.beta_columns(2)
 
-# Crear 15 campos numéricos
-valores_2 = []
-for i in range(15):
-    valores_2.append(st.number_input(f"Valor_2 {i+1}", min_value=0, max_value=10000))
+# Columna izquierda
+with col1:
+    st.subheader("Visual A la Izquierda")
+    # Aquí puedes mostrar los 15 datos correspondientes
+    # Crear 15 campos numéricos
+    valores_2 = []
+    for i in range(15):
+        valores_2.append(st.number_input(f"Valor_2 {i+1}", min_value=0, max_value=10000))
+# Columna derecha
+with col2:
+    st.subheader("Visual A la Derecha")
+    # Aquí puedes mostrar los 14 datos correspondientes
+    # Crear 14 campos numéricos
+    valores = []
+    for i in range(14):
+        valores.append(st.number_input(f"Valor {i+1}", min_value=0, max_value=10000))
+
+
+
 
 # Crear botón para ejecutar el métodorun
 if st.button("Ejecutar método"):
