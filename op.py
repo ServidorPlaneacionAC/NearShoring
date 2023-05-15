@@ -121,7 +121,7 @@ with col1:
     # Crear 14 campos numéricos
     valores = []
     for i in range(14):
-        valores.append(st.number_input(f"{nombres[i]}   ", min_value=0, max_value=100000))
+        valores.append(st.number_input(f"{nombres[i]}   ", min_value=0, max_value=100000,step=0.1))
     
 # Columna derecha
 with col2:
@@ -130,7 +130,7 @@ with col2:
     # Crear 15 campos numéricos
     valores_2 = []
     for i in range(15):
-        valores_2.append(st.number_input(f"{nombres[i]}", min_value=0, max_value=100000))
+        valores_2.append(st.number_input(f"{nombres[i]}", min_value=0, max_value=100000,step=0.1))
 
 
 
