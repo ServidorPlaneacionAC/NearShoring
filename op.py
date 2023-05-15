@@ -116,7 +116,7 @@ nombres=(
 
 # Columna izquierda
 with col1:
-    st.subheader("Visual A la Izquierda")
+    st.subheader("Escenario nacional")
     # Aquí puedes mostrar los 15 datos correspondientes
     # Crear 15 campos numéricos
     valores = []
@@ -125,7 +125,7 @@ with col1:
     
 # Columna derecha
 with col2:
-    st.subheader("Visual A la Derecha")
+    st.subheader("Escenario nacional")
     # Aquí puedes mostrar los 14 datos correspondientes
     # Crear 14 campos numéricos
     valores_2 = []
