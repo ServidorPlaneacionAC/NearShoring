@@ -94,12 +94,12 @@ st.title("Mi aplicación Streamlit")
 # Crear 14 campos numéricos
 valores = []
 for i in range(14):
-    valores.append(st.number_input(f"Valor {i+1}", min_value=0, max_value=10000))
+    valores.append(st.number_input(f"Valor {i+1}", min_value=0, max_value=100))
 
 # Crear 15 campos numéricos
 valores_2 = []
 for i in range(15):
-    valores.append(st.number_input(f"Valor {i+1}", min_value=0, max_value=10000))
+    valores.append(st.number_input(f"Valor {i+1}", min_value=0, max_value=100))
 
 # Crear botón para ejecutar el métodorun
 if st.button("Ejecutar método"):
