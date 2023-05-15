@@ -1,7 +1,7 @@
 import streamlit as st
 from pulp import *
 
-def m(valores):
+def m(valores,valores_2):
     # Aquí va tu método m
     # Crear problema de minimización
     prob = LpProblem("Mi problema de optimización", LpMinimize)
@@ -94,16 +94,19 @@ st.title("Mi aplicación Streamlit")
 # Crear 14 campos numéricos
 valores = []
 for i in range(14):
-    valores.append(st.number_input(f"Valor {i+1}", min_value=0, max_value=100))
+    valores.append(st.number_input(f"Valor {i+1}", min_value=0, max_value=10000))
 
 # Crear 15 campos numéricos
 valores_2 = []
 for i in range(15):
-    valores.append(st.number_input(f"Valor {i+1}", min_value=0, max_value=100))
+    valores_2.append(st.number_input(f"Valor {i+1}", min_value=0, max_value=10000))
 
 # Crear botón para ejecutar el métodorun
 if st.button("Ejecutar método"):
-    resultado = m(valores)
+    resultado = m(valores,valores_2)
     st.write(f"El resultado es: {resultado}")
+
+
+
 
 
