@@ -8,19 +8,19 @@ def m(valores):
     p_1 = LpVariable("p_1", lowBound=0)
     precio_compra_1=p_1
     cantidad_1=valores[0]
-    frecuencia_1=1
-    lt_plantapuerto_1=1
-    dias_cxp_1=90/7
-    moq_1=1200
-    adu_1=20890
-    factor_lt_1=0.4
-    factor_var_1=0.3
-    estandar_pos_1=350
-    lt_tiempoadmon_1=0
-    lt_puertopuerto_1=0
-    lt_gz_1=0
-    lt_gzplanta_1=0
-    transporte_gz_1=0
+    frecuencia_1=valores[1]
+    lt_plantapuerto_1=valores[2]
+    dias_cxp_1=valores[3]
+    moq_1=valores[4]
+    adu_1=valores[5]
+    factor_lt_1=valores[6]
+    factor_var_1=valores[7]
+    estandar_pos_1=valores[8]
+    lt_tiempoadmon_1=valores[9]
+    lt_puertopuerto_1=valores[10]
+    lt_gz_1=valores[11]
+    lt_gzplanta_1=valores[12]
+    transporte_gz_1=valores[13]
     #campos_1 calculados
     lt_completo_1=lt_tiempoadmon_1+lt_puertopuerto_1+lt_plantapuerto_1+lt_gz_1+lt_gzplanta_1
     lt_logistico_1=lt_puertopuerto_1+lt_plantapuerto_1+lt_gz_1+lt_gzplanta_1
@@ -37,21 +37,21 @@ def m(valores):
     costo_total_1=costo_maninv_1+costo_compra_1+costo_cap_1
     costo_unitario_1=costo_total_1/cantidad_1
 
-    precio_compra=14000
-    cantidad=30000
-    frecuencia=4
-    lt_plantapuerto=5
-    dias_cxp=90/7
-    moq=24000
-    adu=23800
-    factor_lt=0.1
-    factor_var=0.3
-    estandar_pos=350
-    lt_tiempoadmon=10
-    lt_puertopuerto=8
-    lt_gz=2
-    lt_gzplanta=1
-    transporte_gz=200
+    precio_compra=valores_2[0]
+    cantidad=valores_2[1]
+    frecuencia=valores_2[2]
+    lt_plantapuerto=valores_2[3]
+    dias_cxp=valores_2[4]
+    moq=valores_2[5]
+    adu=valores_2[6]
+    factor_lt=valores_2[7]
+    factor_var=valores_2[8]
+    estandar_pos=valores_2[9]
+    lt_tiempoadmon=valores_2[10]
+    lt_puertopuerto=valores_2[11]
+    lt_gz=valores_2[12]
+    lt_gzplanta=valores_2[13]
+    transporte_gz=valores_2[14]
     #campos calculados
     lt_completo=lt_tiempoadmon+lt_puertopuerto+lt_plantapuerto+lt_gz+lt_gzplanta
     lt_logistico=lt_puertopuerto+lt_plantapuerto+lt_gz+lt_gzplanta
@@ -91,10 +91,15 @@ def m(valores):
 
 st.title("Mi aplicación Streamlit")
 
-# Crear 15 campos numéricos
+# Crear 14 campos numéricos
 valores = []
+for i in range(14):
+    valores.append(st.number_input(f"Valor {i+1}", min_value=0, max_value=10000))
+
+# Crear 15 campos numéricos
+valores_2 = []
 for i in range(15):
-    valores.append(st.number_input(f"Valor {i+1}", min_value=0, max_value=100))
+    valores.append(st.number_input(f"Valor {i+1}", min_value=0, max_value=10000))
 
 # Crear botón para ejecutar el métodorun
 if st.button("Ejecutar método"):
