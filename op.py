@@ -21,6 +21,7 @@ def m(valores,valores_2):
     lt_gz_1=valores[11]
     lt_gzplanta_1=valores[12]
     transporte_gz_1=valores[13]
+
     #campos_1 calculados
     lt_completo_1=lt_tiempoadmon_1+lt_puertopuerto_1+lt_plantapuerto_1+lt_gz_1+lt_gzplanta_1
     lt_logistico_1=lt_puertopuerto_1+lt_plantapuerto_1+lt_gz_1+lt_gzplanta_1
@@ -94,7 +95,23 @@ import streamlit as st
 
 # Definir la disposición en dos columnas
 col1, col2 = st.beta_columns(2)
-
+# nombres
+nombres=(
+"precio_compra",
+"cantidad",
+"frecuencia",
+"lt_plantapuerto",
+"dias_cxp",
+"moq",
+"adu",
+"factor_lt",
+"factor_var",
+"estandar_pos",
+"lt_tiempoadmon",
+"lt_puertopuerto",
+"lt_gz",
+"lt_gzplanta",
+"transporte_gz")
 # Columna izquierda
 with col1:
     st.subheader("Visual A la Izquierda")
@@ -102,7 +119,7 @@ with col1:
     # Crear 15 campos numéricos
     valores = []
     for i in range(14):
-        valores.append(st.number_input(f"Valor {i+1}", min_value=0, max_value=10000))
+        valores.append(st.number_input(f"{nombres[i]+1} objeto1", min_value=0, max_value=10000))
     
 # Columna derecha
 with col2:
@@ -111,7 +128,7 @@ with col2:
     # Crear 14 campos numéricos
     valores_2 = []
     for i in range(15):
-        valores_2.append(st.number_input(f"Valor_2 {i+1}", min_value=0, max_value=10000))
+        valores_2.append(st.number_input(f"{nombres[i]}", min_value=0, max_value=10000))
 
 
 
