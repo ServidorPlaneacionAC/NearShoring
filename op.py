@@ -38,21 +38,22 @@ def m(valores,valores_2):
     costo_total_1=costo_maninv_1+costo_compra_1+costo_cap_1
     costo_unitario_1=costo_total_1/cantidad_1
 
-    precio_compra=valores_2[0]
-    cantidad=valores_2[1]
-    frecuencia=valores_2[2]
-    lt_plantapuerto=valores_2[3]
-    dias_cxp=valores_2[4]
-    moq=valores_2[5]
-    adu=valores_2[6]
-    factor_lt=valores_2[7]
-    factor_var=valores_2[8]
-    estandar_pos=valores_2[9]
-    lt_tiempoadmon=valores_2[10]
-    lt_puertopuerto=valores_2[11]
-    lt_gz=valores_2[12]
-    lt_gzplanta=valores_2[13]
-    transporte_gz=valores_2[14]
+    
+    cantidad=valores_2[0]
+    frecuencia=valores_2[1]
+    lt_plantapuerto=valores_2[2]
+    dias_cxp=valores_2[3]
+    moq=valores_2[4]
+    adu=valores_2[5]
+    factor_lt=valores_2[6]
+    factor_var=valores_2[7]
+    estandar_pos=valores_2[8]
+    lt_tiempoadmon=valores_2[9]
+    lt_puertopuerto=valores_2[10]
+    lt_gz=valores_2[11]
+    lt_gzplanta=valores_2[12]
+    transporte_gz=valores_2[13]
+    precio_compra=valores_2[14]
     #campos calculados
     lt_completo=lt_tiempoadmon+lt_puertopuerto+lt_plantapuerto+lt_gz+lt_gzplanta
     lt_logistico=lt_puertopuerto+lt_plantapuerto+lt_gz+lt_gzplanta
@@ -97,7 +98,6 @@ import streamlit as st
 col1, col2 = st.beta_columns(2)
 # nombres
 nombres=(
-"precio_compra",
 "cantidad",
 "frecuencia",
 "lt_plantapuerto",
@@ -111,7 +111,8 @@ nombres=(
 "lt_puertopuerto",
 "lt_gz",
 "lt_gzplanta",
-"transporte_gz")
+"transporte_gz",
+"precio_compra")
 
 # Columna izquierda
 with col1:
