@@ -91,7 +91,7 @@ def m(valores,valores_2):
 #     return (p_1.value())
     return f"ingreso bueno {p_1.value()}"
 
-st.title("Mi aplicación Streamlit")
+st.title("Nearshoring")
 import streamlit as st
 
 # Definir la disposición en dos columnas
@@ -100,13 +100,13 @@ col1, col2 = st.beta_columns(2)
 nombres=(
 "cantidad",
 "frecuencia",
-"lt_plantapuerto",
+"lead time planta-puerto",
 "dias_cxp",
 "moq",
 "adu",
-"factor_lt",
-"factor_var",
-"estandar_pos",
+"factor lead time",
+"factor variación",
+"estandar posición",
 "lt_tiempoadmon",
 "lt_puertopuerto",
 "lt_gz",
