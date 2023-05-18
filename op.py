@@ -10,7 +10,7 @@ def m(valores,valores_2):
     cantidad_1=valores[0]
     frecuencia_1=valores[1]
     lt_plantapuerto_1=valores[2]
-    dias_cxp_1=valores[3]
+    semanas_cxp_1=valores[3]
     moq_1=valores[4]
     adu_1=valores[5]
     factor_lt_1=valores[6]
@@ -42,7 +42,7 @@ def m(valores,valores_2):
     cantidad=valores_2[0]
     frecuencia=valores_2[1]
     lt_plantapuerto=valores_2[2]
-    dias_cxp=valores_2[3]
+    semanas_cxp=valores_2[3]
     moq=valores_2[4]
     adu=valores_2[5]
     factor_lt=valores_2[6]
@@ -101,7 +101,7 @@ nombres=(
 "cantidad",
 "frecuencia",
 "lead time planta-puerto",
-"dias_cxp",
+"Semanas cxp",
 "moq",
 "adu",
 "factor lead time",
