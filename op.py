@@ -64,7 +64,8 @@ def m(valores,valores_2):
     #campos calculados
     
     lt_completo=lt_tiempoadmon+lt_puertopuerto+lt_plantapuerto+lt_gz+lt_gzplanta
-    lt_logistico=   if icoterm == "EXWORK":
+    lt_logistico= icoterm  
+                    if icoterm == "EXWORK":
                            lt_logistico = lt_plantapuerto+lt_puertopuerto+lt_gzplanta+lt_gz
                     elif icoterm == "FOB":
                            lt_logistico = lt_puertopuerto+lt_gzplanta+lt_gz
