@@ -34,10 +34,10 @@ def m(valores,valores_2):
     inv_prom_1=zona_rojabase_1+zona_rojaalta_1+(zona_verde_1/2)
     indice_flujo_1=zona_verde_1/adu_1
     diferencial_1=lt_logistico_1-semanas_cxp_1
-    taf_gz_1=0*precio_compra_1
+    taf_gz_1=0
     costo_inv_1=precio_compra_1*inv_prom_1
     costo_nacionalizacion_1=taf_gz_1*cantidad_1
-    costo_transportegz-planta_1=0*cantidad_1
+    costo_transportegz-planta_1=0
     costo_cap_1=(diferencial_1+indice_flujo_1)*adu_1*(((1+0.12)**(1/52))-1)*precio_compra_1
     costo_maninv_1=inv_prom_1*(tarifa_alm_1*4.3)*indice_flujo_1
     costo_compra_1=precio_compra_1*cantidad_1
