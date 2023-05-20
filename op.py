@@ -65,12 +65,12 @@ def m(valores,valores_2):
     
     lt_completo=lt_tiempoadmon+lt_puertopuerto+lt_plantapuerto+lt_gz+lt_gzplanta
     lt_logistico= icoterm  
-                    if icoterm == "EXWORK":
-                           lt_logistico = lt_plantapuerto+lt_puertopuerto+lt_gzplanta+lt_gz
-                    elif icoterm == "FOB":
-                           lt_logistico = lt_puertopuerto+lt_gzplanta+lt_gz
-                    else:
-                            lt_logistico = lt_gzplanta+lt_gz
+    if icoterm == "EXWORK":
+        lt_logistico = lt_plantapuerto+lt_puertopuerto+lt_gzplanta+lt_gz
+    elif icoterm == "FOB":
+        lt_logistico = lt_puertopuerto+lt_gzplanta+lt_gz
+    else:
+        lt_logistico = lt_gzplanta+lt_gz
     zona_amarilla=lt_plantapuerto*adu
     zona_rojabase=zona_amarilla*factor_lt
     zona_rojaalta=zona_rojabase*factor_var
