@@ -47,19 +47,20 @@ def m(valores,valores_2):
     
     cantidad=valores_2[0]
     frecuencia=valores_2[1]
-    lt_plantapuerto=valores_2[2]
-    semanas_cxp=valores_2[3]
-    moq=valores_2[4]
-    adu=valores_2[5]
-    factor_lt=valores_2[6]
-    factor_var=valores_2[7]
-    estandar_pos=valores_2[8]
-    lt_tiempoadmon=valores_2[9]
-    lt_puertopuerto=valores_2[10]
-    lt_gz=valores_2[11]
-    lt_gzplanta=valores_2[12]
-    tarifa_alm=valores[13]
-    precio_compra=valores_2[14]
+    icoterm=[2]
+    lt_plantapuerto=valores_2[3]
+    semanas_cxp=valores_2[4]
+    moq=valores_2[5]
+    adu=valores_2[6]
+    factor_lt=valores_2[7]
+    factor_var=valores_2[8]
+    estandar_pos=valores_2[9]
+    lt_tiempoadmon=valores_2[10]
+    lt_puertopuerto=valores_2[11]
+    lt_gz=valores_2[12]
+    lt_gzplanta=valores_2[13]
+    tarifa_alm=valores[14]
+    precio_compra=valores_2[15]
     #campos calculados
     
     lt_completo=lt_tiempoadmon+lt_puertopuerto+lt_plantapuerto+lt_gz+lt_gzplanta
@@ -124,6 +125,23 @@ nombres=(
 "lt_gzplanta",
 "tarifa almacenamiento",
 "precio_compra")
+nombres_2=(
+"cantidad",
+"frecuencia",
+"icoterm",   
+"lead time planta-puerto",
+"Semanas cxp",
+"moq",
+"adu",
+"factor lead time",
+"factor variación",
+"estandar posición",
+"lt_tiempoadmon",
+"lt_puertopuerto",
+"lt_gz",
+"lt_gzplanta",
+"tarifa almacenamiento",
+"precio_compra")
 
 # Columna izquierda
 with col1:
@@ -140,8 +158,8 @@ with col2:
     # Aquí puedes mostrar los 14 datos correspondientes
     # Crear 15 campos numéricos
     valores_2 = []
-    for i in range(15):
-        valores_2.append(st.number_input(f"{nombres[i]}", step=0.01, min_value=0.00, max_value=100000.00))
+    for i in range(16):
+        valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
 
 
 
