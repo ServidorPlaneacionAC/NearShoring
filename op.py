@@ -122,7 +122,6 @@ nombres=(
 "lt_puertopuerto",
 "lt_gz",
 "lt_gzplanta",
-"transporte_gz",
 "tarifa almacenamiento",
 "precio_compra")
 
