@@ -47,7 +47,7 @@ def m(valores,valores_2):
     
     cantidad=valores_2[0]
     frecuencia=valores_2[1]
-    icoterm = str(valores_2[2])
+    icoterm = valores_2[2]
     lt_plantapuerto=valores_2[3]
     semanas_cxp=valores_2[4]
     moq=valores_2[5]
@@ -164,8 +164,12 @@ with col2:
     # Aquí puedes mostrar los 14 datos correspondientes
     # Crear 15 campos numéricos
     valores_2 = []
-    for i in range(16):
+for i in range(16):
+    if i == 2:
+        valores_2.append(st.text_input(f"{nombres_2[i]}"))
+    else:
         valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
+
 
 
 
