@@ -163,15 +163,12 @@ with col2:
     st.subheader("Escenario internacional")
     # Aquí puedes mostrar los 14 datos correspondientes
     # Crear 15 campos numéricos
- valores_2 = []
- for i in range(16):
-    if i == 2:
-        valores_2.append(st.text_input(f"{nombres_2[i]}"))
-    else:
-        valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
-
-
-
+    valores_2 = []
+    for i in range(16):
+        if i == 2:
+            valores_2.append(st.text_input(f"{nombres_2[i]}"))
+        else:
+            valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
 
 
 # Crear botón para ejecutar el métodorun
