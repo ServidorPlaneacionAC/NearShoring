@@ -47,7 +47,7 @@ def m(valores,valores_2):
     
     cantidad=valores_2[0]
     frecuencia=valores_2[1]
-    icoterm=[2]
+    icoterm=valores_2[2]
     lt_plantapuerto=valores_2[3]
     semanas_cxp=valores_2[4]
     moq=valores_2[5]
