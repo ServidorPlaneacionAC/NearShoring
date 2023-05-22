@@ -59,7 +59,7 @@ def m(valores,valores_2):
     lt_puertopuerto=valores_2[11]
     lt_gz=valores_2[12]
     lt_gzplanta=valores_2[13]
-    tarifa_alm=valores[14]
+    tarifa_alm=valores_2[14]
     precio_compra=valores_2[15]
     #campos calculados
     
