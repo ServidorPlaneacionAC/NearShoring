@@ -107,7 +107,7 @@ def m(valores,valores_2):
     prob += c_1 - c_0 == 0
     status = prob.solve()
 #     return (p_1.value())
-    return f"ingreso bueno {p_1.value()}   {costo_unitario_0}   {lt_logistico}  {costo_inv}  {costo_cap}   {costo_nacionalizacion}"
+    return f"ingreso bueno {p_1.value()} {costo_unitario_0} {lt_logistico} {costo_inv}  {costo_cap}   {costo_maninv}"
     
 
 st.title("Nearshoring")
