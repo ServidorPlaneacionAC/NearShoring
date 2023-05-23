@@ -83,7 +83,7 @@ def m(valores,valores_2):
     costo_nacionalizacion=taf_gz*cantidad
     costo_transportegz_planta=200*cantidad
     costo_cap=(diferencial+indice_flujo)*adu*(((1+0.12)**(1/52))-1)*precio_compra
-    costo_maninv=inv_prom*(tarifa_alm*4.3)*indice_flujo
+    costo_maninv=(inv_prom)*(tarifa_alm*4.3)*(indice_flujo)
     costo_compra=precio_compra*cantidad
     costo_total=costo_maninv+costo_compra+costo_cap+costo_nacionalizacion+costo_transportegz_planta
     costo_unitario_0=costo_total/cantidad
@@ -107,7 +107,7 @@ def m(valores,valores_2):
     prob += c_1 - c_0 == 0
     status = prob.solve()
 #     return (p_1.value())
-    return f"ingreso bueno {p_1.value()} {costo_unitario_0} {lt_logistico} {costo_inv}  {costo_cap}   {costo_maninv}"
+    return f"ingreso bueno {p_1.value()} {costo_nacionalizacion} {costo_transportegz_planta} {costo_inv}  {costo_cap}   {costo_maninv}"
     
 
 st.title("Nearshoring")
