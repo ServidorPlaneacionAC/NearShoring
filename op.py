@@ -32,8 +32,9 @@ def m(valores,valores_2):
     zona_rojaalta_1=zona_rojabase_1*factor_var_1
     zona_verde_1=max(moq_1,frecuencia_1*adu_1,lt_plantapuerto_1*adu_1*factor_lt_1)
     inv_prom_1=zona_rojabase_1+zona_rojaalta_1+(zona_verde_1/2)
-    indice_flujo_1=zona_verde_1/adu_1
+    inv_prom_sem_1=inv_prom_1/adu_1
     diferencial_1=lt_logistico_1-semanas_cxp_1
+    capital_invertido_1=((diferencial_1+inv_prom_sem_1)*moq_1*precio_compra_1)+costo_nacionalizacion_1
     taf_gz_1=0
     costo_inv_1=precio_compra_1*inv_prom_1
     costo_nacionalizacion_1=taf_gz_1*cantidad_1
@@ -42,6 +43,7 @@ def m(valores,valores_2):
     costo_maninv_1=(inv_prom_1)*(tarifa_alm_1/4.3)*(indice_flujo_1)
     costo_compra_1=precio_compra_1*cantidad_1
     costo_total_1=costo_maninv_1+costo_compra_1+costo_cap_1+costo_nacionalizacion_1+costo_transportegz_planta_1
+    costo_ebitda_1=costo_maninv_1+costo_compra_1+costo_nacionalizacion_1+costo_transportegz_planta_1
     costo_unitario_1=costo_total_1/cantidad_1
 
     
@@ -76,9 +78,10 @@ def m(valores,valores_2):
     zona_rojaalta=zona_rojabase*factor_var
     zona_verde=max(moq,frecuencia*adu,lt_plantapuerto*adu*factor_lt)
     inv_prom=zona_rojabase+zona_rojaalta+(zona_verde/2)
-    indice_flujo=zona_verde/adu
+    inv_prom_sem=inv_prom/adu
     diferencial=lt_logistico-semanas_cxp
     taf_gz=0.07*precio_compra
+    capital_invertido=((diferencial+inv_prom_sem)*moq*precio_compra)+costo_nacionalizacion
     costo_inv=precio_compra*inv_prom
     costo_nacionalizacion=taf_gz*cantidad
     costo_transportegz_planta=200*cantidad
@@ -86,8 +89,17 @@ def m(valores,valores_2):
     costo_maninv=(inv_prom)*(tarifa_alm/4.3)*(indice_flujo)
     costo_compra=precio_compra*cantidad
     costo_total=costo_maninv+costo_compra+costo_cap+costo_nacionalizacion+costo_transportegz_planta
+    costo_ebitda=costo_maninv+costo_compra+costo_nacionalizacion+costo_transportegz_planta
     costo_unitario_0=costo_total/cantidad
-
+    
+    #calculo variables financieras
+    ebitda=costo_ebitda_1-costo_ebitda
+    impuestos=ebitda*0.26
+    uodi=impuestos-ebitda
+    diferencial_ct=capital_invertido-capital_invertido_1
+    costo_capital=diferencial_ct*(((1+0.12)**(1/52))-1)
+    eva=uodi-costo_capital
+    roic=uodi/diferencial_ct
 
     c_0 = costo_unitario_0  # Costo del producto 0
     c_1 = costo_unitario_1  # Costo del producto 1
@@ -100,11 +112,11 @@ def m(valores,valores_2):
     #prob += p_0 <= 1
     #prob += p_1 <= 1
     #prob += p_0 >= 0
-    prob += p_1 >= 0
+    prob += uodi >= 0
 
     # Define la función objetivo
     #prob += c_1 - c_0 == p_1 - p_0 # Minimiza la diferencia de costos totales
-    prob += c_1 - c_0 == 0
+    prob += uodi == 0
     status = prob.solve()
 #     return (p_1.value())
     return f"ingreso bueno {p_1.value()}"
