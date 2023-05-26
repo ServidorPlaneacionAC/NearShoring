@@ -99,7 +99,7 @@ def m(valores,valores_2):
     diferencial_ct=capital_invertido-capital_invertido_1
     costo_capital=diferencial_ct*(((1+0.12)**(1/52))-1)
     eva=uodi-costo_capital
-    #roic=uodi/diferencial_ct
+    retorno_inversion=uodi/diferencial_ct
 
     c_0 = costo_unitario_0  # Costo del producto 0
     c_1 = costo_unitario_1  # Costo del producto 1
