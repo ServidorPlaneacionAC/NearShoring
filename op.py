@@ -40,7 +40,7 @@ def m(valores,valores_2):
     costo_nacionalizacion_1=taf_gz_1*cantidad_1
     costo_transportegz_planta_1=0
     costo_cap_1=(diferencial_1+inv_prom_sem_1)*adu_1*(((1+0.12)**(1/52))-1)*precio_compra_1
-    costo_maninv_1=(inv_prom_1)*(tarifa_alm_1/4.3)*(indice_flujo_1)
+    costo_maninv_1=(inv_prom_1)*(tarifa_alm_1/4.3)*(inv_prom_sem_1)
     costo_compra_1=precio_compra_1*cantidad_1
     costo_total_1=costo_maninv_1+costo_compra_1+costo_cap_1+costo_nacionalizacion_1+costo_transportegz_planta_1
     costo_ebitda_1=costo_maninv_1+costo_compra_1+costo_nacionalizacion_1+costo_transportegz_planta_1
@@ -86,7 +86,7 @@ def m(valores,valores_2):
     costo_nacionalizacion=taf_gz*cantidad
     costo_transportegz_planta=200*cantidad
     costo_cap=(diferencial+inv_prom_sem)*adu*(((1+0.12)**(1/52))-1)*precio_compra
-    costo_maninv=(inv_prom)*(tarifa_alm/4.3)*(indice_flujo)
+    costo_maninv=(inv_prom)*(tarifa_alm/4.3)*(inv_prom_sem)
     costo_compra=precio_compra*cantidad
     costo_total=costo_maninv+costo_compra+costo_cap+costo_nacionalizacion+costo_transportegz_planta
     costo_ebitda=costo_maninv+costo_compra+costo_nacionalizacion+costo_transportegz_planta
