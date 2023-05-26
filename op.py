@@ -45,7 +45,7 @@ def m(valores,valores_2):
     costo_total_1=costo_maninv_1+costo_compra_1+costo_cap_1+costo_nacionalizacion_1+costo_transportegz_planta_1
     costo_ebitda_1=costo_maninv_1+costo_compra_1+costo_nacionalizacion_1+costo_transportegz_planta_1
     costo_unitario_1=costo_total_1/cantidad_1
-    capital_invertido_1=((diferencial_1+inv_prom_sem_1)*moq_1*precio_compra_1)+costo_nacionalizacion_1
+    capital_invertido_1=((diferencial_1+inv_prom_sem_1)*adu_1*precio_compra_1)+costo_nacionalizacion_1
     
     cantidad=valores_2[0]
     frecuencia=valores_2[1]
@@ -91,7 +91,7 @@ def m(valores,valores_2):
     costo_total=costo_maninv+costo_compra+costo_cap+costo_nacionalizacion+costo_transportegz_planta
     costo_ebitda=costo_maninv+costo_compra+costo_nacionalizacion+costo_transportegz_planta
     costo_unitario_0=costo_total/cantidad
-    capital_invertido=((diferencial+inv_prom_sem)*moq*precio_compra)+costo_nacionalizacion
+    capital_invertido=((diferencial+inv_prom_sem)*adu*precio_compra)+costo_nacionalizacion
     #calculo variables financieras
     ebitda=costo_ebitda_1-costo_ebitda
     impuestos=ebitda*0.26
@@ -119,7 +119,7 @@ def m(valores,valores_2):
     prob += uodi == 0
     status = prob.solve()
 #     return (p_1.value())
-    return f"ingreso bueno {p_1.value() ,     capital_invertido_1    ,  capital_invertido   }"
+    return f"ingreso bueno {p_1.value() ,     costo_nacionalizacion    ,  diferencial, inv_prom_sem, adu, capital_invertido  }"
     
 
 st.title("Nearshoring")
