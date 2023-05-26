@@ -119,7 +119,7 @@ def m(valores,valores_2):
     prob += uodi == 0
     status = prob.solve()
 #     return (p_1.value())
-    return f"ingreso bueno {p_1.value() , diferencial_1, inv_prom_sem_1, adu_1, precio_compra_1,lt_logistico_1 }"
+    return f"ingreso bueno {p_1.value() , capital_invertido_1, capital_invertido}"
     
 
 st.title("Nearshoring")
