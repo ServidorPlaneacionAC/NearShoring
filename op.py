@@ -97,7 +97,7 @@ def m(valores,valores_2):
     impuestos=ebitda*0.26
     uodi=impuestos-ebitda
     diferencial_ct=capital_invertido-capital_invertido_1
-    costo_capital=diferencial_ct*(((1+0.12)**(1/52))-1)
+    costo_capital=(diferencial_ct)*(((1+0.12)**(1/52))-1)
     eva=uodi-costo_capital
     #roic=uodi/diferencial_ct
 
@@ -119,7 +119,7 @@ def m(valores,valores_2):
     prob += uodi == 0
     status = prob.solve()
 #     return (p_1.value())
-    return f"ingreso bueno {p_1.value() ,diferencial_ct  }"
+    return f"ingreso bueno {p_1.value() ,costo_capital , uodi , eva }"
     
 
 st.title("Nearshoring")
