@@ -177,17 +177,20 @@ for fila in range(num_filas):
 
 
     
-# Columna derecha
-with col2:
-    st.subheader("Escenario internacional")
-    # Aquí puedes mostrar los 14 datos correspondientes
-    # Crear 15 campos numéricos
-    valores_2 = []
-    for i in range(16):
-        if i == 2:
-            valores_2.append(st.text_input(f"{nombres_2[i]}"))
+num_filas2 = 8  # Número de filas en la segunda matriz
+num_columnas2 = 2  # Número de columnas en la segunda matriz
+
+columnas2 = st.beta_columns(num_columnas2)
+
+# Recorrer la segunda matriz y mostrar los campos numéricos
+valores2 = []
+for fila in range(num_filas2):
+    for columna in range(num_columnas2):
+        index = fila * num_columnas2 + columna
+        if index == 2:
+            valores2.append(columnas2[columna].text_input(f"{nombres_2[index]}"))
         else:
-            valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
+            valores2.append(columnas2[columna].number_input(f"{nombres_2[index]}", step=0.01, min_value=0.00, max_value=100000.00))
 
 
 
