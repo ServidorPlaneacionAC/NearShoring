@@ -112,7 +112,7 @@ def m(valores,valores_2):
     #prob += p_0 <= 1
     #prob += p_1 <= 1
     #prob += p_0 >= 0
-    #prob += uodi >= 0
+    prob += uodi >= 0
 
     # Define la función objetivo
     #prob += c_1 - c_0 == p_1 - p_0 # Minimiza la diferencia de costos totales
