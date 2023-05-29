@@ -119,7 +119,7 @@ def m(valores,valores_2):
     prob += uodi == 0
     status = prob.solve()
 #     return (p_1.value())
-    return f"ingreso bueno {p_1.value()}"
+    return [p_1.value(),uodi,ebitda,eva]
     
 
 st.title("Nearshoring")
@@ -136,7 +136,7 @@ nombres=(
 "Moq",
 "Adu",
 "Factor lead time",
-"factor variación",
+"Factor variación",
 "Estandar posición",
 "lead time tiempo-admon",
 "lead time puerto-puerto",
@@ -153,7 +153,7 @@ nombres_2=(
 "Moq",
 "Adu",
 "Factor lead time",
-"factor variación",
+"Factor variación",
 "Estandar posición",
 "lead time tiempo-admon",
 "lead time puerto-puerto",
@@ -187,10 +187,10 @@ with col2:
 # Crear botón para ejecutar el métodorun
 if st.button("Ejecutar método"):
     resultado = m(valores,valores_2)
-    st.write(f"El resultado es: {resultado}")
-    st.write(f"EBITDA: {ebitda}")
-    st.write(f"Impuestos: {impuestos}")
-    st.write(f"UODI: {uodi}")
+    st.write(f"El resultado es: {resultado[0]}")
+    st.write(f"UODI: {resultado[1]}")
+    st.write(f"EBITDA: {resultado[2]}")
+    st.write(f"EVA: {resultado[3]}")
 
 
 
