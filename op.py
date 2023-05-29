@@ -99,7 +99,7 @@ def m(valores,valores_2):
     diferencial_ct=capital_invertido-capital_invertido_1
     costo_capital=(diferencial_ct)*(((1+0.12)**(1/52))-1)
     eva=uodi-costo_capital
-    roic=uodi/diferencial_ct
+    #roic=uodi/diferencial_ct
 
     c_0 = costo_unitario_0  # Costo del producto 0
     c_1 = costo_unitario_1  # Costo del producto 1
@@ -119,7 +119,7 @@ def m(valores,valores_2):
     prob += uodi == 0
     status = prob.solve()
 #     return (p_1.value())
-    return f"ingreso bueno {p_1.value() ,value(uodi),value(costo_maninv_1),value(costo_compra_1)}"
+    return f"ingreso bueno {p_1.value() ,value(uodi),value(costo_ebitda_1),value(costo_ebitda)}"
     
 
 st.title("Nearshoring")
