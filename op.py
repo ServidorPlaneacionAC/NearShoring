@@ -146,7 +146,7 @@ nombres=(
 "Precio compra")
 nombres_2=(
 "Cantidad",
-"frecuencia",
+"Frecuencia",
 "Icoterm",   
 "lead time planta-puerto",
 "Semanas cxp",
