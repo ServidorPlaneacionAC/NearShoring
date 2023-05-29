@@ -161,25 +161,18 @@ nombres_2=(
 "lead time gz-planta",
 "Tarifa almacenamiento",
 "Precio compra")
-columnas_pruebas=st.columns(1)
-with columnas_pruebas:
-    columna_1,columna_2,columna_3,columna_4,columna_5,columna_6=st.columns(6)
-    with columna_1:
-        st.number_input("col 1")
-    with columna_2:
-        st.number_input("col 2")
-    with columna_3:
-        st.number_input("col 3")
-    with columna_4:
-        st.number_input("col 4")
-    with columna_5:
-        st.number_input("col 5")
-    with columna_6:
-        st.number_input("col 6")
+
 with col1:
     st.subheader("Escenario nacional")
     # Aquí puedes mostrar los 15 datos correspondientes
     # Crear 14 campos numéricos
+    col1_1, col1_2 = st.beta_columns(2)
+    
+    # Mostrar los datos correspondientes en las columnas adicionales
+    with col1_1:
+        st.write("Datos 1")
+    with col1_2:
+        st.write("Datos 2")
     valores = []
     for i in range(14):
         valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
