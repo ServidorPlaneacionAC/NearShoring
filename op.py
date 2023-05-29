@@ -99,7 +99,7 @@ def m(valores,valores_2):
     diferencial_ct=capital_invertido-capital_invertido_1
     costo_capital=(diferencial_ct)*(((1+0.12)**(1/52))-1)
     eva=uodi-costo_capital
-    roic=uodi/diferencial_ct
+    #roic=uodi/diferencial_ct
 
     c_0 = costo_unitario_0  # Costo del producto 0
     c_1 = costo_unitario_1  # Costo del producto 1
@@ -119,7 +119,7 @@ def m(valores,valores_2):
     prob += uodi == 0
     status = prob.solve()
 #     return (p_1.value())
-    return [p_1.value(),value(uodi),value(ebitda),value(eva)]
+    return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct)]
     
 
 st.title("Nearshoring")
@@ -191,7 +191,7 @@ if st.button("Ejecutar método"):
     st.write(f"UODI: {resultado[1]}")
     st.write(f"EBITDA: {resultado[2]}")
     st.write(f"EVA: {resultado[3]}")
-
+    st.write(f"EVA: {resultado[1]/resultado[4]}")
 
 
 
