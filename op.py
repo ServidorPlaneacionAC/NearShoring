@@ -95,7 +95,7 @@ def m(valores,valores_2):
     #calculo variables financieras
     ebitda=costo_ebitda_1-costo_ebitda
     impuestos=ebitda*0.26
-    uodi=impuestos-ebitda
+    uodi=ebitda-impuestos
     diferencial_ct=capital_invertido-capital_invertido_1
     costo_capital=(diferencial_ct)*(((1+0.12)**(1/52))-1)
     eva=uodi-costo_capital
@@ -119,7 +119,7 @@ def m(valores,valores_2):
     prob += uodi == 0
     status = prob.solve()
 #     return (p_1.value())
-    return f"ingreso bueno {p_1.value() ,value(ebitda),value(costo_ebitda_1),value(costo_ebitda),value(impuestos)}"
+    return f"ingreso bueno {p_1.value() ,value(uodi),value(costo_ebitda_1),value(costo_ebitda),value(impuestos)}"
     
 
 st.title("Nearshoring")
