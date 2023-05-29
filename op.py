@@ -45,7 +45,7 @@ def m(valores,valores_2):
     costo_total_1=costo_maninv_1+costo_compra_1+costo_cap_1
     costo_ebitda_1=costo_maninv_1+costo_compra_1
     costo_unitario_1=costo_total_1/cantidad_1
-    capital_invertido_1=((diferencial_1+inv_prom_sem_1)*(adu_1)*(precio_compra_1))+(costo_nacionalizacion_1)
+    capital_invertido_1=((diferencial_1+inv_prom_sem_1)*(adu_1)*(precio_compra_1))
     
     cantidad=valores_2[0]
     frecuencia=valores_2[1]
