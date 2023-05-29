@@ -172,7 +172,7 @@ with col1:
     with col1_1:
         st.write("Datos 1")
         
-            for i in range(7):
+        for i in range(7):
                  valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
     with col1_2:
         st.write("Datos 2")
