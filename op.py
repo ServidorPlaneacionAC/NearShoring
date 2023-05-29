@@ -161,9 +161,9 @@ nombres_2=(
 "lead time gz-planta",
 "Tarifa almacenamiento",
 "Precio compra")
-columnas_pruebas=st.beta_columns(1)
+columnas_pruebas=st.columns(1)
 with columnas_pruebas:
-    columna_1,columna_2,columna_3,columna_4,columna_5,columna_6=st.beta_columns(6)
+    columna_1,columna_2,columna_3,columna_4,columna_5,columna_6=st.columns(6)
     with columna_1:
         st.number_input("col 1")
     with columna_2:
