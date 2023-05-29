@@ -164,7 +164,7 @@ nombres_2=(
 "Precio compra")
 
 with col1:
-    st.set_column_width(column_width)
+    
     st.subheader("Escenario nacional")
     # Aquí puedes mostrar los 15 datos correspondientes
     # Crear 14 campos numéricos
@@ -188,7 +188,7 @@ with col1:
                  valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
 # Columna derecha
 with col2:
-    st.set_column_width(column_width)
+    
     st.subheader("Escenario internacional")
     col2_1, col2_2,col2_3 = st.beta_columns(3)
     valores_2 = []
