@@ -183,10 +183,10 @@ with col2:
             valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
 
 # Mostrar los resultados
-    st.subheader("Resultados")
-    st.write(f"EBITDA: {ebitda}")
-    st.write(f"Impuestos: {impuestos}")
-    st.write(f"UODI: {uodi}")
+st.subheader("Resultados")
+st.write(f"EBITDA: {ebitda}")
+st.write(f"Impuestos: {impuestos}")
+st.write(f"UODI: {uodi}")
 
 # Crear botón para ejecutar el métodorun
 if st.button("Ejecutar método"):
