@@ -165,17 +165,17 @@ columnas_pruebas=st.beta_columns(1)
 with columnas_pruebas:
     columna_1,columna_2,columna_3,columna_4,columna_5,columna_6=st.beta_columns(6)
     with columna_1:
-        st.subheader("col 1")
+        st.number_input("col 1")
     with columna_2:
-        st.subheader("col 2")
+        st.number_input("col 2")
     with columna_3:
-        st.subheader("col 3")
+        st.number_input("col 3")
     with columna_4:
-        st.subheader("col 4")
+        st.number_input("col 4")
     with columna_5:
-        st.subheader("col 5")
+        st.number_input("col 5")
     with columna_6:
-        st.subheader("col 6")
+        st.number_input("col 6")
 with col1:
     st.subheader("Escenario nacional")
     # Aquí puedes mostrar los 15 datos correspondientes
