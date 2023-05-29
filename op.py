@@ -175,12 +175,12 @@ with col1:
         for i in range(5):
                  valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
     with col1_2:
-        st.write("Datos 2")
+        
         
         for i in range(5,10):
                  valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
     with col1_3:
-        st.write("Datos 3")
+        
         
         for i in range(10,14):
                  valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
@@ -192,7 +192,7 @@ with col2:
     # Aquí puedes mostrar los 14 datos correspondientes
     # Crear 15 campos numéricos
     with col2_1:
-        st.write("Datos 1")
+        
         for i in range(5):
             if i == 2:
                 valores_2.append(st.text_input(f"{nombres_2[i]}"))
