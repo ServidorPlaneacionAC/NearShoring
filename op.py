@@ -45,7 +45,7 @@ def m(valores,valores_2):
     costo_total_1=costo_maninv_1+costo_compra_1+costo_cap_1
     costo_ebitda_1=costo_maninv_1+costo_compra_1
     costo_unitario_1=costo_total_1/cantidad_1
-    capital_invertido_1=((diferencial_1+inv_prom_sem_1)*(adu_1)*(precio_compra_1))
+    capital_invertido_1=((diferencial_1+inv_prom_sem_1)*(adu_1))*(precio_compra_1)
     
     cantidad=valores_2[0]
     frecuencia=valores_2[1]
@@ -119,7 +119,7 @@ def m(valores,valores_2):
     prob += uodi == 0
     status = prob.solve()
 #     return (p_1.value())
-    return f"ingreso bueno {p_1.value() ,value(uodi),value((diferencial_1+inv_prom_sem_1)*adu_1*precio_compra_1),value(adu_1),value(costo_nacionalizacion_1)}"
+    return f"ingreso bueno {p_1.value() ,value(uodi),value((diferencial_1+inv_prom_sem_1)*(adu_1))*(precio_compra_1)),value(adu_1),value(costo_nacionalizacion_1)}"
     
 
 st.title("Nearshoring")
