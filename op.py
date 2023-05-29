@@ -5,7 +5,7 @@ def m(valores,valores_2):
     # Aquí va tu método m
     # Crear problema de minimización
     prob = LpProblem("Mi problema de optimización", LpMinimize)
-    p_1 = LpVariable("p_1", lowBound=0,cat=LpContinuous)
+    p_1 = LpVariable("p_1", lowBound=0)
     precio_compra_1=p_1
     cantidad_1=valores[0]
     frecuencia_1=valores[1]
@@ -119,7 +119,7 @@ def m(valores,valores_2):
     prob += uodi == 0
     status = prob.solve()
 #     return (p_1.value())
-    return f"ingreso bueno {p_1.value() ,value(uodi),value(costo_ebitda_1),value(costo_ebitda)}"
+    return f"ingreso bueno {p_1.dj_output() ,value(uodi),value(costo_ebitda_1),value(costo_ebitda)}"
     
 
 st.title("Nearshoring")
