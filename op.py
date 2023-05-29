@@ -129,38 +129,38 @@ import streamlit as st
 col1, col2 = st.beta_columns(2)
 # nombres
 nombres=(
-"cantidad",
-"frecuencia",
-"lead time planta-puerto",
+"Cantidad",
+"Frecuencia",
+"Lead time planta-puerto",
 "Semanas cxp",
-"moq",
-"adu",
-"factor lead time",
+"Moq",
+"Adu",
+"Factor lead time",
 "factor variación",
-"estandar posición",
-"lt_tiempoadmon",
-"lt_puertopuerto",
-"lt_gz",
-"lt_gzplanta",
-"tarifa almacenamiento",
-"precio_compra")
+"Estandar posición",
+"lead time tiempo-admon",
+"lead time puerto-puerto",
+"lead time gestión cargo",
+"lead time gz-planta",
+"Tarifa almacenamiento",
+"Precio compra")
 nombres_2=(
-"cantidad",
+"Cantidad",
 "frecuencia",
-"icoterm",   
+"Icoterm",   
 "lead time planta-puerto",
 "Semanas cxp",
-"moq",
-"adu",
-"factor lead time",
+"Moq",
+"Adu",
+"Factor lead time",
 "factor variación",
-"estandar posición",
-"lt_tiempoadmon",
-"lt_puertopuerto",
-"lt_gz",
-"lt_gzplanta",
-"tarifa almacenamiento",
-"precio_compra")
+"Estandar posición",
+"lead time tiempo-admon",
+"lead time puerto-puerto",
+"lead time gestión cargo",
+"lead time gz-planta",
+"Tarifa almacenamiento",
+"Precio compra")
 
 with col1:
     st.subheader("Escenario nacional")
@@ -188,7 +188,6 @@ with col2:
 if st.button("Ejecutar método"):
     resultado = m(valores,valores_2)
     st.write(f"El resultado es: {resultado}")
-    st.subheader("Resultados")
     st.write(f"EBITDA: {ebitda}")
     st.write(f"Impuestos: {impuestos}")
     st.write(f"UODI: {uodi}")
