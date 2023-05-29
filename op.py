@@ -179,9 +179,10 @@ with col2:
     valores_2 = []
     for i in range(16):
         if i == 2:
-            valores_2.append(st.text_input(f"{nombres_2[i]}"))
+            valores_2.append(st.text_input(f"{nombres_2[i]}", width=30))
         else:
-            valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
+            valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00, width=100))
+
 
 
 # Crear botón para ejecutar el métodorun
