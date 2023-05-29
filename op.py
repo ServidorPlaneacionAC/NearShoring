@@ -170,7 +170,7 @@ with col1:
     valores = []
     # Mostrar los datos correspondientes en las columnas adicionales
     with col1_1:
-        st.write("Datos 1")
+        
         
         for i in range(5):
                  valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
