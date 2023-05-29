@@ -167,15 +167,18 @@ with col1:
     # Aquí puedes mostrar los 15 datos correspondientes
     # Crear 14 campos numéricos
     col1_1, col1_2 = st.beta_columns(2)
-    
+    valores = []
     # Mostrar los datos correspondientes en las columnas adicionales
     with col1_1:
         st.write("Datos 1")
+        
+            for i in range(7):
+                 valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
     with col1_2:
         st.write("Datos 2")
-    valores = []
-    for i in range(14):
-        valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
+        
+        for i in range(7,14):
+                 valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
     
 # Columna derecha
 with col2:
