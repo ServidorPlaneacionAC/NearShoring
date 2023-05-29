@@ -162,14 +162,20 @@ nombres_2=(
 "tarifa almacenamiento",
 "precio_compra")
 
-# Columna izquierda
-with col1:
-    st.subheader("Escenario nacional")
-    # Aquí puedes mostrar los 15 datos correspondientes
-    # Crear 14 campos numéricos
-    valores = []
-    for i in range(14):
-        valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
+# Dividir la columna en filas y columnas
+num_filas = 7  # Número de filas en la matriz
+num_columnas = 2  # Número de columnas en la matriz
+
+columnas = st.beta_columns(num_columnas)
+
+# Recorrer la matriz y mostrar los campos numéricos
+valores = []
+for fila in range(num_filas):
+    for columna in range(num_columnas):
+        index = fila * num_columnas + columna
+        valores.append(columnas[columna].number_input(f"{nombres[index]}   ", step=0.1, min_value=0.0, max_value=100000.0))
+
+
     
 # Columna derecha
 with col2:
