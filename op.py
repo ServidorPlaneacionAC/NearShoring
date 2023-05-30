@@ -169,6 +169,7 @@ if st.sidebar.button("Escenario internacional"):
 columna_1 = st.beta_columns(1)[0]  # Acceder a la primera columna de la lista
 def mostrar_prueba():
     st.subheader("Escenario nacional")
+    return "f"
 def mostrar_nacional():
     
     with columna_1:
