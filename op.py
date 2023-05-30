@@ -187,8 +187,9 @@ def mostrar_nacional():
 
             for i in range(10,14):
                      valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
+    st.session_state.valores = valores
 def mostrar_internacional():
-    
+        
         with columna_1:
             st.subheader("Escenario internacional")
             col2_1, col2_2,col2_3 = st.beta_columns(3)
