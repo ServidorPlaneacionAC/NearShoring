@@ -124,7 +124,8 @@ def m(valores,valores_2):
 
 st.title("Nearshoring")
 import streamlit as st
-
+st.sidebar.title("Opciones")
+st.sidebar.write("Configuraciones")
 # Definir la disposición en dos columnas
 column_width = 200
 col1, col2 = st.beta_columns(2)
