@@ -134,7 +134,7 @@ columna_1 = st.beta_columns(1)[0]  # Acceder a la primera columna de la lista
 if Escenario_mostrar==1:
     with columna_1:
         st.subheader("muestra")
-else 
+else: 
  
     with columna_1:
         st.subheader("santiago")
