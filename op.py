@@ -187,7 +187,7 @@ with col2:
                 valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
     
     with col2_2:
-        for i in range(8, 15):
+        for i in range(8, 16):
             valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
     
 
