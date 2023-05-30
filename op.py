@@ -131,6 +131,7 @@ if st.sidebar.button("Escenario nacional"):
 columna_1=st.beta_columns(1)
 with columna_1:
     st.subheader("muestra")
+'''    
 col1, col2 = st.beta_columns(2)
 # nombres
 nombres=(
@@ -223,7 +224,7 @@ if st.button("Ejecutar método"):
     st.write(f"EBITDA: {resultado[2]}")
     st.write(f"EVA: {resultado[3]}")
     st.write(f"ROIC: {0 if resultado[4] == 0 else resultado[1]/resultado[4]}")
-
+'''
 
 
 
