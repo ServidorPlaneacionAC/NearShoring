@@ -154,12 +154,14 @@ nombres_2=(
 "lead time gz-planta",
 "Tarifa almacenamiento",
 "Precio compra")
-st.title("Nearshoring")
+e=2
+st.title(f"Nearshoring{e}")
 import streamlit as st
 st.sidebar.title("Escenarios")
-st.sidebar.button("Escenario nacional"):
-st.sidebar.button("Escenario internacional"):
-
+if st.sidebar.button("Escenario nacional"):
+    e=0
+if st.sidebar.button("Escenario internacional"):
+    e=1
 # Definir la disposición en dos columnas
 col1, col2 = st.beta_columns(2)
 
