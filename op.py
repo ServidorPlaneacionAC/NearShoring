@@ -160,24 +160,19 @@ nombres_2=(
 "Tarifa almacenamiento",
 "Precio compra")
 
-with col1:
-    
-
-    st.subheader("Escenario nacional")
-    valores = []
-    col1_1, col1_2,col1_3 = st.beta_columns(3)
-	
-	with col1_1:
-
-
+	with col1:
+    	 st.subheader("Escenario nacional")
+         valores = []
+         col1_1, col1_2,col1_3 = st.beta_columns(3)
+	  with col1_1:
             for i in range(5):
                      valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
-        with col1_2:
+          with col1_2:
 
 
             for i in range(5,10):
                      valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
-        with col1_3:
+          with col1_3:
 
 
             for i in range(10,14):
