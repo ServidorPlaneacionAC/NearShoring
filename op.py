@@ -154,7 +154,7 @@ nombres_2=(
 "lead time gz-planta",
 "Tarifa almacenamiento",
 "Precio compra")
-e=3
+'''e=3
 st.session_state.e=2
 st.title(f"Nearshoring{e}")
 import streamlit as st
@@ -164,6 +164,7 @@ if st.sidebar.button("Escenario nacional"):
     
 if st.sidebar.button("Escenario internacional"):
     e=1
+'''
 # Definir la disposición en dos columnas
 col1, col2 = st.beta_columns(2)
 
