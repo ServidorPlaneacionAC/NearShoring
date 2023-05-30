@@ -130,7 +130,7 @@ if st.sidebar.button("Escenario nacional"):
 # Definir la disposición en dos columnas
 columna_1=st.beta_columns(1)
 with columna_1:
-    st.title("muestra")
+    st.subheader("muestra")
 col1, col2 = st.beta_columns(2)
 # nombres
 nombres=(
