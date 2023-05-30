@@ -163,39 +163,34 @@ col1, col2 = st.beta_columns(2)
 with col1:
     st.subheader("Escenario nacional")
     valores = []
-    col1_1, col1_2, col1_3 = st.beta_columns(3)
+    col1_1, col1_2, = st.beta_columns(3)
     
     with col1_1:
-        for i in range(5):
+        for i in range(8):
             valores.append(st.number_input(f"{nombres[i]}", step=0.1, min_value=0.0, max_value=100000.0))
     
     with col1_2:
-        for i in range(5, 10):
+        for i in range(8, 14):
             valores.append(st.number_input(f"{nombres[i]}", step=0.1, min_value=0.0, max_value=100000.0))
     
-    with col1_3:
-        for i in range(10, 14):
-            valores.append(st.number_input(f"{nombres[i]}", step=0.1, min_value=0.0, max_value=100000.0))
 
 with col2:
     st.subheader("Escenario internacional")
-    col2_1, col2_2, col2_3 = st.beta_columns(3)
+    col2_1, col2_2 = st.beta_columns(3)
     valores_2 = []
     
     with col2_1:
-        for i in range(5):
+        for i in range(8):
             if i == 2:
                 valores_2.append(st.text_input(f"{nombres_2[i]}"))
             else:
                 valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
     
     with col2_2:
-        for i in range(5, 10):
+        for i in range(8, 15):
             valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
     
-    with col2_3:
-        for i in range(10, 15):
-            valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
+
 
 # Crear botón para ejecutar el métodorun
 if st.button("Ejecutar método"):
