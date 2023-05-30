@@ -156,6 +156,9 @@ nombres_2=(
 "Precio compra")
 st.title("Nearshoring")
 import streamlit as st
+st.sidebar.title("Escenarios")
+st.sidebar.button("Escenario nacional"):
+st.sidebar.button("Escenario internacional"):
 
 # Definir la disposición en dos columnas
 col1, col2 = st.beta_columns(2)
