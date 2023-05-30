@@ -120,27 +120,6 @@ def m(valores,valores_2):
     status = prob.solve()
 #     return (p_1.value())
     return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct)]
-    
-Escenario_mostrar = 0
-st.title("Nearshoring")
-import streamlit as st
-
-st.sidebar.title("Escenarios")
-if st.sidebar.button("Escenario nacional"):
-    Escenario_mostrar = 1
-
-# Definir la disposición en dos columnas
-columna_1 = st.beta_columns(1)[0]  # Acceder a la primera columna de la lista
-if Escenario_mostrar==1:
-    with columna_1:
-        st.subheader("muestra")
-else: 
- 
-    with columna_1:
-        st.subheader("santiago")
-
-'''    
-col1, col2 = st.beta_columns(2)
 # nombres
 nombres=(
 "Cantidad",
@@ -176,52 +155,70 @@ nombres_2=(
 "Tarifa almacenamiento",
 "Precio compra")
 
-with col1:
+Escenario_mostrar = 0
+st.title("Nearshoring")
+import streamlit as st
+
+st.sidebar.title("Escenarios")
+if st.sidebar.button("Escenario nacional"):
+    Escenario_mostrar = 1
+
+# Definir la disposición en dos columnas
+columna_1 = st.beta_columns(1)[0]  # Acceder a la primera columna de la lista
+if Escenario_mostrar==1:
+    with columna_1:
+       st.subheader("Escenario nacional")
     
-    st.subheader("Escenario nacional")
-    # Aquí puedes mostrar los 15 datos correspondientes
-    # Crear 14 campos numéricos
-    col1_1, col1_2,col1_3 = st.beta_columns(3)
-    valores = []
-    # Mostrar los datos correspondientes en las columnas adicionales
-    with col1_1:
-        
-        
-        for i in range(5):
-                 valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
-    with col1_2:
-        
-        
-        for i in range(5,10):
-                 valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
-    with col1_3:
-        
-        
-        for i in range(10,14):
-                 valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
-# Columna derecha
-with col2:
+        col1_1, col1_2,col1_3 = st.beta_columns(3)
+        valores = []
     
-    st.subheader("Escenario internacional")
-    col2_1, col2_2,col2_3 = st.beta_columns(3)
-    valores_2 = []
-    # Aquí puedes mostrar los 14 datos correspondientes
-    # Crear 15 campos numéricos
-    with col2_1:
-        
-        for i in range(5):
-            if i == 2:
-                valores_2.append(st.text_input(f"{nombres_2[i]}"))
-            else:
+        with col1_1:
+
+
+            for i in range(5):
+                     valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
+        with col1_2:
+
+
+            for i in range(5,10):
+                     valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
+        with col1_3:
+
+
+            for i in range(10,14):
+                     valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
+else: 
+ 
+    with columna_1:
+        st.subheader("Escenario internacional")
+        col2_1, col2_2,col2_3 = st.beta_columns(3)
+        valores_2 = []
+        # Aquí puedes mostrar los 14 datos correspondientes
+        # Crear 15 campos numéricos
+        with col2_1:
+
+            for i in range(5):
+                if i == 2:
+                    valores_2.append(st.text_input(f"{nombres_2[i]}"))
+                else:
+                    valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
+        with col2_2:
+            for i in range(5,10):
+
                 valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
-    with col2_2:
-        for i in range(5,10):
+        with col2_3:
+            for i in range(10,15):
 
-            valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
-    with col2_3:
-        for i in range(10,15):
+                valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
 
-            valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
+    
+
+    
+    
+# Columna derecha
+
+    
+    
 
 
 # Crear botón para ejecutar el métodorun
@@ -232,7 +229,7 @@ if st.button("Ejecutar método"):
     st.write(f"EBITDA: {resultado[2]}")
     st.write(f"EVA: {resultado[3]}")
     st.write(f"ROIC: {0 if resultado[4] == 0 else resultado[1]/resultado[4]}")
-'''
+
 
 
 
