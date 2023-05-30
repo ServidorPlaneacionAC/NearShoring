@@ -188,31 +188,32 @@ if Escenario_mostrar==1:
 
             for i in range(10,14):
                      valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
-else if  Escenario_mostrar == 0:
+else: 
+   if  Escenario_mostrar == 0:
     
-    with columna_1:
-        st.subheader("Escenario internacional")
-        col2_1, col2_2,col2_3 = st.beta_columns(3)
-        valores_2 = []
-        # Aquí puedes mostrar los 14 datos correspondientes
-        # Crear 15 campos numéricos
-        with col2_1:
+        with columna_1:
+            st.subheader("Escenario internacional")
+            col2_1, col2_2,col2_3 = st.beta_columns(3)
+            valores_2 = []
+            # Aquí puedes mostrar los 14 datos correspondientes
+            # Crear 15 campos numéricos
+            with col2_1:
 
-            for i in range(5):
-                if i == 2:
-                    valores_2.append(st.text_input(f"{nombres_2[i]}"))
-                else:
+                for i in range(5):
+                    if i == 2:
+                        valores_2.append(st.text_input(f"{nombres_2[i]}"))
+                    else:
+                        valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
+            with col2_2:
+                for i in range(5,10):
+
                     valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
-        with col2_2:
-            for i in range(5,10):
+            with col2_3:
+                for i in range(10,15):
 
-                valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
-        with col2_3:
-            for i in range(10,15):
+                    valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
 
-                valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
-
-else:  
+    else:  
         st.write(f"El resultado es: {resultado[0]}")
         st.write(f"UODI: {resultado[1]}")
         st.write(f"EBITDA: {resultado[2]}")
