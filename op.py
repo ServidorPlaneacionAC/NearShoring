@@ -162,7 +162,8 @@ import streamlit as st
 st.sidebar.title("Escenarios")
 if st.sidebar.button("Escenario nacional"):
     Escenario_mostrar = 1
-
+if st.sidebar.button("Escenario internacional"):
+    Escenario_mostrar = 0
 # Definir la disposición en dos columnas
 columna_1 = st.beta_columns(1)[0]  # Acceder a la primera columna de la lista
 if Escenario_mostrar==1:
@@ -222,7 +223,7 @@ else:
 
 
 # Crear botón para ejecutar el métodorun
-if st.button("Ejecutar método"):
+if st.sidebar.button("Ejecutar método"):
     resultado = m(valores,valores_2)
     st.write(f"El resultado es: {resultado[0]}")
     st.write(f"UODI: {resultado[1]}")
