@@ -158,7 +158,8 @@ nombres_2=(
 
 st.title("Nearshoring")
 import streamlit as st
-
+valores = []
+valores_2 = []
 st.sidebar.title("Escenarios")
 if st.sidebar.button("Escenario nacional"):
     mostrar_nacional()
@@ -172,7 +173,7 @@ def mostrar_nacional():
         st.subheader("Escenario nacional")
     
         col1_1, col1_2,col1_3 = st.beta_columns(3)
-        valores = []
+        
     
         with col1_1:
 
@@ -194,7 +195,7 @@ def mostrar_internacional():
         with columna_1:
             st.subheader("Escenario internacional")
             col2_1, col2_2,col2_3 = st.beta_columns(3)
-            valores_2 = []
+            
             # Aquí puedes mostrar los 14 datos correspondientes
             # Crear 15 campos numéricos
             with col2_1:
