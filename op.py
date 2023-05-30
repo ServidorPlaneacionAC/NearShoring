@@ -189,7 +189,7 @@ if Escenario_mostrar==1:
             for i in range(10,14):
                      valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
 else: 
-   if  Escenario_mostrar == 0:
+ if  Escenario_mostrar == 0:
     
         with columna_1:
             st.subheader("Escenario internacional")
@@ -212,8 +212,7 @@ else:
                 for i in range(10,15):
 
                     valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
-
-    else:  
+ else:  
         st.write(f"El resultado es: {resultado[0]}")
         st.write(f"UODI: {resultado[1]}")
         st.write(f"EBITDA: {resultado[2]}")
