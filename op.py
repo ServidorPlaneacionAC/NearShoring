@@ -184,9 +184,9 @@ with col1:
 with col2:
     
 
-    st.subheader("Escenario internacional")
-    col2_1, col2_2,col2_3 = st.beta_columns(3)
-    valores_2 = []
+   st.subheader("Escenario internacional")
+   col2_1, col2_2,col2_3 = st.beta_columns(3)
+   valores_2 = []
     # Aquí puedes mostrar los 14 datos correspondientes
     # Crear 15 campos numéricos
     with col2_1:
