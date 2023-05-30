@@ -120,6 +120,11 @@ def m(valores,valores_2):
     status = prob.solve()
 #     return (p_1.value())
     return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct)]
+st.title("Nearshoring")
+import streamlit as st
+# Definir la disposición en dos columnas
+
+col1, col2 = st.beta_columns(2)
 # nombres
 nombres=(
 "Cantidad",
@@ -155,24 +160,13 @@ nombres_2=(
 "Tarifa almacenamiento",
 "Precio compra")
 
-
-st.title("Nearshoring")
-import streamlit as st
-valores = []
-valores_2 = []
-
-# Definir la disposición en dos columnas
-columna_1 = st.beta_columns(1)[0]  # Acceder a la primera columna de la lista
-
-def mostrar_nacional():
+with col1:
     
-    with columna_1:
-        st.subheader("Escenario nacional")
-    
-        col1_1, col1_2,col1_3 = st.beta_columns(3)
-        
-    
-        with col1_1:
+
+    st.subheader("Escenario nacional")
+     valores = []
+    col1_1, col1_2,col1_3 = st.beta_columns(3)
+	with col1_1:
 
 
             for i in range(5):
@@ -187,55 +181,35 @@ def mostrar_nacional():
 
             for i in range(10,14):
                      valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
+with col2:
     
-    if st.button("Guardar"):
-        st.session_state.valores = valores
-def mostrar_internacional():
+
+    st.subheader("Escenario internacional")
+    col2_1, col2_2,col2_3 = st.beta_columns(3)
+    valores_2 = []
+    # Aquí puedes mostrar los 14 datos correspondientes
+    # Crear 15 campos numéricos
+    with col2_1:
         
-        with columna_1:
-            st.subheader("Escenario internacional")
-            col2_1, col2_2,col2_3 = st.beta_columns(3)
-            
-            # Aquí puedes mostrar los 14 datos correspondientes
-            # Crear 15 campos numéricos
-            with col2_1:
-
-                for i in range(5):
-                    if i == 2:
-                        valores_2.append(st.text_input(f"{nombres_2[i]}"))
-                    else:
-                        valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
-            with col2_2:
-                for i in range(5,10):
-
-                    valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
-            with col2_3:
-                for i in range(10,15):
-
-                    valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
-                    
-def mostrar_resultados():  
+        for i in range(5):
+            if i == 2:
+                valores_2.append(st.text_input(f"{nombres_2[i]}"))
+            else:
+                valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
+    with col2_2:
+        for i in range(5,10):
+            valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
+    with col2_3:
+        for i in range(10,15):
+            valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
+# Crear botón para ejecutar el métodorun
+if st.button("Ejecutar método"):
+    resultado = m(valores,valores_2)
     st.write(f"El resultado es: {resultado[0]}")
     st.write(f"UODI: {resultado[1]}")
     st.write(f"EBITDA: {resultado[2]}")
     st.write(f"EVA: {resultado[3]}")
     st.write(f"ROIC: {0 if resultado[4] == 0 else resultado[1]/resultado[4]}")
-        
-    
-# Columna derecha
-st.sidebar.title("Escenarios")
-if st.sidebar.button("Escenario nacional"):
-    mostrar_nacional()
-if st.sidebar.button("Escenario internacional"):
-    mostrar_internacional()
-    
-    
-
-
-# Crear botón para ejecutar el métodorun
-if st.sidebar.button("Ejecutar método"):
-    mostrar_resultados()
-    resultado = m(valores,valores_2)
     
 
 
