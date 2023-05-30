@@ -188,8 +188,8 @@ if Escenario_mostrar==1:
 
             for i in range(10,14):
                      valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
-else: 
- 
+else if  Escenario_mostrar == 0:
+    
     with columna_1:
         st.subheader("Escenario internacional")
         col2_1, col2_2,col2_3 = st.beta_columns(3)
@@ -212,8 +212,12 @@ else:
 
                 valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
 
-    
-
+else:  
+        st.write(f"El resultado es: {resultado[0]}")
+        st.write(f"UODI: {resultado[1]}")
+        st.write(f"EBITDA: {resultado[2]}")
+        st.write(f"EVA: {resultado[3]}")
+        st.write(f"ROIC: {0 if resultado[4] == 0 else resultado[1]/resultado[4]}")
     
     
 # Columna derecha
@@ -224,12 +228,9 @@ else:
 
 # Crear botón para ejecutar el métodorun
 if st.sidebar.button("Ejecutar método"):
+    Escenario_mostrar = 2
     resultado = m(valores,valores_2)
-    st.write(f"El resultado es: {resultado[0]}")
-    st.write(f"UODI: {resultado[1]}")
-    st.write(f"EBITDA: {resultado[2]}")
-    st.write(f"EVA: {resultado[3]}")
-    st.write(f"ROIC: {0 if resultado[4] == 0 else resultado[1]/resultado[4]}")
+    
 
 
 
