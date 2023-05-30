@@ -167,7 +167,7 @@ if st.sidebar.button("Escenario nacional"):
 columna_1 = st.beta_columns(1)[0]  # Acceder a la primera columna de la lista
 if Escenario_mostrar==1:
     with columna_1:
-       st.subheader("Escenario nacional")
+        st.subheader("Escenario nacional")
     
         col1_1, col1_2,col1_3 = st.beta_columns(3)
         valores = []
