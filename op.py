@@ -162,11 +162,13 @@ valores = []
 valores_2 = []
 st.sidebar.title("Escenarios")
 if st.sidebar.button("Escenario nacional"):
-    mostrar_nacional()
+    mostrar_prueba()
 if st.sidebar.button("Escenario internacional"):
     mostrar_internacional()
 # Definir la disposición en dos columnas
 columna_1 = st.beta_columns(1)[0]  # Acceder a la primera columna de la lista
+def mostrar_prueba():
+    st.subheader("Escenario nacional")
 def mostrar_nacional():
     
     with columna_1:
