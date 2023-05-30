@@ -120,11 +120,6 @@ def m(valores,valores_2):
     status = prob.solve()
 #     return (p_1.value())
     return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct)]
-st.title("Nearshoring")
-import streamlit as st
-# Definir la disposición en dos columnas
-
-col1, col2 = st.beta_columns(2)
 # nombres
 nombres=(
 "Cantidad",
@@ -159,24 +154,29 @@ nombres_2=(
 "lead time gz-planta",
 "Tarifa almacenamiento",
 "Precio compra")
+st.title("Nearshoring")
+import streamlit as st
+
+# Definir la disposición en dos columnas
+col1, col2 = st.beta_columns(2)
 
 with col1:
-    	 st.subheader("Escenario nacional")
-         valores = []
-         col1_1, col1_2,col1_3 = st.beta_columns(3)
-	 with col1_1:
-            for i in range(5):
-                     valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
-         with col1_2:
+    st.subheader("Escenario nacional")
+    valores = []
+    col1_1, col1_2, col1_3 = st.beta_columns(3)
+    
+    with col1_1:
+        for i in range(5):
+            valores.append(st.number_input(f"{nombres[i]}", step=0.1, min_value=0.0, max_value=100000.0))
+    
+    with col1_2:
+        for i in range(5, 10):
+            valores.append(st.number_input(f"{nombres[i]}", step=0.1, min_value=0.0, max_value=100000.0))
+    
+    with col1_3:
+        for i in range(10, 14):
+            valores.append(st.number_input(f"{nombres[i]}", step=0.1, min_value=0.0, max_value=100000.0))
 
-
-            for i in range(5,10):
-                     valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
-         with col1_3:
-
-
-            for i in range(10,14):
-                     valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
 with col2:
     
 
