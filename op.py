@@ -163,9 +163,7 @@ valores_2 = []
 
 # Definir la disposición en dos columnas
 columna_1 = st.beta_columns(1)[0]  # Acceder a la primera columna de la lista
-def mostrar_prueba():
-    st.subheader("Escenario nacional")
-    return "f"
+
 def mostrar_nacional():
     
     with columna_1:
@@ -224,7 +222,7 @@ def mostrar_resultados():
 # Columna derecha
 st.sidebar.title("Escenarios")
 if st.sidebar.button("Escenario nacional"):
-    mostrar_prueba()
+    mostrar_nacional()
 if st.sidebar.button("Escenario internacional"):
     mostrar_internacional()
     
