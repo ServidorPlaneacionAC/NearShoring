@@ -154,6 +154,7 @@ nombres_2=(
 "lead time gz-planta",
 "Tarifa almacenamiento",
 "Precio compra")
+e=3
 st.session_state.e=2
 st.title(f"Nearshoring{e}")
 import streamlit as st
