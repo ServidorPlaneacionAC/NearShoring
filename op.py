@@ -154,6 +154,10 @@ nombres_2=(
 "lead time gz-planta",
 "Tarifa almacenamiento",
 "Precio compra")
+st.sidebar.title("Escenarios")
+st.sidebar.button("Escenario nacional")
+st.sidebar.button("Escenario internacional")
+    
 
 st.title("Nearshoring")
 # Definir la disposición en dos columnas
