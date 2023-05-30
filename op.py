@@ -163,7 +163,7 @@ col1, col2 = st.beta_columns(2)
 with col1:
     st.subheader("Escenario nacional")
     valores = []
-    col1_1, col1_2, = st.beta_columns(3)
+    col1_1, col1_2 = st.beta_columns(2)
     
     with col1_1:
         for i in range(8):
@@ -176,7 +176,7 @@ with col1:
 
 with col2:
     st.subheader("Escenario internacional")
-    col2_1, col2_2 = st.beta_columns(3)
+    col2_1, col2_2 = st.beta_columns(2)
     valores_2 = []
     
     with col2_1:
