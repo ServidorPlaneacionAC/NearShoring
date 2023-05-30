@@ -160,11 +160,7 @@ st.title("Nearshoring")
 import streamlit as st
 valores = []
 valores_2 = []
-st.sidebar.title("Escenarios")
-if st.sidebar.button("Escenario nacional"):
-    mostrar_prueba()
-if st.sidebar.button("Escenario internacional"):
-    mostrar_internacional()
+
 # Definir la disposición en dos columnas
 columna_1 = st.beta_columns(1)[0]  # Acceder a la primera columna de la lista
 def mostrar_prueba():
@@ -226,7 +222,11 @@ def mostrar_resultados():
         
     
 # Columna derecha
-
+st.sidebar.title("Escenarios")
+if st.sidebar.button("Escenario nacional"):
+    mostrar_prueba()
+if st.sidebar.button("Escenario internacional"):
+    mostrar_internacional()
     
     
 
