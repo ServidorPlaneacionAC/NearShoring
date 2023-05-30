@@ -131,9 +131,13 @@ if st.sidebar.button("Escenario nacional"):
 
 # Definir la disposición en dos columnas
 columna_1 = st.beta_columns(1)[0]  # Acceder a la primera columna de la lista
-
-with columna_1:
-    st.subheader("muestra")
+if Escenario_mostrar==1:
+    with columna_1:
+        st.subheader("muestra")
+else 
+ 
+    with columna_1:
+        st.subheader("santiago")
 
 '''    
 col1, col2 = st.beta_columns(2)
