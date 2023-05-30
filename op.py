@@ -129,6 +129,7 @@ if st.button("Escenario nacional"):
     Escenario_mostrar=1
 # Definir la disposición en dos columnas
 columna_1=st.beta_columns(1)
+with columna_1:
     st.title("muestra")
 col1, col2 = st.beta_columns(2)
 # nombres
