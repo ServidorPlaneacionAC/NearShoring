@@ -155,7 +155,7 @@ nombres_2=(
 "Tarifa almacenamiento",
 "Precio compra")
 
-Escenario_mostrar = None
+Escenario_mostrar = 0
 st.title("Nearshoring")
 import streamlit as st
 
