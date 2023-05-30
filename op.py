@@ -121,13 +121,15 @@ def m(valores,valores_2):
 #     return (p_1.value())
     return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct)]
     
-
+Escenario_mostrar=0
 st.title("Nearshoring")
 import streamlit as st
-st.sidebar.title("Opciones")
-st.sidebar.write("Configuraciones")
+st.sidebar.title("Escenarios")
+    if st.button("Escenario nacional"):
+        Escenario_mostrar=1
 # Definir la disposición en dos columnas
-column_width = 200
+columna_1=st.beta_columns(1)
+    st.title("muestra")
 col1, col2 = st.beta_columns(2)
 # nombres
 nombres=(
