@@ -155,18 +155,19 @@ nombres_2=(
 "Tarifa almacenamiento",
 "Precio compra")
 
-Escenario_mostrar = 0
+
 st.title("Nearshoring")
 import streamlit as st
 
 st.sidebar.title("Escenarios")
 if st.sidebar.button("Escenario nacional"):
-    Escenario_mostrar = 1
+    mostrar_nacional()
 if st.sidebar.button("Escenario internacional"):
-    Escenario_mostrar = 0
+    mostrar_internacional()
 # Definir la disposición en dos columnas
 columna_1 = st.beta_columns(1)[0]  # Acceder a la primera columna de la lista
-if Escenario_mostrar==1:
+def mostrar_nacional():
+    
     with columna_1:
         st.subheader("Escenario nacional")
     
@@ -188,8 +189,7 @@ if Escenario_mostrar==1:
 
             for i in range(10,14):
                      valores.append(st.number_input(f"{nombres[i]}   ", step=0.1, min_value=0.0, max_value=100000.0))
-else: 
- if  Escenario_mostrar == 0:
+def mostrar_internacional():
     
         with columna_1:
             st.subheader("Escenario internacional")
@@ -212,7 +212,7 @@ else:
                 for i in range(10,15):
 
                     valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
- else:  
+ def mostrar_resultados():  
     st.write(f"El resultado es: {resultado[0]}")
     st.write(f"UODI: {resultado[1]}")
     st.write(f"EBITDA: {resultado[2]}")
@@ -228,7 +228,7 @@ else:
 
 # Crear botón para ejecutar el métodorun
 if st.sidebar.button("Ejecutar método"):
-    Escenario_mostrar = 2
+    mostrar_resultados()
     resultado = m(valores,valores_2)
     
 
