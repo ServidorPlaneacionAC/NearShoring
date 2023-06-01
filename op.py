@@ -21,7 +21,7 @@ def main():
     if choice == "Escenario nacional":
         Escenario_nacional()
     elif choice == "Escenario internacional":
-        mostrar_formulario_1()
+        Escenario_internacional()
     elif choice == "Resultados":
         Resultados()
     nombres=(
