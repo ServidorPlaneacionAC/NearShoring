@@ -163,7 +163,7 @@ st.sidebar.title("Escenarios")
 st.sidebar.button("Escenario nacional")
 st.sidebar.button("Escenario internacional")
 agregar_costo_capital = False
-agregar_costo_capital=st.sidebar.checkbox("Selecciona/deselecciona", value=agregar_costo_capital)  
+agregar_costo_capital=st.sidebar.checkbox("Costo capital", value=agregar_costo_capital)  
 
 st.title("Nearshoring")
 # Definir la disposición en dos columnas
