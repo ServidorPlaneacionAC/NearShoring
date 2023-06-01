@@ -361,6 +361,10 @@ def Resultados():
     st.write(f"EVA: {resultado[3]}")
     st.write(f"ROIC: {0 if resultado[4] == 0 else resultado[1]/resultado[4]}")
     
+    
+if __name__ == "__main__":
+    main()
+    
 
 
 
