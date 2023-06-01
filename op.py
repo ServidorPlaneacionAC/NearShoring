@@ -97,6 +97,8 @@ def m(valores,valores_2,agregar_capital):
     #calculo variables financieras
     if agregar_capital:
         ebitda=costo_ebitda_1-costo_ebitda
+    else:
+        ebitda=costo_total_1-costo_total
     impuestos=ebitda*0.26
     uodi=ebitda-impuestos
     diferencial_ct=capital_invertido-capital_invertido_1
@@ -161,7 +163,7 @@ st.sidebar.title("Escenarios")
 st.sidebar.button("Escenario nacional")
 st.sidebar.button("Escenario internacional")
 agregar_costo_capital = False
-agregar_costo_capital=st.checkbox("Selecciona/deselecciona", value=agregar_costo_capital)  
+agregar_costo_capital=st.sidebar.checkbox("Selecciona/deselecciona", value=agregar_costo_capital)  
 
 st.title("Nearshoring")
 # Definir la disposición en dos columnas
