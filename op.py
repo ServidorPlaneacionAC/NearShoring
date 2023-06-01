@@ -1,7 +1,7 @@
 import streamlit as st
 from pulp import *
 
-def m(valores,valores_2):
+def m(valores,valores_2,agregar_capital):
     # Aquí va tu método m
     # Crear problema de minimización
     prob = LpProblem("Mi problema de optimización", LpMinimize)
@@ -92,8 +92,11 @@ def m(valores,valores_2):
     costo_ebitda=costo_maninv+costo_compra+costo_nacionalizacion+costo_transportegz_planta
     costo_unitario_0=costo_total/cantidad
     capital_invertido=((diferencial+inv_prom_sem)*(adu)*(precio_compra))+(costo_nacionalizacion)
+    
+    
     #calculo variables financieras
-    ebitda=costo_ebitda_1-costo_ebitda
+    if agregar_capital:
+        ebitda=costo_ebitda_1-costo_ebitda
     impuestos=ebitda*0.26
     uodi=ebitda-impuestos
     diferencial_ct=capital_invertido-capital_invertido_1
@@ -157,7 +160,7 @@ nombres_2=(
 st.sidebar.title("Escenarios")
 st.sidebar.button("Escenario nacional")
 st.sidebar.button("Escenario internacional")
-    
+agregar_costo_capital=st.sidebar.checkbox("Selecciona/deselecciona", value=checkbox_value)  
 
 st.title("Nearshoring")
 # Definir la disposición en dos columnas
@@ -197,7 +200,7 @@ with col2:
 
 # Crear botón para ejecutar el métodorun
 if st.button("Ejecutar método"):
-    resultado = m(valores,valores_2)
+    resultado = m(valores,valores_2,agregar_costo_capital)
     st.write(f"El resultado es: {resultado[0]}")
     st.write(f"UODI: {resultado[1]}")
     st.write(f"EBITDA: {resultado[2]}")
