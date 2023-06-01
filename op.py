@@ -96,9 +96,10 @@ def m(valores,valores_2,agregar_capital):
     
     #calculo variables financieras
     if agregar_capital:
-        ebitda=costo_ebitda_1-costo_ebitda
-    else:
         ebitda=costo_total_1-costo_total
+        
+    else:
+        ebitda=costo_ebitda_1-costo_ebitda
     impuestos=ebitda*0.26
     uodi=ebitda-impuestos
     diferencial_ct=capital_invertido-capital_invertido_1
