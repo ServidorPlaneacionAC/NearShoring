@@ -18,12 +18,7 @@ def main():
     choice = st.sidebar.selectbox("Selecciona una sección", options, options.index(session_state.choice))
     session_state.choice = choice
 
-    if choice == "Escenario nacional":
-        Escenario_nacional(nombres)
-    elif choice == "Escenario internacional":
-        Escenario_internacional(nombres)
-    elif choice == "Resultados":
-        Resultados()
+
         
     nombres=(
     "Cantidad",
@@ -59,6 +54,12 @@ def main():
     "Tarifa almacenamiento",
     "Precio compra")
     
+    if choice == "Escenario nacional":
+        Escenario_nacional(nombres)
+    elif choice == "Escenario internacional":
+        Escenario_internacional(nombres)
+    elif choice == "Resultados":
+        Resultados()   
     
     st.title("Nearshoring")
 
