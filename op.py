@@ -320,22 +320,22 @@ def eva(valores,valores_2):
 def Escenario_nacional(nombres):
     st.subheader("Escenario nacional")
     
-    if "formulario1" not in session_state:
+    if "valores" not in session_state:
         session_state.valores = []
+        col1_1, col1_2 = st.beta_columns(2)
+    
+        with col1_1:
+            for i in range(8):
+                valores.append(st.number_input(f"{nombres[i]}", step=0.1, min_value=0.0, max_value=100000.0))
+        with col1_2:
+            for i in range(8, 14):
+                valores.append(st.number_input(f"{nombres[i]}", step=0.1, min_value=0.0, max_value=100000.0))
+    else:
+        valores =session_state.valores
 
-#     valores = []
-    col1_1, col1_2 = st.beta_columns(2)
     
-    with col1_1:
-        for i in range(8):
-            session_state.valores.append(st.number_input(f"{nombres[i]}", step=0.1, min_value=0.0, max_value=100000.0))
-    
-    with col1_2:
-        for i in range(8, 14):
-            session_state.valores.append(st.number_input(f"{nombres[i]}", step=0.1, min_value=0.0, max_value=100000.0))
-    
-#     if st.button("Enviar"):
-#         session_state.valores = valores
+    if st.button("Enviar"):
+        session_state.valores = valores
 
 def Escenario_internacional(nombres):
     st.subheader("Escenario internacional")
