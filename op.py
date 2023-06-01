@@ -5,19 +5,25 @@ from streamlit import session_state
 def main():
     st.sidebar.title("Escenarios")
     options = ["Escenario nacional", "Escenario internacional", "Resultados"]
+    
     agregar_costo_capital = False
     agregar_costo_capital=st.sidebar.checkbox("Costo capital", value=agregar_costo_capital)  
+    if st.button("Ejecutar método"):
+        if agregar_costo_capital:
+            resultado = eva(valores,valores_2)
+        else:
+            resultado = uodi(valores,valores_2)
     if "choice" not in session_state:
         session_state.choice = "Escenario nacional"
     choice = st.sidebar.selectbox("Selecciona una sección", options, options.index(session_state.choice))
     session_state.choice = choice
 
     if choice == "Escenario nacional":
-        mostrar_inicio()
+        Escenario_nacional()
     elif choice == "Escenario internacional":
         mostrar_formulario_1()
     elif choice == "Resultados":
-        mostrar_formulario_2()
+        Resultados()
     nombres=(
     "Cantidad",
     "Frecuencia",
@@ -329,7 +335,7 @@ def Escenario_nacional():
 #     if st.button("Enviar"):
 #         session_state.valores = valores
 
-def Escenario_nacional():
+def Escenario_internacional():
     st.subheader("Escenario internacional")
     col2_1, col2_2 = st.beta_columns(2)
     valores_2 = []
@@ -348,11 +354,7 @@ def Escenario_nacional():
 
 
 # Crear botón para ejecutar el métodorun
-if st.button("Ejecutar método"):
-    if agregar_costo_capital:
-        resultado = eva(valores,valores_2)
-    else:
-        resultado = uodi(valores,valores_2)
+def Resultados():
     st.write(f"El resultado es: {resultado[0]}")
     st.write(f"UODI: {resultado[1]}")
     st.write(f"EBITDA: {resultado[2]}")
