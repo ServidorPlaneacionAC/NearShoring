@@ -160,6 +160,7 @@ nombres_2=(
 st.sidebar.title("Escenarios")
 st.sidebar.button("Escenario nacional")
 st.sidebar.button("Escenario internacional")
+agregar_costo_capital = False
 agregar_costo_capital=st.checkbox("Selecciona/deselecciona", value=agregar_costo_capital)  
 
 st.title("Nearshoring")
