@@ -19,11 +19,12 @@ def main():
     session_state.choice = choice
 
     if choice == "Escenario nacional":
-        Escenario_nacional()
+        Escenario_nacional(nombres)
     elif choice == "Escenario internacional":
-        Escenario_internacional()
+        Escenario_internacional(nombres)
     elif choice == "Resultados":
         Resultados()
+        
     nombres=(
     "Cantidad",
     "Frecuencia",
@@ -315,7 +316,7 @@ def eva(valores,valores_2):
 # Definir la disposición en dos columnas
 
 
-def Escenario_nacional():
+def Escenario_nacional(nombres):
     st.subheader("Escenario nacional")
     
     if "formulario1" not in session_state:
@@ -335,7 +336,7 @@ def Escenario_nacional():
 #     if st.button("Enviar"):
 #         session_state.valores = valores
 
-def Escenario_internacional():
+def Escenario_internacional(nombres):
     st.subheader("Escenario internacional")
     col2_1, col2_2 = st.beta_columns(2)
     valores_2 = []
