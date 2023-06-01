@@ -1,5 +1,59 @@
 import streamlit as st
 from pulp import *
+from streamlit import session_state
+
+def main():
+    st.sidebar.title("Escenarios")
+    options = ["Escenario nacional", "Escenario internacional", "Resultados"]
+    agregar_costo_capital = False
+    agregar_costo_capital=st.sidebar.checkbox("Costo capital", value=agregar_costo_capital)  
+    if "choice" not in session_state:
+        session_state.choice = "Escenario nacional"
+    choice = st.sidebar.selectbox("Selecciona una sección", options, options.index(session_state.choice))
+    session_state.choice = choice
+
+    if choice == "Escenario nacional":
+        mostrar_inicio()
+    elif choice == "Escenario internacional":
+        mostrar_formulario_1()
+    elif choice == "Resultados":
+        mostrar_formulario_2()
+    nombres=(
+    "Cantidad",
+    "Frecuencia",
+    "Lead time planta-puerto",
+    "Semanas cxp",
+    "Moq",
+    "Adu",
+    "Factor lead time",
+    "Factor variación",
+    "Estandar posición",
+    "lead time tiempo-admon",
+    "lead time puerto-puerto",
+    "lead time gestión cargo",
+    "lead time gz-planta",
+    "Tarifa almacenamiento",
+    "Precio compra")
+    nombres_2=(
+    "Cantidad",
+    "Frecuencia",
+    "Icoterm",   
+    "lead time planta-puerto",
+    "Semanas cxp",
+    "Moq",
+    "Adu",
+    "Factor lead time",
+    "Factor variación",
+    "Estandar posición",
+    "lead time tiempo-admon",
+    "lead time puerto-puerto",
+    "lead time gestión cargo",
+    "lead time gz-planta",
+    "Tarifa almacenamiento",
+    "Precio compra")
+    
+    
+    st.title("Nearshoring")
 
 def uodi(valores,valores_2):
     # Aquí va tu método m
@@ -246,65 +300,36 @@ def eva(valores,valores_2):
     status = prob.solve()
 #     return (p_1.value())
     return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct)]
-# nombres
-nombres=(
-"Cantidad",
-"Frecuencia",
-"Lead time planta-puerto",
-"Semanas cxp",
-"Moq",
-"Adu",
-"Factor lead time",
-"Factor variación",
-"Estandar posición",
-"lead time tiempo-admon",
-"lead time puerto-puerto",
-"lead time gestión cargo",
-"lead time gz-planta",
-"Tarifa almacenamiento",
-"Precio compra")
-nombres_2=(
-"Cantidad",
-"Frecuencia",
-"Icoterm",   
-"lead time planta-puerto",
-"Semanas cxp",
-"Moq",
-"Adu",
-"Factor lead time",
-"Factor variación",
-"Estandar posición",
-"lead time tiempo-admon",
-"lead time puerto-puerto",
-"lead time gestión cargo",
-"lead time gz-planta",
-"Tarifa almacenamiento",
-"Precio compra")
-st.sidebar.title("Escenarios")
-st.sidebar.button("Escenario nacional")
-st.sidebar.button("Escenario internacional")
-agregar_costo_capital = False
-agregar_costo_capital=st.sidebar.checkbox("Costo capital", value=agregar_costo_capital)  
 
-st.title("Nearshoring")
+
+
+
+ 
+
 # Definir la disposición en dos columnas
-col1, col2 = st.beta_columns(2)
 
-with col1:
+
+def Escenario_nacional():
     st.subheader("Escenario nacional")
-    valores = []
+    
+    if "formulario1" not in session_state:
+        session_state.valores = []
+
+#     valores = []
     col1_1, col1_2 = st.beta_columns(2)
     
     with col1_1:
         for i in range(8):
-            valores.append(st.number_input(f"{nombres[i]}", step=0.1, min_value=0.0, max_value=100000.0))
+            session_state.valores.append(st.number_input(f"{nombres[i]}", step=0.1, min_value=0.0, max_value=100000.0))
     
     with col1_2:
         for i in range(8, 14):
-            valores.append(st.number_input(f"{nombres[i]}", step=0.1, min_value=0.0, max_value=100000.0))
+            session_state.valores.append(st.number_input(f"{nombres[i]}", step=0.1, min_value=0.0, max_value=100000.0))
     
+#     if st.button("Enviar"):
+#         session_state.valores = valores
 
-with col2:
+def Escenario_nacional():
     st.subheader("Escenario internacional")
     col2_1, col2_2 = st.beta_columns(2)
     valores_2 = []
