@@ -320,7 +320,7 @@ if st.button("Ejecutar método"):
         resultado = eva(valores,valores_2)
     else:
         resultado = uodi(valores,valores_2)
-    st.write(f"El resultado es: {resultado[0]}")
+    st.write(f"El precio maximo a pagar es: {resultado[0]}")
     st.write(f"UODI: {resultado[1]}")
     st.write(f"EBITDA: {resultado[2]}")
     st.write(f"EVA: {resultado[3]}")
