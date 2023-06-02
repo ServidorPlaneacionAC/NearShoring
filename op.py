@@ -323,8 +323,8 @@ if st.button("Ejecutar método"):
     st.write(f"El resultado es: {resultado[0]}")
     st.write(f"UODI: {resultado[1]}")
     st.write(f"EBITDA: {resultado[2]}")
-
-
+    st.write(f"EVA: {resultado[3]}")
+    st.write(f"ROIC: {resultado[0]/resultado[4]}"
 
 
 
