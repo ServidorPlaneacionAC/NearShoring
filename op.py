@@ -17,11 +17,7 @@ def uodi(valores,valores_2):
     factor_lt_1=valores[6]
     factor_var_1=valores[7]
     estandar_pos_1=valores[8]
-    lt_tiempoadmon_1=valores[9]
-    lt_puertopuerto_1=valores[10]
-    lt_gz_1=valores[11]
-    lt_gzplanta_1=valores[12]
-    tarifa_alm_1=valores[13]
+    tarifa_alm_1=valores[9]
     
     #campos_1 calculados
     
@@ -135,11 +131,7 @@ def eva(valores,valores_2):
     factor_lt_1=valores[6]
     factor_var_1=valores[7]
     estandar_pos_1=valores[8]
-    lt_tiempoadmon_1=valores[9]
-    lt_puertopuerto_1=valores[10]
-    lt_gz_1=valores[11]
-    lt_gzplanta_1=valores[12]
-    tarifa_alm_1=valores[13]
+    tarifa_alm_1=valores[9]
 
 
     #campos_1 calculados
@@ -253,12 +245,7 @@ nombres=(
 "Factor lead time",
 "Factor variación",
 "Estandar posición",
-"lead time tiempo-admon",
-"lead time puerto-puerto",
-"lead time gestión cargo",
-"lead time gz-planta",
-"Tarifa almacenamiento",
-"Precio compra")
+"Tarifa almacenamiento")
 nombres_2=(
 "Cantidad",
 "Frecuencia",
@@ -294,7 +281,7 @@ with col2:
             valores.append(st.number_input(f"{nombres[i]}", step=0.1, min_value=0.0, max_value=100000.0))
     
     with col1_2:
-        for i in range(8, 14):
+        for i in range(8, 9):
             valores.append(st.number_input(f"{nombres[i]}", step=0.1, min_value=0.0, max_value=100000.0))
     
 with col1:
