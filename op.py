@@ -21,8 +21,8 @@ def uodi(valores,valores_2):
     
     #campos_1 calculados
     
-    lt_completo_1=lt_tiempoadmon_1+lt_puertopuerto_1+lt_plantapuerto_1+lt_gz_1+lt_gzplanta_1
-    lt_logistico_1=lt_puertopuerto_1+lt_plantapuerto_1+lt_gz_1+lt_gzplanta_1
+    lt_completo_1=lt_plantapuerto_1
+    lt_logistico_1=lt_plantapuerto_1
     zona_amarilla_1=lt_plantapuerto_1*adu_1
     zona_rojabase_1=zona_amarilla_1*factor_lt_1
     zona_rojaalta_1=zona_rojabase_1*factor_var_1
@@ -136,8 +136,8 @@ def eva(valores,valores_2):
 
     #campos_1 calculados
 
-    lt_completo_1=lt_tiempoadmon_1+lt_puertopuerto_1+lt_plantapuerto_1+lt_gz_1+lt_gzplanta_1
-    lt_logistico_1=lt_puertopuerto_1+lt_plantapuerto_1+lt_gz_1+lt_gzplanta_1
+    lt_completo_1=lt_plantapuerto_1
+    lt_logistico_1=lt_plantapuerto_1
     zona_amarilla_1=lt_plantapuerto_1*adu_1
     zona_rojabase_1=zona_amarilla_1*factor_lt_1
     zona_rojaalta_1=zona_rojabase_1*factor_var_1
