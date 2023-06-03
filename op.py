@@ -276,9 +276,9 @@ nombres_2=(
 "lead time gz-planta",
 "Tarifa almacenamiento",
 "Precio compra")
-st.sidebar.title("Escenarios")
-st.sidebar.button("Escenario nacional")
-st.sidebar.button("Escenario internacional")
+#st.sidebar.title("Escenarios")
+#st.sidebar.button("Escenario nacional")
+#st.sidebar.button("Escenario internacional")
 agregar_costo_capital = False
 agregar_costo_capital=st.sidebar.checkbox("Costo capital", value=agregar_costo_capital)  
 st.title("Nearshoring")
