@@ -284,7 +284,7 @@ agregar_costo_capital=st.sidebar.checkbox("Costo capital", value=agregar_costo_c
 st.title("Nearshoring")
 # Definir la disposición en dos columnas
 col1, col2 = st.beta_columns(2)
-with col1:
+with col2:
     st.subheader("Escenario nacional")
     valores = []
     col1_1, col1_2 = st.beta_columns(2)
@@ -297,7 +297,7 @@ with col1:
         for i in range(8, 14):
             valores.append(st.number_input(f"{nombres[i]}", step=0.1, min_value=0.0, max_value=100000.0))
     
-with col2:
+with col1:
     st.subheader("Escenario internacional")
     col2_1, col2_2 = st.beta_columns(2)
     valores_2 = []
