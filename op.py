@@ -1,43 +1,43 @@
 import streamlit as st
 from pulp import *
 
-escenario1=[]
-escenario2=[]
-agregar_costo_capital = False 
-nombres=(
-    "Cantidad",
-    "Frecuencia",
-    "Lead time planta-puerto",
-    "Semanas cxp",
-    "Moq",
-    "Adu",
-    "Factor lead time",
-    "Factor variación",
-    "Estandar posición",
-    "Tarifa almacenamiento")
-nombres_2=(
-    "Cantidad",
-    "Frecuencia",
-    "Icoterm",   
-    "lead time planta-puerto",
-    "Semanas cxp",
-    "Moq",
-    "Adu",
-    "Factor lead time",
-    "Factor variación",
-    "Estandar posición",
-    "lead time tiempo-admon",
-    "lead time puerto-puerto",
-    "lead time gestión cargo",
-    "lead time gz-planta",
-    "Tarifa almacenamiento",
-    "Precio compra")
-valores = []
-valores_2 = []
+
 
 def main():
 
-   
+    escenario1=[]
+    escenario2=[]
+    agregar_costo_capital = False 
+    nombres=(
+        "Cantidad",
+        "Frecuencia",
+        "Lead time planta-puerto",
+        "Semanas cxp",
+        "Moq",
+        "Adu",
+        "Factor lead time",
+        "Factor variación",
+        "Estandar posición",
+        "Tarifa almacenamiento")
+    nombres_2=(
+        "Cantidad",
+        "Frecuencia",
+        "Icoterm",   
+        "lead time planta-puerto",
+        "Semanas cxp",
+        "Moq",
+        "Adu",
+        "Factor lead time",
+        "Factor variación",
+        "Estandar posición",
+        "lead time tiempo-admon",
+        "lead time puerto-puerto",
+        "lead time gestión cargo",
+        "lead time gz-planta",
+        "Tarifa almacenamiento",
+        "Precio compra")
+    valores = []
+    valores_2 = []   
 
     agregar_costo_capital=st.sidebar.checkbox("Costo capital", value=agregar_costo_capital)  
     st.title("Nearshoring")
