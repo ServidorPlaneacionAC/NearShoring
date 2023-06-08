@@ -3,7 +3,8 @@ from streamlit import session_state
 from pulp import *
 
 def main():
-    session_state.error=True
+    if "error" not in session_state:
+        session_state.error=True
     nombres=(
         "Cantidad",
         "Frecuencia",
