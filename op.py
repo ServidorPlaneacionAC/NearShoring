@@ -46,7 +46,7 @@ def mostrar_formulario_1(nombres):
 #                                     "Factor variación":0.0,
 #                                     "Estandar posición":0.0,
 #                                     "Tarifa almacenamiento":0.0}
-    valores=[], i =0
+    valores=[]
     for nombre in nombres:
         valores.append(st.number_input(nombre, step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1[nombre]))
     
