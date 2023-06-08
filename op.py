@@ -324,7 +324,8 @@ def esenario_nacional(valores):
         with col1_2:
             for i in range(8, 10):
                 valores.append(st.number_input(f"{nombres[i]}", step=0.1, min_value=0.0, max_value=100000.0))
-
+        return valores
+    
 def esenario_internacional(valores_2):    
     # with col1:
         st.subheader("Escenario internacional")
@@ -341,7 +342,7 @@ def esenario_internacional(valores_2):
         with col2_2:
             for i in range(8, 16):
                 valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
-
+        return valores_2
 
 if __name__ == "__main__":
     main()
