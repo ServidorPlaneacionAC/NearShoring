@@ -15,6 +15,24 @@ def main():
         "Estandar posición",
         "Tarifa almacenamiento")
     
+    nombres_2=(
+        "Cantidad",
+        "Frecuencia",
+        "Icoterm",   
+        "lead time planta-puerto",
+        "Semanas cxp",
+        "Moq",
+        "Adu",
+        "Factor lead time",
+        "Factor variación",
+        "Estandar posición",
+        "lead time tiempo-admon",
+        "lead time puerto-puerto",
+        "lead time gestión cargo",
+        "lead time gz-planta",
+        "Tarifa almacenamiento",
+        "Precio compra")
+    
     st.sidebar.title("Escenarios")
     options = ['Escenario Nacional', 'Escenario Internacional', 'Resultados']
     if "choice" not in session_state:
@@ -28,9 +46,13 @@ def main():
         else:
             session_state.formulario1 = mostrar_formulario_1(nombres, session_state.formulario1)
     elif choice == "Escenario Internacional":
-        mostrar_formulario_2()
+        if "formulario2" not in session_state:
+            session_state.formulario2 = mostrar_formulario_1(nombres_2)
+        else:
+            session_state.formulario2 = mostrar_formulario_1(nombres_2, session_state.formulario2)
     elif choice == "Resultados":
         resultados()
+        
 def resultados():
     pass
 
@@ -43,11 +65,11 @@ def mostrar_formulario_1(nombres, formulario1=None):
     valores = []
     
     with col1_1:
-        for i in range(8):
+        for i in range(len(nombres)/2):
             valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
     
     with col1_2:
-        for i in range(8, 10):
+        for i in range(len(nombres)/2, len(nombres)):
             valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
                     
     if st.button("Enviar"):        
@@ -55,45 +77,6 @@ def mostrar_formulario_1(nombres, formulario1=None):
         st.success("Formulario 1 enviado")
     
     return formulario1
-
-def mostrar_formulario_1_(nombres):
-    st.title("Escenario nacional")
-    if "formulario1" not in session_state:
-        session_state.formulario1 = {nombre: 0.0 for nombre in nombres}
-    
-    col1_1, col1_2 = st.columns(2)
-    valores=[]
-#     for nombre in nombres:
-#         valores.append(st.number_input(nombre, step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1[nombre]))
-    with col1_1:
-            for i in range(8):
-                valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1[nombres[i]]))
-    with col1_2:
-            for i in range(8, 10):
-                valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1[nombres[i]]))
-                    
-    if st.button("Enviar"):        
-        session_state.formulario1 = {nombre: valores[index] for index, nombre in enumerate(nombres)}
-        st.success("Formulario 1 enviado")
-
-def mostrar_formulario_2():
-    st.title("Formulario 2")
-    if "formulario2" not in session_state:
-        session_state.formulario2 = {"email": "", "telefono": ""}
-    email = st.text_input("Email", session_state.formulario2["email"])
-    telefono = st.text_input("Teléfono", session_state.formulario2["telefono"])
-    if st.button("Enviar"):
-        session_state.formulario2 = {"email": email, "telefono": telefono}
-        st.success("Formulario 2 enviado")
-
-def mostrar_formulario_3():
-    st.title("Formulario 3")
-    if "formulario3" not in session_state:
-        session_state.formulario3 = {"pregunta": ""}
-    pregunta = st.text_area("Pregunta", session_state.formulario3["pregunta"])
-    if st.button("Enviar"):
-        session_state.formulario3 = {"pregunta": pregunta}
-        st.success("Formulario 3 enviado")
 
 if __name__ == "__main__":
     main()
