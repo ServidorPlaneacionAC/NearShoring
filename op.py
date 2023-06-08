@@ -1,7 +1,70 @@
 import streamlit as st
 from pulp import *
 
+escenario1=[]
+escenario2=[]
+agregar_costo_capital = False 
+nombres=(
+    "Cantidad",
+    "Frecuencia",
+    "Lead time planta-puerto",
+    "Semanas cxp",
+    "Moq",
+    "Adu",
+    "Factor lead time",
+    "Factor variación",
+    "Estandar posición",
+    "Tarifa almacenamiento")
+nombres_2=(
+    "Cantidad",
+    "Frecuencia",
+    "Icoterm",   
+    "lead time planta-puerto",
+    "Semanas cxp",
+    "Moq",
+    "Adu",
+    "Factor lead time",
+    "Factor variación",
+    "Estandar posición",
+    "lead time tiempo-admon",
+    "lead time puerto-puerto",
+    "lead time gestión cargo",
+    "lead time gz-planta",
+    "Tarifa almacenamiento",
+    "Precio compra")
+valores = []
+valores_2 = []
 
+def main():
+
+   
+
+    agregar_costo_capital=st.sidebar.checkbox("Costo capital", value=agregar_costo_capital)  
+    st.title("Nearshoring")
+    st.sidebar.title("Escenarios")
+    opciones = ['Escenario Nacional', 'Escenario Internacional', 'Resultados']
+
+    # Renderizar los botones
+    for opcion in opciones:
+        if st.sidebar.button(opcion):
+            if opcion == 'Escenario Nacional':
+                st.write("Bienvenido a la página de inicio.")
+            elif opcion == 'Escenario Internacional':
+                st.write("Aquí puedes ver nuestros productos.")
+            elif opcion == 'Resultados':
+                st.write("Descubre nuestros servicios ofrecidos.")
+
+    
+    if st.sidebar.button("Ejecutar método"):
+        if agregar_costo_capital:
+            resultado = eva(valores,valores_2)
+        else:
+            resultado = uodi(valores,valores_2)
+        st.write(f"El precio maximo a pagar es: {resultado[0]}")
+        st.write(f"UODI: {resultado[1]}")
+        st.write(f"EBITDA: {resultado[2]}")
+        st.write(f"EVA: {resultado[3]}")
+        st.write(f"ROIC: {0 if resultado[4] == 0 else resultado[1]/resultado[4]}")
 
 def uodi(valores,valores_2):
     # Aquí va tu método m
@@ -236,84 +299,45 @@ def eva(valores,valores_2):
 #     return (p_1.value())
     return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct)]
 # nombres
-nombres=(
-"Cantidad",
-"Frecuencia",
-"Lead time planta-puerto",
-"Semanas cxp",
-"Moq",
-"Adu",
-"Factor lead time",
-"Factor variación",
-"Estandar posición",
-"Tarifa almacenamiento")
-nombres_2=(
-"Cantidad",
-"Frecuencia",
-"Icoterm",   
-"lead time planta-puerto",
-"Semanas cxp",
-"Moq",
-"Adu",
-"Factor lead time",
-"Factor variación",
-"Estandar posición",
-"lead time tiempo-admon",
-"lead time puerto-puerto",
-"lead time gestión cargo",
-"lead time gz-planta",
-"Tarifa almacenamiento",
-"Precio compra")
+
 #st.sidebar.title("Escenarios")
 #st.sidebar.button("Escenario nacional")
 #st.sidebar.button("Escenario internacional")
-agregar_costo_capital = False
-agregar_costo_capital=st.sidebar.checkbox("Costo capital", value=agregar_costo_capital)  
-st.title("Nearshoring")
+
 # Definir la disposición en dos columnas
 # col1, col2 = st.columns(2)
-col1, col2 = st.columns(2)
-with col2:
-    st.subheader("Escenario nacional")
-    valores = []
-    col1_1, col1_2 = st.columns(2)
-    
-    with col1_1:
-        for i in range(8):
-            valores.append(st.number_input(f"{nombres[i]}", step=0.1, min_value=0.0, max_value=100000.0))
-    
-    with col1_2:
-        for i in range(8, 10):
-            valores.append(st.number_input(f"{nombres[i]}", step=0.1, min_value=0.0, max_value=100000.0))
-    
-with col1:
-    st.subheader("Escenario internacional")
-    col2_1, col2_2 = st.columns(2)
-    valores_2 = []
-    
-    with col2_1:
-        for i in range(8):
-            if i == 2:
-                valores_2.append(st.text_input(f"{nombres_2[i]}"))
-            else:
+def esenario_nacional():
+    # col1, col2 = st.columns(2)
+    # with col2:
+        st.subheader("Escenario nacional")
+        col1_1, col1_2 = st.columns(2)
+        
+        with col1_1:
+            for i in range(8):
+                valores.append(st.number_input(f"{nombres[i]}", step=0.1, min_value=0.0, max_value=100000.0))
+        
+        with col1_2:
+            for i in range(8, 10):
+                valores.append(st.number_input(f"{nombres[i]}", step=0.1, min_value=0.0, max_value=100000.0))
+
+def esenario_internacional():    
+    # with col1:
+        st.subheader("Escenario internacional")
+        col2_1, col2_2 = st.columns(2)
+        
+        
+        with col2_1:
+            for i in range(8):
+                if i == 2:
+                    valores_2.append(st.text_input(f"{nombres_2[i]}"))
+                else:
+                    valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
+        
+        with col2_2:
+            for i in range(8, 16):
                 valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
-    
-    with col2_2:
-        for i in range(8, 16):
-            valores_2.append(st.number_input(f"{nombres_2[i]}", step=0.01, min_value=0.00, max_value=100000.00))
 
 
-# Crear botón para ejecutar el métodorun
-if st.button("Ejecutar método"):
-    if agregar_costo_capital:
-        resultado = eva(valores,valores_2)
-    else:
-        resultado = uodi(valores,valores_2)
-    st.write(f"El precio maximo a pagar es: {resultado[0]}")
-    st.write(f"UODI: {resultado[1]}")
-    st.write(f"EBITDA: {resultado[2]}")
-    st.write(f"EVA: {resultado[3]}")
-    st.write(f"ROIC: {0 if resultado[4] == 0 else resultado[1]/resultado[4]}")
-
-
+if __name__ == "__main__":
+    main()
 
