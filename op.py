@@ -3,7 +3,7 @@ from streamlit import session_state
 from pulp import *
 
 def main():
-
+    session_state.error=True
     nombres=(
         "Cantidad",
         "Frecuencia",
@@ -56,7 +56,7 @@ def main():
             session_state.formulario2 = mostrar_formulario_1(choice,nombres_2, session_state.formulario2)
     elif choice == "Resultados": 
         
-        if "formulario2" not in session_state or "formulario1" not in session_state:
+        if "formulario2" not in session_state or "formulario1" not in session_state or session_state.error:
             st.error("no se ha diligenciado algun escenario")
         else:
             valores=[]
@@ -105,7 +105,8 @@ def mostrar_formulario_1(titulo,nombres, formulario1=None):
             st.error("hay un dato con valor 0.0 o vacio")
         else:
             formulario1 = {nombre: valores[index] for index, nombre in enumerate(nombres)}
-            st.success("Formulario 1 enviado")
+            session_state.error=False
+            st.success("Datos correctos")
     
     return formulario1
 
