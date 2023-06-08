@@ -5,8 +5,8 @@ from pulp import *
 
 def main():
 
-    escenario1=[]
-    escenario2=[]
+    self.escenario1=[]
+    self.escenario2=[]
     agregar_costo_capital = False 
     nombres=(
         "Cantidad",
@@ -36,7 +36,7 @@ def main():
         "lead time gz-planta",
         "Tarifa almacenamiento",
         "Precio compra")
-    valores = []
+    self.valores = []
     valores_2 = []   
     resultado=[]
 
