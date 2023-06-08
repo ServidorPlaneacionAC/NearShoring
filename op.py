@@ -56,7 +56,7 @@ def main():
     elif choice == "Resultados": 
         
         if "formulario2" not in session_state or "formulario1" not in session_state:
-            t.error("no se ha diligenciado algun escenario")
+            st.error("no se ha diligenciado algun escenario")
         else:
             valores=[]
             valores_2=[]
