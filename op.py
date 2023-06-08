@@ -311,7 +311,7 @@ def eva(valores,valores_2):
 
 # Definir la disposición en dos columnas
 # col1, col2 = st.columns(2)
-def esenario_nacional():
+def esenario_nacional(valores):
     # col1, col2 = st.columns(2)
     # with col2:
         st.subheader("Escenario nacional")
@@ -325,7 +325,7 @@ def esenario_nacional():
             for i in range(8, 10):
                 valores.append(st.number_input(f"{nombres[i]}", step=0.1, min_value=0.0, max_value=100000.0))
 
-def esenario_internacional():    
+def esenario_internacional(valores_2):    
     # with col1:
         st.subheader("Escenario internacional")
         col2_1, col2_2 = st.columns(2)
