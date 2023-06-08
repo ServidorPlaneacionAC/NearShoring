@@ -32,51 +32,23 @@ def resultados():
     pass
 
 def mostrar_formulario_1(nombres):
-    st.title("Formulario 1")
+    st.title("Escenario nacional")
     if "formulario1" not in session_state:
         session_state.formulario1 = {nombre: 0.0 for nombre in nombres}
-#         session_state.formulario1 = {
-#                                     "Cantidad":0.0,
-#                                     "Frecuencia":0.0,
-#                                     "Lead time planta-puerto":0.0,
-#                                     "Semanas cxp":0.0,
-#                                     "Moq":0.0,
-#                                     "Adu":0.0,
-#                                     "Factor lead time":0.0,
-#                                     "Factor variación":0.0,
-#                                     "Estandar posición":0.0,
-#                                     "Tarifa almacenamiento":0.0}
-    valores=[]
-    for nombre in nombres:
-        valores.append(st.number_input(nombre, step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1[nombre]))
     
-#     Cantidad = st.number_input("Cantidad", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1["Cantidad"])
-#     Frecuencia = st.number_input("Frecuencia", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1["Frecuencia"])
-#     Lead_time_planta_puerto = st.number_input("Lead time planta-puerto", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1["Lead time planta-puerto"])
-#     Semanas_cxp = st.number_input("Semanas cxp", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1["Semanas cxp"])
-#     Moq = st.number_input("Moq", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1["Moq"])
-#     Adu = st.number_input("Adu", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1["Adu"])
-#     Factor_lead_time = st.number_input("Factor lead time",step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1["Factor lead time"])
-#     Factor_variación = st.number_input("Factor variación", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1["Factor variación"])
-#     Estandar_posición = st.number_input("Estandar posición", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1["Estandar posición"])
-#     Tarifa_almacenamiento = st.number_input("Tarifa almacenamiento", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1["Tarifa almacenamiento"])
-
-
-    if st.button("Enviar"):
-        
+    col1_1, col1_2 = st.columns(2)
+    valores=[]
+#     for nombre in nombres:
+#         valores.append(st.number_input(nombre, step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1[nombre]))
+    with col1_1:
+            for i in range(8):
+                valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1[nombres[i]]))
+    with col1_2:
+            for i in range(8, 10):
+                valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1[nombres[i]]))
+                    
+    if st.button("Enviar"):        
         session_state.formulario1 = {nombre: valores[index] for index, nombre in enumerate(nombres)}
-
-#         session_state.formulario1 = {
-#                                     "Cantidad":Cantidad,
-#                                     "Frecuencia":Frecuencia,
-#                                     "Lead time planta-puerto":Lead_time_planta_puerto,
-#                                     "Semanas cxp":Semanas_cxp,
-#                                     "Moq":Moq,
-#                                     "Adu":Adu,
-#                                     "Factor lead time":Factor_lead_time,
-#                                     "Factor variación":Factor_variación,
-#                                     "Estandar posición":Estandar_posición,
-#                                     "Tarifa almacenamiento":Tarifa_almacenamiento}
         st.success("Formulario 1 enviado")
 
 def mostrar_formulario_2():
