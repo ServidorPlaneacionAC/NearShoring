@@ -65,11 +65,11 @@ def mostrar_formulario_1(nombres, formulario1=None):
     valores = []
     
     with col1_1:
-        for i in range(len(nombres)/2):
+        for i in range(int(len(nombres)/2)):
             valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
     
     with col1_2:
-        for i in range(len(nombres)/2, len(nombres)):
+        for i in range(int(len(nombres)/2), len(nombres)):
             valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
                     
     if st.button("Enviar"):        
