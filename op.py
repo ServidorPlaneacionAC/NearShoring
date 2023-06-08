@@ -65,7 +65,7 @@ def main():
   
 def eva(nombres):
     for nombre in nombres:
-        st.write(session_state.formulario1[nombres])
+        st.write(session_state.formulario1[nombre])
     st.write("eva")
     
 def uodi(valores,valores_2):
