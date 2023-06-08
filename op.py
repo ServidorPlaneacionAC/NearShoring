@@ -59,14 +59,17 @@ def resultados():
 def mostrar_formulario_1(titulo,nombres, formulario1=None):
     st.title(titulo)
     if formulario1 is None:
-        formulario1 = {nombre: 0.0 for nombre in nombres}
+        formulario1 = {nombre: (0.0 if nombre!= "Icoterm" else "") for nombre in nombres}
     
     col1_1, col1_2 = st.columns(2)
     valores = []
     
     with col1_1:
         for i in range(int(len(nombres)/2)):
-            valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
+            if "Icoterm"==nombres[i]:
+                valores.append(st.text_input(nombres[i], value=formulario1[nombres[i]]))
+            else:    
+                valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
     
     with col1_2:
         for i in range(int(len(nombres)/2), len(nombres)):
