@@ -69,7 +69,8 @@ def resultados(resultado):
     st.write(f"EBITDA: {resultado[2]}")
     st.write(f"EVA: {resultado[3]}")
     st.write(f"ROIC: {0 if resultado[4] == 0 else resultado[1]/resultado[4]}")    
-    return=resultado
+    return resultado
+
 def uodi(valores,valores_2):
     # Aquí va tu método m
     # Crear problema de minimización
