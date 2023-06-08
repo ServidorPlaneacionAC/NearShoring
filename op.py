@@ -42,22 +42,22 @@ def main():
 
     if choice == "Escenario Nacional":
         if "formulario1" not in session_state:
-            session_state.formulario1 = mostrar_formulario_1(nombres)
+            session_state.formulario1 = mostrar_formulario_1(choice,nombres)
         else:
-            session_state.formulario1 = mostrar_formulario_1(nombres, session_state.formulario1)
+            session_state.formulario1 = mostrar_formulario_1(choice,nombres, session_state.formulario1)
     elif choice == "Escenario Internacional":
         if "formulario2" not in session_state:
-            session_state.formulario2 = mostrar_formulario_1(nombres_2)
+            session_state.formulario2 = mostrar_formulario_1(choice,nombres_2)
         else:
-            session_state.formulario2 = mostrar_formulario_1(nombres_2, session_state.formulario2)
+            session_state.formulario2 = mostrar_formulario_1(choice,nombres_2, session_state.formulario2)
     elif choice == "Resultados":
         resultados()
         
 def resultados():
     pass
 
-def mostrar_formulario_1(nombres, formulario1=None):
-    st.title("Escenario nacional")
+def mostrar_formulario_1(titulo,nombres, formulario1=None):
+    st.title(titulo)
     if formulario1 is None:
         formulario1 = {nombre: 0.0 for nombre in nombres}
     
