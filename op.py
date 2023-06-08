@@ -4,7 +4,7 @@ from streamlit import session_state
 def main():
 
     st.sidebar.title("Escenarios")
-    options = ["Escenario Nacional', 'Escenario Internacional', 'Resultados"]
+    options = ['Escenario Nacional', 'Escenario Internacional', 'Resultados']
     if "choice" not in session_state:
         session_state.choice = "Escenario Nacional"
     choice = st.sidebar.selectbox("Selecciona una sección", options, options.index(session_state.choice))
