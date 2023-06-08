@@ -38,6 +38,7 @@ def main():
         "Precio compra")
     valores = []
     valores_2 = []   
+    resultado=[]
 
     agregar_costo_capital=st.sidebar.checkbox("Costo capital", value=agregar_costo_capital)  
     st.title("Nearshoring")
@@ -48,24 +49,27 @@ def main():
     for opcion in opciones:
         if st.sidebar.button(opcion):
             if opcion == 'Escenario Nacional':
-                st.write("Bienvenido a la página de inicio.")
+                esenario_nacional()
             elif opcion == 'Escenario Internacional':
-                st.write("Aquí puedes ver nuestros productos.")
+                esenario_internacional()
             elif opcion == 'Resultados':
-                st.write("Descubre nuestros servicios ofrecidos.")
+                resultados(resultado)
 
     
     if st.sidebar.button("Ejecutar método"):
         if agregar_costo_capital:
-            resultado = eva(valores,valores_2)
+            resultado=resultados(eva(valores,valores_2))
         else:
-            resultado = uodi(valores,valores_2)
-        st.write(f"El precio maximo a pagar es: {resultado[0]}")
-        st.write(f"UODI: {resultado[1]}")
-        st.write(f"EBITDA: {resultado[2]}")
-        st.write(f"EVA: {resultado[3]}")
-        st.write(f"ROIC: {0 if resultado[4] == 0 else resultado[1]/resultado[4]}")
+            resultado=resultados(uodi(valores,valores_2))
+            
+def resultados(resultado):
 
+    st.write(f"El precio maximo a pagar es: {resultado[0]}")
+    st.write(f"UODI: {resultado[1]}")
+    st.write(f"EBITDA: {resultado[2]}")
+    st.write(f"EVA: {resultado[3]}")
+    st.write(f"ROIC: {0 if resultado[4] == 0 else resultado[1]/resultado[4]}")    
+    return=resultado
 def uodi(valores,valores_2):
     # Aquí va tu método m
     # Crear problema de minimización
