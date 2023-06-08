@@ -61,7 +61,13 @@ def main():
             resultado = uodi([session_state.formulario1[nombres[i]] for i in range(len(nombres))],
                              [session_state.formulario1[nombres_2[j]] for j in range(len(nombres_2))])
         resultados(resultado)
-        
+  
+def eva(valores,valores_2):
+    st.tittle("eva")
+    
+def uodi(valores,valores_2):
+    st.tittle("uodi")
+    
 def resultados(resultado):
     st.write(f"El precio maximo a pagar es: {resultado[0]}")
     st.write(f"UODI: {resultado[1]}")
