@@ -23,7 +23,10 @@ def main():
     session_state.choice = choice
 
     if choice == "Escenario Nacional":
-        mostrar_formulario_1(nombres)
+        if "formulario1" not in session_state:
+            session_state.formulario1 = mostrar_formulario_1(nombres)
+        else:
+            session_state.formulario1 = mostrar_formulario_1(nombres, session_state.formulario1)
     elif choice == "Escenario Internacional":
         mostrar_formulario_2()
     elif choice == "Resultados":
@@ -31,7 +34,29 @@ def main():
 def resultados():
     pass
 
-def mostrar_formulario_1(nombres):
+def mostrar_formulario_1(nombres, formulario1=None):
+    st.title("Escenario nacional")
+    if formulario1 is None:
+        formulario1 = {nombre: 0.0 for nombre in nombres}
+    
+    col1_1, col1_2 = st.columns(2)
+    valores = []
+    
+    with col1_1:
+        for i in range(8):
+            valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
+    
+    with col1_2:
+        for i in range(8, 10):
+            valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
+                    
+    if st.button("Enviar"):        
+        formulario1 = {nombre: valores[index] for index, nombre in enumerate(nombres)}
+        st.success("Formulario 1 enviado")
+    
+    return formulario1
+
+def mostrar_formulario_1_(nombres):
     st.title("Escenario nacional")
     if "formulario1" not in session_state:
         session_state.formulario1 = {nombre: 0.0 for nombre in nombres}
