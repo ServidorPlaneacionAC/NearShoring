@@ -100,9 +100,12 @@ def mostrar_formulario_1(titulo,nombres, formulario1=None):
         for i in range(int(len(nombres)/2), len(nombres)):
             valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
                     
-    if st.button("Enviar"):        
-        formulario1 = {nombre: valores[index] for index, nombre in enumerate(nombres)}
-        st.success("Formulario 1 enviado")
+    if st.button("Enviar"): 
+        if 0.0 in valores or "" in valores:
+            st.error("hay un dato con valor 0.0 o vacio")
+        else:
+            formulario1 = {nombre: valores[index] for index, nombre in enumerate(nombres)}
+            st.success("Formulario 1 enviado")
     
     return formulario1
 
