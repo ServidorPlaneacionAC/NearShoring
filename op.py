@@ -103,6 +103,7 @@ def mostrar_formulario_1(titulo,nombres, formulario1=None):
                     
     if st.button("Enviar"): 
         if 0.0 in valores or "" in valores:
+            session_state.error=True
             st.error("hay un dato con valor 0.0 o vacio")
         else:
             formulario1 = {nombre: valores[index] for index, nombre in enumerate(nombres)}
