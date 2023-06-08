@@ -34,16 +34,16 @@ def mostrar_formulario_1():
                                     "Estandar posición":0.0,
                                     "Tarifa almacenamiento":0.0}
     
-    Cantidad = st.number_input("Cantidad", min_value=0, max_value=100, value=session_state.formulario1["Cantidad"])
-    Frecuencia = st.number_input("Frecuencia", min_value=0, max_value=100, value=session_state.formulario1["Frecuencia"])
-    Lead_time_planta_puerto = st.number_input("Lead time planta-puerto", min_value=0, max_value=100, value=session_state.formulario1["Lead time planta-puerto"])
-    Semanas_cxp = st.number_input("Semanas cxp", min_value=0, max_value=100, value=session_state.formulario1["Semanas cxp"])
-    Moq = st.number_input("Moq", min_value=0, max_value=100, value=session_state.formulario1["Moq"])
-    Adu = st.number_input("Adu", min_value=0, max_value=100, value=session_state.formulario1["Adu"])
-    Factor_lead_time = st.number_input("Factor lead time", min_value=0, max_value=100, value=session_state.formulario1["Factor lead time"])
-    Factor_variación = st.number_input("Factor variación", min_value=0, max_value=100, value=session_state.formulario1["Factor variación"])
-    Estandar_posición = st.number_input("Estandar posición", min_value=0, max_value=100, value=session_state.formulario1["Estandar posición"])
-    Tarifa_almacenamiento = st.number_input("Tarifa almacenamiento", min_value=0, max_value=100, value=session_state.formulario1["Tarifa almacenamiento"])
+    Cantidad = st.number_input("Cantidad", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1["Cantidad"])
+    Frecuencia = st.number_input("Frecuencia", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1["Frecuencia"])
+    Lead_time_planta_puerto = st.number_input("Lead time planta-puerto", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1["Lead time planta-puerto"])
+    Semanas_cxp = st.number_input("Semanas cxp", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1["Semanas cxp"])
+    Moq = st.number_input("Moq", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1["Moq"])
+    Adu = st.number_input("Adu", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1["Adu"])
+    Factor_lead_time = st.number_input("Factor lead time",step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1["Factor lead time"])
+    Factor_variación = st.number_input("Factor variación", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1["Factor variación"])
+    Estandar_posición = st.number_input("Estandar posición", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1["Estandar posición"])
+    Tarifa_almacenamiento = st.number_input("Tarifa almacenamiento", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1["Tarifa almacenamiento"])
 
 
     if st.button("Enviar"):
