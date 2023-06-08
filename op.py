@@ -5,8 +5,8 @@ from pulp import *
 
 def main():
 
-    self.escenario1=[]
-    self.escenario2=[]
+    escenario1=[]
+    escenario2=[]
     agregar_costo_capital = False 
     nombres=(
         "Cantidad",
@@ -36,7 +36,7 @@ def main():
         "lead time gz-planta",
         "Tarifa almacenamiento",
         "Precio compra")
-    self.valores = []
+    valores = []
     valores_2 = []   
     resultado=[]
 
@@ -49,9 +49,9 @@ def main():
     for opcion in opciones:
         if st.sidebar.button(opcion):
             if opcion == 'Escenario Nacional':
-                esenario_nacional()
+                esenario_nacional(valores)
             elif opcion == 'Escenario Internacional':
-                esenario_internacional()
+                valores_2=esenario_internacional(valores_2)
             elif opcion == 'Resultados':
                 resultados(resultado)
 
