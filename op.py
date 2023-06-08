@@ -49,9 +49,9 @@ def main():
     for opcion in opciones:
         if st.sidebar.button(opcion):
             if opcion == 'Escenario Nacional':
-                esenario_nacional(valores)
+                esenario_nacional(valores,nombres)
             elif opcion == 'Escenario Internacional':
-                valores_2=esenario_internacional(valores_2)
+                valores_2=esenario_internacional(valores_2,nombres_2)
             elif opcion == 'Resultados':
                 resultados(resultado)
 
@@ -314,7 +314,7 @@ def eva(valores,valores_2):
 def esenario_nacional(valores):
     # col1, col2 = st.columns(2)
     # with col2:
-        st.subheader("Escenario nacional")
+        st.subheader("Escenario nacional",nombres)
         col1_1, col1_2 = st.columns(2)
         
         with col1_1:
@@ -326,7 +326,7 @@ def esenario_nacional(valores):
                 valores.append(st.number_input(f"{nombres[i]}", step=0.1, min_value=0.0, max_value=100000.0))
         return valores
     
-def esenario_internacional(valores_2):    
+def esenario_internacional(valores_2,nombres_2):    
     # with col1:
         st.subheader("Escenario internacional")
         col2_1, col2_2 = st.columns(2)
