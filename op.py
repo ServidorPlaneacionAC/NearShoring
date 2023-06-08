@@ -61,11 +61,11 @@ def main():
 #             resultado = uodi([session_state.formulario1[nombres[i]] for i in range(len(nombres))],
 #                              [session_state.formulario1[nombres_2[j]] for j in range(len(nombres_2))])
 #         resultados(resultado)
-        eva(nombres)
+        eva(nombres_2)
   
 def eva(nombres):
     for nombre in nombres:
-        st.write(session_state.formulario1[nombre])
+        st.write(session_state.formulario2[nombre])
     st.write("eva")
     
 def uodi(valores,valores_2):
