@@ -64,7 +64,7 @@ def main():
         eva()
   
 def eva():
-    st.tittle("eva")
+    st.write("eva")
     
 def uodi(valores,valores_2):
     st.tittle("uodi")
