@@ -39,7 +39,10 @@ def main():
         session_state.choice = "Escenario Nacional"
     choice = st.sidebar.selectbox("Selecciona una sección", options, options.index(session_state.choice))
     session_state.choice = choice
-
+    
+    agregar_costo_capital = False
+    agregar_costo_capital=st.sidebar.checkbox("Costo capital", value=agregar_costo_capital)  
+    
     if choice == "Escenario Nacional":
         if "formulario1" not in session_state:
             session_state.formulario1 = mostrar_formulario_1(choice,nombres)
@@ -51,10 +54,20 @@ def main():
         else:
             session_state.formulario2 = mostrar_formulario_1(choice,nombres_2, session_state.formulario2)
     elif choice == "Resultados":
-        resultados()
+        if agregar_costo_capital:
+            resultado = eva([session_state.formulario1[nombres[i]] for i in range(len(nombres))],
+                            [session_state.formulario1[nombres_2[j]] for j in range(len(nombres_2))])
+        else:
+            resultado = uodi([session_state.formulario1[nombres[i]] for i in range(len(nombres))],
+                             [session_state.formulario1[nombres_2[j]] for j in range(len(nombres_2))])
+        resultados(resultado)
         
-def resultados():
-    pass
+def resultados(resultado):
+    st.write(f"El precio maximo a pagar es: {resultado[0]}")
+    st.write(f"UODI: {resultado[1]}")
+    st.write(f"EBITDA: {resultado[2]}")
+    st.write(f"EVA: {resultado[3]}")
+    st.write(f"ROIC: {0 if resultado[4] == 0 else resultado[1]/resultado[4]}")
 
 def mostrar_formulario_1(titulo,nombres, formulario1=None):
     st.title(titulo)
