@@ -54,15 +54,16 @@ def main():
         else:
             session_state.formulario2 = mostrar_formulario_1(choice,nombres_2, session_state.formulario2)
     elif choice == "Resultados":
-        if agregar_costo_capital:
-            resultado = eva([session_state.formulario1[nombres[i]] for i in range(len(nombres))],
-                            [session_state.formulario1[nombres_2[j]] for j in range(len(nombres_2))])
-        else:
-            resultado = uodi([session_state.formulario1[nombres[i]] for i in range(len(nombres))],
-                             [session_state.formulario1[nombres_2[j]] for j in range(len(nombres_2))])
-        resultados(resultado)
+#         if agregar_costo_capital:
+#             resultado = eva([session_state.formulario1[nombres[i]] for i in range(len(nombres))],
+#                             [session_state.formulario1[nombres_2[j]] for j in range(len(nombres_2))])
+#         else:
+#             resultado = uodi([session_state.formulario1[nombres[i]] for i in range(len(nombres))],
+#                              [session_state.formulario1[nombres_2[j]] for j in range(len(nombres_2))])
+#         resultados(resultado)
+        eva()
   
-def eva(valores,valores_2):
+def eva():
     st.tittle("eva")
     
 def uodi(valores,valores_2):
