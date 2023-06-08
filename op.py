@@ -3,6 +3,18 @@ from streamlit import session_state
 
 def main():
 
+    nombres=(
+        "Cantidad",
+        "Frecuencia",
+        "Lead time planta-puerto",
+        "Semanas cxp",
+        "Moq",
+        "Adu",
+        "Factor lead time",
+        "Factor variación",
+        "Estandar posición",
+        "Tarifa almacenamiento")
+    
     st.sidebar.title("Escenarios")
     options = ['Escenario Nacional', 'Escenario Internacional', 'Resultados']
     if "choice" not in session_state:
@@ -11,7 +23,7 @@ def main():
     session_state.choice = choice
 
     if choice == "Escenario Nacional":
-        mostrar_formulario_1()
+        mostrar_formulario_1(nombres)
     elif choice == "Escenario Internacional":
         mostrar_formulario_2()
     elif choice == "Resultados":
@@ -19,20 +31,21 @@ def main():
 def resultados():
     pass
 
-def mostrar_formulario_1():
+def mostrar_formulario_1(nombres):
     st.title("Formulario 1")
     if "formulario1" not in session_state:
-        session_state.formulario1 = {
-                                    "Cantidad":0.0,
-                                    "Frecuencia":0.0,
-                                    "Lead time planta-puerto":0.0,
-                                    "Semanas cxp":0.0,
-                                    "Moq":0.0,
-                                    "Adu":0.0,
-                                    "Factor lead time":0.0,
-                                    "Factor variación":0.0,
-                                    "Estandar posición":0.0,
-                                    "Tarifa almacenamiento":0.0}
+        session_state.formulario1 = {nombre: 0.0 for nombre in nombres}
+#         session_state.formulario1 = {
+#                                     "Cantidad":0.0,
+#                                     "Frecuencia":0.0,
+#                                     "Lead time planta-puerto":0.0,
+#                                     "Semanas cxp":0.0,
+#                                     "Moq":0.0,
+#                                     "Adu":0.0,
+#                                     "Factor lead time":0.0,
+#                                     "Factor variación":0.0,
+#                                     "Estandar posición":0.0,
+#                                     "Tarifa almacenamiento":0.0}
     
     Cantidad = st.number_input("Cantidad", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1["Cantidad"])
     Frecuencia = st.number_input("Frecuencia", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.formulario1["Frecuencia"])
