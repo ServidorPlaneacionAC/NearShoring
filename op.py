@@ -271,7 +271,8 @@ agregar_costo_capital = False
 agregar_costo_capital=st.sidebar.checkbox("Costo capital", value=agregar_costo_capital)  
 st.title("Nearshoring")
 # Definir la disposición en dos columnas
-col1, col2 = st.beta_columns(2)
+# col1, col2 = st.beta_columns(2)
+col1, col2 = st.columns(2)
 with col2:
     st.subheader("Escenario nacional")
     valores = []
