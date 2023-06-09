@@ -103,7 +103,7 @@ def mostrar_formulario_1(titulo,nombres, formulario1=None, transaccion_internaci
         for i in range(int(len(nombres)/2), len(nombres)):
             valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
     
-    if transaccion_internacional=True:
+    if transaccion_internacional==True:
         checkbox_operacion_dolarizado = st.checkbox("indicar el precio en dolares")
         if checkbox_precion_dolarizado:
             session_state.trm=st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=session_state.trm)
