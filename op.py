@@ -5,6 +5,8 @@ from pulp import *
 def main():
     if "error" not in session_state:
         session_state.error=True
+    if "trm" not in session_state:
+        session_state.trm=4800
     nombres=(
         "Cantidad",
         "Frecuencia",
@@ -52,9 +54,9 @@ def main():
             session_state.formulario1 = mostrar_formulario_1(choice,nombres, session_state.formulario1)
     elif choice == "Escenario Internacional":
         if "formulario2" not in session_state:
-            session_state.formulario2 = mostrar_formulario_1(choice,nombres_2)
+            session_state.formulario2 = mostrar_formulario_1(choice,nombres_2,transaccion_internacional=True)
         else:
-            session_state.formulario2 = mostrar_formulario_1(choice,nombres_2, session_state.formulario2)
+            session_state.formulario2 = mostrar_formulario_1(choice,nombres_2, session_state.formulario2,transaccion_internacional=True)
     elif choice == "Resultados": 
         
         if "formulario2" not in session_state or "formulario1" not in session_state or session_state.error:
@@ -82,7 +84,7 @@ def resultados(resultado):
     st.write(f"EVA: {resultado[3]}")
     st.write(f"ROIC: {0 if resultado[4] == 0 else resultado[1]/resultado[4]}")
 
-def mostrar_formulario_1(titulo,nombres, formulario1=None):
+def mostrar_formulario_1(titulo,nombres, formulario1=None, transaccion_internacional=False):
     st.title(titulo)
     if formulario1 is None:
         formulario1 = {nombre: (0.0 if nombre!= "Icoterm" else "") for nombre in nombres}
@@ -100,15 +102,21 @@ def mostrar_formulario_1(titulo,nombres, formulario1=None):
     with col1_2:
         for i in range(int(len(nombres)/2), len(nombres)):
             valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
-                    
-    if st.button("Enviar"): 
+    
+    if transaccion_internacional=True:
+        checkbox_operacion_dolarizado = st.checkbox("indicar el precio en dolares")
+        if checkbox_precion_dolarizado:
+            session_state.trm=st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=session_state.trm)
+            valores[-1]=valores[-1]*session_state.trm
+            
+    if st.button("Guardar"): 
         if 0.0 in valores or "" in valores:
             session_state.error=True
             st.error("hay un dato con valor 0.0 o vacio")
         else:
             formulario1 = {nombre: valores[index] for index, nombre in enumerate(nombres)}
             session_state.error=False
-            st.success("Datos correctos")
+            st.success("Datos guardados correctamente")
     
     return formulario1
 
