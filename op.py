@@ -8,7 +8,7 @@ def main():
     if "trm" not in session_state:
         session_state.trm=4800.00
     if "valor_en_pesos" not in session_state:
-        session_state.valor_en_pesos.trm=00.00
+        session_state.valor_en_pesos.valor_en_pesos=00.00
       
     nombres=(
         "Cantidad",
