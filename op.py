@@ -106,8 +106,9 @@ def mostrar_formulario_1(titulo,nombres, formulario1=None, transaccion_internaci
     if transaccion_internacional==True:
         checkbox_operacion_dolarizado = st.checkbox("indicar el precio en dolares")
         if checkbox_operacion_dolarizado:
-            session_state.trm=st.number_input("Valor TRM", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.trm)            
-            valores[-1]=valores[-1]*session_state.trm
+            session_state.trm=st.number_input("Valor TRM", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.trm)       
+            valores[-1]=valores[-1]*session_state.trm     
+            valores[-1] = st.number_input(nombres[-1], key=nombres[-1], step=0.1, min_value=0.0, max_value=100000.0,value=valores[-1])
             
     if st.button("Guardar"): 
         if 0.0 in valores or "" in valores:
