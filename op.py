@@ -7,6 +7,9 @@ def main():
         session_state.error=True
     if "trm" not in session_state:
         session_state.trm=4800.00
+    if "valor_en_pesos" not in session_state:
+        session_state.valor_en_pesos.trm=00.00
+      
     nombres=(
         "Cantidad",
         "Frecuencia",
@@ -100,15 +103,19 @@ def mostrar_formulario_1(titulo,nombres, formulario1=None, transaccion_internaci
                 valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
     
     with col1_2:
-        for i in range(int(len(nombres)/2), len(nombres)):
+        for i in range(int(len(nombres)/2), len(nombres)-1):
             valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
+        session_state.valor_en_pesos=formulario1[nombres[-1]]
+        valores.append(st.number_input(nombres[-1],key=nombres[-1], step=0.1, min_value=0.0, max_value=100000.0, value=session_state.valor_en_pesos))
     
     if transaccion_internacional==True:
         checkbox_operacion_dolarizado = st.checkbox("indicar el precio en dolares")
         if checkbox_operacion_dolarizado:
             session_state.trm=st.number_input("Valor TRM", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.trm)       
             valores[-1]=valores[-1]*session_state.trm     
-            valores[-1] = st.number_input(nombres[-1], key=nombres[-1], step=0.1, min_value=0.0, max_value=100000.0,value=valores[-1])
+            session_state.valor_en_pesos=valores[-1]
+         else:
+            session_state.valor_en_pesos=formulario1[nombres[-1]]
             
     if st.button("Guardar"): 
         if 0.0 in valores or "" in valores:
