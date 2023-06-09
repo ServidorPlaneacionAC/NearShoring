@@ -114,6 +114,7 @@ def mostrar_formulario_1(titulo,nombres, formulario1=None, transaccion_internaci
             session_state.trm=st.number_input("Valor TRM", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.trm)       
             valores[-1]=valores[-1]*session_state.trm     
             session_state.valor_en_pesos=valores[-1]
+            st.write(valores[-1])
         else:
             session_state.valor_en_pesos=formulario1[nombres[-1]]
             
