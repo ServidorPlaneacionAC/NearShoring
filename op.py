@@ -84,7 +84,7 @@ def main():
             #Almaceno valores en listas para pasarolo como parametros a las funciones eva y uodi 
             if agregar_costo_capital:
                 resultado = calculos.eva(valores,valores_2)
-                st.write(calculos.valores_eva(valores,valores_2,resultado[0]-(resultado[0]/15))[0])
+                st.write(calculos.valores_eva(valores,valores_2,(resultado[0]-(resultado[0]/15)))[0])
                 st.write(calculos.valores_eva(valores,valores_2,resultado[0]-(2*(resultado[0]/15)))[0])
                 st.write(calculos.valores_eva(valores,valores_2,resultado[0]-(3*(resultado[0]/15)))[0])
             else:
