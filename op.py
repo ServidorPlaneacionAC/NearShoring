@@ -88,6 +88,7 @@ def resultados(resultado):
     st.write(f"ROIC: {0 if resultado[4] == 0 else resultado[1]/resultado[4]}")
 
 def mostrar_formulario_1(titulo,nombres, formulario1=None, transaccion_internacional=False):
+    costo_dolares=0
     st.title(titulo)
     if formulario1 is None:
         formulario1 = {nombre: (0.0 if nombre!= "Icoterm" else "") for nombre in nombres}
@@ -102,17 +103,18 @@ def mostrar_formulario_1(titulo,nombres, formulario1=None, transaccion_internaci
             else:    
                 valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
     
-    if transaccion_internacional==True:
-        checkbox_operacion_dolarizado = st.checkbox("indicar el precio en dolares")
-        if checkbox_operacion_dolarizado:
-            session_state.trm=st.number_input("Valor TRM", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.trm)       
-            valores[-1]=valores[-1]*session_state.trm     
-            session_state.valor_en_pesos=valores[-1]    
+        if transaccion_internacional==True:
+            checkbox_operacion_dolarizado = st.checkbox("indicar el precio en dolares")
+            if checkbox_operacion_dolarizado:
+                session_state.trm=st.number_input("Valor TRM", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.trm) 
+                costo_dolares=st.number_input("Precio compra en dolares", step=0.1, min_value=0.0, max_value=100000.0, value=0.0)       
+    #             valores[-1]=valores[-1]*session_state.trm     
+                session_state.valor_en_pesos=costo_dolares*session_state.trm    
     
     with col1_2:
         for i in range(int(len(nombres)/2), len(nombres)-1):
             valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
-        if checkbox_operacion_dolarizado:
+        if not checkbox_operacion_dolarizado:
             valores.append(st.number_input(nombres[-1],key=nombres[-1], step=0.1, min_value=0.0, max_value=100000.0, value=session_state.valor_en_pesos))
         else:
             valores.append(st.number_input(nombres[-1],key=nombres[-1], step=0.1, min_value=0.0, max_value=100000.0, value=session_state.valor_en_pesos,disabled=True))
@@ -135,6 +137,7 @@ def mostrar_formulario_1(titulo,nombres, formulario1=None, transaccion_internaci
             session_state.error=True
             st.error("hay un dato con valor 0.0 o vacio")
         else:
+            valores[-1]=session_state.valor_en_pesos
             formulario1 = {nombre: valores[index] for index, nombre in enumerate(nombres)}
             session_state.error=False
             st.success("Datos guardados correctamente")
