@@ -15,34 +15,34 @@ def main():
         session_state.valor_en_pesos=00.00
       
     nombres=(
-        "Cantidad",
-        "Frecuencia",
+        "Cantidad: unidades con los que se generará la comparación entre proveedores",
+        "Frecuencia: Temporalidad estimadda para recalcular próximo envío",
         "Lead time planta-puerto",
-        "Semanas cxp",
-        "Moq",
-        "Adu",
-        "Factor lead time",
-        "Factor variación",
-        "Estandar posición",
+        "Semanas cxp: tiempo en semanas estimado para pagar a mi proveedor el pedido actual",
+        "Moq: Cantidad mínima a pedir (en la unidad que se desee manejar)",
+        "Adu: Consumo promedio diario (en la unidad que se desee manejar)",
+        "Factor lead time: De 0 a 1 qué tan confiable es el lead time, siendo 0 muy seguro y 1 completamente variable",
+        "Factor variación: De 0 a 1 qué tan confiable es el consumo, siendo 0 muy seguro y 1 completamente variable",
+        "Estandar posición: Unidades por estiba",
         "Tarifa almacenamiento")
     
     nombres_2=(
-        "Cantidad",
-        "Frecuencia",
+        "Cantidad: unidades con los que se generará la comparación entre proveedores",
+        "Frecuencia: Temporalidad estimadda para recalcular próximo enví",
         "Incoterm",   
         "lead time planta-puerto",
-        "Semanas cxp",
-        "Moq",
-        "Adu",
-        "Factor lead time",
-        "Factor variación",
-        "Estandar posición",
+        "Semanas cxp: tiempo en semanas estimado para pagar a mi proveedor el pedido actual",
+        "Moq: Cantidad mínima a pedir (en la unidad que se desee manejar)",
+        "Adu: Consumo promedio diario (en la unidad que se desee manejar)",
+        "Factor lead time: De 0 a 1 qué tan confiable es el lead time, siendo 0 muy seguro y 1 completamente variable",
+        "Factor variación: De 0 a 1 qué tan confiable es el consumo, siendo 0 muy seguro y 1 completamente variable",
+        "Estandar posición: Unidades por estiba",
         "lead time tiempo-admon",
         "lead time puerto-puerto",
         "lead time gestión cargo",
         "lead time gz-planta",
         "Tarifa almacenamiento",
-        "Precio compra")
+        "Precio compra: no incluye aranceles")
     
     st.sidebar.title("Escenarios")
     options = ['Escenario Nacional', 'Escenario Internacional', 'Resultados']
