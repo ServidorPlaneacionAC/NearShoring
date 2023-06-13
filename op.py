@@ -82,9 +82,9 @@ def main():
                 valores_2.append(session_state.formulario2[nombre])
             #Almaceno valores en listas para pasarolo como parametros a las funciones eva y uodi 
             if agregar_costo_capital:
-                frm.resultado = eva(valores,valores_2)
+                resultado = eva(valores,valores_2)
             else:
-                frm.resultado = uodi(valores,valores_2)
+                resultado = uodi(valores,valores_2)
             frm.resultados(resultado)
   
 
