@@ -114,7 +114,7 @@ def mostrar_formulario_1(titulo,nombres, formulario1=None, transaccion_internaci
     
     with col1_1:
         for i in range(int(len(nombres)/2)):
-            if "Icoterm"==nombres[i]:
+            if "Incoterm"==nombres[i]:
                 valores.append(st.text_input(nombres[i], value=formulario1[nombres[i]]))
             else:    
                 valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
