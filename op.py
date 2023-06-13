@@ -89,6 +89,7 @@ def resultados(resultado):
 
 def mostrar_formulario_1(titulo,nombres, formulario1=None, transaccion_internacional=False):
     costo_dolares=0
+    checkbox_operacion_dolarizado=False
     st.title(titulo)
     if formulario1 is None:
         formulario1 = {nombre: (0.0 if nombre!= "Icoterm" else "") for nombre in nombres}
@@ -107,7 +108,7 @@ def mostrar_formulario_1(titulo,nombres, formulario1=None, transaccion_internaci
             checkbox_operacion_dolarizado = st.checkbox("indicar el precio en dolares")
             if checkbox_operacion_dolarizado:
                 session_state.trm=st.number_input("Valor TRM", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.trm) 
-                costo_dolares=st.number_input("Precio compra en dolares", step=0.1, min_value=0.0, max_value=100000.0, value=0.0)       
+                costo_dolares=st.number_input("Precio compra en dolares", step=0.1, min_value=0.0, max_value=100000.0, value=*session_state.trm)       
     #             valores[-1]=valores[-1]*session_state.trm     
                 session_state.valor_en_pesos=costo_dolares*session_state.trm    
     
@@ -115,7 +116,7 @@ def mostrar_formulario_1(titulo,nombres, formulario1=None, transaccion_internaci
         for i in range(int(len(nombres)/2), len(nombres)-1):
             valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
         if not checkbox_operacion_dolarizado:
-            valores.append(st.number_input(nombres[-1],key=nombres[-1], step=0.1, min_value=0.0, max_value=100000.0, value=session_state.valor_en_pesos))
+            valores.append(st.number_input(nombres[-1],key=nombres[-1], step=0.1, min_value=0.0, max_value=100000.0, value=session_state.valor_en_pesos*valores[-1]))
         else:
             valores.append(st.number_input(nombres[-1],key=nombres[-1], step=0.1, min_value=0.0, max_value=100000.0, value=session_state.valor_en_pesos,disabled=True))
        
