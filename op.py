@@ -85,7 +85,7 @@ def main():
                 frm.resultado = eva(valores,valores_2)
             else:
                 frm.resultado = uodi(valores,valores_2)
-            resultados(resultado)
+            frm.resultados(resultado)
   
 
 # def resultados(resultado):
