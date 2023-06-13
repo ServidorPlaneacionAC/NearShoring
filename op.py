@@ -123,11 +123,11 @@ def mostrar_formulario_1(titulo,nombres, formulario1=None, transaccion_internaci
             #genero proceso extra para transformar de dolares a pesos y pesos a dolares
             checkbox_operacion_dolarizado = st.checkbox("indicar el precio en dolares")
             if checkbox_operacion_dolarizado:
-                '''si se selecciono el checkbox_operacion_dolarizado entonces ingresa y hace la variable 
-                    costo_dolares=session_state.valor_en_pesos(inicializada en el main con valor 0.0)/session_state.trm(inicializada en el main con valor 4.800) 
-                    luego genero un campo para indicar trm al momento de la negociación, igual que el campo para indicar el precio en dolares,
-                    luego hago guardo en la variable de estado valor_en_pesos el valor en pesos de la transaccion indicada
-                    '''
+#                 si se selecciono el checkbox_operacion_dolarizado entonces ingresa y hace la variable 
+#                     costo_dolares=session_state.valor_en_pesos(inicializada en el main con valor 0.0)/session_state.trm(inicializada en el main con valor 4.800) 
+#                     luego genero un campo para indicar trm al momento de la negociación, igual que el campo para indicar el precio en dolares,
+#                     luego hago guardo en la variable de estado valor_en_pesos el valor en pesos de la transaccion indicada
+                    
                 costo_dolares=session_state.valor_en_pesos/session_state.trm
                 session_state.trm=st.number_input("Valor TRM", step=0.0001, min_value=0.0, max_value=100000.0, value=session_state.trm) 
                 costo_dolares=st.number_input("Precio compra en dolares", step=0.1, min_value=0.0, max_value=100000.0, value=costo_dolares) 
