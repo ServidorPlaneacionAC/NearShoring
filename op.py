@@ -57,17 +57,17 @@ def main():
     agregar_costo_capital=st.sidebar.checkbox("Costo capital", value=agregar_costo_capital)  
     #Si se tiene en cuenta el costo capital se optimiza sobre el eva, sino obre el uodi
     
-    frm= streamlit_frm(session_state.valor_en_pesos)
+    frm= streamlit_frm(session_state.valor_en_pesos,session_state.trm)
     if choice == "Escenario Nacional":
         if "formulario1" not in session_state:
-            session_state.formulario1,session_state.valor_en_pesos,session_state.error = frm.mostrar_formulario_1(choice,nombres)
+            session_state.formulario1,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres)
         else:
-            session_state.formulario1,session_state.valor_en_pesos,session_state.error = frm.mostrar_formulario_1(choice,nombres, session_state.formulario1)
+            session_state.formulario1,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres, session_state.formulario1)
     elif choice == "Escenario Internacional":
         if "formulario2" not in session_state:
-            session_state.formulario2,session_state.valor_en_pesos,session_state.error = frm.mostrar_formulario_1(choice,nombres_2,transaccion_internacional=True)
+            session_state.formulario2,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres_2,transaccion_internacional=True)
         else:
-            session_state.formulario2,session_state.valor_en_pesos,session_state.error = frm.mostrar_formulario_1(choice,nombres_2, session_state.formulario2,transaccion_internacional=True)
+            session_state.formulario2,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres_2, session_state.formulario2,transaccion_internacional=True)
     elif choice == "Resultados": 
         
         if "formulario2" not in session_state or "formulario1" not in session_state or session_state.error:
