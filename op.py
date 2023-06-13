@@ -106,7 +106,7 @@ def mostrar_formulario_1(titulo,nombres, formulario1=None, transaccion_internaci
     st.title(titulo)
     if formulario1 is None:
         #inicializo los valores en 0.0 o vacios si formulario1 no esta declarado
-        formulario1 = {nombre: (0.0 if nombre!= "Icoterm" else "") for nombre in nombres}
+        formulario1 = {nombre: (0.0 if nombre!= "Incoterm" else "") for nombre in nombres}
     
     #indico que mostrare la informacion en 2 columnas e inicializo variable local valores que es donde voy a guardadr temporalmente las respuestas
     col1_1, col1_2 = st.columns(2)
