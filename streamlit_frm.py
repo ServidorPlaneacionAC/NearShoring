@@ -80,6 +80,6 @@ class streamlit_frm:
                 valores[-1]=self.valor_en_pesos
             formulario1 = {nombre: valores[index] for index, nombre in enumerate(nombres)}
             self.error=False
-            st.success("Datos guardados correctamente")
+            st.success(f"Datos guardados correctamente {valores[-1]}")
     
     return formulario1
