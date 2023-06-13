@@ -88,7 +88,7 @@ def resultados(resultado):
     st.write(f"ROIC: {0 if resultado[4] == 0 else resultado[1]/resultado[4]}")
 
 def mostrar_formulario_1(titulo,nombres, formulario1=None, transaccion_internacional=False):
-    costo_dolares=0
+    costo_dolares=0.0
     checkbox_operacion_dolarizado=False
     st.title(titulo)
     if formulario1 is None:
