@@ -7,14 +7,14 @@ class streamlit_frm:
         self.trm=4800.00
         self.valor_en_pesos=00.00  
    
-def resultados(self,resultado):
+  def resultados(self,resultado):
     st.write(f"El precio maximo a pagar es: {resultado[0]}")
     st.write(f"UODI: {resultado[1]}")
     st.write(f"EBITDA: {resultado[2]}")
     st.write(f"EVA: {resultado[3]}")
     st.write(f"ROIC: {0 if resultado[4] == 0 else resultado[1]/resultado[4]}")
 
-def mostrar_formulario_1(self,titulo,nombres, formulario1=None, transaccion_internacional=False):
+  def mostrar_formulario_1(self,titulo,nombres, formulario1=None, transaccion_internacional=False):
     '''Funcion que genera los formularios para evaluar las oportunidades de inversión, recibe nombre del escenario, lista nombres que
         indica los campos del formulario, formulario1 que es un diccionario que donde se almacena los valores de los campos, si no se pasa por 
         parametro inicializa las variables en 0 y transaccion_internacional que es un booleano que indica si se debe o no añadir la opción de 
