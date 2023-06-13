@@ -2,9 +2,9 @@ import streamlit as st
 from streamlit import session_state
 
 class streamlit_frm:
-  def __init__(self,valor_en_pesos):
+  def __init__(self,valor_en_pesos,trm=4800.00):
         self.error=True
-        self.trm=4800.00
+        self.trm=trm
         self.valor_en_pesos=valor_en_pesos 
    
   def resultados(self,resultado):
@@ -83,4 +83,4 @@ class streamlit_frm:
             self.error=False
             st.success(f"Datos guardados correctamente {valores[-1]}  {self.valor_en_pesos}")
     
-    return formulario1,self.valor_en_pesos,self.error
+    return formulario1,self.valor_en_pesos,self.error,self.trm
