@@ -142,11 +142,11 @@ def mostrar_formulario_1(titulo,nombres, formulario1=None, transaccion_internaci
 #                 Si no se ha seleccionado la alternativa de operacion dolarizda indico que el valor de la ultima variable puesta en nombre es lo que esta
 #                     en la variable de estado valor_en_pesos(inicializada en el main con valor 0.0 y modificada cuando selecciono la operacion dolarizada
 #                     y llevo a valor_en_pesos el valor que se escriba en este campo)
-                valores.append(st.number_input(nombres[-1],key=nombres[-1], step=0.1, min_value=0.0, max_value=100000.0, value=session_state.valor_en_pesos))
+                valores.append(st.number_input(nombres[-1],key=nombres[-1], step=0.1, min_value=0.0, max_value=10000000.0, value=session_state.valor_en_pesos))
                 session_state.valor_en_pesos=valores[-1]
             else:            
                 #traigo valor_en_pesos pero no permito su edicion
-                valores.append(st.number_input(nombres[-1],key=nombres[-1], step=0.1, min_value=0.0, max_value=100000.0, value=session_state.valor_en_pesos,disabled=True))
+                valores.append(st.number_input(nombres[-1],key=nombres[-1], step=0.1, min_value=0.0, max_value=10000000.0, value=session_state.valor_en_pesos,disabled=True))
         else:
             for i in range(int(len(nombres)/2), len(nombres)):
                 valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
