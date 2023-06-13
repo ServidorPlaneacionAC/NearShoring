@@ -8,7 +8,7 @@ class streamlit_frm:
         self.valor_en_pesos=valor_en_pesos 
    
   def resultados(self,resultado):
-    st.write(f"El precio maximo a pagar es: {resultado[0]}")
+    st.write(f"El precio maximo a pagar es: {resultado[0]}, implica una variación de {(resultado[0]-self.valor_en_pesos)/self.valor_en_pesos}")
     st.write(f"UODI: {resultado[1]}")
     st.write(f"EBITDA: {resultado[2]}")
     st.write(f"EVA: {resultado[3]}")
