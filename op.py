@@ -144,7 +144,8 @@ def mostrar_formulario_1(titulo,nombres, formulario1=None, transaccion_internaci
             session_state.error=True
             st.error("hay un dato con valor 0.0 o vacio")
         else:
-            valores[-1]=session_state.valor_en_pesos
+            if transaccion_internacional==True:
+                valores[-1]=session_state.valor_en_pesos
             formulario1 = {nombre: valores[index] for index, nombre in enumerate(nombres)}
             session_state.error=False
             st.success("Datos guardados correctamente")
