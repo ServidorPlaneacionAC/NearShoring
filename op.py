@@ -77,20 +77,19 @@ def main():
         else:
             valores=[]
             valores_2=[]
+            resultado=[]
             for nombre in nombres:
                 valores.append(session_state.formulario1[nombre])
             for nombre in nombres_2:
                 valores_2.append(session_state.formulario2[nombre])
             #Almaceno valores en listas para pasarolo como parametros a las funciones eva y uodi 
             if agregar_costo_capital:
-                resultado = calculos.eva(valores,valores_2)
-                a=calculos.valores_eva(valores,valores_2,(15000.00))
-                st.write(a[0])
-                st.write(calculos.valores_eva(valores,valores_2,resultado[0]-(2*(resultado[0]/15)))[0])
-                st.write(calculos.valores_eva(valores,valores_2,resultado[0]-(3*(resultado[0]/15)))[0])
+                resultado.append(calculos.eva(valores,valores_2))
+                for i in range(-5,5,1)
+                    resultado.append(calculos.valores_eva(valores,valores_2,resultado[0][0]+(5*(resultado[0][0]/15))))
             else:
-                resultado = calculos.uodi(valores,valores_2)
-            frm.resultados(resultado)
+                resultado.append(calculos.uodi(valores,valores_2))
+            frm.resultados(resultado[0])
 
 if __name__ == "__main__":
     main()
