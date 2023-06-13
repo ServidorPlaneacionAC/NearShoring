@@ -333,5 +333,5 @@ def valores_eva(valores,valores_2,nuevo_precio):
     c_1 = costo_unitario_1  # Costo del producto 1
     p_0= precio_compra
 #     return (p_1.value())
-    return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct)]
+    return [p_1,(uodi),(ebitda),(eva),(diferencial_ct)]
 # nombres
