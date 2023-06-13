@@ -107,7 +107,7 @@ def mostrar_formulario_1(titulo,nombres, formulario1=None, transaccion_internaci
             checkbox_operacion_dolarizado = st.checkbox("indicar el precio en dolares")
             if checkbox_operacion_dolarizado:
                 session_state.trm=st.number_input("Valor TRM", step=0.1, min_value=0.0, max_value=100000.0, value=session_state.trm) 
-                costo_dolares=st.number_input("Precio compra en dolares", step=0.1, min_value=0.0, max_value=100000.0, value=0.0)       
+                costo_dolares=st.number_input("Precio compra en dolares", step=0.1, min_value=0.0, max_value=100000.0, value=valores[-1]/session_state.trm)       
     #             valores[-1]=valores[-1]*session_state.trm     
                 session_state.valor_en_pesos=costo_dolares*session_state.trm    
     
