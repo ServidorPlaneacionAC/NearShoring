@@ -1,3 +1,5 @@
+from pulp import *
+
 def eva(valores,valores_2):
     prob = LpProblem("Mi problema de optimización", LpMinimize)
     p_1 = LpVariable("p_1", lowBound=0)
