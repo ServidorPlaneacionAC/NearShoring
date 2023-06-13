@@ -134,7 +134,7 @@ def mostrar_formulario_1(titulo,nombres, formulario1=None, transaccion_internaci
                 session_state.valor_en_pesos=costo_dolares*session_state.trm  
     
     with col1_2:
-        '''Si la transaccion no es dolarizada se traen todos los campos del formulario y ya'''
+#         '''Si la transaccion no es dolarizada se traen todos los campos del formulario y ya'''
         if transaccion_internacional==True:
             for i in range(int(len(nombres)/2), len(nombres)-1):
                 valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
