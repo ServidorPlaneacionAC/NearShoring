@@ -105,7 +105,6 @@ def mostrar_formulario_1(titulo,nombres, formulario1=None, transaccion_internaci
     with col1_2:
         for i in range(int(len(nombres)/2), len(nombres)-1):
             valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
-        session_state.valor_en_pesos=formulario1[nombres[-1]]
         valores.append(st.number_input(nombres[-1],key=nombres[-1], step=0.1, min_value=0.0, max_value=100000.0, value=session_state.valor_en_pesos))
     
     if transaccion_internacional==True:
@@ -115,6 +114,8 @@ def mostrar_formulario_1(titulo,nombres, formulario1=None, transaccion_internaci
             valores[-1]=valores[-1]*session_state.trm     
             session_state.valor_en_pesos=valores[-1]
             st.write(valores[-1])
+            st.number_input(nombres[-1],  step=0.1, min_value=0.0, max_value=100000.0, value=session_state.valor_en_pesos key="disabled_number_input", disabled=True)
+
         else:
             session_state.valor_en_pesos=formulario1[nombres[-1]]
             
