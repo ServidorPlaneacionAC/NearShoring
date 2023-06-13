@@ -29,7 +29,7 @@ def main():
     nombres_2=(
         "Cantidad",
         "Frecuencia",
-        "Icoterm",   
+        "Incoterm",   
         "lead time planta-puerto",
         "Semanas cxp",
         "Moq",
