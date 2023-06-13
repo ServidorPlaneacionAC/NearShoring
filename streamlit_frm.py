@@ -82,4 +82,4 @@ class streamlit_frm:
             self.error=False
             st.success(f"Datos guardados correctamente {valores[-1]}  {self.valor_en_pesos}")
     
-    return formulario1,self.valor_en_pesos
+    return formulario1,self.valor_en_pesos,self.error
