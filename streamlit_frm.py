@@ -17,7 +17,8 @@ class streamlit_frm:
     st.write(f"ROIC: {0 if resultado[0][4] == 0 else resultado[0][1]/resultado[0][4]}")
     
     precios = [resultado[i][0] for i in range(len(resultado))]
-    st.write(precios)
+    UODI = [resultado[i][1] for i in range(len(resultado))]
+    st.write(precios,UODI)
     UODI = [resultado[i][1] for i in range(len(resultado))]
     Linea_Base = [0 for i in range(len(resultado))]
 
