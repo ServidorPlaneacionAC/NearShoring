@@ -23,45 +23,45 @@ class streamlit_frm:
     st.write(precios,UODI)
     grafica_lineas([precios,Linea_Base],[UODI],["Precios por unidad"],["UODI"])
     
-def grafica_lineas(self,eje_x,eje_y,titulo_x,titulo_y):
+  def grafica_lineas(self,eje_x,eje_y,titulo_x,titulo_y):
   
-  fig, ax = plt.subplots()
-  linea1, = ax.plot(precios, eva_escenario1, marker='o', label='Escenario 1')
-  linea2, = ax.plot(precios, eva_escenario2, marker='s', label='Escenario 2')
-  linea3, = ax.plot(precios, eva_escenario3, marker='^', label='Escenario 3')
+    fig, ax = plt.subplots()
+    linea1, = ax.plot(precios, eva_escenario1, marker='o', label='Escenario 1')
+    linea2, = ax.plot(precios, eva_escenario2, marker='s', label='Escenario 2')
+    linea3, = ax.plot(precios, eva_escenario3, marker='^', label='Escenario 3')
 
-  # Configurar los ejes y la leyenda
-  ax.set_xlabel('Precios')
-  ax.set_ylabel('EVA')
-  ax.legend()
+    # Configurar los ejes y la leyenda
+    ax.set_xlabel('Precios')
+    ax.set_ylabel('EVA')
+    ax.legend()
 
-  # Configurar los marcadores y las etiquetas al pasar el mouse
-  cursor1 = mplcursors.cursor(linea1, hover=True)
-  cursor1.connect("add", lambda sel: sel.annotation.set_text(f"({sel.target[0]}, {sel.target[1]})"))
+    # Configurar los marcadores y las etiquetas al pasar el mouse
+    cursor1 = mplcursors.cursor(linea1, hover=True)
+    cursor1.connect("add", lambda sel: sel.annotation.set_text(f"({sel.target[0]}, {sel.target[1]})"))
 
-  cursor2 = mplcursors.cursor(linea2, hover=True)
-  cursor2.connect("add", lambda sel: sel.annotation.set_text(f"({sel.target[0]}, {sel.target[1]})"))
+    cursor2 = mplcursors.cursor(linea2, hover=True)
+    cursor2.connect("add", lambda sel: sel.annotation.set_text(f"({sel.target[0]}, {sel.target[1]})"))
 
-  cursor3 = mplcursors.cursor(linea3, hover=True)
-  cursor3.connect("add", lambda sel: sel.annotation.set_text(f"({sel.target[0]}, {sel.target[1]})"))
+    cursor3 = mplcursors.cursor(linea3, hover=True)
+    cursor3.connect("add", lambda sel: sel.annotation.set_text(f"({sel.target[0]}, {sel.target[1]})"))
 
-# Mostrar el gráfico en Streamlit
-st.pyplot(fig)
+  # Mostrar el gráfico en Streamlit
+    st.pyplot(fig)
 
-#     # Crear el gráfico de líneas
-#     fig, ax = plt.subplots()
-#     ax.plot(precios, UODI, label='Escenario 1')
-#     ax.plot(precios, Linea_Base, label='Escenario 2')
+  #     # Crear el gráfico de líneas
+  #     fig, ax = plt.subplots()
+  #     ax.plot(precios, UODI, label='Escenario 1')
+  #     ax.plot(precios, Linea_Base, label='Escenario 2')
 
-#     # Configurar los ejes y la leyenda
-#     ax.set_xlabel('Valores precio')
-#     ax.set_ylabel('Uodi')
-#     ax.legend()
+  #     # Configurar los ejes y la leyenda
+  #     ax.set_xlabel('Valores precio')
+  #     ax.set_ylabel('Uodi')
+  #     ax.legend()
 
-#     ax.set_ylim(min(UODI), max(UODI))
-    
-#     plt.ticklabel_format(style='plain')  # Mostrar números completos en lugar de notación científica
-#     st.pyplot(fig)
+  #     ax.set_ylim(min(UODI), max(UODI))
+
+  #     plt.ticklabel_format(style='plain')  # Mostrar números completos en lugar de notación científica
+  #     st.pyplot(fig)
 
 
 
