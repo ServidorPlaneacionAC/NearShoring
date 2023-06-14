@@ -106,4 +106,22 @@ class streamlit_frm:
             self.error=False
             st.success(f"Datos guardados correctamente {valores[-1]}  {self.valor_en_pesos}")
     
+    precios = [10, 20, 30, 40, 50]
+    eva_escenario1 = [0.5, 0.6, 0.7, 0.8, 0.9]
+    eva_escenario2 = [0.4, 0.5, 0.6, 0.7, 0.8]
+    eva_escenario3 = [0.3, 0.4, 0.5, 0.6, 0.7]
+
+    # Crear el gráfico de líneas
+    plt.plot(precios, eva_escenario1, label='Escenario 1')
+    plt.plot(precios, eva_escenario2, label='Escenario 2')
+    plt.plot(precios, eva_escenario3, label='Escenario 3')
+
+    # Configurar los ejes y la leyenda
+    plt.xlabel('Precios')
+    plt.ylabel('EVA')
+    plt.legend()
+
+    # Mostrar el gráfico
+    plt.show()
+    
     return formulario1,self.valor_en_pesos,self.error,self.trm
