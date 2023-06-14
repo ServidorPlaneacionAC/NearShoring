@@ -24,15 +24,15 @@ class streamlit_frm:
     grafica_lineas([precios,Linea_Base],[UODI],["Precios por unidad"],["UODI"])
     
   def grafica_lineas(self,eje_x,eje_y,titulo_x,titulo_y):
-  
+    
+    precios=eje_x[0]
+    UODI=eje_x[1]
     fig, ax = plt.subplots()
-    linea1, = ax.plot(precios, eva_escenario1, marker='o', label='Escenario 1')
-    linea2, = ax.plot(precios, eva_escenario2, marker='s', label='Escenario 2')
-    linea3, = ax.plot(precios, eva_escenario3, marker='^', label='Escenario 3')
+    linea1, = ax.plot(precios, UODI, marker='o', label='Escenario 1')
 
     # Configurar los ejes y la leyenda
     ax.set_xlabel('Precios')
-    ax.set_ylabel('EVA')
+    ax.set_ylabel('UODI')
     ax.legend()
 
     # Configurar los marcadores y las etiquetas al pasar el mouse
