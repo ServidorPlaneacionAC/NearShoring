@@ -57,7 +57,6 @@ class streamlit_frm:
         indicar el precio en pesos y trasnformarlo'''
     
     #inicializo variables locales para uso posterior
-    st.write(nombres[2], formulario1['Incoterm'])
     costo_dolares=0.0
     checkbox_operacion_dolarizado=False
     st.title(titulo)
