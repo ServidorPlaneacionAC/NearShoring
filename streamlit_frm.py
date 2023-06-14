@@ -22,6 +22,7 @@ class streamlit_frm:
     Linea_Base = [0 for i in range(len(resultado))]
     st.write(precios,UODI)
     self.grafica_lineas([precios,Linea_Base],[UODI],["Precios por unidad"],["UODI"])
+    self.grafica_lineas2([precios,Linea_Base],[UODI],["Precios por unidad"],["UODI"])
     
   def mostrar_formulario_1(self,titulo,nombres, formulario1=None, transaccion_internacional=False):
     '''Funcion que genera los formularios para evaluar las oportunidades de inversión, recibe nombre del escenario, lista nombres que
@@ -116,7 +117,42 @@ class streamlit_frm:
 
   # Mostrar el gráfico en Streamlit
     st.pyplot(fig)
+    
+  def grafica_lineas2(self,eje_x,eje_y,titulo_x,titulo_y):
+    from plotly.subplots import make_subplots
+        
+    precios=eje_x[0]
+    linea_base=eje_x[1]
+    UODI=eje_y[0] 
+    
+#     Resultado_Compras = Resultado[Resultado['Variable']=="Compra"]
+#     Resultado_Inventario = Resultado[Resultado['Variable']=="Inventario"]
+#     Resultado_CostoTotal = Resultado[Resultado['Variable']=="CostoTotal"]
+    
+    fig = make_subplots(specs=[[{"secondary_y": True}]])
 
+#     fig.add_trace(go.Scatter(x=precios, y=UODI, name='Compras'))
 
+    fig.add_trace(go.Scatter(x=precios, y=UODI, 
+                             name='UODI', mode='lines', line=dict(color='green'), legendrank=True))
+    
+    fig.add_trace(go.Scatter(x=precios y=linea_base, 
+                             name='linea base', mode='lines', line=dict(color='Yellow'), legendrank=True))
 
+#     fig.add_trace(go.Scatter(x=Resultado_Compras['Semana'], y=Resultado_Compras['Precios'], 
+#                              name='Precios', mode='lines', line=dict(color='orange'), legendrank=True), secondary_y=True)
+
+    fig.update_layout(title='Compra de Oportunidad',
+                      xaxis=dict(title='Precios'),
+                      yaxis=dict(title='Valor'),
+#                       yaxis2=dict(title='Precios', overlaying='y', side='right'),
+                     legend=dict(
+                    orientation="h",
+                    yanchor="bottom",
+                    y=1.02,
+                    xanchor="right",
+                    x=1
+                ))
+
+    st.write(fig)
 
