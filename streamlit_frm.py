@@ -34,10 +34,8 @@ class streamlit_frm:
 
     ax.set_ylim(min(UODI), max(UODI))
     
-    # Mostrar el gráfico en Streamlit
-    st.pyplot(fig)
-    
     plt.ticklabel_format(style='plain')  # Mostrar números completos en lugar de notación científica
+    ax.yaxis.set_major_formatter(ticker.StrMethodFormatter('{x:,.0f}'))
     st.pyplot(fig)
 
   def mostrar_formulario_1(self,titulo,nombres, formulario1=None, transaccion_internacional=False):
