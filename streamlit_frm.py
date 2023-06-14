@@ -12,12 +12,12 @@ class streamlit_frm:
         self.valor_en_pesos=valor_en_pesos 
     
   def resultados(self,resultado):
-    st.write(f"El precio maximo a pagar es: {resultado[0][0]}")
+    st.write(f"El precio maximo a pagar es: {round(resultado[0][0],0)}")
     st.write("implica una variación de {:.2f}%".format((resultado[0][0]-self.valor_en_pesos)/self.valor_en_pesos*100))    
-    st.write(f"UODI: {resultado[0][1]}")
-    st.write(f"EBITDA: {resultado[0][2]}")
-    st.write(f"EVA: {resultado[0][3]}")
-    st.write(f"ROIC: {0 if resultado[0][4] == 0 else resultado[0][1]/resultado[0][4]}")
+    st.write(f"UODI: {round(resultado[0][1],2)}")
+    st.write(f"EBITDA: {round(resultado[0][2],2)}")
+    st.write(f"EVA: {round(resultado[0][3],2)}")
+    st.write(f"ROIC: {round(0 if resultado[0][4] == 0 else resultado[0][1]/resultado[0][4],2)}")
     
     precios = [resultado[i][0] for i in range(len(resultado))]
     UODI = [resultado[i][1] for i in range(len(resultado))]
