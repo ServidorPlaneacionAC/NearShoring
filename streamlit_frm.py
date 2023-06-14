@@ -38,7 +38,7 @@ class streamlit_frm:
     
     #inicializo variables locales para uso posterior
     
-    tabla_resultado=pd.DataFrame(Columna': [1,2,3,4])))
+    tabla_resultado=pd.DataFrame(Columna': [1,2,3,4])
     st.write(tabla_resultado)
     
     costo_dolares=0.0
