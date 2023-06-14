@@ -47,9 +47,9 @@ def main():
         "Precio compra: no incluye aranceles")
     
     st.sidebar.title("Escenarios")
-    options = ['Escenario Nacional', 'Escenario Internacional', 'Resultados']
+    options = ['Nuevo Escenario', 'Escenario Anterior', 'Resultados']
     if "choice" not in session_state:
-        session_state.choice = "Escenario Nacional"
+        session_state.choice = "Nuevo Escenario"
     choice = st.sidebar.selectbox("Selecciona una sección", options, options.index(session_state.choice))
     session_state.choice = choice
     
@@ -58,12 +58,12 @@ def main():
     #Si se tiene en cuenta el costo capital se optimiza sobre el eva, sino obre el uodi
     
     frm= streamlit_frm(session_state.valor_en_pesos,session_state.trm)
-    if choice == "Escenario Nacional":
+    if choice == "Nuevo Escenario":
         if "formulario1" not in session_state:
             session_state.formulario1,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres)
         else:
             session_state.formulario1,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres, session_state.formulario1)
-    elif choice == "Escenario Internacional":
+    elif choice == "Escenario Anterior":
         if "formulario2" not in session_state:
             session_state.formulario2,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres_2,transaccion_internacional=True)
         else:
