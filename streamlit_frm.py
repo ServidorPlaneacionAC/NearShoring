@@ -16,25 +16,26 @@ class streamlit_frm:
     st.write(f"EVA: {resultado[0][3]}")
     st.write(f"ROIC: {0 if resultado[0][4] == 0 else resultado[0][1]/resultado[0][4]}")
     
+    precios = [resultado[i][0] for i in range(len(resultado)[0]]
+    st.write(precios)
+    for i in range(len(resultado)[0]):
+      eva_escenario1 = [0.5, 0.6, 0.7, 0.8, 0.9]
+      eva_escenario2 = [0.4, 0.5, 0.6, 0.7, 0.8]
+      eva_escenario3 = [0.3, 0.4, 0.5, 0.6, 0.7]
 
-    # Datos de ejemplo
-    precios = [10, 20, 30, 40, 50]
-    eva_escenario1 = [0.5, 0.6, 0.7, 0.8, 0.9]
-    eva_escenario2 = [0.4, 0.5, 0.6, 0.7, 0.8]
-    eva_escenario3 = [0.3, 0.4, 0.5, 0.6, 0.7]
-
-    # Crear el gráfico de líneas
-    plt.plot(precios, eva_escenario1, label='Escenario 1')
-    plt.plot(precios, eva_escenario2, label='Escenario 2')
-    plt.plot(precios, eva_escenario3, label='Escenario 3')
+      # Crear el gráfico de líneas
+      fig, ax = plt.subplots()
+      ax.plot(precios, eva_escenario1, label='Escenario 1')
+      ax.plot(precios, eva_escenario2, label='Escenario 2')
+      ax.plot(precios, eva_escenario3, label='Escenario 3')
 
     # Configurar los ejes y la leyenda
-    plt.xlabel('Precios')
-    plt.ylabel('EVA')
-    plt.legend()
+    ax.set_xlabel('Precios')
+    ax.set_ylabel('EVA')
+    ax.legend()
 
-    # Mostrar el gráfico
-    plt.show()
+    # Mostrar el gráfico en Streamlit
+    st.pyplot(fig)
     
     
 
@@ -44,27 +45,6 @@ class streamlit_frm:
         parametro inicializa las variables en 0 y transaccion_internacional que es un booleano que indica si se debe o no añadir la opción de 
         indicar el precio en pesos y trasnformarlo'''
     
-    
-    precios = [10, 20, 30, 40, 50]
-    eva_escenario1 = [0.5, 0.6, 0.7, 0.8, 0.9]
-    eva_escenario2 = [0.4, 0.5, 0.6, 0.7, 0.8]
-    eva_escenario3 = [0.3, 0.4, 0.5, 0.6, 0.7]
-    
-    # Crear el gráfico de líneas
-    fig, ax = plt.subplots()
-    ax.plot(precios, eva_escenario1, label='Escenario 1')
-    ax.plot(precios, eva_escenario2, label='Escenario 2')
-    ax.plot(precios, eva_escenario3, label='Escenario 3')
-
-    # Configurar los ejes y la leyenda
-    ax.set_xlabel('Precios')
-    ax.set_ylabel('EVA')
-    ax.legend()
-
-    # Mostrar el gráfico en Streamlit
-    st.pyplot(fig)
-
-
     #inicializo variables locales para uso posterior
     
     costo_dolares=0.0
