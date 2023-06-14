@@ -118,6 +118,7 @@ class streamlit_frm:
   def grafica_lineas(self,eje_x,eje_y,titulo_x,titulo_y):         
     precios=eje_x[0]
     linea_base=eje_x[1]
+    EVA=eje_x[2]
     UODI=eje_y[0] 
     
 #     Resultado_Compras = Resultado[Resultado['Variable']=="Compra"]
@@ -130,6 +131,9 @@ class streamlit_frm:
 
     fig.add_trace(go.Scatter(x=precios, y=UODI, 
                              name='UODI', mode='lines', line=dict(color='green'), legendrank=True))
+  
+    fig.add_trace(go.Scatter(x=precios, y=EVA, 
+                             name='EVA', mode='lines', line=dict(color='green'), legendrank=True))
     
     fig.add_trace(go.Scatter(x=precios, y=linea_base, 
                              name='linea base', mode='lines', line=dict(color='Yellow'), legendrank=True))
