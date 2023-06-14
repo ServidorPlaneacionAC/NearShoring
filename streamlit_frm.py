@@ -3,6 +3,7 @@ from streamlit import session_state
 import matplotlib.pyplot as plt
 import mplcursors
 from plotly.subplots import make_subplots
+import plotly.graph_objs as go
 
 class streamlit_frm:
   def __init__(self,valor_en_pesos,trm=4800.00):
