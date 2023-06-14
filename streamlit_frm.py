@@ -136,10 +136,10 @@ class streamlit_frm:
                              name='UODI', mode='lines', line=dict(color='green'), legendrank=True))
   
     fig.add_trace(go.Scatter(x=precios, y=EVA, 
-                             name='EVA', mode='lines', line=dict(color='green'), legendrank=True))
+                             name='EVA', mode='lines', line=dict(color='Orange'), legendrank=True))
   
     fig.add_trace(go.Scatter(x=precios, y=EBITDA, 
-                             name='EBITDA', mode='lines', line=dict(color='green'), legendrank=True))
+                             name='EBITDA', mode='lines', line=dict(color='Red'), legendrank=True))
     
     fig.add_trace(go.Scatter(x=precios, y=linea_base, 
                              name='linea base', mode='lines', line=dict(color='Yellow'), legendrank=True))
