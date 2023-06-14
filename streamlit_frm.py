@@ -39,12 +39,6 @@ class streamlit_frm:
     cursor1 = mplcursors.cursor(linea1, hover=True)
     cursor1.connect("add", lambda sel: sel.annotation.set_text(f"({sel.target[0]}, {sel.target[1]})"))
 
-    cursor2 = mplcursors.cursor(linea2, hover=True)
-    cursor2.connect("add", lambda sel: sel.annotation.set_text(f"({sel.target[0]}, {sel.target[1]})"))
-
-    cursor3 = mplcursors.cursor(linea3, hover=True)
-    cursor3.connect("add", lambda sel: sel.annotation.set_text(f"({sel.target[0]}, {sel.target[1]})"))
-
   # Mostrar el gráfico en Streamlit
     st.pyplot(fig)
 
