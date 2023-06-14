@@ -1,5 +1,6 @@
 import streamlit as st
 from streamlit import session_state
+import matplotlib.pyplot as plt
 
 class streamlit_frm:
   def __init__(self,valor_en_pesos,trm=4800.00):
@@ -15,7 +16,25 @@ class streamlit_frm:
     st.write(f"EVA: {resultado[0][3]}")
     st.write(f"ROIC: {0 if resultado[0][4] == 0 else resultado[0][1]/resultado[0][4]}")
     
-    st.write(f"resultado: {resultado}")
+
+    # Datos de ejemplo
+    precios = [10, 20, 30, 40, 50]
+    eva_escenario1 = [0.5, 0.6, 0.7, 0.8, 0.9]
+    eva_escenario2 = [0.4, 0.5, 0.6, 0.7, 0.8]
+    eva_escenario3 = [0.3, 0.4, 0.5, 0.6, 0.7]
+
+    # Crear el gráfico de líneas
+    plt.plot(precios, eva_escenario1, label='Escenario 1')
+    plt.plot(precios, eva_escenario2, label='Escenario 2')
+    plt.plot(precios, eva_escenario3, label='Escenario 3')
+
+    # Configurar los ejes y la leyenda
+    plt.xlabel('Precios')
+    plt.ylabel('EVA')
+    plt.legend()
+
+    # Mostrar el gráfico
+    plt.show()
     
     
 
