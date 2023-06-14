@@ -49,7 +49,7 @@ class streamlit_frm:
     eva_escenario1 = [0.5, 0.6, 0.7, 0.8, 0.9]
     eva_escenario2 = [0.4, 0.5, 0.6, 0.7, 0.8]
     eva_escenario3 = [0.3, 0.4, 0.5, 0.6, 0.7]
-    st.write(precios)
+    
     # Crear el gráfico de líneas
     plt.plot(precios, eva_escenario1, label='Escenario 1')
     plt.plot(precios, eva_escenario2, label='Escenario 2')
