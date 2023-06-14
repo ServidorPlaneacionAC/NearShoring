@@ -9,7 +9,12 @@ class streamlit_frm:
         self.error=True
         self.trm=trm
         self.valor_en_pesos=valor_en_pesos 
-   
+  
+  def resultados1(self,resultado):
+    self.grafica_lineas([i for i in range(10),0 for i in range(10)],[i-5 for i in range(10)],["Precios por unidad"],["UODI"])
+    self.grafica_lineas2([i for i in range(10),0 for i in range(10)],[i-5 for i in range(10)],["Precios por unidad"],["UODI"])
+    
+  
   def resultados(self,resultado):
     st.write(f"El precio maximo a pagar es: {resultado[0][0]}")
     st.write("implica una variación de {:.2f}%".format((resultado[0][0]-self.valor_en_pesos)/self.valor_en_pesos*100))    
