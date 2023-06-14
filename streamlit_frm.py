@@ -22,8 +22,28 @@ class streamlit_frm:
     st.write(f"EVA: {round(resultado[0][3],2)}")
     st.write(f"ROIC: {round(0 if resultado[0][4] == 0 else resultado[0][1]/resultado[0][4],2)}")
     
-    tabla_resultado=pd.DataFrame(list(zip(*resultado[0])))
+    st.subheader("Resultado óptimo")    
+    tabla_resultado=pd.DataFrame(
+                                 [[resultado[0][0],
+                                   "{:.2f}%".format((resultado[0][0]-self.valor_en_pesos)/self.valor_en_pesos*100),
+                                    round(resultado[0][1],2),
+                                    round(resultado[0][2],2),
+                                    round(resultado[0][3],2),
+                                    round(0 if resultado[0][4] == 0 else resultado[0][1]/resultado[0][4],2)]], 
+                                 columns=['Precio a pagar','variación respecto al original','UODI','EBITDA','EVA','ROIC'])
     st.write(tabla_resultado)
+    
+    st.subheader("Resultados Cercanos")    
+    tabla_resultado=pd.DataFrame(
+                                 [[resultado[i][0],
+                                   "{:.2f}%".format((resultado[i][0]-self.valor_en_pesos)/self.valor_en_pesos*100),
+                                    round(resultado[i][1],2),
+                                    round(resultado[i][2],2),
+                                    round(resultado[i][3],2),
+                                    round(0 if resultado[i][4] == 0 else resultado[i][1]/resultado[i][4],2)] for i in range(len(resultado))], 
+                                 columns=['Precio a pagar','variación respecto al original','UODI','EBITDA','EVA','ROIC'])
+    st.write(tabla_resultado) 
+    
     
     precios = [resultado[i][0] for i in range(len(resultado))]
     UODI = [resultado[i][1] for i in range(len(resultado))]
@@ -37,10 +57,7 @@ class streamlit_frm:
         indicar el precio en pesos y trasnformarlo'''
     
     #inicializo variables locales para uso posterior
-    
-    tabla_resultado=pd.DataFrame([[1,2,3,4]], columns=['col1','col2','col3','col4'])
-    st.write(tabla_resultado)
-    
+
     costo_dolares=0.0
     checkbox_operacion_dolarizado=False
     st.title(titulo)
