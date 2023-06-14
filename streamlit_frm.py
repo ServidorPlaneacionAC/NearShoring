@@ -38,6 +38,9 @@ class streamlit_frm:
     
     #inicializo variables locales para uso posterior
     
+    tabla_resultado=pd.DataFrame(list(zip(*[1,2,3,4])))
+    st.write(tabla_resultado)
+    
     costo_dolares=0.0
     checkbox_operacion_dolarizado=False
     st.title(titulo)
