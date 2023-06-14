@@ -63,7 +63,7 @@ class streamlit_frm:
     st.title(titulo)
     if formulario1 is None:
         #inicializo los valores en 0.0 o vacios si formulario1 no esta declarado
-        formulario1 = {nombre: (0.0 if nombre!= "Incoterm" else "") for nombre in nombres}
+        formulario1 = {nombre: (0.0 if nombre!= "Incoterm" else "FOB") for nombre in nombres}
     
     #indico que mostrare la informacion en 2 columnas e inicializo variable local valores que es donde voy a guardadr temporalmente las respuestas
     col1_1, col1_2 = st.columns(2)
@@ -71,7 +71,10 @@ class streamlit_frm:
     
     with col1_1:
         for i in range(int(len(nombres)/2)):
-            if "Incoterm"==nombres[i]:
+            if "Incoterm"==nombres[i]:              
+                opciones = ["FOB", "COSTO Y FLETE", "EXWORK"]
+                # Muestra una lista desplegable
+                valores.append(st.selectbox("Selecciona una opción:", opciones,value=formulario1[nombres[i]]))
                 valores.append(st.text_input(nombres[i], value=formulario1[nombres[i]]))
             else:    
                 valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
