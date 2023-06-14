@@ -51,17 +51,20 @@ class streamlit_frm:
     eva_escenario3 = [0.3, 0.4, 0.5, 0.6, 0.7]
     
     # Crear el gráfico de líneas
-    plt.plot(precios, eva_escenario1, label='Escenario 1')
-    plt.plot(precios, eva_escenario2, label='Escenario 2')
-    plt.plot(precios, eva_escenario3, label='Escenario 3')
+    fig, ax = plt.subplots()
+    ax.plot(precios, eva_escenario1, label='Escenario 1')
+    ax.plot(precios, eva_escenario2, label='Escenario 2')
+    ax.plot(precios, eva_escenario3, label='Escenario 3')
 
     # Configurar los ejes y la leyenda
-    plt.xlabel('Precios')
-    plt.ylabel('EVA')
-    plt.legend()
+    ax.set_xlabel('Precios')
+    ax.set_ylabel('EVA')
+    ax.legend()
 
-    # Mostrar el gráfico
-    plt.show()
+    # Mostrar el gráfico en Streamlit
+    st.pyplot(fig)
+
+
     #inicializo variables locales para uso posterior
     
     costo_dolares=0.0
