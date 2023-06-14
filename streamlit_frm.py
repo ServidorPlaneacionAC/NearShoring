@@ -40,7 +40,9 @@ class streamlit_frm:
     precios = [resultado[i][0] for i in range(len(resultado))]
     UODI = [resultado[i][1] for i in range(len(resultado))]
     Linea_Base = [0 for i in range(len(resultado))]
-    self.grafica_lineas([precios,Linea_Base],[UODI],["Precios por unidad"],["UODI"])
+    EVA = [resultado[i][3] for i in range(len(resultado))]
+    EBITDA = [resultado[i][2] for i in range(len(resultado))]
+    self.grafica_lineas([precios,Linea_Base,EVA,EBITDA],[UODI],["Precios por unidad"],["UODI"])
     
   def mostrar_formulario_1(self,titulo,nombres, formulario1=None, transaccion_internacional=False):
     '''Funcion que genera los formularios para evaluar las oportunidades de inversión, recibe nombre del escenario, lista nombres que
@@ -119,6 +121,7 @@ class streamlit_frm:
     precios=eje_x[0]
     linea_base=eje_x[1]
     EVA=eje_x[2]
+    EBITDA=eje_x[3]
     UODI=eje_y[0] 
     
 #     Resultado_Compras = Resultado[Resultado['Variable']=="Compra"]
@@ -134,6 +137,9 @@ class streamlit_frm:
   
     fig.add_trace(go.Scatter(x=precios, y=EVA, 
                              name='EVA', mode='lines', line=dict(color='green'), legendrank=True))
+  
+    fig.add_trace(go.Scatter(x=precios, y=EBITDA, 
+                             name='EBITDA', mode='lines', line=dict(color='green'), legendrank=True))
     
     fig.add_trace(go.Scatter(x=precios, y=linea_base, 
                              name='linea base', mode='lines', line=dict(color='Yellow'), legendrank=True))
