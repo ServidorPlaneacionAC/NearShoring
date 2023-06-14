@@ -2,6 +2,7 @@ import streamlit as st
 from streamlit import session_state
 import matplotlib.pyplot as plt
 import mplcursors
+from plotly.subplots import make_subplots
 
 class streamlit_frm:
   def __init__(self,valor_en_pesos,trm=4800.00):
@@ -119,7 +120,7 @@ class streamlit_frm:
     st.pyplot(fig)
     
   def grafica_lineas2(self,eje_x,eje_y,titulo_x,titulo_y):
-    from plotly.subplots import make_subplots
+    
         
     precios=eje_x[0]
     linea_base=eje_x[1]
