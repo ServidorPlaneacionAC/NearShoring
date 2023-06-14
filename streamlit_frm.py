@@ -23,42 +23,6 @@ class streamlit_frm:
     st.write(precios,UODI)
     self.grafica_lineas([precios,Linea_Base],[UODI],["Precios por unidad"],["UODI"])
     
-  def grafica_lineas(self,eje_x,eje_y,titulo_x,titulo_y):
-    
-    precios=eje_x[0]
-    UODI=eje_x[1]
-    fig, ax = plt.subplots()
-    linea1, = ax.plot(precios, UODI, marker='o', label='Escenario 1')
-
-    # Configurar los ejes y la leyenda
-    ax.set_xlabel('Precios')
-    ax.set_ylabel('UODI')
-    ax.legend()
-
-    # Configurar los marcadores y las etiquetas al pasar el mouse
-    cursor1 = mplcursors.cursor(linea1, hover=True)
-    cursor1.connect("add", lambda sel: sel.annotation.set_text(f"({sel.target[0]}, {sel.target[1]})"))
-
-  # Mostrar el gráfico en Streamlit
-    st.pyplot(fig)
-
-  #     # Crear el gráfico de líneas
-  #     fig, ax = plt.subplots()
-  #     ax.plot(precios, UODI, label='Escenario 1')
-  #     ax.plot(precios, Linea_Base, label='Escenario 2')
-
-  #     # Configurar los ejes y la leyenda
-  #     ax.set_xlabel('Valores precio')
-  #     ax.set_ylabel('Uodi')
-  #     ax.legend()
-
-  #     ax.set_ylim(min(UODI), max(UODI))
-
-  #     plt.ticklabel_format(style='plain')  # Mostrar números completos en lugar de notación científica
-  #     st.pyplot(fig)
-
-
-
   def mostrar_formulario_1(self,titulo,nombres, formulario1=None, transaccion_internacional=False):
     '''Funcion que genera los formularios para evaluar las oportunidades de inversión, recibe nombre del escenario, lista nombres que
         indica los campos del formulario, formulario1 que es un diccionario que donde se almacena los valores de los campos, si no se pasa por 
@@ -127,7 +91,32 @@ class streamlit_frm:
             formulario1 = {nombre: valores[index] for index, nombre in enumerate(nombres)}
             self.error=False
             st.success(f"Datos guardados correctamente {valores[-1]}  {self.valor_en_pesos}")
-    
-
-    
+      
     return formulario1,self.valor_en_pesos,self.error,self.trm
+  
+  def grafica_lineas(self,eje_x,eje_y,titulo_x,titulo_y):
+        
+    precios=eje_x[0]
+    linea_base=eje_x[1]
+    UODI=eje_y[0]
+    fig, ax = plt.subplots()
+    linea1, = ax.plot(precios, linea_base, marker='o', label='Escenario 1')
+    linea2, = ax.plot(precios, UODI, marker='o', label='Escenario 1')
+
+    # Configurar los ejes y la leyenda
+    ax.set_xlabel('Precios')
+    ax.set_ylabel('UODI')
+    ax.legend()
+
+    # Configurar los marcadores y las etiquetas al pasar el mouse
+    cursor1 = mplcursors.cursor(linea1, hover=True)
+    cursor1.connect("add", lambda sel: sel.annotation.set_text(f"({sel.target[0]}, {sel.target[1]})"))
+    cursor2 = mplcursors.cursor(linea2, hover=True)
+    cursor2.connect("add", lambda sel: sel.annotation.set_text(f"({sel.target[0]}, {sel.target[1]})"))
+
+  # Mostrar el gráfico en Streamlit
+    st.pyplot(fig)
+
+
+
+
