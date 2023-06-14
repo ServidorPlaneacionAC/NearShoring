@@ -70,28 +70,27 @@ def main():
             session_state.formulario2,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres_2, session_state.formulario2,transaccion_internacional=True)
     elif choice == "Resultados": 
         
-#          if "formulario2" not in session_state or "formulario1" not in session_state or session_state.error:
-#             #las variables de estado formulario 1 y 2 solo se inicializan si se toman como esta alternaativa en el menu de navegacion
-#             #Falta corregir que pasa si diligencio un formulario bien, entro al otro y no guardo
-#             st.error("no se ha diligenciado algun escenario")
-#          else:
-#             valores=[]
-#             valores_2=[]
-#             resultado=[]
-#             for nombre in nombres:
-#                 valores.append(session_state.formulario1[nombre])
-#             for nombre in nombres_2:
-#                 valores_2.append(session_state.formulario2[nombre])
-#             #Almaceno valores en listas para pasarolo como parametros a las funciones eva y uodi 
-#             if agregar_costo_capital:
-#                 resultado.append(calculos.eva(valores,valores_2))
-#                 for i in range(-5,6,1):
-#                     resultado.append(calculos.valores_eva(valores,valores_2,resultado[0][0]+(i*(resultado[0][0]/15))))
-#             else:
-#                 resultado.append(calculos.uodi(valores,valores_2))
-#                 for i in range(-5,6,1):
-#                     resultado.append(calculos.valores_uodi(valores,valores_2,resultado[0][0]+(i*(resultado[0][0]/15))))                
-            resultado=1    
+         if "formulario2" not in session_state or "formulario1" not in session_state or session_state.error:
+            #las variables de estado formulario 1 y 2 solo se inicializan si se toman como esta alternaativa en el menu de navegacion
+            #Falta corregir que pasa si diligencio un formulario bien, entro al otro y no guardo
+            st.error("no se ha diligenciado algun escenario")
+         else:
+            valores=[]
+            valores_2=[]
+            resultado=[]
+            for nombre in nombres:
+                valores.append(session_state.formulario1[nombre])
+            for nombre in nombres_2:
+                valores_2.append(session_state.formulario2[nombre])
+            #Almaceno valores en listas para pasarolo como parametros a las funciones eva y uodi 
+            if agregar_costo_capital:
+                resultado.append(calculos.eva(valores,valores_2))
+                for i in range(-5,6,1):
+                    resultado.append(calculos.valores_eva(valores,valores_2,resultado[0][0]+(i*(resultado[0][0]/15))))
+            else:
+                resultado.append(calculos.uodi(valores,valores_2))
+                for i in range(-5,6,1):
+                    resultado.append(calculos.valores_uodi(valores,valores_2,resultado[0][0]+(i*(resultado[0][0]/15))))  
             frm.resultados1(resultado)
 
 if __name__ == "__main__":
