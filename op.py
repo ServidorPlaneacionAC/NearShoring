@@ -26,7 +26,7 @@ def main():
         "Factor lead time: De 0 a 1 qué tan confiable es el lead time, siendo 0 muy seguro y 1 completamente variable",
         "Factor variación: De 0 a 1 qué tan confiable es el consumo, siendo 0 muy seguro y 1 completamente variable",
         "Estandar posición: Unidades por estiba",
-        "Tarifa almacenamiento")
+        "Tarifa almacenamiento por unidad de consumo")
     
     nombres_2=(
         "Cantidad: unidades con los que se generará la comparación entre proveedores",
@@ -43,7 +43,7 @@ def main():
         "lead time puerto-puerto",
         "lead time gestión cargo",
         "lead time gz-planta",
-        "Tarifa almacenamiento",
+        "Tarifa almacenamiento por unidad de consumo",
         "Precio compra: no incluye aranceles")
     
     st.sidebar.title("Escenarios")
