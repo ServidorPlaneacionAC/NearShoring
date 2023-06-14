@@ -21,9 +21,9 @@ class streamlit_frm:
     UODI = [resultado[i][1] for i in range(len(resultado))]
     Linea_Base = [0 for i in range(len(resultado))]
     st.write(precios,UODI)
-    grafica_lineas(precios,UODI,"Precios por unidad,UODI")
+    grafica_lineas([precios,Linea_Base],[UODI],["Precios por unidad"],["UODI"])
     
-def grafica_lineas(self,[eje_x,Linea_Base],[eje_y],[titulo_x],[titulo_y]):
+def grafica_lineas(self,eje_x,eje_y,titulo_x,titulo_y):
   
   fig, ax = plt.subplots()
   linea1, = ax.plot(precios, eva_escenario1, marker='o', label='Escenario 1')
