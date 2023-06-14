@@ -74,7 +74,7 @@ class streamlit_frm:
             if "Incoterm"==nombres[i]:              
                 opciones = ["FOB", "COSTO Y FLETE", "EXWORK"]
                 # Muestra una lista desplegable
-                valores.append(st.selectbox("Selecciona una opción:", opciones,index=0, key="Incoterm",value=formulario1[nombres[i]]))
+                valores.append(st.selectbox("Selecciona un Incoterm:", opciones,index=0, key="Incoterm"))
             else:    
                 valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
         
