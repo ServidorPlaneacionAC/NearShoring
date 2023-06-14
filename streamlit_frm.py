@@ -21,7 +21,7 @@ class streamlit_frm:
     UODI = [resultado[i][1] for i in range(len(resultado))]
     Linea_Base = [0 for i in range(len(resultado))]
     st.write(precios,UODI)
-    grafica_lineas([precios,Linea_Base],[UODI],["Precios por unidad"],["UODI"])
+    self.grafica_lineas([precios,Linea_Base],[UODI],["Precios por unidad"],["UODI"])
     
   def grafica_lineas(self,eje_x,eje_y,titulo_x,titulo_y):
     
