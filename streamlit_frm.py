@@ -16,7 +16,7 @@ class streamlit_frm:
     st.write(f"EVA: {resultado[0][3]}")
     st.write(f"ROIC: {0 if resultado[0][4] == 0 else resultado[0][1]/resultado[0][4]}")
     
-    precios = [resultado[i][0] for i in range(len(resultado)[0]]
+    precios = [resultado[i][0] for i in range(len(resultado)[0])]
     st.write(precios)
     for i in range(len(resultado)[0]):
       eva_escenario1 = [0.5, 0.6, 0.7, 0.8, 0.9]
