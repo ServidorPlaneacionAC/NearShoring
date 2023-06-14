@@ -75,7 +75,6 @@ class streamlit_frm:
                 opciones = ["FOB", "COSTO Y FLETE", "EXWORK"]
                 # Muestra una lista desplegable
                 valores.append(st.selectbox("Selecciona una opción:", opciones,value=formulario1[nombres[i]]))
-                valores.append(st.text_input(nombres[i], value=formulario1[nombres[i]]))
             else:    
                 valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
         
