@@ -22,7 +22,6 @@ class streamlit_frm:
     precios = [resultado[i][0] for i in range(len(resultado))]
     UODI = [resultado[i][1] for i in range(len(resultado))]
     Linea_Base = [0 for i in range(len(resultado))]
-    st.write(precios,UODI)
     self.grafica_lineas([precios,Linea_Base],[UODI],["Precios por unidad"],["UODI"])
     
   def mostrar_formulario_1(self,titulo,nombres, formulario1=None, transaccion_internacional=False):
