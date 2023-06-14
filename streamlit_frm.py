@@ -15,23 +15,20 @@ class streamlit_frm:
     st.write(f"EBITDA: {resultado[0][2]}")
     st.write(f"EVA: {resultado[0][3]}")
     st.write(f"ROIC: {0 if resultado[0][4] == 0 else resultado[0][1]/resultado[0][4]}")
-    st.write(len(resultado[0]))
-    precios = [resultado[i][0] for i in range(len(resultado)[0])]
+    
+    precios = [resultado[i][0] for i in range(len(resultado))]
     st.write(precios)
-    for i in range(len(resultado)[0]):
-      eva_escenario1 = [0.5, 0.6, 0.7, 0.8, 0.9]
-      eva_escenario2 = [0.4, 0.5, 0.6, 0.7, 0.8]
-      eva_escenario3 = [0.3, 0.4, 0.5, 0.6, 0.7]
+    UODI = [resultado[i][1] for i in range(len(resultado))]
+    Linea_Base = [0 for i in range(len(resultado))]
 
       # Crear el gráfico de líneas
-      fig, ax = plt.subplots()
-      ax.plot(precios, eva_escenario1, label='Escenario 1')
-      ax.plot(precios, eva_escenario2, label='Escenario 2')
-      ax.plot(precios, eva_escenario3, label='Escenario 3')
+    fig, ax = plt.subplots()
+    ax.plot(precios, UODI, label='Escenario 1')
+    ax.plot(precios, Linea_Base, label='Escenario 2')
 
     # Configurar los ejes y la leyenda
-    ax.set_xlabel('Precios')
-    ax.set_ylabel('EVA')
+    ax.set_xlabel('Valores precio')
+    ax.set_ylabel('Uodi')
     ax.legend()
 
     # Mostrar el gráfico en Streamlit
