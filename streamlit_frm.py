@@ -32,6 +32,8 @@ class streamlit_frm:
     ax.set_ylabel('Uodi')
     ax.legend()
 
+    ax.set_ylim(min(UODI), max(UODI))
+    
     # Mostrar el gráfico en Streamlit
     st.pyplot(fig)
     
