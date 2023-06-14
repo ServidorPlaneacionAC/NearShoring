@@ -43,7 +43,23 @@ class streamlit_frm:
         indica los campos del formulario, formulario1 que es un diccionario que donde se almacena los valores de los campos, si no se pasa por 
         parametro inicializa las variables en 0 y transaccion_internacional que es un booleano que indica si se debe o no añadir la opción de 
         indicar el precio en pesos y trasnformarlo'''
-    
+    precios = [10, 20, 30, 40, 50]
+    eva_escenario1 = [0.5, 0.6, 0.7, 0.8, 0.9]
+    eva_escenario2 = [0.4, 0.5, 0.6, 0.7, 0.8]
+    eva_escenario3 = [0.3, 0.4, 0.5, 0.6, 0.7]
+
+    # Crear el gráfico de líneas
+    plt.plot(precios, eva_escenario1, label='Escenario 1')
+    plt.plot(precios, eva_escenario2, label='Escenario 2')
+    plt.plot(precios, eva_escenario3, label='Escenario 3')
+
+    # Configurar los ejes y la leyenda
+    plt.xlabel('Precios')
+    plt.ylabel('EVA')
+    plt.legend()
+
+    # Mostrar el gráfico
+    plt.show()
     #inicializo variables locales para uso posterior
     costo_dolares=0.0
     checkbox_operacion_dolarizado=False
@@ -106,22 +122,6 @@ class streamlit_frm:
             self.error=False
             st.success(f"Datos guardados correctamente {valores[-1]}  {self.valor_en_pesos}")
     
-    precios = [10, 20, 30, 40, 50]
-    eva_escenario1 = [0.5, 0.6, 0.7, 0.8, 0.9]
-    eva_escenario2 = [0.4, 0.5, 0.6, 0.7, 0.8]
-    eva_escenario3 = [0.3, 0.4, 0.5, 0.6, 0.7]
 
-    # Crear el gráfico de líneas
-    plt.plot(precios, eva_escenario1, label='Escenario 1')
-    plt.plot(precios, eva_escenario2, label='Escenario 2')
-    plt.plot(precios, eva_escenario3, label='Escenario 3')
-
-    # Configurar los ejes y la leyenda
-    plt.xlabel('Precios')
-    plt.ylabel('EVA')
-    plt.legend()
-
-    # Mostrar el gráfico
-    plt.show()
     
     return formulario1,self.valor_en_pesos,self.error,self.trm
