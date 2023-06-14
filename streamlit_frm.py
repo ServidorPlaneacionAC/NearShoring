@@ -10,12 +10,7 @@ class streamlit_frm:
         self.error=True
         self.trm=trm
         self.valor_en_pesos=valor_en_pesos 
-  
-  def resultados1(self,resultado):
-    self.grafica_lineas([[i for i in range(10)],[0 for i in range(10)]],[[i-5 for i in range(10)]],["Precios por unidad"],["UODI"])
-    self.grafica_lineas2([[i for i in range(10)],[0 for i in range(10)]],[[i-5 for i in range(10)]],["Precios por unidad"],["UODI"])
     
-  
   def resultados(self,resultado):
     st.write(f"El precio maximo a pagar es: {resultado[0][0]}")
     st.write("implica una variación de {:.2f}%".format((resultado[0][0]-self.valor_en_pesos)/self.valor_en_pesos*100))    
@@ -28,8 +23,7 @@ class streamlit_frm:
     UODI = [resultado[i][1] for i in range(len(resultado))]
     Linea_Base = [0 for i in range(len(resultado))]
     st.write(precios,UODI)
-    self.grafica_lineas([precios,Linea_Base],[UODI],["Precios por unidad"],["UODI"])
-#     self.grafica_lineas2([precios,Linea_Base],[UODI],["Precios por unidad"],["UODI"])
+    self.grafica_lineas2([precios,Linea_Base],[UODI],["Precios por unidad"],["UODI"])
     
   def mostrar_formulario_1(self,titulo,nombres, formulario1=None, transaccion_internacional=False):
     '''Funcion que genera los formularios para evaluar las oportunidades de inversión, recibe nombre del escenario, lista nombres que
@@ -101,33 +95,9 @@ class streamlit_frm:
             st.success(f"Datos guardados correctamente {valores[-1]}  {self.valor_en_pesos}")
       
     return formulario1,self.valor_en_pesos,self.error,self.trm
-  
-  def grafica_lineas(self,eje_x,eje_y,titulo_x,titulo_y):
-        
-    precios=eje_x[0]
-    linea_base=eje_x[1]
-    UODI=eje_y[0]
-    fig, ax = plt.subplots()
-    linea1, = ax.plot(precios, linea_base, marker='o', label='Escenario 1')
-    linea2, = ax.plot(precios, UODI, marker='o', label='Escenario 1')
-
-    # Configurar los ejes y la leyenda
-    ax.set_xlabel('Precios')
-    ax.set_ylabel('UODI')
-    ax.legend()
-
-    # Configurar los marcadores y las etiquetas al pasar el mouse
-    cursor1 = mplcursors.cursor(linea1, hover=True)
-    cursor1.connect("add", lambda sel: sel.annotation.set_text(f"({sel.target[0]}, {sel.target[1]})"))
-    cursor2 = mplcursors.cursor(linea2, hover=True)
-    cursor2.connect("add", lambda sel: sel.annotation.set_text(f"({sel.target[0]}, {sel.target[1]})"))
-
-  # Mostrar el gráfico en Streamlit
-    st.pyplot(fig)
+      
     
-  def grafica_lineas2(self,eje_x,eje_y,titulo_x,titulo_y):
-    
-        
+  def grafica_lineas(self,eje_x,eje_y,titulo_x,titulo_y):         
     precios=eje_x[0]
     linea_base=eje_x[1]
     UODI=eje_y[0] 
