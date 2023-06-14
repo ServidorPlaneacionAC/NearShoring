@@ -124,41 +124,41 @@ class streamlit_frm:
   # Mostrar el gráfico en Streamlit
     st.pyplot(fig)
     
-#   def grafica_lineas2(self,eje_x,eje_y,titulo_x,titulo_y):
+  def grafica_lineas2(self,eje_x,eje_y,titulo_x,titulo_y):
     
         
-#     precios=eje_x[0]
-#     linea_base=eje_x[1]
-#     UODI=eje_y[0] 
+    precios=eje_x[0]
+    linea_base=eje_x[1]
+    UODI=eje_y[0] 
     
-# #     Resultado_Compras = Resultado[Resultado['Variable']=="Compra"]
-# #     Resultado_Inventario = Resultado[Resultado['Variable']=="Inventario"]
-# #     Resultado_CostoTotal = Resultado[Resultado['Variable']=="CostoTotal"]
+#     Resultado_Compras = Resultado[Resultado['Variable']=="Compra"]
+#     Resultado_Inventario = Resultado[Resultado['Variable']=="Inventario"]
+#     Resultado_CostoTotal = Resultado[Resultado['Variable']=="CostoTotal"]
     
-#     fig = make_subplots(specs=[[{"secondary_y": True}]])
+    fig = make_subplots(specs=[[{"secondary_y": True}]])
 
-# #     fig.add_trace(go.Scatter(x=precios, y=UODI, name='Compras'))
+#     fig.add_trace(go.Scatter(x=precios, y=UODI, name='Compras'))
 
-#     fig.add_trace(go.Scatter(x=precios, y=UODI, 
-#                              name='UODI', mode='lines', line=dict(color='green'), legendrank=True))
+    fig.add_trace(go.Scatter(x=precios, y=UODI, 
+                             name='UODI', mode='lines', line=dict(color='green'), legendrank=True))
     
-#     fig.add_trace(go.Scatter(x=precios y=linea_base, 
-#                              name='linea base', mode='lines', line=dict(color='Yellow'), legendrank=True))
+    fig.add_trace(go.Scatter(x=precios y=linea_base, 
+                             name='linea base', mode='lines', line=dict(color='Yellow'), legendrank=True))
 
-# #     fig.add_trace(go.Scatter(x=Resultado_Compras['Semana'], y=Resultado_Compras['Precios'], 
-# #                              name='Precios', mode='lines', line=dict(color='orange'), legendrank=True), secondary_y=True)
+#     fig.add_trace(go.Scatter(x=Resultado_Compras['Semana'], y=Resultado_Compras['Precios'], 
+#                              name='Precios', mode='lines', line=dict(color='orange'), legendrank=True), secondary_y=True)
 
-#     fig.update_layout(title='Compra de Oportunidad',
-#                       xaxis=dict(title='Precios'),
-#                       yaxis=dict(title='Valor'),
-# #                       yaxis2=dict(title='Precios', overlaying='y', side='right'),
-#                      legend=dict(
-#                     orientation="h",
-#                     yanchor="bottom",
-#                     y=1.02,
-#                     xanchor="right",
-#                     x=1
-#                 ))
+    fig.update_layout(title='Compra de Oportunidad',
+                      xaxis=dict(title='Precios'),
+                      yaxis=dict(title='Valor'),
+#                       yaxis2=dict(title='Precios', overlaying='y', side='right'),
+                     legend=dict(
+                    orientation="h",
+                    yanchor="bottom",
+                    y=1.02,
+                    xanchor="right",
+                    x=1
+                ))
 
-#     st.write(fig)
+    st.write(fig)
 
