@@ -118,7 +118,7 @@ class streamlit_frm:
 #     fig.add_trace(go.Scatter(x=Resultado_Compras['Semana'], y=Resultado_Compras['Precios'], 
 #                              name='Precios', mode='lines', line=dict(color='orange'), legendrank=True), secondary_y=True)
 
-    fig.update_layout(title='Compra de Oportunidad',
+    fig.update_layout(title='Variación de indicadores financieros en funcion del precio',
                       xaxis=dict(title='Precios'),
                       yaxis=dict(title='Valor'),
 #                       yaxis2=dict(title='Precios', overlaying='y', side='right'),
