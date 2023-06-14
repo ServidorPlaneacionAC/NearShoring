@@ -142,7 +142,7 @@ class streamlit_frm:
     fig.add_trace(go.Scatter(x=precios, y=UODI, 
                              name='UODI', mode='lines', line=dict(color='green'), legendrank=True))
     
-    fig.add_trace(go.Scatter(x=precios y=linea_base, 
+    fig.add_trace(go.Scatter(x=precios, y=linea_base, 
                              name='linea base', mode='lines', line=dict(color='Yellow'), legendrank=True))
 
 #     fig.add_trace(go.Scatter(x=Resultado_Compras['Semana'], y=Resultado_Compras['Precios'], 
