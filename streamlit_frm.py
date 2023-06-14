@@ -23,7 +23,7 @@ class streamlit_frm:
     Linea_Base = [0 for i in range(len(resultado))]
     st.write(precios,UODI)
     self.grafica_lineas([precios,Linea_Base],[UODI],["Precios por unidad"],["UODI"])
-    self.grafica_lineas2([precios,Linea_Base],[UODI],["Precios por unidad"],["UODI"])
+#     self.grafica_lineas2([precios,Linea_Base],[UODI],["Precios por unidad"],["UODI"])
     
   def mostrar_formulario_1(self,titulo,nombres, formulario1=None, transaccion_internacional=False):
     '''Funcion que genera los formularios para evaluar las oportunidades de inversión, recibe nombre del escenario, lista nombres que
