@@ -21,7 +21,8 @@ class streamlit_frm:
     st.write(f"EVA: {round(resultado[0][3],2)}")
     st.write(f"ROIC: {round(0 if resultado[0][4] == 0 else resultado[0][1]/resultado[0][4],2)}")
     
-    pd.DataFrame(list(zip(*resultado[0])))
+    tabla_resultado=pd.DataFrame(list(zip(*resultado[0])))
+    st.write(tabla_resultado)
     
     precios = [resultado[i][0] for i in range(len(resultado))]
     UODI = [resultado[i][1] for i in range(len(resultado))]
