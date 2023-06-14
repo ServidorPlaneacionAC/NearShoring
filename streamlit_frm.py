@@ -15,7 +15,7 @@ class streamlit_frm:
     st.write(f"EBITDA: {resultado[0][2]}")
     st.write(f"EVA: {resultado[0][3]}")
     st.write(f"ROIC: {0 if resultado[0][4] == 0 else resultado[0][1]/resultado[0][4]}")
-    
+    st.write(len(resultado))
     precios = [resultado[i][0] for i in range(len(resultado)[0])]
     st.write(precios)
     for i in range(len(resultado)[0]):
