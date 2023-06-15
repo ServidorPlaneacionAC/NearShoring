@@ -44,7 +44,7 @@ class streamlit_frm:
     EBITDA = [resultado[i][2] for i in range(len(resultado))]
     self.grafica_lineas([precios,Linea_Base,EVA,EBITDA],[UODI],["Precios por unidad"],["UODI"])
     
-  def mostrar_formulario_1(self,titulo,nombres, formulario1=None, transaccion_internacional=False):
+  def mostrar_formulario_1(self,titulo,nombres, formulario1=None, transaccion_internacional=False,datos=[]):
     '''Funcion que genera los formularios para evaluar las oportunidades de inversión, recibe nombre del escenario, lista nombres que
         indica los campos del formulario, formulario1 que es un diccionario que donde se almacena los valores de los campos, si no se pasa por 
         parametro inicializa las variables en 0 y transaccion_internacional que es un booleano que indica si se debe o no añadir la opción de 
@@ -57,6 +57,7 @@ class streamlit_frm:
     if formulario1 is None:
         #inicializo los valores en 0.0 o vacios si formulario1 no esta declarado
         formulario1 = {nombre: (0.0 if nombre!= "Incoterm" else "FOB") for nombre in nombres}
+        # formulario1 = {nombre: datos.index(nombre) for nombre in nombres}
     
     #indico que mostrare la informacion en 2 columnas e inicializo variable local valores que es donde voy a guardadr temporalmente las respuestas
     col1_1, col1_2 = st.columns(2)
