@@ -71,9 +71,9 @@ def main():
     frm= streamlit_frm(session_state.valor_en_pesos,session_state.trm)
     if choice == "Nuevo Escenario":
         if "formulario1" not in session_state:
-            session_state.formulario1,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres,datos1_)
+            session_state.formulario1,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres)
         else:
-            session_state.formulario1,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres, session_state.formulario1,datos1_)
+            session_state.formulario1,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres, session_state.formulario1)
     elif choice == "Escenario Anterior":
         if "formulario2" not in session_state:
             session_state.formulario2,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres_2,transaccion_internacional=True)
