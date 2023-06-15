@@ -27,6 +27,17 @@ def main():
         "Factor variación: De 0 a 1 qué tan confiable es el consumo, siendo 0 muy seguro y 1 completamente variable",
         "Estandar posición: Unidades por estiba",
         "Tarifa almacenamiento por unidad de consumo")
+
+    datos1_=[30000.0,
+            4.0,
+            1.0,
+            8.57,
+            1200.0,
+            20890.0,
+            0.4,
+            0.1,
+            15.0,
+            350]
     
     nombres_2=(
         "Cantidad: unidades con los que se generará la comparación entre proveedores",
@@ -60,9 +71,9 @@ def main():
     frm= streamlit_frm(session_state.valor_en_pesos,session_state.trm)
     if choice == "Nuevo Escenario":
         if "formulario1" not in session_state:
-            session_state.formulario1,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres)
+            session_state.formulario1,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres,datos1_)
         else:
-            session_state.formulario1,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres, session_state.formulario1)
+            session_state.formulario1,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres, session_state.formulario1,datos1_)
     elif choice == "Escenario Anterior":
         if "formulario2" not in session_state:
             session_state.formulario2,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres_2,transaccion_internacional=True)
