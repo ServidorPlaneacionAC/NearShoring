@@ -56,8 +56,40 @@ class streamlit_frm:
     st.title(titulo)
     if formulario1 is None:
         #inicializo los valores en 0.0 o vacios si formulario1 no esta declarado
-        formulario1 = {nombre: (0.0 if nombre!= "Incoterm" else "FOB") for nombre in nombres}
-        # formulario1 = {nombre: datos.index(nombre) for nombre in nombres}
+        # formulario1 = {nombre: (0.0 if nombre!= "Incoterm" else "FOB") for nombre in nombres}
+
+        
+        if 'Nuevo Escenario'==titulo:
+            formulario1={ "Cantidad: unidades con los que se generará la comparación entre proveedores": 30000.0,
+                        "Frecuencia: Temporalidad estimadda para recalcular próximo envío":4.0,
+                        "Lead time planta-puerto":1.0,
+                        "Semanas cxp: tiempo en semanas estimado para pagar a mi proveedor el pedido actual":8.57,
+                        "Moq: Cantidad mínima a pedir (en la unidad que se desee manejar)":1200.0,
+                        "Adu: Consumo promedio diario (en la unidad que se desee manejar)":20890.0,
+                        "Factor lead time: De 0 a 1 qué tan confiable es el lead time, siendo 0 muy seguro y 1 completamente variable":0.4,
+                        "Factor variación: De 0 a 1 qué tan confiable es el consumo, siendo 0 muy seguro y 1 completamente variable":0.3,
+                        "Estandar posición: Unidades por estiba":350.0,
+                        "Tarifa almacenamiento por unidad de consumo":15.0
+                        }
+        else:
+            formulario1={
+            "Cantidad: unidades con los que se generará la comparación entre proveedores":30000.0,
+            "Frecuencia: Temporalidad estimadda para recalcular próximo enví":4.0,
+            "Incoterm":"FOB",   
+            "lead time planta-puerto":10.0,
+            "Semanas cxp: tiempo en semanas estimado para pagar a mi proveedor el pedido actual":12.87,
+            "Moq: Cantidad mínima a pedir (en la unidad que se desee manejar)":24000.0,
+            "Adu: Consumo promedio diario (en la unidad que se desee manejar)":23800.0,
+            "Factor lead time: De 0 a 1 qué tan confiable es el lead time, siendo 0 muy seguro y 1 completamente variable":0.1,
+            "Factor variación: De 0 a 1 qué tan confiable es el consumo, siendo 0 muy seguro y 1 completamente variable":0.3,
+            "Estandar posición: Unidades por estiba":350.0,
+            "lead time tiempo-admon":10.0,
+            "lead time puerto-puerto":8.0,
+            "lead time gestión cargo":2.0,
+            "lead time gz-planta":1.0,
+            "Tarifa almacenamiento por unidad de consumo":15.0,
+            "Precio compra: no incluye aranceles":14000.0
+            }
     
     #indico que mostrare la informacion en 2 columnas e inicializo variable local valores que es donde voy a guardadr temporalmente las respuestas
     col1_1, col1_2 = st.columns(2)
