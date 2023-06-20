@@ -91,7 +91,7 @@ def main():
                 resultado.append(calculos.uodi(valores,valores_2))
                 for i in range(-5,6,1):
                     resultado.append(calculos.valores_uodi(valores,valores_2,resultado[0][0]+(i*(resultado[0][0]/15))))  
-            frm.resultados(resultado,valores,valores_2)
+            frm.resultados(resultado,valores,valores_2,agregar_costo_capital)
 
 if __name__ == "__main__":
     main()

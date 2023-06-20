@@ -13,7 +13,7 @@ class streamlit_frm:
         self.trm=trm
         self.valor_en_pesos=valor_en_pesos 
     
-  def resultados(self,resultado,valores,valores_2):
+  def resultados(self,resultado,valores,valores_2,costo_capital):
     
     st.subheader("Resultado óptimo")    
     tabla_resultado=pd.DataFrame(
@@ -28,7 +28,10 @@ class streamlit_frm:
     
     checkbox_ingresar_valor_negocicion = st.checkbox("Indicar un precio de negociación para evaluar los indicadores de flujo")
     if checkbox_ingresar_valor_negocicion:
-        resultados_nuevo_precio=calculos.valores_uodi(valores,valores_2,st.number_input("Precio negociación", step=0.1, min_value=0.0, max_value=100000.0, value=0.0))
+        if costo_capital:
+            resultados_nuevo_precio=calculos.valores_eva(valores,valores_2,st.number_input("Precio negociación", step=0.1, min_value=0.0, max_value=100000.0, value=1.0))
+        else:
+            resultados_nuevo_precio=calculos.valores_uodi(valores,valores_2,st.number_input("Precio negociación", step=0.1, min_value=0.0, max_value=100000.0, value=1.0))
         nueva_tabla_resultado=pd.DataFrame(
                                     [[resultados_nuevo_precio[0],
                                     "{:.2f}%".format((resultados_nuevo_precio[0]-self.valor_en_pesos)/self.valor_en_pesos*100),
