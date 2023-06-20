@@ -28,10 +28,11 @@ class streamlit_frm:
     
     checkbox_ingresar_valor_negocicion = st.checkbox("Indicar un precio de negociación para evaluar los indicadores de flujo")
     if checkbox_ingresar_valor_negocicion:
+        nuevo_precio=st.number_input("Precio negociación", step=0.1, min_value=0.0, max_value=100000.0, value=1.0)
         if costo_capital:
-            resultados_nuevo_precio=calculos.valores_eva(valores,valores_2,st.number_input("Precio negociación", step=0.1, min_value=0.0, max_value=100000.0, value=1.0))
+            resultados_nuevo_precio=calculos.valores_eva(valores,valores_2,nuevo_precio)
         else:
-            resultados_nuevo_precio=calculos.valores_uodi(valores,valores_2,st.number_input("Precio negociación", step=0.1, min_value=0.0, max_value=100000.0, value=1.0))
+            resultados_nuevo_precio=calculos.valores_uodi(valores,valores_2,nuevo_precio)
         nueva_tabla_resultado=pd.DataFrame(
                                     [[resultados_nuevo_precio[0],
                                     "{:.2f}%".format((resultados_nuevo_precio[0]-self.valor_en_pesos)/self.valor_en_pesos*100),
@@ -59,7 +60,11 @@ class streamlit_frm:
     Linea_Base = [0 for i in range(len(resultado))]
     EVA = [-resultado[i][3] for i in range(len(resultado))]
     EBITDA = [-resultado[i][2] for i in range(len(resultado))]
-    self.grafica_lineas([precios,Linea_Base,EVA,EBITDA],[UODI],["Precios por unidad"],["UODI"])
+
+    if checkbox_ingresar_valor_negocicion:
+        self.grafica_lineas([precios,Linea_Base,EVA,EBITDA],[UODI],["Precios por unidad"],["UODI"],nuevo_precio if nuevo_precio> 1.0 else 0.0)
+    else:
+        self.grafica_lineas([precios,Linea_Base,EVA,EBITDA],[UODI],["Precios por unidad"],["UODI"])
     
   def mostrar_formulario_1(self,titulo,nombres, formulario1=None, transaccion_internacional=False):
     '''Funcion que genera los formularios para evaluar las oportunidades de inversión, recibe nombre del escenario, lista nombres que
@@ -166,7 +171,7 @@ class streamlit_frm:
       
     return formulario1,self.valor_en_pesos,self.error,self.trm
           
-  def grafica_lineas(self,eje_x,eje_y,titulo_x,titulo_y):         
+  def grafica_lineas(self,eje_x,eje_y,titulo_x,titulo_y,nuevo_precio=0.0):         
     precios=eje_x[0]
     linea_base=eje_x[1]
     EVA=eje_x[2]
@@ -195,6 +200,12 @@ class streamlit_frm:
 
 #     fig.add_trace(go.Scatter(x=Resultado_Compras['Semana'], y=Resultado_Compras['Precios'], 
 #                              name='Precios', mode='lines', line=dict(color='orange'), legendrank=True), secondary_y=True)
+    if nuevo_precio>0:
+        fig.add_shape(
+            type="line",
+            x0=nuevo_precio, y0=min(UODI), x1=nuevo_precio, y1=max(UODI),
+            line=dict(color="blue", width=2, dash="dash"),
+        )
 
     fig.update_layout(title='Variación de indicadores financieros en funcion del precio',
                       xaxis=dict(title='Precios'),
