@@ -61,7 +61,7 @@ class streamlit_frm:
         
         if 'Nuevo Escenario'==titulo:
             formulario1={ "Cantidad: unidades con los que se generará la comparación entre proveedores": 30000.0,
-                        "Frecuencia: Temporalidad estimadda para recalcular próximo envío":4.0,
+                        "Frecuencia: Temporalidad estimadda para recalcular próximo envío":1.0,
                         "Lead time planta-puerto":1.0,
                         "Semanas cxp: tiempo en semanas estimado para pagar a mi proveedor el pedido actual":8.57,
                         "Moq: Cantidad mínima a pedir (en la unidad que se desee manejar)":1200.0,
