@@ -124,7 +124,7 @@ class streamlit_frm:
                 # Muestra una lista desplegable
                 valores.append(st.selectbox("Selecciona un Incoterm:", opciones,index=opciones.index(formulario1[nombres[i]]), key="Incoterm"))
             else:    
-                valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
+                valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=10000000.0, value=formulario1[nombres[i]]))
         
         if transaccion_internacional==True:
             #genero proceso extra para transformar de dolares a pesos y pesos a dolares
