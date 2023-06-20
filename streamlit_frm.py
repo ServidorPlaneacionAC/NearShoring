@@ -5,6 +5,7 @@ import mplcursors
 from plotly.subplots import make_subplots
 import plotly.graph_objs as go
 import pandas as pd
+import utils as calculos
 
 class streamlit_frm:
   def __init__(self,valor_en_pesos,trm=4800.00):
@@ -12,7 +13,7 @@ class streamlit_frm:
         self.trm=trm
         self.valor_en_pesos=valor_en_pesos 
     
-  def resultados(self,resultado):
+  def resultados(self,resultado,valores,valores_2):
     
     st.subheader("Resultado óptimo")    
     tabla_resultado=pd.DataFrame(
@@ -25,6 +26,20 @@ class streamlit_frm:
                                  columns=['Precio a pagar','variación respecto al original','UODI','EBITDA','EVA','ROIC'])
     st.write(tabla_resultado)
     
+    checkbox_ingresar_valor_negocicion = st.checkbox("Indicar un precio de negociación para evaluar los indicadores de flujo")
+    if checkbox_ingresar_valor_negocicion:
+        resultados_nuevo_precio=calculos.valores_uodi(valores,valores_2,st.number_input("Precio negociación", step=0.1, min_value=0.0, max_value=100000.0, value=0.0))
+        nueva_tabla_resultado=pd.DataFrame(
+                                    [[resultados_nuevo_precio[0],
+                                    "{:.2f}%".format((resultados_nuevo_precio[0]-self.valor_en_pesos)/self.valor_en_pesos*100),
+                                        round(resultados_nuevo_precio[1],2),
+                                        -round(resultados_nuevo_precio[2],2),
+                                        -round(resultados_nuevo_precio[3],2),
+                                        -round(0 if resultados_nuevo_precio[4] == 0 else resultados_nuevo_precio[1]/resultados_nuevo_precio[4],2)]], 
+                                    columns=['Precio a pagar','variación respecto al original','UODI','EBITDA','EVA','ROIC'])
+        st.write(nueva_tabla_resultado)
+
+
     st.subheader("Resultados Cercanos")    
     tabla_resultado=pd.DataFrame(
                                  [[resultado[i][0],
@@ -35,8 +50,7 @@ class streamlit_frm:
                                     -round(0 if resultado[i][4] == 0 else resultado[i][1]/resultado[i][4],2)] for i in range(len(resultado))], 
                                  columns=['Precio a pagar','variación respecto al original','UODI','EBITDA','EVA','ROIC'])
     st.write(tabla_resultado[1:]) 
-    
-    
+        
     precios = [resultado[i][0] for i in range(len(resultado))]
     UODI = [-resultado[i][1] for i in range(len(resultado))]
     Linea_Base = [0 for i in range(len(resultado))]
@@ -148,8 +162,7 @@ class streamlit_frm:
             st.success(f"Datos guardados correctamente ")
       
     return formulario1,self.valor_en_pesos,self.error,self.trm
-      
-    
+          
   def grafica_lineas(self,eje_x,eje_y,titulo_x,titulo_y):         
     precios=eje_x[0]
     linea_base=eje_x[1]

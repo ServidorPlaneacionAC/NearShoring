@@ -27,17 +27,6 @@ def main():
         "Factor variación: De 0 a 1 qué tan confiable es el consumo, siendo 0 muy seguro y 1 completamente variable",
         "Estandar posición: Unidades por estiba",
         "Tarifa almacenamiento por unidad de consumo")
-
-    datos1_=[30000.0,
-            4.0,
-            1.0,
-            8.57,
-            1200.0,
-            20890.0,
-            0.4,
-            0.1,
-            15.0,
-            350]
     
     nombres_2=(
         "Cantidad: unidades con los que se generará la comparación entre proveedores",
@@ -102,7 +91,7 @@ def main():
                 resultado.append(calculos.uodi(valores,valores_2))
                 for i in range(-5,6,1):
                     resultado.append(calculos.valores_uodi(valores,valores_2,resultado[0][0]+(i*(resultado[0][0]/15))))  
-            frm.resultados(resultado)
+            frm.resultados(resultado,valores,valores_2)
 
 if __name__ == "__main__":
     main()
