@@ -120,6 +120,7 @@ class streamlit_frm:
     #indico que mostrare la informacion en 2 columnas e inicializo variable local valores que es donde voy a guardadr temporalmente las respuestas
     col1_1, col1_2 = st.columns(2)
     valores = []
+    opcion_iconterm="FOB"
     
     with col1_1:
         for i in range(int(len(nombres)/2)):
@@ -127,6 +128,7 @@ class streamlit_frm:
                 opciones = ["FOB", "COSTO Y FLETE", "EXWORK"]
                 # Muestra una lista desplegable
                 valores.append(st.selectbox("Selecciona un Incoterm:", opciones,index=opciones.index(formulario1[nombres[i]]), key="Incoterm"))
+                opcion_iconterm=valores[-1]
             else:    
                 valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=10000000.0, value=formulario1[nombres[i]]))
         
@@ -147,7 +149,7 @@ class streamlit_frm:
     with col1_2:
 #         '''Si la transaccion no es dolarizada se traen todos los campos del formulario y ya'''
         if transaccion_internacional==True:
-            for i in range(int(len(nombres)/2), len(nombres)-1):
+            for i in range(int(len(nombres)/2), len(nombres)-1):                
                 valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
             if not checkbox_operacion_dolarizado:
 #                 Si no se ha seleccionado la alternativa de operacion dolarizda indico que el valor de la ultima variable puesta en nombre es lo que esta
@@ -161,7 +163,8 @@ class streamlit_frm:
         else:
             for i in range(int(len(nombres)/2), len(nombres)):
                 valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
-                 
+
+    st.write(opcion_iconterm)             
     if st.button("Guardar"): 
         if 0.0 in valores or "" in valores:
             self.error=True
