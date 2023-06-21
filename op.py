@@ -42,9 +42,13 @@ def main():
         "lead time tiempo-admon",
         "lead time puerto-puerto",
         "lead time gestión cargo",
-        "lead time gz-planta",
         "Tarifa almacenamiento por unidad de consumo",
-        "Precio compra: no incluye aranceles")
+        "Precio compra: no incluye aranceles",
+        "Flete internacional: por unidad",
+        "Arancel: por unidad",
+        "Costo por servir: por unidad",
+        "Flete nacional: por unidad",
+        "lead time gz-planta")
     
     st.sidebar.title("Escenarios")
     options = ['Nuevo Escenario', 'Escenario Anterior', 'Resultados']
