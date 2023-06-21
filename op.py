@@ -86,7 +86,7 @@ def main():
                 valores.append(session_state.formulario1[nombre])
             for nombre in nombres_2[:-5]:
                 valores_2.append(session_state.formulario2[nombre])
-                st.write(valores_2[-1])
+                st.write(f"{valores_2[-1]}  {nombre}" )
             #Almaceno valores en listas para pasarolo como parametros a las funciones eva y uodi 
             if agregar_costo_capital:
                 resultado.append(calculos.eva(valores,valores_2))
