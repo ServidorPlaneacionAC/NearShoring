@@ -170,7 +170,7 @@ class streamlit_frm:
             for i in range(int(len(nombres)/2), len(nombres)):
                 valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
 
-    st.write(opcion_iconterm)             
+          
     if st.button("Guardar"): 
         if 0.0 in valores or "" in valores:
             self.error=True

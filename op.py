@@ -49,6 +49,7 @@ def main():
         "Costo por servir: por unidad",
         "Flete nacional: por unidad",
         "Precio compra: no incluye aranceles")
+    #el precio de compra = los 4 valores anteriores a el
     
     st.sidebar.title("Escenarios")
     options = ['Nuevo Escenario', 'Escenario Anterior', 'Resultados']
@@ -79,18 +80,23 @@ def main():
             #Falta corregir que pasa si diligencio un formulario bien, entro al otro y no guardo
             st.error("no se ha diligenciado algun escenario")
          else:
+            #Se crean listar valores y valores_2, pues son los parametros que se recibe desde utils
+            #como en los escenarios internacionales el precio es una variable que se compone de otras
+            #variables el ciclo se parte hasta los ultimos 5 elementos, para que el último campo sea la 
+            #suma de estos
             valores=[]
             valores_2=[]
             resultado=[]
             for nombre in nombres[:]:
                 valores.append(session_state.formulario1[nombre])
-            for nombre in nombres_2[:-5]:
+            for nombre in nombres_2[:-5]: #se parte el ciclo como se menciono antes
                 valores_2.append(session_state.formulario2[nombre])
             valores_2.append(0.0)
-            for nombre in nombres_2[-5:]:
+            for nombre in nombres_2[-5:]: #se suman todos los valores al ultimo
                 valores_2[-1]+=(session_state.formulario2[nombre])
-            st.write(f"{valores_2[-1]}  {nombre}" )
             #Almaceno valores en listas para pasarolo como parametros a las funciones eva y uodi 
+            #Genero ciclos para crear tabla de valor y mostrar valores cercanos, los guardo en una matriz de 2 x 2 
+            # la envío al metodo resultados
             if agregar_costo_capital:
                 resultado.append(calculos.eva(valores,valores_2))
                 for i in range(-5,6,1):
