@@ -82,10 +82,10 @@ class streamlit_frm:
 
         
         if 'Nuevo Escenario'==titulo:
-            formulario1={ "Cantidad: unidades con los que se generará la comparación entre proveedores": 30000.0,
-                        "Frecuencia: Temporalidad estimadda para recalcular próximo envío":1.0,
+            formulario1={ "Cantidad: unidades (unidad determinada por el negociador) a pedir en el periodo de tiempo establecido": 30000.0,
+                        "Frecuencia: Tiempo (Semanas) estimaddo para recalcular próximo envío":1.0,
                         "Lead time planta-puerto":1.0,
-                        "Semanas cxp: tiempo en semanas estimado para pagar a mi proveedor el pedido actual":8.57,
+                        "Semanas cxp: condición de pago tiempo en semanas estimado para pagar a mi proveedor el pedido actual":8.57,
                         "Moq: Cantidad mínima a pedir (en la unidad que se desee manejar)":1200.0,
                         "Adu: Consumo promedio diario (en la unidad que se desee manejar)":20890.0,
                         "Factor lead time: De 0 a 1 qué tan confiable es el lead time, siendo 0 muy seguro y 1 completamente variable":0.4,
@@ -95,11 +95,11 @@ class streamlit_frm:
                         }
         else:
             formulario1={
-            "Cantidad: unidades con los que se generará la comparación entre proveedores":30000.0,
-            "Frecuencia: Temporalidad estimadda para recalcular próximo enví":4.0,
+            "Cantidad: unidades (unidad determinada por el negociador) a pedir en el periodo de tiempo establecido":30000.0,
+            "Frecuencia: Tiempo (Semanas) estimaddo para recalcular próximo envío":4.0,
             "Incoterm":"FOB",   
             "lead time planta-puerto":5.0,
-            "Semanas cxp: tiempo en semanas estimado para pagar a mi proveedor el pedido actual":12.86,
+            "Semanas cxp: condición de pago tiempo en semanas estimado para pagar a mi proveedor el pedido actual":12.86,
             "Moq: Cantidad mínima a pedir (en la unidad que se desee manejar)":24000.0,
             "Adu: Consumo promedio diario (en la unidad que se desee manejar)":23800.0,
             "Factor lead time: De 0 a 1 qué tan confiable es el lead time, siendo 0 muy seguro y 1 completamente variable":0.1,
