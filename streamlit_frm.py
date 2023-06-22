@@ -173,7 +173,7 @@ class streamlit_frm:
 
           
     if st.button("Guardar"): 
-        if 0.0 = valores[-1]:
+        if 0.0 == valores[-1]:
             self.error=True
             st.error("hay un dato con valor 0.0 o vacio")
         else:
