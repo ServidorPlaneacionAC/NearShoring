@@ -17,10 +17,10 @@ def main():
         session_state.valor_en_pesos=00.00
       
     nombres=(
-        "Cantidad: unidades con los que se generará la comparación entre proveedores",
-        "Frecuencia: Temporalidad estimadda para recalcular próximo envío",
+        "Cantidad: unidades (unidad determinada por el negociador) a pedir en el periodo de tiempo establecido",
+        "Frecuencia: Tiempo (Semanas) estimaddo para recalcular próximo envío",
         "Lead time planta-puerto",
-        "Semanas cxp: tiempo en semanas estimado para pagar a mi proveedor el pedido actual",
+        "Semanas cxp: condición de pago tiempo en semanas estimado para pagar a mi proveedor el pedido actual",
         "Moq: Cantidad mínima a pedir (en la unidad que se desee manejar)",
         "Adu: Consumo promedio diario (en la unidad que se desee manejar)",
         "Factor lead time: De 0 a 1 qué tan confiable es el lead time, siendo 0 muy seguro y 1 completamente variable",
@@ -29,11 +29,11 @@ def main():
         "Tarifa almacenamiento por unidad de consumo")
     
     nombres_2=(
-        "Cantidad: unidades con los que se generará la comparación entre proveedores",
-        "Frecuencia: Temporalidad estimadda para recalcular próximo enví",
+        "Cantidad: unidades (unidad determinada por el negociador) a pedir en el periodo de tiempo establecido",
+        "Frecuencia: Tiempo (Semanas) estimaddo para recalcular próximo envío",
         "Incoterm",   
-        "lead time planta-puerto",
-        "Semanas cxp: tiempo en semanas estimado para pagar a mi proveedor el pedido actual",
+        "lead time planta-puerto: (Semanas) ",
+        "Semanas cxp: condición de pago tiempo en semanas estimado para pagar a mi proveedor el pedido actual",
         "Moq: Cantidad mínima a pedir (en la unidad que se desee manejar)",
         "Adu: Consumo promedio diario (en la unidad que se desee manejar)",
         "Factor lead time: De 0 a 1 qué tan confiable es el lead time, siendo 0 muy seguro y 1 completamente variable",
