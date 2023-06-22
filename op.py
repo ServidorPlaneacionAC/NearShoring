@@ -99,9 +99,9 @@ def main():
             # la envío al metodo resultados
             if agregar_costo_capital:
                 tasa=st.sidebar.number_input("Tasa costo capital", step=0.01, min_value=0.0, max_value=2.0, value=0.12)
-                resultado.append(calculos.eva(valores,valores_2))
+                resultado.append(calculos.eva(valores,valores_2,tasa))
                 for i in range(-5,6,1):
-                    resultado.append(calculos.valores_eva(valores,valores_2,resultado[0][0]+(i*(resultado[0][0]/15))))
+                    resultado.append(calculos.valores_eva(valores,valores_2,resultado[0][0]+(i*(resultado[0][0]/15)),tasa))
             else:
                 resultado.append(calculos.uodi(valores,valores_2))
                 for i in range(-5,6,1):
