@@ -173,10 +173,10 @@ class streamlit_frm:
 
           
     if st.button("Guardar"): 
-        if 0.0 in valores or "" in valores:
-            self.error=True
-            st.error("hay un dato con valor 0.0 o vacio")
-        else:
+        # if 0.0 in valores or "" in valores:
+        #     self.error=True
+        #     st.error("hay un dato con valor 0.0 o vacio")
+        # else:
             if transaccion_internacional==True:
                 valores[-1]=self.valor_en_pesos
             formulario1 = {nombre: valores[index] for index, nombre in enumerate(nombres)}
