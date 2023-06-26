@@ -92,12 +92,11 @@ def main():
                 valores.append(session_state.formulario1[nombre])
             for nombre in nombres_2[:-6]: #se parte el ciclo como se menciono antes
                 valores_2.append(session_state.formulario2[nombre])
-            valores_2.append(session_state.formulario2["Factor de importacion"])
             valores_2.append(0.0)
             for nombre in nombres_2[-6:-2]: #se suman todos los valores al ultimo
                 st.write(f"{nombre} {session_state.formulario2[nombre]} ")
                 valores_2[-1]+=(session_state.formulario2[nombre])
-            valores_2[-1]=valores_2[-1]*valores_2[-2]
+            valores_2[-1]=valores_2[-1]*session_state.formulario2["Factor de importacion"]
             #Almaceno valores en listas para pasarolo como parametros a las funciones eva y uodi 
             #Genero ciclos para crear tabla de valor y mostrar valores cercanos, los guardo en una matriz de 2 x 2 
             # la envío al metodo resultados
