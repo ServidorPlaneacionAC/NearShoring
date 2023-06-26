@@ -98,6 +98,10 @@ def main():
             valores_2[-1]=valores_2[-1]*valores_2[-2]
             st.write(valores_2[-1])
             st.write(valores_2[-2])
+            st.write(valores_2[-3])
+            st.write(valores_2[-4])
+            st.write(valores_2[-5])
+            st.write(valores_2[-6])
             #Almaceno valores en listas para pasarolo como parametros a las funciones eva y uodi 
             #Genero ciclos para crear tabla de valor y mostrar valores cercanos, los guardo en una matriz de 2 x 2 
             # la envío al metodo resultados
