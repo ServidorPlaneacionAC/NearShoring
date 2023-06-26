@@ -97,6 +97,7 @@ def main():
                 valores_2[-1]+=(session_state.formulario2[nombre])
             valores_2[-1]=valores_2[-1]*valores_2[-2]
             st.write(valores_2[-1])
+            st.write(valores_2[-2])
             #Almaceno valores en listas para pasarolo como parametros a las funciones eva y uodi 
             #Genero ciclos para crear tabla de valor y mostrar valores cercanos, los guardo en una matriz de 2 x 2 
             # la envío al metodo resultados
@@ -109,7 +110,6 @@ def main():
                 resultado.append(calculos.uodi(valores,valores_2))
                 for i in range(-5,6,1):
                     resultado.append(calculos.valores_uodi(valores,valores_2,resultado[0][0]+(i*(resultado[0][0]/15))))  
-            st.write(valores_2[-1])
             frm.resultados(resultado,valores,valores_2,agregar_costo_capital)
 
 if __name__ == "__main__":
