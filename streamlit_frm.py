@@ -8,12 +8,13 @@ import pandas as pd
 import utils as calculos
 
 class streamlit_frm:
-  def __init__(self,valor_en_pesos,trm=4800.00):
+  def __init__(self,valor_en_pesos,trm=4800.00,tasa=0.12):
         self.error=True
         self.trm=trm
         self.valor_en_pesos=valor_en_pesos 
+        self.tasa=tasa
     
-  def resultados(self,resultado,valores,valores_2,costo_capital,tasa):
+  def resultados(self,resultado,valores,valores_2,costo_capital):
     
     st.subheader("Resultado óptimo")    
     tabla_resultado=pd.DataFrame(
@@ -30,7 +31,7 @@ class streamlit_frm:
     if checkbox_ingresar_valor_negocicion:
         nuevo_precio=st.number_input("Precio negociación", step=0.1, min_value=0.0, max_value=100000.0, value=1.0)
         if costo_capital:
-            resultados_nuevo_precio=calculos.valores_eva(valores,valores_2,nuevo_precio,tasa)
+            resultados_nuevo_precio=calculos.valores_eva(valores,valores_2,nuevo_precio,self.tasa)
         else:
             resultados_nuevo_precio=calculos.valores_uodi(valores,valores_2,nuevo_precio)
         nueva_tabla_resultado=pd.DataFrame(
