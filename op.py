@@ -48,6 +48,7 @@ def main():
         "Arancel: por unidad",
         "Costo por servir: por unidad",
         "Flete nacional: por unidad",
+        "Factor de importacion",
         "Precio compra: no incluye aranceles")
     #el precio de compra = los 4 valores anteriores a el
     
@@ -89,11 +90,12 @@ def main():
             resultado=[]
             for nombre in nombres[:]:
                 valores.append(session_state.formulario1[nombre])
-            for nombre in nombres_2[:-5]: #se parte el ciclo como se menciono antes
+            for nombre in nombres_2[:-6]: #se parte el ciclo como se menciono antes
                 valores_2.append(session_state.formulario2[nombre])
             valores_2.append(0.0)
-            for nombre in nombres_2[-5:]: #se suman todos los valores al ultimo
+            for nombre in nombres_2[-6:-2]: #se suman todos los valores al ultimo
                 valores_2[-1]+=(session_state.formulario2[nombre])
+            valores_2[-1]=valores_2[-1]*valores_2[-2]
             #Almaceno valores en listas para pasarolo como parametros a las funciones eva y uodi 
             #Genero ciclos para crear tabla de valor y mostrar valores cercanos, los guardo en una matriz de 2 x 2 
             # la envío al metodo resultados
@@ -106,6 +108,7 @@ def main():
                 resultado.append(calculos.uodi(valores,valores_2))
                 for i in range(-5,6,1):
                     resultado.append(calculos.valores_uodi(valores,valores_2,resultado[0][0]+(i*(resultado[0][0]/15))))  
+            st.write(valores_2[-1])
             frm.resultados(resultado,valores,valores_2,agregar_costo_capital)
 
 if __name__ == "__main__":
