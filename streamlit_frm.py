@@ -110,12 +110,13 @@ class streamlit_frm:
             "lead time puerto-puerto: (Semanas)":8.0,
             "lead time gestión cargo: (Semanas)":2.0,
             "lead time gz-planta: (Semanas)":1.0,
+            "Factor de importacion":0.0,
             "Tarifa almacenamiento por unidad de consumo":15.0,
             "Flete internacional: por unidad":0.0,
             "Arancel: por unidad":0.0,
             "Costo por servir: por unidad":0.0,
             "Flete nacional: por unidad":0.0,
-            "Factor de importacion":0.0,
+            "Factor de importacion":1.0,
             "Precio compra: no incluye aranceles":14000.0
             }
     
