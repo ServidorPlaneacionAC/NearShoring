@@ -96,12 +96,12 @@ def main():
             for nombre in nombres_2[-6:-2]: #se suman todos los valores al ultimo
                 valores_2[-1]+=(session_state.formulario2[nombre])
             valores_2[-1]=valores_2[-1]*valores_2[-2]
-            st.write(valores_2[-1])
-            st.write(valores_2[-2])
-            st.write(valores_2[-3])
-            st.write(valores_2[-4])
-            st.write(valores_2[-5])
             st.write(valores_2[-6])
+            st.write(valores_2[-5])
+            st.write(valores_2[-4])
+            st.write(valores_2[-3])
+            st.write(valores_2[-2])
+            st.write(valores_2[-1])
             #Almaceno valores en listas para pasarolo como parametros a las funciones eva y uodi 
             #Genero ciclos para crear tabla de valor y mostrar valores cercanos, los guardo en una matriz de 2 x 2 
             # la envío al metodo resultados
