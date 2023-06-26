@@ -161,10 +161,10 @@ class streamlit_frm:
                 for i in range(len(nombres)-6, len(nombres)-2):                              
                     valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))    
                 #si los otros valores son myores a 0 esto se habce igual a 0
-                if not (valores[-6]>0.0 or valores[-5]>0.0 or valores[-4]>0.0 or valores[-3]>0.0):
-                    valores.append(st.number_input(nombres[-2],key=nombres[-2], step=0.1, min_value=0.0, max_value=100000.0, value=1.0, disable=True))            
-                else:    
-                    valores.append(st.number_input(nombres[-2],key=nombres[-2], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[-2]]))            
+            if not (valores[-6]>0.0 or valores[-5]>0.0 or valores[-4]>0.0 or valores[-3]>0.0):
+                valores.append(st.number_input(nombres[-2],key=nombres[-2], step=0.1, min_value=0.0, max_value=100000.0, value=1.0, disable=True))            
+            else:    
+                valores.append(st.number_input(nombres[-2],key=nombres[-2], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[-2]]))            
                
             if not checkbox_operacion_dolarizado:
 #                 Si no se ha seleccionado la alternativa de operacion dolarizda indico que el valor de la ultima variable puesta en nombre es lo que esta
