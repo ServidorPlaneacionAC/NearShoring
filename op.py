@@ -94,6 +94,7 @@ def main():
                 valores_2.append(session_state.formulario2[nombre])
             valores_2.append(0.0)
             for nombre in nombres_2[-6:-2]: #se suman todos los valores al ultimo
+                st.write(f"{nombre} {session_state.formulario2[nombre]} ")
                 valores_2[-1]+=(session_state.formulario2[nombre])
             valores_2[-1]=valores_2[-1]*valores_2[-2]
             st.write(valores_2[-6])
