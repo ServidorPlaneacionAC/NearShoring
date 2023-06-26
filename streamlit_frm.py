@@ -153,7 +153,7 @@ class streamlit_frm:
             for i in range(int(len(nombres)/2), len(nombres)-5):                              
                 valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
             #Genero validacion para el iconterm, reconocer en que valores aplica todos los campos y cuando no
-            if  opcion_iconterm == "EXWORK": 
+            if  opcion_iconterm == "EXWORK" or valores[0]==15: 
                 for i in range(len(nombres)-5, len(nombres)-1):                              
                     valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=0.0,disabled=True))
             else:
