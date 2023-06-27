@@ -98,7 +98,6 @@ def main():
                     valores_2[-1]+=(session_state.formulario2[nombre])
             else:
                 valores_2[-1]=valores_2[-1]*session_state.formulario2["Factor de importacion"]
-            st.write(f"{valores_2[-1]}")
             #Almaceno valores en listas para pasarolo como parametros a las funciones eva y uodi 
             #Genero ciclos para crear tabla de valor y mostrar valores cercanos, los guardo en una matriz de 2 x 2 
             # la envío al metodo resultados
