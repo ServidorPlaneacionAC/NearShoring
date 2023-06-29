@@ -93,11 +93,9 @@ def main():
             for nombre in nombres_2[:-6]: #se parte el ciclo como se menciono antes
                 valores_2.append(session_state.formulario2[nombre])
             valores_2.append(session_state.formulario2["Precio compra: no incluye aranceles"])
-            if session_state.formulario2["Factor de importacion"]==1.0:
-                for nombre in nombres_2[-6:-2]: #se suman todos los valores al ultimo
-                    valores_2[-1]+=(session_state.formulario2[nombre])
-            else:
-                valores_2[-1]=valores_2[-1]*session_state.formulario2["Factor de importacion"]
+            for nombre in nombres_2[-6:-2]: #se suman todos los valores al ultimo
+                valores_2[-1]+=(session_state.formulario2[nombre])
+            valores_2[-1]=valores_2[-1]*session_state.formulario2["Factor de importacion"]
             #Almaceno valores en listas para pasarolo como parametros a las funciones eva y uodi 
             #Genero ciclos para crear tabla de valor y mostrar valores cercanos, los guardo en una matriz de 2 x 2 
             # la envío al metodo resultados
