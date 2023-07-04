@@ -99,6 +99,7 @@ def main():
             #Almaceno valores en listas para pasarolo como parametros a las funciones eva y uodi 
             #Genero ciclos para crear tabla de valor y mostrar valores cercanos, los guardo en una matriz de 2 x 2 
             # la envío al metodo resultados
+            st.write(valores_2[-1])
             if agregar_costo_capital:
                 frm.tasa=st.sidebar.number_input("Tasa costo capital", step=0.01, min_value=0.0, max_value=2.0, value=0.12)
                 resultado.append(calculos.eva(valores,valores_2,frm.tasa))
