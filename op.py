@@ -63,11 +63,12 @@ def main():
     agregar_costo_capital=st.sidebar.checkbox("Costo capital", value=agregar_costo_capital)  
     #Si se tiene en cuenta el costo capital se optimiza sobre el eva, sino obre el uodi
     esc_retador ="Escenario Nacional"
+    opciones = ['Escenario Nacional', 'Escenario Internacional']
     if "esc_retador" not in session_state:
         session_state.esc_retador = "Escenario Nacional"
     frm= streamlit_frm(session_state.valor_en_pesos,session_state.trm)
     if choice == "Nuevo Escenario":
-        esc_retador = st.selectbox("Selecciona si el escenario es nacional o internacional", ['Escenario Nacional', 'Escenario Internacional'],esc_retador)
+        esc_retador = st.selectbox("Selecciona si el escenario es nacional o internacional", opciones,opciones.index(esc_retador))
         if "Escenario Nacional" == esc_retador:
 
             if "formulario1" not in session_state:
