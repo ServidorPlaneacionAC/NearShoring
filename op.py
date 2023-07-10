@@ -62,13 +62,18 @@ def main():
     agregar_costo_capital = False
     agregar_costo_capital=st.sidebar.checkbox("Costo capital", value=agregar_costo_capital)  
     #Si se tiene en cuenta el costo capital se optimiza sobre el eva, sino obre el uodi
-    
+    esc_retador ="Escenario Nacional"
     frm= streamlit_frm(session_state.valor_en_pesos,session_state.trm)
     if choice == "Nuevo Escenario":
-        if "formulario1" not in session_state:
-            session_state.formulario1,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres)
+        esc_retador = st.selectbox("Selecciona si el escenario es nacional o internacional", ['Escenario Nacional', 'Escenario Internacional'])
+        if "Escenario Nacional" == esc_retador:
+
+            if "formulario1" not in session_state:
+                session_state.formulario1,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres)
+            else:
+                session_state.formulario1,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres, session_state.formulario1)
         else:
-            session_state.formulario1,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres, session_state.formulario1)
+            st.write("Escenario internaciol")    
     elif choice == "Escenario Anterior":
         if "formulario2" not in session_state:
             session_state.formulario2,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres_2,transaccion_internacional=True)
