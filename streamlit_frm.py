@@ -83,7 +83,34 @@ class streamlit_frm:
 
         
         if 'Nuevo Escenario'==titulo:
-            formulario1={ "Cantidad: unidades (unidad determinada por el negociador) a pedir en el periodo de tiempo establecido": 30000.0,
+            # este if se utiliza para saber si el nuevo escenario es nacional o internacional
+            if transaccion_internacional:
+                formulario1={
+                    "Cantidad: unidades (unidad determinada por el negociador) a pedir en el periodo de tiempo establecido":30000.0,
+                    "Frecuencia: Tiempo (Semanas) estimaddo para recalcular próximo envío":4.0,
+                    "Incoterm":"FOB",   
+                    "lead time planta-puerto: (Semanas)":5.0,
+                    "Semanas cxp: condición de pago tiempo en semanas estimado para pagar a mi proveedor el pedido actual":12.86,
+                    "Moq: Cantidad mínima a pedir (en la unidad que se desee manejar)":24000.0,
+                    "Adu: Consumo promedio diario (en la unidad que se desee manejar)":23800.0,
+                    "Factor lead time: De 0 a 1 qué tan confiable es el lead time, siendo 0 muy seguro y 1 completamente variable":0.1,
+                    "Factor variación: De 0 a 1 qué tan confiable es el consumo, siendo 0 muy seguro y 1 completamente variable":0.3,
+                    "Estandar posición: Unidades por estiba":350.0,
+                    "lead time tiempo-admon: (Semanas)":10.0,
+                    "lead time puerto-puerto: (Semanas)":8.0,
+                    "lead time gestión cargo: (Semanas)":2.0,
+                    "lead time gz-planta: (Semanas)":1.0,
+                    "Factor de importacion":0.0,
+                    "Tarifa almacenamiento por unidad de consumo":15.0,
+                    "Flete internacional: por unidad":0.0,
+                    "Arancel: por unidad":0.0,
+                    "Costo por servir: por unidad":0.0,
+                    "Flete nacional: por unidad":0.0,
+                    "Factor de importacion":1.0,
+                    "Precio compra: no incluye aranceles":14000.0
+                            }
+            else:
+                formulario1={ "Cantidad: unidades (unidad determinada por el negociador) a pedir en el periodo de tiempo establecido": 30000.0,
                         "Frecuencia: Tiempo (Semanas) estimaddo para recalcular próximo envío":1.0,
                         "lead time entrega en planta: (Semanas)":1.0,
                         "Semanas cxp: condición de pago tiempo en semanas estimado para pagar a mi proveedor el pedido actual":8.57,
@@ -94,6 +121,7 @@ class streamlit_frm:
                         "Estandar posición: Unidades por estiba":350.0,
                         "Tarifa almacenamiento por unidad de consumo":15.0
                         }
+
         else:
             formulario1={
             "Cantidad: unidades (unidad determinada por el negociador) a pedir en el periodo de tiempo establecido":30000.0,
