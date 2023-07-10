@@ -77,10 +77,10 @@ def main():
                 session_state.formulario1,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres, session_state.formulario1)
         else:
             st.write("Escenario internacional")
-            if "formulario1" not in session_state:
-                session_state.formulario1,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres_2,transaccion_internacional=True)
+            if "formulario3" not in session_state:
+                session_state.formulario3,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres_2,transaccion_internacional=True)
             else:
-                session_state.formulario1,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres_2, session_state.formulario1,transaccion_internacional=True)    
+                session_state.formulario3,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres_2, session_state.formulario3,transaccion_internacional=True)    
     elif choice == "Escenario Anterior":
         if "formulario2" not in session_state:
             session_state.formulario2,session_state.valor_en_pesos,session_state.error,session_state.trm = frm.mostrar_formulario_1(choice,nombres_2,transaccion_internacional=True)
