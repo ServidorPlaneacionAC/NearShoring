@@ -56,7 +56,7 @@ class streamlit_frm:
                                     -round(resultado[i][2],2),
                                     -round(resultado[i][3],2),
                                     -round(0 if resultado[i][4] == 0 else resultado[i][1]/resultado[i][4],2),
-                                    round(resultado[i][4],2)] for i in range(len(resultado))], 
+                                    round(resultado[i][5],2)] for i in range(len(resultado))], 
                                  columns=['Precio a pagar','variación respecto al original','UODI','EBITDA','EVA','ROIC','CP'])
     st.write(tabla_resultado[1:]) 
         
