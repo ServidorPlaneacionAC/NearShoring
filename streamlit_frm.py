@@ -23,8 +23,9 @@ class streamlit_frm:
                                     -round(resultado[0][1],2),
                                     -round(resultado[0][2],2),
                                     -round(resultado[0][3],2),
-                                    -round(resultado[0][4],2),
-                                    -round(0 if resultado[0][5] == 0 else resultado[0][1]/resultado[0][4],2)]], 
+                                    -round(0 if resultado[0][4] == 0 else resultado[0][1]/resultado[0][4],2)]],
+                                    -round(resultado[0][5],2),
+                                    
                                  columns=['Precio a pagar','variación respecto al original','UODI','EBITDA','EVA','ROIC','CP'])
     st.write(tabla_resultado)
     
