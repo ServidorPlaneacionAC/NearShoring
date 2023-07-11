@@ -115,7 +115,7 @@ def eva(valores,valores_2,tasa):
     prob += eva == 0
     status = prob.solve()
 #     return (p_1.value())
-    return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct)]
+    return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct),value(capital_invertido_1)]
 # nombres
     
 def uodi(valores,valores_2):
@@ -230,7 +230,7 @@ def uodi(valores,valores_2):
     prob += uodi == 0
     status = prob.solve()
 #     return (p_1.value())
-    return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct)]
+    return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct),value(capital_invertido_1)]
 
 
 def valores_eva(valores,valores_2,nuevo_precio,tasa):
