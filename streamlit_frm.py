@@ -42,8 +42,9 @@ class streamlit_frm:
                                         -round(resultados_nuevo_precio[1],2),
                                         -round(resultados_nuevo_precio[2],2),
                                         -round(resultados_nuevo_precio[3],2),
-                                        -round(0 if resultados_nuevo_precio[4] == 0 else resultados_nuevo_precio[1]/resultados_nuevo_precio[4],2)]], 
-                                    columns=['Precio a pagar','variación respecto al original','UODI','EBITDA','EVA','ROIC'])
+                                        -round(0 if resultados_nuevo_precio[4] == 0 else resultados_nuevo_precio[1]/resultados_nuevo_precio[4],2),
+                                        round(resultados_nuevo_precio[5],2)]], 
+                                    columns=['Precio a pagar','variación respecto al original','UODI','EBITDA','EVA','ROIC','CP'])
         st.write(nueva_tabla_resultado)
 
 
@@ -54,7 +55,8 @@ class streamlit_frm:
                                     -round(resultado[i][1],2),
                                     -round(resultado[i][2],2),
                                     -round(resultado[i][3],2),
-                                    -round(0 if resultado[i][4] == 0 else resultado[i][1]/resultado[i][4],2)] for i in range(len(resultado))], 
+                                    -round(0 if resultado[i][4] == 0 else resultado[i][1]/resultado[i][4],2),
+                                    round(resultado[0][5],2)] for i in range(len(resultado))] 
                                  columns=['Precio a pagar','variación respecto al original','UODI','EBITDA','EVA','ROIC'])
     st.write(tabla_resultado[1:]) 
         
