@@ -333,7 +333,7 @@ def valores_eva(valores,valores_2,nuevo_precio,tasa):
     c_1 = costo_unitario_1  # Costo del producto 1
     p_0= precio_compra
 #     return (p_1.value())
-    return [p_1,(uodi),(ebitda),(eva),(diferencial_ct)]
+    return [p_1,(uodi),(ebitda),(eva),(diferencial_ct),(capital_invertido_1)]
 # nombres
 
 def valores_uodi(valores,valores_2,nuevo_precio):
@@ -434,4 +434,4 @@ def valores_uodi(valores,valores_2,nuevo_precio):
     c_1 = costo_unitario_1  # Costo del producto 1
     p_0= precio_compra
 #     return (p_1.value())
-    return [p_1,(uodi),(ebitda),(eva),(diferencial_ct)]
+    return [p_1,(uodi),(ebitda),(eva),(diferencial_ct),(capital_invertido_1)]
