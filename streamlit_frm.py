@@ -185,10 +185,14 @@ class streamlit_frm:
     with col1_2:
 #         '''Si la transaccion no es dolarizada se traen todos los campos del formulario y ya'''
         if transaccion_internacional  and not('Nuevo Escenario'==titulo):
-            for i in range(int(len(nombres)/2), len(nombres)-6):                              
+            for i in range(int(len(nombres)/2), len(nombres)-6):
+            #va hasta el -6 poque los valores(-6-5-4-3) son campos asociados a transacciones internacionales
+                #y estos tienen un tratamiento especial                             
                 valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
             #Genero validacion para el iconterm, reconocer en que valores aplica todos los campos y cuando no
-            if  opcion_iconterm == "EXWORK" or importacion!=0.0: 
+            checkbox_factor_importacion = st.checkbox("Usar el factor de importacion")
+            #se usa el factor de importacion o las variables de importacion indivuales que son nombres[-6 hasta -2]
+            if checkbox_factor_importacion:
                 for i in range(len(nombres)-6, len(nombres)-2):                              
                     valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=0.0,disabled=True))
             else:
