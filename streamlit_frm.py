@@ -195,7 +195,7 @@ class streamlit_frm:
             if checkbox_factor_importacion:
                 for i in range(len(nombres)-6, len(nombres)-2):                              
                     valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=0.0,disabled=True))
-               valores.append(st.number_input(nombres[-2],key=nombres[-2], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[-2]]))  
+                valores.append(st.number_input(nombres[-2],key=nombres[-2], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[-2]]))  
             else:
                 for i in range(len(nombres)-6, len(nombres)-2):                              
                     valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]])) 
