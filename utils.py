@@ -458,8 +458,8 @@ def eva_int(valores,valores_2,tasa):
     
     #campos calculados
 
-    lt_completo_1=lt_tiempoadmon+lt_puertopuerto+lt_plantapuerto+lt_gz+lt_gzplanta
-    lt_logistico_1= icoterm  
+    lt_completo_1=lt_tiempoadmon_1+lt_puertopuerto_1+lt_plantapuerto_1+lt_gz_1+lt_gzplanta_1
+    lt_logistico_1= icoterm_1  
     if icoterm_1 == "EXWORK":
         lt_logistico_1 = lt_plantapuerto_1+lt_puertopuerto_1+lt_gzplanta_1+lt_gz_1
     elif icoterm_1 == "FOB":
