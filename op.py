@@ -100,12 +100,6 @@ def main():
             valores=[]
             valores_2=[]
             resultado=[]
-            if session_state.esc_retador == "Escenario Nacional":
-                for nombre in nombres[:]:
-                    valores.append(session_state.formulario1[nombre])
-            else:
-                for nombre in nombres_2[:-6]:
-                    valores.append(session_state.formulario3[nombre])
             for nombre in nombres_2[:-6]: #se parte el ciclo como se menciono antes
                 valores_2.append(session_state.formulario2[nombre])
             valores_2.append(session_state.formulario2["Precio compra: no incluye aranceles"])
@@ -114,22 +108,40 @@ def main():
             valores_2[-1]=valores_2[-1]*session_state.formulario2["Factor de importacion"]
             #Almaceno valores en listas para pasarolo como parametros a las funciones eva y uodi 
             #Genero ciclos para crear tabla de valor y mostrar valores cercanos, los guardo en una matriz de 2 x 2 
-            # la envío al metodo resultados            
-            if agregar_costo_capital:
-                if session_state.esc_retador == "Escenario Nacional":
+            # la envío al metodo resultados
+            if session_state.esc_retador == "Escenario Nacional":
+                for nombre in nombres[:]:
+                    valores.append(session_state.formulario1[nombre])
+                if agregar_costo_capital:
+                
                     frm.tasa=st.sidebar.number_input("Tasa costo capital", step=0.01, min_value=0.0, max_value=2.0, value=0.12)
                     resultado.append(calculos.eva(valores,valores_2,frm.tasa))
                     for i in range(-5,6,1):
                         resultado.append(calculos.valores_eva(valores,valores_2,resultado[0][0]+(i*(resultado[0][0]/15)),frm.tasa))
                 else:
+                    
+                    resultado.append(calculos.uodi(valores,valores_2))
+                    for i in range(-5,6,1):
+                    resultado.append(calculos.valores_uodi(valores,valores_2,resultado[0][0]+(i*(resultado[0][0]/15))))
+            else:
+                for nombre in nombres_2[:-6]:
+                    valores.append(session_state.formulario3[nombre])
+                if agregar_costo_capital:
                     frm.tasa=st.sidebar.number_input("Tasa costo capital", step=0.01, min_value=0.0, max_value=2.0, value=0.12)
                     resultado.append(calculos.eva_int(valores,valores_2,frm.tasa))
                     #for i in range(-5,6,1):
-                    #    resultado.append(calculos.valores_eva(valores,valores_2,resultado[0][0]+(i*(resultado[0][0]/15)),frm.tasa))           
-            else:
-                resultado.append(calculos.uodi(valores,valores_2))
-                for i in range(-5,6,1):
-                    resultado.append(calculos.valores_uodi(valores,valores_2,resultado[0][0]+(i*(resultado[0][0]/15))))  
+                    #    resultado.append(calculos.valores_eva(valores,valores_2,resultado[0][0]+(i*(resultado[0][0]/15)),frm.tasa))
+                else:
+                    st.write("santi-gay")
+                    #resultado.append(calculos.uodi_int(valores,valores_2))
+                    #for i in range(-5,6,1):
+                     #   resultado.append(calculos.valores_uodi(valores,valores_2,resultado[0][0]+(i*(resultado[0][0]/15))))
+            
+            
+            
+            
+            
+                  
             frm.resultados(resultado,valores,valores_2,agregar_costo_capital)
 
 if __name__ == "__main__":
