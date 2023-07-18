@@ -653,10 +653,10 @@ def uodi_int(valores,valores_2):
     costo_inv=precio_compra*inv_prom
     costo_nacionalizacion=taf_gz*cantidad
     costo_transportegz_planta=200*cantidad
-    costo_cap=(diferencial+inv_prom_sem)*adu*(((1+tasa)**(1/52))-1)*precio_compra
+    #costo_cap=(diferencial+inv_prom_sem)*adu*(((1+tasa)**(1/52))-1)*precio_compra
     costo_maninv=(inv_prom)*(tarifa_alm/4.3)*(inv_prom_sem)
     costo_compra=precio_compra*cantidad
-    costo_total=costo_maninv+costo_compra+costo_cap+costo_nacionalizacion+costo_transportegz_planta
+    #costo_total=costo_maninv+costo_compra+costo_cap+costo_nacionalizacion+costo_transportegz_planta
     costo_ebitda=costo_maninv+costo_compra+costo_nacionalizacion+costo_transportegz_planta
     costo_unitario_0=costo_total/cantidad
     capital_invertido=((diferencial+inv_prom_sem)*(adu)*(precio_compra))+(costo_nacionalizacion)
