@@ -455,7 +455,7 @@ def eva_int(valores,valores_2,tasa):
     lt_gz_1=valores[12]
     lt_gzplanta_1=valores[13]
     tarifa_alm_1=valores[14]
-    
+    st.write(valores)
     #campos calculados
 
     lt_completo_1=lt_tiempoadmon_1+lt_puertopuerto_1+lt_plantapuerto_1+lt_gz_1+lt_gzplanta_1
