@@ -437,7 +437,7 @@ def valores_uodi(valores,valores_2,nuevo_precio):
     return [p_1,(uodi),(ebitda),(eva),(diferencial_ct),(capital_invertido_1)]
 
 def eva_int(valores,valores_2,tasa):
-    st.write(valores)
+    
     prob = LpProblem("Mi problema de optimización", LpMinimize)
     p_1 = LpVariable("p_1", lowBound=0)
     precio_compra_1=p_1
