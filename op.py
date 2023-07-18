@@ -130,8 +130,8 @@ def main():
                 if agregar_costo_capital:
                     
                     resultado.append(calculos.eva_int(valores,valores_2,frm.tasa))
-                    #for i in range(-5,6,1):
-                    #    resultado.append(calculos.valores_eva(valores,valores_2,resultado[0][0]+(i*(resultado[0][0]/15)),frm.tasa))
+                    for i in range(-5,6,1):
+                        resultado.append(calculos.valores_eva_int(valores,valores_2,resultado[0][0]+(i*(resultado[0][0]/15)),frm.tasa))
                 else:
                     
                     resultado.append(calculos.uodi_int(valores,valores_2,frm.tasa))
