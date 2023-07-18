@@ -132,8 +132,8 @@ def main():
                     #for i in range(-5,6,1):
                     #    resultado.append(calculos.valores_eva(valores,valores_2,resultado[0][0]+(i*(resultado[0][0]/15)),frm.tasa))
                 else:
-                    
-                    resultado.append(calculos.uodi_int(valores,valores_2))
+                    frm.tasa=st.sidebar.number_input("Tasa costo capital", step=0.01, min_value=0.0, max_value=2.0, value=0.12)
+                    resultado.append(calculos.uodi_int(valores,valores_2,tasa))
                     #for i in range(-5,6,1):
                      #   resultado.append(calculos.valores_uodi(valores,valores_2,resultado[0][0]+(i*(resultado[0][0]/15))))
             

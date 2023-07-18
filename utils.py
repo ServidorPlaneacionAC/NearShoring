@@ -118,7 +118,7 @@ def eva(valores,valores_2,tasa):
     return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct),value(capital_invertido_1)]
 # nombres
     
-def uodi(valores,valores_2):
+def uodi(valores,valores_2,tasa):
     # Aquí va tu método m
     # Crear problema de minimización
     prob = LpProblem("Mi problema de optimización", LpMinimize)
@@ -151,7 +151,7 @@ def uodi(valores,valores_2):
     costo_inv_1=precio_compra_1*inv_prom_1
     costo_nacionalizacion_1=taf_gz_1*cantidad_1
     costo_transportegz_planta_1=0
-    costo_cap_1=(diferencial_1+inv_prom_sem_1)*adu_1*(((1+0.12)**(1/52))-1)*precio_compra_1
+    costo_cap_1=(diferencial_1+inv_prom_sem_1)*adu_1*(((1+tasa)**(1/52))-1)*precio_compra_1
     costo_maninv_1=(inv_prom_1)*(tarifa_alm_1/4.3)*(inv_prom_sem_1)
     costo_compra_1=precio_compra_1*cantidad_1
     costo_total_1=costo_maninv_1+costo_compra_1+costo_cap_1
@@ -197,7 +197,7 @@ def uodi(valores,valores_2):
     costo_inv=precio_compra*inv_prom
     costo_nacionalizacion=taf_gz*cantidad
     costo_transportegz_planta=200*cantidad
-    costo_cap=(diferencial+inv_prom_sem)*adu*(((1+0.12)**(1/52))-1)*precio_compra
+    costo_cap=(diferencial+inv_prom_sem)*adu*(((1+tasa)**(1/52))-1)*precio_compra
     costo_maninv=(inv_prom)*(tarifa_alm/4.3)*(inv_prom_sem)
     costo_compra=precio_compra*cantidad
     costo_total=costo_maninv+costo_compra+costo_cap+costo_nacionalizacion+costo_transportegz_planta
@@ -212,7 +212,7 @@ def uodi(valores,valores_2):
     impuestos=ebitda*0.26
     uodi=ebitda-impuestos
     diferencial_ct=capital_invertido-capital_invertido_1
-    costo_capital=(diferencial_ct)*(((1+0.12)**(1/52))-1)
+    costo_capital=(diferencial_ct)*(((1+tasa)**(1/52))-1)
     eva=uodi-costo_capital
     #roic=uodi/diferencial_ct
     c_0 = costo_unitario_0  # Costo del producto 0
@@ -336,7 +336,7 @@ def valores_eva(valores,valores_2,nuevo_precio,tasa):
     return [p_1,(uodi),(ebitda),(eva),(diferencial_ct),(capital_invertido_1)]
 # nombres
 
-def valores_uodi(valores,valores_2,nuevo_precio):
+def valores_uodi(valores,valores_2,nuevo_precio,tasa):
     p_1 = nuevo_precio
     precio_compra_1=p_1
     cantidad_1=valores[0]
@@ -366,7 +366,7 @@ def valores_uodi(valores,valores_2,nuevo_precio):
     costo_inv_1=precio_compra_1*inv_prom_1
     costo_nacionalizacion_1=taf_gz_1*cantidad_1
     costo_transportegz_planta_1=0
-    costo_cap_1=(diferencial_1+inv_prom_sem_1)*adu_1*(((1+0.12)**(1/52))-1)*precio_compra_1
+    costo_cap_1=(diferencial_1+inv_prom_sem_1)*adu_1*(((1+tasa)**(1/52))-1)*precio_compra_1
     costo_maninv_1=(inv_prom_1)*(tarifa_alm_1/4.3)*(inv_prom_sem_1)
     costo_compra_1=precio_compra_1*cantidad_1
     costo_total_1=costo_maninv_1+costo_compra_1+costo_cap_1
@@ -412,7 +412,7 @@ def valores_uodi(valores,valores_2,nuevo_precio):
     costo_inv=precio_compra*inv_prom
     costo_nacionalizacion=taf_gz*cantidad
     costo_transportegz_planta=200*cantidad
-    costo_cap=(diferencial+inv_prom_sem)*adu*(((1+0.12)**(1/52))-1)*precio_compra
+    costo_cap=(diferencial+inv_prom_sem)*adu*(((1+tasa)**(1/52))-1)*precio_compra
     costo_maninv=(inv_prom)*(tarifa_alm/4.3)*(inv_prom_sem)
     costo_compra=precio_compra*cantidad
     costo_total=costo_maninv+costo_compra+costo_cap+costo_nacionalizacion+costo_transportegz_planta
@@ -427,7 +427,7 @@ def valores_uodi(valores,valores_2,nuevo_precio):
     impuestos=ebitda*0.26
     uodi=ebitda-impuestos
     diferencial_ct=capital_invertido-capital_invertido_1
-    costo_capital=(diferencial_ct)*(((1+0.12)**(1/52))-1)
+    costo_capital=(diferencial_ct)*(((1+tasa)**(1/52))-1)
     eva=uodi-costo_capital
     #roic=uodi/diferencial_ct
     c_0 = costo_unitario_0  # Costo del producto 0
@@ -564,7 +564,7 @@ def eva_int(valores,valores_2,tasa):
 #     return (p_1.value())
     return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct),value(capital_invertido_1)]
 # nombres
-def uodi_int(valores,valores_2):
+def uodi_int(valores,valores_2,tasa):
     
     prob = LpProblem("Mi problema de optimización", LpMinimize)
     p_1 = LpVariable("p_1", lowBound=0)
@@ -607,10 +607,10 @@ def uodi_int(valores,valores_2):
     costo_inv_1=precio_compra_1*inv_prom_1
     costo_nacionalizacion_1=taf_gz_1*cantidad_1
     costo_transportegz_planta_1=200*cantidad_1
-    #costo_cap_1=(diferencial_1+inv_prom_sem_1)*adu_1*(((1+tasa)**(1/52))-1)*precio_compra_1
+    costo_cap_1=(diferencial_1+inv_prom_sem_1)*adu_1*(((1+tasa)**(1/52))-1)*precio_compra_1
     costo_maninv_1=(inv_prom_1)*(tarifa_alm_1/4.3)*(inv_prom_sem_1)
     costo_compra_1=precio_compra_1*cantidad_1
-    costo_total_1=costo_maninv_1+costo_compra_1+costo_nacionalizacion_1+costo_transportegz_planta_1
+    costo_total_1=costo_maninv_1+costo_compra_1+costo_cap_1+costo_nacionalizacion_1+costo_transportegz_planta_1
     costo_ebitda_1=costo_maninv_1+costo_compra_1+costo_nacionalizacion_1+costo_transportegz_planta_1
     costo_unitario_1=costo_total_1/cantidad_1
     capital_invertido_1=((diferencial_1+inv_prom_sem_1)*(adu_1)*(precio_compra_1))+(costo_nacionalizacion_1)
@@ -653,10 +653,10 @@ def uodi_int(valores,valores_2):
     costo_inv=precio_compra*inv_prom
     costo_nacionalizacion=taf_gz*cantidad
     costo_transportegz_planta=200*cantidad
-    #costo_cap=(diferencial+inv_prom_sem)*adu*(((1+tasa)**(1/52))-1)*precio_compra
+    costo_cap=(diferencial+inv_prom_sem)*adu*(((1+tasa)**(1/52))-1)*precio_compra
     costo_maninv=(inv_prom)*(tarifa_alm/4.3)*(inv_prom_sem)
     costo_compra=precio_compra*cantidad
-    costo_total=costo_maninv+costo_compra+costo_nacionalizacion+costo_transportegz_planta
+    costo_total=costo_maninv+costo_compra+costo_nacionalizacion+costo_cap+costo_transportegz_planta
     costo_ebitda=costo_maninv+costo_compra+costo_nacionalizacion+costo_transportegz_planta
     costo_unitario_0=costo_total/cantidad
     capital_invertido=((diferencial+inv_prom_sem)*(adu)*(precio_compra))+(costo_nacionalizacion)
@@ -668,7 +668,7 @@ def uodi_int(valores,valores_2):
     impuestos=ebitda*0.26
     uodi=ebitda-impuestos
     diferencial_ct=capital_invertido-capital_invertido_1
-    #costo_capital=(diferencial_ct)*(((1+tasa)**(1/52))-1)
+    costo_capital=(diferencial_ct)*(((1+tasa)**(1/52))-1)
     eva=uodi-costo_capital
     #roic=uodi/diferencial_ct
 
