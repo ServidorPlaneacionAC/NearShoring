@@ -564,7 +564,7 @@ def eva_int(valores,valores_2,tasa):
 #     return (p_1.value())
     return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct),value(capital_invertido_1)]
 # nombres
-def uodi_int(valores,valores_2,tasa):
+def uodi_int(valores,valores_2):
     
     prob = LpProblem("Mi problema de optimización", LpMinimize)
     p_1 = LpVariable("p_1", lowBound=0)
