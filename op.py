@@ -135,8 +135,8 @@ def main():
                 else:
                     
                     resultado.append(calculos.uodi_int(valores,valores_2,frm.tasa))
-                    #for i in range(-5,6,1):
-                     #   resultado.append(calculos.valores_uodi(valores,valores_2,resultado[0][0]+(i*(resultado[0][0]/15))))
+                    for i in range(-5,6,1):
+                       resultado.append(calculos.valores_uodi_int(valores,valores_2,resultado[0][0]+(i*(resultado[0][0]/15))))
             
             
             
