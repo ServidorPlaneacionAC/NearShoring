@@ -440,21 +440,21 @@ def eva_int(valores,valores_2,tasa):
     prob = LpProblem("Mi problema de optimización", LpMinimize)
     p_1 = LpVariable("p_1", lowBound=0)
     precio_compra_1=p_1
-    cantidad_1=valores_2[0]
-    frecuencia_1=valores_2[1]
-    icoterm_1 = valores_2[2]
-    lt_plantapuerto_1=valores_2[3]
-    semanas_cxp_1=valores_2[4]
-    moq_1=valores_2[5]
-    adu_1=valores_2[6]
-    factor_lt_1=valores_2[7]
-    factor_var_1=valores_2[8]
-    estandar_pos_1=valores_2[9]
-    lt_tiempoadmon_1=valores_2[10]
-    lt_puertopuerto_1=valores_2[11]
-    lt_gz_1=valores_2[12]
-    lt_gzplanta_1=valores_2[13]
-    tarifa_alm_1=valores_2[14]
+    cantidad_1=valores[0]
+    frecuencia_1=valores[1]
+    icoterm_1 = valores[2]
+    lt_plantapuerto_1=valores[3]
+    semanas_cxp_1=valores[4]
+    moq_1=valores[5]
+    adu_1=valores[6]
+    factor_lt_1=valores[7]
+    factor_var_1=valores[8]
+    estandar_pos_1=valores[9]
+    lt_tiempoadmon_1=valores[10]
+    lt_puertopuerto_1=valores[11]
+    lt_gz_1=valores[12]
+    lt_gzplanta_1=valores[13]
+    tarifa_alm_1=valores[14]
     
     #campos calculados
 

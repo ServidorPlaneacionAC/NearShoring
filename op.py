@@ -100,8 +100,12 @@ def main():
             valores=[]
             valores_2=[]
             resultado=[]
-            for nombre in nombres[:]:
-                valores.append(session_state.formulario1[nombre])
+            if session_state.esc_retador == "Escenario Nacional":
+                for nombre in nombres[:]:
+                    valores.append(session_state.formulario1[nombre])
+            else:
+                for nombre in nombres_2[:-6]:
+                    valores.append(session_state.formulario1[nombre])
             for nombre in nombres_2[:-6]: #se parte el ciclo como se menciono antes
                 valores_2.append(session_state.formulario2[nombre])
             valores_2.append(session_state.formulario2["Precio compra: no incluye aranceles"])
