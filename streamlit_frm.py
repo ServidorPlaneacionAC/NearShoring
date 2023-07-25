@@ -81,6 +81,8 @@ class streamlit_frm:
     costo_dolares=0.0
     checkbox_operacion_dolarizado=False
     st.title(titulo)
+    st.wrtite("* Todos los plazos temporales deben ser en términos de semanas")
+    st.wrtite("* El negociador debe seleccionar una unidad de medida, sean Kg, Lt, Unds y sobre esta unidad desarrollar todo el ejecicio")
     if formulario1 is None:
         #inicializo los valores en 0.0 o vacios si formulario1 no esta declarado
         # formulario1 = {nombre: (0.0 if nombre!= "Incoterm" else "FOB") for nombre in nombres}
