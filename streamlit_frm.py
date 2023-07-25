@@ -90,66 +90,126 @@ class streamlit_frm:
             # este if se utiliza para saber si el nuevo escenario es nacional o internacional
             if transaccion_internacional:
                 formulario1={
-                    "Cantidad: unidades (unidad determinada por el negociador) a pedir en el periodo de tiempo establecido":30000.0,
-                    "Frecuencia: Tiempo (Semanas) estimaddo para recalcular próximo envío":4.0,
-                    "Incoterm":"FOB",   
-                    "lead time planta-puerto: (Semanas)":5.0,
-                    "Semanas cxp: condición de pago tiempo en semanas estimado para pagar a mi proveedor el pedido actual":12.86,
-                    "Moq: Cantidad mínima a pedir (en la unidad que se desee manejar)":24000.0,
-                    "Adu: Consumo promedio diario (en la unidad que se desee manejar)":23800.0,
-                    "Factor lead time: De 0 a 1 qué tan confiable es el lead time, siendo 0 muy seguro y 1 completamente variable":0.1,
-                    "Factor variación: De 0 a 1 qué tan confiable es el consumo, siendo 0 muy seguro y 1 completamente variable":0.3,
-                    "Estandar posición: Unidades por estiba":350.0,
+
+   
+                    "Cantidad: unidades negociadas, independiente del periodo de tiempo establecido (unidad de medida determinada por el negociador)":30000.0,
+                    "Frecuencia: Tiempo estimaddo para recalcular o recibir el próximo envío":4.0,
+                    "Incoterm":"FOB", 
+                    "lead time planta-puerto: tiempo estimado desde que el material sale de la planta proveedor, hasta el puerto del país origen":5.0,
+                    "condición de pago: tiempo en semanas estimado para pagar alproveedor el pedido actual":12.86,
+                    "Cantidad mínima a pedir: Cantidad dada en unidad de medida determinada por el negociador":24000.0,
+                    "Consumo promedio Semanal: Cantidad dada en unidad de medida determinada por el negociador (la suma de consumos promedio de las plantas en análisis)":23800.0,
+                    "Factor lead time: De 0 a 1 qué tan volátil es el lead time, siendo 0 muy seguro y 1 completamente variable":0.1,
+                    "Factor variación: De 0 a 1 qué tan volátil es el consumo, siendo 0 muy seguro y 1 completamente variable":0.3,
+                    "Unidades por estiba: Cantidad dada en unidad de medida determinada por el negociador":350.0,
                     "lead time tiempo-admon: (Semanas)":10.0,
-                    "lead time puerto-puerto: (Semanas)":8.0,
-                    "lead time gestión cargo: (Semanas)":2.0,
-                    "lead time gz-planta: (Semanas)":1.0,
-                    "Factor de importacion":0.0,
-                    "Tarifa almacenamiento por unidad de consumo":15.0,
-                    "Flete internacional: por unidad":0.0,
-                    "Arancel: por unidad":0.0,
-                    "Costo por servir: por unidad":0.0,
-                    "Flete nacional: por unidad":0.0,
+                    "lead time puerto-puerto: tiempo estimado desde que el material sale del puerto proveedor, hasta el puerto del país destino":8.0,
+                    "lead time gestión cargo: tiempo estimado de nacionalización del país origen":2.0,
+                    "lead time gz-planta: tiempo estimado dedesde GZ a planta del país origen":1.0,
+                    "Tarifa almacenamiento por cada unidad de medida determinada por el negociador":15.0,
+                    "Flete internacional: por cada unidad de medida determinada por el negociador":0.0,
+                    "Arancel: por cada unidad de medida determinada por el negociador":0.0,
+                    "Costo por servir: por cada unidad de medida determinada por el negociador":0.0,
+                    "Flete nacional: por cada unidad de medida determinada por el negociador":0.0,
                     "Factor de importacion":1.0,
                     "Precio compra: no incluye aranceles":14000.0
+
+                    # "Cantidad: unidades (unidad determinada por el negociador) a pedir en el periodo de tiempo establecido":30000.0,
+                    # "Frecuencia: Tiempo (Semanas) estimaddo para recalcular próximo envío":4.0,
+                    # "Incoterm":"FOB",   
+                    # "lead time planta-puerto: (Semanas)":5.0,
+                    # "Semanas cxp: condición de pago tiempo en semanas estimado para pagar a mi proveedor el pedido actual":12.86,
+                    # "Moq: Cantidad mínima a pedir (en la unidad que se desee manejar)":24000.0,
+                    # "Adu: Consumo promedio diario (en la unidad que se desee manejar)":23800.0,
+                    # "Factor lead time: De 0 a 1 qué tan confiable es el lead time, siendo 0 muy seguro y 1 completamente variable":0.1,
+                    # "Factor variación: De 0 a 1 qué tan confiable es el consumo, siendo 0 muy seguro y 1 completamente variable":0.3,
+                    # "Estandar posición: Unidades por estiba":350.0,
+                    # "lead time tiempo-admon: (Semanas)":10.0,
+                    # "lead time puerto-puerto: (Semanas)":8.0,
+                    # "lead time gestión cargo: (Semanas)":2.0,
+                    # "lead time gz-planta: (Semanas)":1.0,
+                    # "Factor de importacion":0.0,
+                    # "Tarifa almacenamiento por unidad de consumo":15.0,
+                    # "Flete internacional: por unidad":0.0,
+                    # "Arancel: por unidad":0.0,
+                    # "Costo por servir: por unidad":0.0,
+                    # "Flete nacional: por unidad":0.0,
+                    # "Factor de importacion":1.0,
+                    # "Precio compra: no incluye aranceles":14000.0
                             }
             else:
-                formulario1={ "Cantidad: unidades (unidad determinada por el negociador) a pedir en el periodo de tiempo establecido": 30000.0,
-                        "Frecuencia: Tiempo (Semanas) estimaddo para recalcular próximo envío":1.0,
-                        "lead time entrega en planta: (Semanas)":1.0,
-                        "Semanas cxp: condición de pago tiempo en semanas estimado para pagar a mi proveedor el pedido actual":8.57,
-                        "Moq: Cantidad mínima a pedir (en la unidad que se desee manejar)":1200.0,
-                        "Adu: Consumo promedio diario (en la unidad que se desee manejar)":20890.0,
-                        "Factor lead time: De 0 a 1 qué tan confiable es el lead time, siendo 0 muy seguro y 1 completamente variable":0.4,
-                        "Factor variación: De 0 a 1 qué tan confiable es el consumo, siendo 0 muy seguro y 1 completamente variable":0.3,
-                        "Estandar posición: Unidades por estiba":350.0,
-                        "Tarifa almacenamiento por unidad de consumo":15.0
+                formulario1={ 
+                        
+                        "Cantidad: unidades negociadas, independiente del periodo de tiempo establecido (unidad de medida determinada por el negociador)":30000.0,
+                        "Frecuencia: Tiempo estimaddo para recalcular o recibir el próximo envío":1.0,
+                        "lead time entrega en planta: tiempo estimado para entregar en planta (si se consideran varias plantas, tomar el tiempo mayor)":1.0,
+                        "condición de pago: tiempo en semanas estimado para pagar alproveedor el pedido actual":8.57,
+                        "Cantidad mínima a pedir: Cantidad dada en unidad de medida determinada por el negociador":1200.0,
+                        "Consumo promedio Semanal: Cantidad dada en unidad de medida determinada por el negociador (la suma de consumos promedio de las plantas en análisis)":20890.0,
+                        "Factor lead time: De 0 a 1 qué tan volátil es el lead time, siendo 0 muy seguro y 1 completamente variable":0.4,
+                        "Factor variación: De 0 a 1 qué tan volátil es el consumo, siendo 0 muy seguro y 1 completamente variable":0.3,
+                        "Unidades por estiba: Cantidad dada en unidad de medida determinada por el negociador":350.0,
+                        "Tarifa almacenamiento por cada unidad de medida determinada por el negociador":15.0,
+                    
+                        # "Cantidad: unidades (unidad determinada por el negociador) a pedir en el periodo de tiempo establecido": 30000.0,
+                        # "Frecuencia: Tiempo (Semanas) estimaddo para recalcular próximo envío":1.0,
+                        # "lead time entrega en planta: (Semanas)":1.0,
+                        # "Semanas cxp: condición de pago tiempo en semanas estimado para pagar a mi proveedor el pedido actual":8.57,
+                        # "Moq: Cantidad mínima a pedir (en la unidad que se desee manejar)":1200.0,
+                        # "Adu: Consumo promedio diario (en la unidad que se desee manejar)":20890.0,
+                        # "Factor lead time: De 0 a 1 qué tan confiable es el lead time, siendo 0 muy seguro y 1 completamente variable":0.4,
+                        # "Factor variación: De 0 a 1 qué tan confiable es el consumo, siendo 0 muy seguro y 1 completamente variable":0.3,
+                        # "Estandar posición: Unidades por estiba":350.0,
+                        # "Tarifa almacenamiento por unidad de consumo":15.0
                         }
 
         else:
             formulario1={
-            "Cantidad: unidades (unidad determinada por el negociador) a pedir en el periodo de tiempo establecido":30000.0,
-            "Frecuencia: Tiempo (Semanas) estimaddo para recalcular próximo envío":4.0,
-            "Incoterm":"FOB",   
-            "lead time planta-puerto: (Semanas)":5.0,
-            "Semanas cxp: condición de pago tiempo en semanas estimado para pagar a mi proveedor el pedido actual":12.86,
-            "Moq: Cantidad mínima a pedir (en la unidad que se desee manejar)":24000.0,
-            "Adu: Consumo promedio diario (en la unidad que se desee manejar)":23800.0,
-            "Factor lead time: De 0 a 1 qué tan confiable es el lead time, siendo 0 muy seguro y 1 completamente variable":0.1,
-            "Factor variación: De 0 a 1 qué tan confiable es el consumo, siendo 0 muy seguro y 1 completamente variable":0.3,
-            "Estandar posición: Unidades por estiba":350.0,
+   
+            "Cantidad: unidades negociadas, independiente del periodo de tiempo establecido (unidad de medida determinada por el negociador)":30000.0,
+            "Frecuencia: Tiempo estimaddo para recalcular o recibir el próximo envío":4.0,
+            "Incoterm":"FOB", 
+            "lead time planta-puerto: tiempo estimado desde que el material sale de la planta proveedor, hasta el puerto del país origen":5.0,
+            "condición de pago: tiempo en semanas estimado para pagar alproveedor el pedido actual":12.86,
+            "Cantidad mínima a pedir: Cantidad dada en unidad de medida determinada por el negociador":24000.0,
+            "Consumo promedio Semanal: Cantidad dada en unidad de medida determinada por el negociador (la suma de consumos promedio de las plantas en análisis)":23800.0,
+            "Factor lead time: De 0 a 1 qué tan volátil es el lead time, siendo 0 muy seguro y 1 completamente variable":0.1,
+            "Factor variación: De 0 a 1 qué tan volátil es el consumo, siendo 0 muy seguro y 1 completamente variable":0.3,
+            "Unidades por estiba: Cantidad dada en unidad de medida determinada por el negociador":350.0,
             "lead time tiempo-admon: (Semanas)":10.0,
-            "lead time puerto-puerto: (Semanas)":8.0,
-            "lead time gestión cargo: (Semanas)":2.0,
-            "lead time gz-planta: (Semanas)":1.0,
-            "Factor de importacion":0.0,
-            "Tarifa almacenamiento por unidad de consumo":15.0,
-            "Flete internacional: por unidad":0.0,
-            "Arancel: por unidad":0.0,
-            "Costo por servir: por unidad":0.0,
-            "Flete nacional: por unidad":0.0,
+            "lead time puerto-puerto: tiempo estimado desde que el material sale del puerto proveedor, hasta el puerto del país destino":8.0,
+            "lead time gestión cargo: tiempo estimado de nacionalización del país origen":2.0,
+            "lead time gz-planta: tiempo estimado dedesde GZ a planta del país origen":1.0,
+            "Tarifa almacenamiento por cada unidad de medida determinada por el negociador":15.0,
+            "Flete internacional: por cada unidad de medida determinada por el negociador":0.0,
+            "Arancel: por cada unidad de medida determinada por el negociador":0.0,
+            "Costo por servir: por cada unidad de medida determinada por el negociador":0.0,
+            "Flete nacional: por cada unidad de medida determinada por el negociador":0.0,
             "Factor de importacion":1.0,
             "Precio compra: no incluye aranceles":14000.0
+
+            # "Cantidad: unidades (unidad determinada por el negociador) a pedir en el periodo de tiempo establecido":30000.0,
+            # "Frecuencia: Tiempo (Semanas) estimaddo para recalcular próximo envío":4.0,
+            # "Incoterm":"FOB",   
+            # "lead time planta-puerto: (Semanas)":5.0,
+            # "Semanas cxp: condición de pago tiempo en semanas estimado para pagar a mi proveedor el pedido actual":12.86,
+            # "Moq: Cantidad mínima a pedir (en la unidad que se desee manejar)":24000.0,
+            # "Adu: Consumo promedio diario (en la unidad que se desee manejar)":23800.0,
+            # "Factor lead time: De 0 a 1 qué tan confiable es el lead time, siendo 0 muy seguro y 1 completamente variable":0.1,
+            # "Factor variación: De 0 a 1 qué tan confiable es el consumo, siendo 0 muy seguro y 1 completamente variable":0.3,
+            # "Estandar posición: Unidades por estiba":350.0,
+            # "lead time tiempo-admon: (Semanas)":10.0,
+            # "lead time puerto-puerto: (Semanas)":8.0,
+            # "lead time gestión cargo: (Semanas)":2.0,
+            # "lead time gz-planta: (Semanas)":1.0,
+            # "Factor de importacion":0.0,
+            # "Tarifa almacenamiento por unidad de consumo":15.0,
+            # "Flete internacional: por unidad":0.0,
+            # "Arancel: por unidad":0.0,
+            # "Costo por servir: por unidad":0.0,
+            # "Flete nacional: por unidad":0.0,
+            # "Factor de importacion":1.0,
+            # "Precio compra: no incluye aranceles":14000.0
             }
     
     #indico que mostrare la informacion en 2 columnas e inicializo variable local valores que es donde voy a guardadr temporalmente las respuestas
@@ -168,7 +228,7 @@ class streamlit_frm:
             else:    
                 valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=10000000.0, value=formulario1[nombres[i]]))
         
-        if transaccion_internacional==True:
+        if transaccion_internacional==True and not('Nuevo Escenario'==titulo):
             #genero proceso extra para transformar de dolares a pesos y pesos a dolares
             checkbox_operacion_dolarizado = st.checkbox("indicar el precio en dolares")
             if checkbox_operacion_dolarizado:
