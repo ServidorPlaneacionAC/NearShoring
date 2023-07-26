@@ -279,7 +279,7 @@ class streamlit_frm:
                 valores.append(st.number_input(nombres[-1],key=nombres[-1], step=0.1, min_value=0.0, max_value=10000000.0, value=self.valor_en_pesos,disabled=True))
         else:
             for i in range(int(len(nombres)/2), len(nombres)):
-                valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
+                valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=1000000.0, value=formulario1[nombres[i]]))
 
           
     if st.button("Guardar"): 
