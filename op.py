@@ -113,14 +113,11 @@ def main():
             if session_state.esc_retador == "Escenario Nacional":
                 for nombre in nombres[:]:
                     valores.append(session_state.formulario1[nombre])
-                if agregar_costo_capital:
-                
-                    
+                if agregar_costo_capital:   
                     resultado.append(calculos.eva(valores,valores_2,frm.tasa))
                     for i in range(-5,6,1):
                         resultado.append(calculos.valores_eva(valores,valores_2,resultado[0][0]+(i*(resultado[0][0]/15)),frm.tasa))
                 else:
-                    
                     resultado.append(calculos.uodi(valores,valores_2,frm.tasa))
                     for i in range(-5,6,1):
                         resultado.append(calculos.valores_uodi(valores,valores_2,resultado[0][0]+(i*(resultado[0][0]/15)),frm.tasa))
@@ -143,7 +140,7 @@ def main():
             
             
                   
-            frm.resultados(resultado,valores,valores_2,agregar_costo_capital)
+            frm.resultados(resultado,valores,valores_2,agregar_costo_capital,session_state.esc_retador)
 
 if __name__ == "__main__":
     main()
