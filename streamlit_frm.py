@@ -235,7 +235,7 @@ class streamlit_frm:
                 valores.append(st.selectbox("Selecciona un Incoterm:", opciones,index=opciones.index(formulario1[nombres[i]]), key="Incoterm"))
                 opcion_iconterm=valores[-1]
             else:    
-                valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=10000000.0, value=formulario1[nombres[i]]))
+                valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=1000000000.0, value=formulario1[nombres[i]]))
         
         if transaccion_internacional==True and not('Nuevo Escenario'==titulo):
             #genero proceso extra para transformar de dolares a pesos y pesos a dolares
@@ -279,14 +279,14 @@ class streamlit_frm:
 #                 Si no se ha seleccionado la alternativa de operacion dolarizda indico que el valor de la ultima variable puesta en nombre es lo que esta
 #                     en la variable de estado valor_en_pesos(inicializada en el main con valor 0.0 y modificada cuando selecciono la operacion dolarizada
 #                     y llevo a valor_en_pesos el valor que se escriba en este campo)
-                valores.append(st.number_input(nombres[-1],key=nombres[-1], step=0.1, min_value=0.0, max_value=10000000.0, value=self.valor_en_pesos))
+                valores.append(st.number_input(nombres[-1],key=nombres[-1], step=0.1, min_value=0.000, max_value=10000000.0, value=self.valor_en_pesos))
                 self.valor_en_pesos=valores[-1]
             else:            
                 #traigo valor_en_pesos pero no permito su edicion
-                valores.append(st.number_input(nombres[-1],key=nombres[-1], step=0.1, min_value=0.0, max_value=10000000.0, value=self.valor_en_pesos,disabled=True))
+                valores.append(st.number_input(nombres[-1],key=nombres[-1], step=0.1, min_value=0.000, max_value=10000000.0, value=self.valor_en_pesos,disabled=True))
         else:
             for i in range(int(len(nombres)/2), len(nombres)):
-                valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=1000000.0, value=formulario1[nombres[i]]))
+                valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.000, max_value=1000000.0, value=formulario1[nombres[i]]))
 
           
     if st.button("Guardar"): 
