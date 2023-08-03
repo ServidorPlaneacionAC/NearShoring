@@ -217,12 +217,12 @@ def uodi(valores,valores_2,tasa):
     costo_unitario_0=costo_total/cantidad
     capital_invertido=((diferencial+inv_prom_sem)*(adu)*(precio_compra))+(costo_nacionalizacion)
 
-     st.write(f"{value(costo_inv)} costo_inv internacional  {value(costo_inv_1)} costo_inv nacional")
-     st.write(f"{value(inv_prom)} inv_prom internacional  {value(inv_prom_1)} inv_prom nacional")
-     st.write(f"{value(diferencial)} diferencial internacional  {value(diferencial_1)} diferencial nacional")
-     st.write(f"{value(taf_gz)} taf_gz internacional  {value(taf_gz_1)} taf_gz nacional")
-     st.write(f"{value(costo_maninv)} costo_maninv internacional  {value(costo_maninv_1)} costo_maninv nacional")
-     st.write(f"{value(costo_compra)} costo_compra internacional  {value(costo_compra_1)} costo_compra nacional")
+    st.write(f"{value(costo_inv)} costo_inv internacional  {value(costo_inv_1)} costo_inv nacional")
+    st.write(f"{value(inv_prom)} inv_prom internacional  {value(inv_prom_1)} inv_prom nacional")
+    st.write(f"{value(diferencial)} diferencial internacional  {value(diferencial_1)} diferencial nacional")
+    st.write(f"{value(taf_gz)} taf_gz internacional  {value(taf_gz_1)} taf_gz nacional")
+    st.write(f"{value(costo_maninv)} costo_maninv internacional  {value(costo_maninv_1)} costo_maninv nacional")
+    st.write(f"{value(costo_compra)} costo_compra internacional  {value(costo_compra_1)} costo_compra nacional")
    
 
     #calculo variables financieras
