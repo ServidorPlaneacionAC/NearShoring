@@ -442,7 +442,7 @@ def valores_eva(valores,valores_2,nuevo_precio,tasa):
  # Aquí va tu método m
     # Crear problema de minimización
     prob = LpProblem("Mi problema de optimización", LpMinimize)
-    p_1 = LpVariable("p_1", lowBound=0)
+    p_1 = nuevo_precio
     precio_compra_1=p_1
     cantidad_1=valores[0]
     frecuencia_1=valores[1]
@@ -630,7 +630,7 @@ def valores_uodi(valores,valores_2,nuevo_precio,tasa):
  # Aquí va tu método m
     # Crear problema de minimización
     prob = LpProblem("Mi problema de optimización", LpMinimize)
-    p_1 = LpVariable("p_1", lowBound=0)
+    p_1 = nuevo_precio
     precio_compra_1=p_1
     cantidad_1=valores[0]
     frecuencia_1=valores[1]
