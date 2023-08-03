@@ -27,17 +27,17 @@ def eva(valores,valores_2,tasa):
     zona_verde_1=max(moq_1,frecuencia_1*adu_1,lt_completo_1*adu_1*factor_lt_1)
     inv_prom_1=zona_rojabase_1+zona_rojaalta_1+(zona_verde_1/2)
     inv_prom_sem_1=inv_prom_1/adu_1
-    diferencial_1=lt_logistico_1-semanas_cxp_1
+    diferencial_1=lt_completo_1-semanas_cxp_1
 
     taf_gz_1=0
     costo_inv_1=precio_compra_1*inv_prom_1
     costo_nacionalizacion_1=taf_gz_1*cantidad_1
-    costo_transportegz_planta_1=0
+    costo_transportegz_planta_1=200*cantidad_1
     costo_cap_1=(diferencial_1+inv_prom_sem_1)*adu_1*(((1+tasa)**(1/52))-1)*precio_compra_1
     costo_maninv_1=(inv_prom_1)*(tarifa_alm_1/4.3)*(inv_prom_sem_1)
     costo_compra_1=precio_compra_1*cantidad_1
     costo_total_1=costo_maninv_1+costo_compra_1+costo_cap_1
-    costo_ebitda_1=costo_maninv_1+costo_compra_1
+    costo_ebitda_1=costo_maninv_1+costo_compra_1+costo_transportegz_planta_1
     costo_unitario_1=costo_total_1/cantidad_1
     capital_invertido_1=((diferencial_1+inv_prom_sem_1)*(adu_1))*(precio_compra_1)
 
@@ -117,15 +117,6 @@ def eva(valores,valores_2,tasa):
     prob += eva == 0
     status = prob.solve()
 #     return (p_1.value())
-
-    st.write(f"{value(zona_amarilla)}")
-    st.write(f"{value(zona_rojabase)}")
-    st.write(f"{value(zona_rojaalta)}")
-    st.write(f"{value(zona_verde)}")
-    st.write(f"{value(zona_rojabase_1)}")
-    st.write(f"{value(zona_rojaalta_1)}")
-    st.write(f"{value(zona_verde_1)}")
-    st.write(f"{value(lt_completo)} lt_completo")
 
     return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct),value(capital_invertido_1)]
 # nombres
