@@ -249,7 +249,7 @@ def uodi(valores,valores_2,tasa):
     prob += uodi == 0
     status = prob.solve()
 #     return (p_1.value())
-    return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct),value(capital_invertido_1),    value(zona_amarilla),
+    return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct),value(capital_invertido_1), value(zona_amarilla),
     value(zona_rojabase),
     value(zona_rojaalta),
     value(zona_verde),
