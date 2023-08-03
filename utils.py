@@ -62,10 +62,11 @@ def eva(valores,valores_2,tasa):
     lt_logistico= icoterm  
     if icoterm == "EXWORK":
         lt_logistico = lt_plantapuerto+lt_puertopuerto+lt_gzplanta+lt_gz
-    elif icoterm == "FOB":
-        lt_logistico = lt_puertopuerto+lt_gzplanta+lt_gz
     else:
-        lt_logistico = lt_gzplanta+lt_gz
+        if icoterm == "FOB":
+            lt_logistico = lt_puertopuerto+lt_gzplanta+lt_gz
+        else:
+            lt_logistico = lt_gzplanta+lt_gz
     zona_amarilla=lt_completo_1*adu
     zona_rojabase=zona_amarilla*factor_lt
     zona_rojaalta=zona_rojabase*factor_var
@@ -134,7 +135,8 @@ def eva(valores,valores_2,tasa):
     value(zona_amarilla_1),
     value(zona_rojabase_1),
     value(zona_rojaalta_1),
-    value(zona_verde_1)]
+    value(zona_verde_1),
+    value(lt_completo)]
 # nombres
     
 def uodi(valores,valores_2,tasa):
