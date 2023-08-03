@@ -118,26 +118,16 @@ def eva(valores,valores_2,tasa):
     status = prob.solve()
 #     return (p_1.value())
 
-    value(zona_amarilla),
-    value(zona_rojabase),
-    value(zona_rojaalta),
-    value(zona_verde),
+    st.write(f"{value(zona_amarilla)}")
+    st.write(f"{value(zona_rojabase)}")
+    st.write(f"{value(zona_rojaalta)}")
+    st.write(f"{value(zona_verde)}")
+    st.write(f"{value(zona_rojabase_1)}")
+    st.write(f"{value(zona_rojaalta_1)}")
+    st.write(f"{value(zona_verde_1}")
+    st.write(f"{value(lt_completo} lt_completo")
 
-    st.write(f"**********************************************{value(zona_amarilla_1)}")
-    value(zona_rojabase_1),
-    value(zona_rojaalta_1),
-    value(zona_verde_1)
-
-    return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct),value(capital_invertido_1),    value(zona_amarilla),
-    value(zona_rojabase),
-    value(zona_rojaalta),
-    value(zona_verde),
-
-    value(zona_amarilla_1),
-    value(zona_rojabase_1),
-    value(zona_rojaalta_1),
-    value(zona_verde_1),
-    value(lt_completo)]
+    return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct),value(capital_invertido_1)]
 # nombres
     
 def uodi(valores,valores_2,tasa):
