@@ -268,6 +268,7 @@ def uodi(valores,valores_2,tasa):
     st.write(f"{value(taf_gz)} taf_gz internacional  {value(taf_gz_1)} taf_gz nacional")
     st.write(f"{value(costo_maninv)} costo_maninv internacional  {value(costo_maninv_1)} costo_maninv nacional")
     st.write(f"{value(costo_compra)} costo_compra internacional  {value(costo_compra_1)} costo_compra nacional")
+    st.write(f"{value(costo_cap)} costo_cap internacional  {value(costo_cap_1)} costo_cap nacional")
    
 
     return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct),value(capital_invertido_1)]
