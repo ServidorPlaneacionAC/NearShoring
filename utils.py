@@ -197,8 +197,8 @@ def uodi(valores,valores_2,tasa):
         lt_logistico = lt_puertopuerto+lt_gzplanta+lt_gz
     else:
         lt_logistico = lt_gzplanta+lt_gz
-    st.write(f"{zona_amarilla}  {lt_completo_1}  {adu} ")
     zona_amarilla=lt_completo*adu
+    st.write(f"{zona_amarilla}  {lt_completo_1}  {adu} ")
     zona_rojabase=zona_amarilla*factor_lt
     zona_rojaalta=zona_rojabase*factor_var
     zona_verde=max(moq,frecuencia*adu,lt_completo_1*adu*factor_lt)
