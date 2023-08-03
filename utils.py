@@ -250,7 +250,7 @@ def uodi(valores,valores_2,tasa):
     st.write(f"{value(zona_rojaalta)}")
     st.write(f"{value(zona_verde)}")
     
-    st.write(f"{value(zona_amarilla_1)}")
+    st.write(f"{value(zona_amarilla_1)} amarilla nacional")
     st.write(f"{value(zona_rojabase_1)}")
     st.write(f"{value(zona_rojaalta_1)}")
     st.write(f"{value(zona_verde_1)}")
