@@ -1,4 +1,5 @@
 from pulp import *
+import streamlit as st
 
 def eva(valores,valores_2,tasa):
     prob = LpProblem("Mi problema de optimización", LpMinimize)
