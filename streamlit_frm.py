@@ -20,10 +20,10 @@ class streamlit_frm:
     tabla_resultado=pd.DataFrame(
                                  [[resultado[0][0],
                                    "{:.2f}%".format((resultado[0][0]-self.valor_en_pesos)/self.valor_en_pesos*100),
-                                    -round(resultado[0][1],2),
-                                    -round(resultado[0][2],2),
-                                    -round(resultado[0][3],2),
-                                    -round(0 if resultado[0][4] == 0 else resultado[0][1]/resultado[0][4],2),
+                                    round(resultado[0][1],2),
+                                    round(resultado[0][2],2),
+                                    round(resultado[0][3],2),
+                                    round(0 if resultado[0][4] == 0 else resultado[0][1]/resultado[0][4],2),
                                     round(resultado[0][5],2)]],
                                     
                                  columns=['Precio a pagar','variación respecto al original','UODI','EBITDA','EVA','ROIC','Capital invertido'])
@@ -46,10 +46,10 @@ class streamlit_frm:
         nueva_tabla_resultado=pd.DataFrame(
                                     [[resultados_nuevo_precio[0],
                                     "{:.2f}%".format((resultados_nuevo_precio[0]-self.valor_en_pesos)/self.valor_en_pesos*100),
-                                        -round(resultados_nuevo_precio[1],2),
-                                        -round(resultados_nuevo_precio[2],2),
-                                        -round(resultados_nuevo_precio[3],2),
-                                        -round(0 if resultados_nuevo_precio[4] == 0 else resultados_nuevo_precio[1]/resultados_nuevo_precio[4],2),
+                                        round(resultados_nuevo_precio[1],2),
+                                        round(resultados_nuevo_precio[2],2),
+                                        round(resultados_nuevo_precio[3],2),
+                                        round(0 if resultados_nuevo_precio[4] == 0 else resultados_nuevo_precio[1]/resultados_nuevo_precio[4],2),
                                         round(resultados_nuevo_precio[5],2)]], 
                                     columns=['Precio a pagar','variación respecto al original','UODI','EBITDA','EVA','ROIC','Capital invertido'])
         st.write(nueva_tabla_resultado)
@@ -59,10 +59,10 @@ class streamlit_frm:
     tabla_resultado=pd.DataFrame(
                                  [[resultado[i][0],
                                    "{:.2f}%".format((resultado[i][0]-self.valor_en_pesos)/self.valor_en_pesos*100),
-                                    -round(resultado[i][1],2),
-                                    -round(resultado[i][2],2),
-                                    -round(resultado[i][3],2),
-                                    -round(0 if resultado[i][4] == 0 else resultado[i][1]/resultado[i][4],2),
+                                    round(resultado[i][1],2),
+                                    round(resultado[i][2],2),
+                                    round(resultado[i][3],2),
+                                    round(0 if resultado[i][4] == 0 else resultado[i][1]/resultado[i][4],2),
                                     round(resultado[i][5],2)] for i in range(len(resultado))], 
                                  columns=['Precio a pagar','variación respecto al original','UODI','EBITDA','EVA','ROIC','Capital invertido'])
     st.write(tabla_resultado[1:]) 
