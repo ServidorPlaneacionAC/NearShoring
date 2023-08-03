@@ -245,18 +245,21 @@ def uodi(valores,valores_2,tasa):
 #     return (p_1.value())
 
 
-    st.write(f"{value(zona_amarilla)}")
-    st.write(f"{value(zona_rojabase)}")
-    st.write(f"{value(zona_rojaalta)}")
-    st.write(f"{value(zona_verde)}")
+    # st.write(f"{value(zona_amarilla)}")
+    # st.write(f"{value(zona_rojabase)}")
+    # st.write(f"{value(zona_rojaalta)}")
+    # st.write(f"{value(zona_verde)}")
     
-    st.write(f"{value(zona_amarilla_1)} amarilla nacional")
-    st.write(f"{value(zona_rojabase_1)}")
-    st.write(f"{value(zona_rojaalta_1)}")
-    st.write(f"{value(zona_verde_1)}")
-    st.write(f"{value(lt_completo)} lt_completo")
+    # st.write(f"{value(zona_amarilla_1)} amarilla nacional")
+    # st.write(f"{value(zona_rojabase_1)}")
+    # st.write(f"{value(zona_rojaalta_1)}")
+    # st.write(f"{value(zona_verde_1)}")
+    # st.write(f"{value(lt_completo)} lt_completo")
     st.write(f"*********************")
     st.write(f"{value(costo_ebitda)} costo_ebitda internacional  {value(costo_ebitda_1)} costo_ebitda nacional")
+   st.write(f"{value(costo_total)} costo_ebitda internacional  {value(costo_total_1)} costo_ebitda nacional")
+
+
 
     return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct),value(capital_invertido_1)]
 
