@@ -333,27 +333,116 @@ def uodi(valores,valores_2,tasa):
     # st.write(f"{value(zona_rojaalta_1)}")
     # st.write(f"{value(zona_verde_1)}")
     # st.write(f"{value(lt_completo)} lt_completo")
-    st.write(f"*********************")
-    st.write(f"{value(costo_ebitda)} costo_ebitda internacional  {value(costo_ebitda_1)} costo_ebitda nacional")
-    st.write(f"{value(costo_total)} costo_total internacional  {value(costo_total_1)} costo_total nacional")
+    # st.write(f"*********************")
+    # st.write(f"{value(costo_ebitda)} costo_ebitda internacional  {value(costo_ebitda_1)} costo_ebitda nacional")
+    # st.write(f"{value(costo_total)} costo_total internacional  {value(costo_total_1)} costo_total nacional")
 
 
-    st.write(f"*********************")
-    st.write(f"{value(costo_transportegz_planta)} costo_transportegz_planta internacional  {value(costo_transportegz_planta_1)} costo_transportegz_planta nacional")
-    st.write(f"{value(costo_inv)} costo_inv internacional  {value(costo_inv_1)} costo_inv nacional")
-    st.write(f"{value(inv_prom)} inv_prom internacional  {value(inv_prom_1)} inv_prom nacional")
-    st.write(f"{value(diferencial)} diferencial internacional  {value(diferencial_1)} diferencial nacional")
-    st.write(f"{value(taf_gz)} taf_gz internacional  {value(taf_gz_1)} taf_gz nacional")
-    st.write(f"{value(costo_maninv)} costo_maninv internacional  {value(costo_maninv_1)} costo_maninv nacional")
-    st.write(f"{value(costo_compra)} costo_compra internacional  {value(costo_compra_1)} costo_compra nacional")
-    st.write(f"{value(costo_cap)} costo_cap internacional  {value(costo_cap_1)} costo_cap nacional")
+    # st.write(f"*********************")
+    # st.write(f"{value(costo_transportegz_planta)} costo_transportegz_planta internacional  {value(costo_transportegz_planta_1)} costo_transportegz_planta nacional")
+    # st.write(f"{value(costo_inv)} costo_inv internacional  {value(costo_inv_1)} costo_inv nacional")
+    # st.write(f"{value(inv_prom)} inv_prom internacional  {value(inv_prom_1)} inv_prom nacional")
+    # st.write(f"{value(diferencial)} diferencial internacional  {value(diferencial_1)} diferencial nacional")
+    # st.write(f"{value(taf_gz)} taf_gz internacional  {value(taf_gz_1)} taf_gz nacional")
+    # st.write(f"{value(costo_maninv)} costo_maninv internacional  {value(costo_maninv_1)} costo_maninv nacional")
+    # st.write(f"{value(costo_compra)} costo_compra internacional  {value(costo_compra_1)} costo_compra nacional")
+    # st.write(f"{value(costo_cap)} costo_cap internacional  {value(costo_cap_1)} costo_cap nacional")
    
 
     return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct),value(capital_invertido_1)]
 
 
 def valores_eva(valores,valores_2,nuevo_precio,tasa):
-    p_1 = nuevo_precio
+    
+    
+    # p_1 = nuevo_precio
+    # precio_compra_1=p_1
+    # cantidad_1=valores[0]
+    # frecuencia_1=valores[1]
+    # lt_plantapuerto_1=valores[2]
+    # semanas_cxp_1=valores[3]
+    # moq_1=valores[4]
+    # adu_1=valores[5]
+    # factor_lt_1=valores[6]
+    # factor_var_1=valores[7]
+    # estandar_pos_1=valores[8]
+    # tarifa_alm_1=valores[9]
+
+
+    # #campos_1 calculados
+
+    # lt_completo_1=lt_plantapuerto_1
+    # lt_logistico_1=lt_plantapuerto_1
+    # zona_amarilla_1=lt_completo_1*adu_1
+    # zona_rojabase_1=zona_amarilla_1*factor_lt_1
+    # zona_rojaalta_1=zona_rojabase_1*factor_var_1
+    # zona_verde_1=max(moq_1,frecuencia_1*adu_1,lt_completo_1*adu_1*factor_lt_1)
+    # inv_prom_1=zona_rojabase_1+zona_rojaalta_1+(zona_verde_1/2)
+    # inv_prom_sem_1=inv_prom_1/adu_1
+    # diferencial_1=lt_logistico_1-semanas_cxp_1
+
+    # taf_gz_1=0
+    # costo_inv_1=precio_compra_1*inv_prom_1
+    # costo_nacionalizacion_1=taf_gz_1*cantidad_1
+    # costo_transportegz_planta_1=0
+    # costo_cap_1=(diferencial_1+inv_prom_sem_1)*adu_1*(((1+tasa)**(1/52))-1)*precio_compra_1
+    # costo_maninv_1=(inv_prom_1)*(tarifa_alm_1/4.3)*(inv_prom_sem_1)
+    # costo_compra_1=precio_compra_1*cantidad_1
+    # costo_total_1=costo_maninv_1+costo_compra_1+costo_cap_1
+    # costo_ebitda_1=costo_maninv_1+costo_compra_1
+    # costo_unitario_1=costo_total_1/cantidad_1
+    # capital_invertido_1=((diferencial_1+inv_prom_sem_1)*(adu_1))*(precio_compra_1)
+
+    # cantidad=valores_2[0]
+    # frecuencia=valores_2[1]
+    # icoterm = valores_2[2]
+    # lt_plantapuerto=valores_2[3]
+    # semanas_cxp=valores_2[4]
+    # moq=valores_2[5]
+    # adu=valores_2[6]
+    # factor_lt=valores_2[7]
+    # factor_var=valores_2[8]
+    # estandar_pos=valores_2[9]
+    # lt_tiempoadmon=valores_2[10]
+    # lt_puertopuerto=valores_2[11]
+    # lt_gz=valores_2[12]
+    # lt_gzplanta=valores_2[13]
+    # tarifa_alm=valores_2[14]
+    # precio_compra=valores_2[15]
+    # #campos calculados
+
+    # lt_completo=lt_tiempoadmon+lt_puertopuerto+lt_plantapuerto+lt_gz+lt_gzplanta
+    # lt_logistico= icoterm  
+    # if icoterm == "EXWORK":
+    #     lt_logistico = lt_plantapuerto+lt_puertopuerto+lt_gzplanta+lt_gz
+    # elif icoterm == "FOB":
+    #     lt_logistico = lt_puertopuerto+lt_gzplanta+lt_gz
+    # else:
+    #     lt_logistico = lt_gzplanta+lt_gz
+    # zona_amarilla=lt_completo_1*adu
+    # zona_rojabase=zona_amarilla*factor_lt
+    # zona_rojaalta=zona_rojabase*factor_var
+    # zona_verde=max(moq,frecuencia*adu,lt_completo_1*adu*factor_lt)
+    # inv_prom=zona_rojabase+zona_rojaalta+(zona_verde/2)
+    # inv_prom_sem=inv_prom/adu
+    # diferencial=lt_logistico-semanas_cxp
+    # taf_gz=0.07*precio_compra
+
+    # costo_inv=precio_compra*inv_prom
+    # costo_nacionalizacion=taf_gz*cantidad
+    # costo_transportegz_planta=200*cantidad
+    # costo_cap=(diferencial+inv_prom_sem)*adu*(((1+tasa)**(1/52))-1)*precio_compra
+    # costo_maninv=(inv_prom)*(tarifa_alm/4.3)*(inv_prom_sem)
+    # costo_compra=precio_compra*cantidad
+    # costo_total=costo_maninv+costo_compra+costo_cap+costo_nacionalizacion+costo_transportegz_planta
+    # costo_ebitda=costo_maninv+costo_compra+costo_nacionalizacion+costo_transportegz_planta
+    # costo_unitario_0=costo_total/cantidad
+    # capital_invertido=((diferencial+inv_prom_sem)*(adu)*(precio_compra))+(costo_nacionalizacion)
+
+ # Aquí va tu método m
+    # Crear problema de minimización
+    prob = LpProblem("Mi problema de optimización", LpMinimize)
+    p_1 = LpVariable("p_1", lowBound=0)
     precio_compra_1=p_1
     cantidad_1=valores[0]
     frecuencia_1=valores[1]
@@ -365,10 +454,9 @@ def valores_eva(valores,valores_2,nuevo_precio,tasa):
     factor_var_1=valores[7]
     estandar_pos_1=valores[8]
     tarifa_alm_1=valores[9]
-
-
+    
     #campos_1 calculados
-
+    
     lt_completo_1=lt_plantapuerto_1
     lt_logistico_1=lt_plantapuerto_1
     zona_amarilla_1=lt_completo_1*adu_1
@@ -378,19 +466,19 @@ def valores_eva(valores,valores_2,nuevo_precio,tasa):
     inv_prom_1=zona_rojabase_1+zona_rojaalta_1+(zona_verde_1/2)
     inv_prom_sem_1=inv_prom_1/adu_1
     diferencial_1=lt_logistico_1-semanas_cxp_1
-
+    
     taf_gz_1=0
     costo_inv_1=precio_compra_1*inv_prom_1
     costo_nacionalizacion_1=taf_gz_1*cantidad_1
-    costo_transportegz_planta_1=0
+    costo_transportegz_planta_1=200*cantidad_1
     costo_cap_1=(diferencial_1+inv_prom_sem_1)*adu_1*(((1+tasa)**(1/52))-1)*precio_compra_1
     costo_maninv_1=(inv_prom_1)*(tarifa_alm_1/4.3)*(inv_prom_sem_1)
     costo_compra_1=precio_compra_1*cantidad_1
-    costo_total_1=costo_maninv_1+costo_compra_1+costo_cap_1
-    costo_ebitda_1=costo_maninv_1+costo_compra_1
+    costo_total_1=costo_maninv_1+costo_compra_1+costo_cap_1 +costo_transportegz_planta_1
+    costo_ebitda_1=costo_maninv_1+costo_compra_1+costo_transportegz_planta_1
     costo_unitario_1=costo_total_1/cantidad_1
     capital_invertido_1=((diferencial_1+inv_prom_sem_1)*(adu_1))*(precio_compra_1)
-
+    
     cantidad=valores_2[0]
     frecuencia=valores_2[1]
     icoterm = valores_2[2]
@@ -408,7 +496,7 @@ def valores_eva(valores,valores_2,nuevo_precio,tasa):
     tarifa_alm=valores_2[14]
     precio_compra=valores_2[15]
     #campos calculados
-
+    
     lt_completo=lt_tiempoadmon+lt_puertopuerto+lt_plantapuerto+lt_gz+lt_gzplanta
     lt_logistico= icoterm  
     if icoterm == "EXWORK":
@@ -417,15 +505,15 @@ def valores_eva(valores,valores_2,nuevo_precio,tasa):
         lt_logistico = lt_puertopuerto+lt_gzplanta+lt_gz
     else:
         lt_logistico = lt_gzplanta+lt_gz
-    zona_amarilla=lt_completo_1*adu
+    zona_amarilla=lt_completo*adu
     zona_rojabase=zona_amarilla*factor_lt
     zona_rojaalta=zona_rojabase*factor_var
     zona_verde=max(moq,frecuencia*adu,lt_completo_1*adu*factor_lt)
     inv_prom=zona_rojabase+zona_rojaalta+(zona_verde/2)
     inv_prom_sem=inv_prom/adu
-    diferencial=lt_logistico-semanas_cxp
+    diferencial=lt_completo-semanas_cxp
     taf_gz=0.07*precio_compra
-
+    
     costo_inv=precio_compra*inv_prom
     costo_nacionalizacion=taf_gz*cantidad
     costo_transportegz_planta=200*cantidad
@@ -456,7 +544,93 @@ def valores_eva(valores,valores_2,nuevo_precio,tasa):
 # nombres
 
 def valores_uodi(valores,valores_2,nuevo_precio,tasa):
-    p_1 = nuevo_precio
+    # p_1 = nuevo_precio
+    # precio_compra_1=p_1
+    # cantidad_1=valores[0]
+    # frecuencia_1=valores[1]
+    # lt_plantapuerto_1=valores[2]
+    # semanas_cxp_1=valores[3]
+    # moq_1=valores[4]
+    # adu_1=valores[5]
+    # factor_lt_1=valores[6]
+    # factor_var_1=valores[7]
+    # estandar_pos_1=valores[8]
+    # tarifa_alm_1=valores[9]
+    
+    # #campos_1 calculados
+    
+    # lt_completo_1=lt_plantapuerto_1
+    # lt_logistico_1=lt_plantapuerto_1
+    # zona_amarilla_1=lt_completo_1*adu_1
+    # zona_rojabase_1=zona_amarilla_1*factor_lt_1
+    # zona_rojaalta_1=zona_rojabase_1*factor_var_1
+    # zona_verde_1=max(moq_1,frecuencia_1*adu_1,lt_completo_1*adu_1*factor_lt_1)
+    # inv_prom_1=zona_rojabase_1+zona_rojaalta_1+(zona_verde_1/2)
+    # inv_prom_sem_1=inv_prom_1/adu_1
+    # diferencial_1=lt_logistico_1-semanas_cxp_1
+    
+    # taf_gz_1=0
+    # costo_inv_1=precio_compra_1*inv_prom_1
+    # costo_nacionalizacion_1=taf_gz_1*cantidad_1
+    # costo_transportegz_planta_1=0
+    # costo_cap_1=(diferencial_1+inv_prom_sem_1)*adu_1*(((1+tasa)**(1/52))-1)*precio_compra_1
+    # costo_maninv_1=(inv_prom_1)*(tarifa_alm_1/4.3)*(inv_prom_sem_1)
+    # costo_compra_1=precio_compra_1*cantidad_1
+    # costo_total_1=costo_maninv_1+costo_compra_1+costo_cap_1
+    # costo_ebitda_1=costo_maninv_1+costo_compra_1
+    # costo_unitario_1=costo_total_1/cantidad_1
+    # capital_invertido_1=((diferencial_1+inv_prom_sem_1)*(adu_1))*(precio_compra_1)
+    
+    # cantidad=valores_2[0]
+    # frecuencia=valores_2[1]
+    # icoterm = valores_2[2]
+    # lt_plantapuerto=valores_2[3]
+    # semanas_cxp=valores_2[4]
+    # moq=valores_2[5]
+    # adu=valores_2[6]
+    # factor_lt=valores_2[7]
+    # factor_var=valores_2[8]
+    # estandar_pos=valores_2[9]
+    # lt_tiempoadmon=valores_2[10]
+    # lt_puertopuerto=valores_2[11]
+    # lt_gz=valores_2[12]
+    # lt_gzplanta=valores_2[13]
+    # tarifa_alm=valores_2[14]
+    # precio_compra=valores_2[15]
+    # #campos calculados
+    
+    # lt_completo=lt_tiempoadmon+lt_puertopuerto+lt_plantapuerto+lt_gz+lt_gzplanta
+    # lt_logistico= icoterm  
+    # if icoterm == "EXWORK":
+    #     lt_logistico = lt_plantapuerto+lt_puertopuerto+lt_gzplanta+lt_gz
+    # elif icoterm == "FOB":
+    #     lt_logistico = lt_puertopuerto+lt_gzplanta+lt_gz
+    # else:
+    #     lt_logistico = lt_gzplanta+lt_gz
+    # zona_amarilla=lt_completo_1*adu
+    # zona_rojabase=zona_amarilla*factor_lt
+    # zona_rojaalta=zona_rojabase*factor_var
+    # zona_verde=max(moq,frecuencia*adu,lt_completo_1*adu*factor_lt)
+    # inv_prom=zona_rojabase+zona_rojaalta+(zona_verde/2)
+    # inv_prom_sem=inv_prom/adu
+    # diferencial=lt_logistico-semanas_cxp
+    # taf_gz=0.07*precio_compra
+    
+    # costo_inv=precio_compra*inv_prom
+    # costo_nacionalizacion=taf_gz*cantidad
+    # costo_transportegz_planta=200*cantidad
+    # costo_cap=(diferencial+inv_prom_sem)*adu*(((1+tasa)**(1/52))-1)*precio_compra
+    # costo_maninv=(inv_prom)*(tarifa_alm/4.3)*(inv_prom_sem)
+    # costo_compra=precio_compra*cantidad
+    # costo_total=costo_maninv+costo_compra+costo_cap+costo_nacionalizacion+costo_transportegz_planta
+    # costo_ebitda=costo_maninv+costo_compra+costo_nacionalizacion+costo_transportegz_planta
+    # costo_unitario_0=costo_total/cantidad
+    # capital_invertido=((diferencial+inv_prom_sem)*(adu)*(precio_compra))+(costo_nacionalizacion)
+
+ # Aquí va tu método m
+    # Crear problema de minimización
+    prob = LpProblem("Mi problema de optimización", LpMinimize)
+    p_1 = LpVariable("p_1", lowBound=0)
     precio_compra_1=p_1
     cantidad_1=valores[0]
     frecuencia_1=valores[1]
@@ -484,12 +658,12 @@ def valores_uodi(valores,valores_2,nuevo_precio,tasa):
     taf_gz_1=0
     costo_inv_1=precio_compra_1*inv_prom_1
     costo_nacionalizacion_1=taf_gz_1*cantidad_1
-    costo_transportegz_planta_1=0
+    costo_transportegz_planta_1=200*cantidad_1
     costo_cap_1=(diferencial_1+inv_prom_sem_1)*adu_1*(((1+tasa)**(1/52))-1)*precio_compra_1
     costo_maninv_1=(inv_prom_1)*(tarifa_alm_1/4.3)*(inv_prom_sem_1)
     costo_compra_1=precio_compra_1*cantidad_1
-    costo_total_1=costo_maninv_1+costo_compra_1+costo_cap_1
-    costo_ebitda_1=costo_maninv_1+costo_compra_1
+    costo_total_1=costo_maninv_1+costo_compra_1+costo_cap_1 +costo_transportegz_planta_1
+    costo_ebitda_1=costo_maninv_1+costo_compra_1+costo_transportegz_planta_1
     costo_unitario_1=costo_total_1/cantidad_1
     capital_invertido_1=((diferencial_1+inv_prom_sem_1)*(adu_1))*(precio_compra_1)
     
@@ -519,13 +693,13 @@ def valores_uodi(valores,valores_2,nuevo_precio,tasa):
         lt_logistico = lt_puertopuerto+lt_gzplanta+lt_gz
     else:
         lt_logistico = lt_gzplanta+lt_gz
-    zona_amarilla=lt_completo_1*adu
+    zona_amarilla=lt_completo*adu
     zona_rojabase=zona_amarilla*factor_lt
     zona_rojaalta=zona_rojabase*factor_var
     zona_verde=max(moq,frecuencia*adu,lt_completo_1*adu*factor_lt)
     inv_prom=zona_rojabase+zona_rojaalta+(zona_verde/2)
     inv_prom_sem=inv_prom/adu
-    diferencial=lt_logistico-semanas_cxp
+    diferencial=lt_completo-semanas_cxp
     taf_gz=0.07*precio_compra
     
     costo_inv=precio_compra*inv_prom
