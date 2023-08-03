@@ -28,7 +28,7 @@ class streamlit_frm:
                                     
                                  columns=['Precio a pagar','variación respecto al original','UODI','EBITDA','EVA','ROIC','Capital invertido'])
     st.write(tabla_resultado)
-    st.write(resultado)
+   
     
     checkbox_ingresar_valor_negocicion = st.checkbox("Indicar un precio de negociación para evaluar los indicadores de flujo")
     if checkbox_ingresar_valor_negocicion:
