@@ -467,10 +467,10 @@ def eva_int(valores,valores_2,tasa):
         lt_logistico_1 = lt_puertopuerto_1+lt_gzplanta_1+lt_gz_1
     else:
         lt_logistico_1 = lt_gzplanta_1+lt_gz_1
-    zona_amarilla_1=lt_plantapuerto_1*adu_1
+    zona_amarilla_1=lt_completo_1*adu_1
     zona_rojabase_1=zona_amarilla_1*factor_lt_1
     zona_rojaalta_1=zona_rojabase_1*factor_var_1
-    zona_verde_1=max(moq_1,frecuencia_1*adu_1,lt_plantapuerto_1*adu_1*factor_lt_1)
+    zona_verde_1=max(moq_1,frecuencia_1*adu_1,lt_completo*adu_1*factor_lt_1)
     inv_prom_1=zona_rojabase_1+zona_rojaalta_1+(zona_verde_1/2)
     inv_prom_sem_1=inv_prom_1/adu_1
     diferencial_1=lt_logistico_1-semanas_cxp_1
@@ -509,14 +509,15 @@ def eva_int(valores,valores_2,tasa):
     lt_logistico= icoterm  
     if icoterm == "EXWORK":
         lt_logistico = lt_plantapuerto+lt_puertopuerto+lt_gzplanta+lt_gz
-    elif icoterm == "FOB":
-        lt_logistico = lt_puertopuerto+lt_gzplanta+lt_gz
     else:
-        lt_logistico = lt_gzplanta+lt_gz
-    zona_amarilla=lt_plantapuerto*adu
+        if icoterm == "FOB":
+            lt_logistico = lt_puertopuerto+lt_gzplanta+lt_gz
+        else:
+            lt_logistico = lt_gzplanta+lt_gz
+    zona_amarilla=lt_completo*adu
     zona_rojabase=zona_amarilla*factor_lt
     zona_rojaalta=zona_rojabase*factor_var
-    zona_verde=max(moq,frecuencia*adu,lt_plantapuerto*adu*factor_lt)
+    zona_verde=max(moq,frecuencia*adu,lt_completo*adu*factor_lt)
     inv_prom=zona_rojabase+zona_rojaalta+(zona_verde/2)
     inv_prom_sem=inv_prom/adu
     diferencial=lt_logistico-semanas_cxp
@@ -594,10 +595,10 @@ def uodi_int(valores,valores_2,tasa):
         lt_logistico_1 = lt_puertopuerto_1+lt_gzplanta_1+lt_gz_1
     else:
         lt_logistico_1 = lt_gzplanta_1+lt_gz_1
-    zona_amarilla_1=lt_plantapuerto_1*adu_1
+    zona_amarilla_1=lt_completo*adu_1
     zona_rojabase_1=zona_amarilla_1*factor_lt_1
     zona_rojaalta_1=zona_rojabase_1*factor_var_1
-    zona_verde_1=max(moq_1,frecuencia_1*adu_1,lt_plantapuerto_1*adu_1*factor_lt_1)
+    zona_verde_1=max(moq_1,frecuencia_1*adu_1,lt_completo*adu_1*factor_lt_1)
     inv_prom_1=zona_rojabase_1+zona_rojaalta_1+(zona_verde_1/2)
     inv_prom_sem_1=inv_prom_1/adu_1
     diferencial_1=lt_logistico_1-semanas_cxp_1
@@ -640,10 +641,10 @@ def uodi_int(valores,valores_2,tasa):
         lt_logistico = lt_puertopuerto+lt_gzplanta+lt_gz
     else:
         lt_logistico = lt_gzplanta+lt_gz
-    zona_amarilla=lt_plantapuerto*adu
+    zona_amarilla=lt_completo*adu
     zona_rojabase=zona_amarilla*factor_lt
     zona_rojaalta=zona_rojabase*factor_var
-    zona_verde=max(moq,frecuencia*adu,lt_plantapuerto*adu*factor_lt)
+    zona_verde=max(moq,frecuencia*adu,lt_completo*adu*factor_lt)
     inv_prom=zona_rojabase+zona_rojaalta+(zona_verde/2)
     inv_prom_sem=inv_prom/adu
     diferencial=lt_logistico-semanas_cxp
@@ -728,10 +729,10 @@ def valores_eva_int(valores,valores_2,nuevo_precio,tasa):
         lt_logistico_1 = lt_puertopuerto_1+lt_gzplanta_1+lt_gz_1
     else:
         lt_logistico_1 = lt_gzplanta_1+lt_gz_1
-    zona_amarilla_1=lt_plantapuerto_1*adu_1
+    zona_amarilla_1=lt_completo*adu_1
     zona_rojabase_1=zona_amarilla_1*factor_lt_1
     zona_rojaalta_1=zona_rojabase_1*factor_var_1
-    zona_verde_1=max(moq_1,frecuencia_1*adu_1,lt_plantapuerto_1*adu_1*factor_lt_1)
+    zona_verde_1=max(moq_1,frecuencia_1*adu_1,lt_completo*adu_1*factor_lt_1)
     inv_prom_1=zona_rojabase_1+zona_rojaalta_1+(zona_verde_1/2)
     inv_prom_sem_1=inv_prom_1/adu_1
     diferencial_1=lt_logistico_1-semanas_cxp_1
@@ -774,10 +775,10 @@ def valores_eva_int(valores,valores_2,nuevo_precio,tasa):
         lt_logistico = lt_puertopuerto+lt_gzplanta+lt_gz
     else:
         lt_logistico = lt_gzplanta+lt_gz
-    zona_amarilla=lt_plantapuerto*adu
+    zona_amarilla=lt_completo*adu
     zona_rojabase=zona_amarilla*factor_lt
     zona_rojaalta=zona_rojabase*factor_var
-    zona_verde=max(moq,frecuencia*adu,lt_plantapuerto*adu*factor_lt)
+    zona_verde=max(moq,frecuencia*adu,lt_completo*adu*factor_lt)
     inv_prom=zona_rojabase+zona_rojaalta+(zona_verde/2)
     inv_prom_sem=inv_prom/adu
     diferencial=lt_logistico-semanas_cxp
@@ -855,10 +856,10 @@ def valores_uodi_int(valores,valores_2,nuevo_precio,tasa):
         lt_logistico_1 = lt_puertopuerto_1+lt_gzplanta_1+lt_gz_1
     else:
         lt_logistico_1 = lt_gzplanta_1+lt_gz_1
-    zona_amarilla_1=lt_plantapuerto_1*adu_1
+    zona_amarilla_1=lt_completo*adu_1
     zona_rojabase_1=zona_amarilla_1*factor_lt_1
     zona_rojaalta_1=zona_rojabase_1*factor_var_1
-    zona_verde_1=max(moq_1,frecuencia_1*adu_1,lt_plantapuerto_1*adu_1*factor_lt_1)
+    zona_verde_1=max(moq_1,frecuencia_1*adu_1,lt_completo*adu_1*factor_lt_1)
     inv_prom_1=zona_rojabase_1+zona_rojaalta_1+(zona_verde_1/2)
     inv_prom_sem_1=inv_prom_1/adu_1
     diferencial_1=lt_logistico_1-semanas_cxp_1
@@ -901,10 +902,10 @@ def valores_uodi_int(valores,valores_2,nuevo_precio,tasa):
         lt_logistico = lt_puertopuerto+lt_gzplanta+lt_gz
     else:
         lt_logistico = lt_gzplanta+lt_gz
-    zona_amarilla=lt_plantapuerto*adu
+    zona_amarilla=lt_completo*adu
     zona_rojabase=zona_amarilla*factor_lt
     zona_rojaalta=zona_rojabase*factor_var
-    zona_verde=max(moq,frecuencia*adu,lt_plantapuerto*adu*factor_lt)
+    zona_verde=max(moq,frecuencia*adu,lt_completo*adu*factor_lt)
     inv_prom=zona_rojabase+zona_rojaalta+(zona_verde/2)
     inv_prom_sem=inv_prom/adu
     diferencial=lt_logistico-semanas_cxp
