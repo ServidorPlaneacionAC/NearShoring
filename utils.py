@@ -122,7 +122,7 @@ def eva(valores,valores_2,tasa):
     value(zona_rojaalta),
     value(zona_verde),
 
-    st.write(f"**********************************************value(zona_amarilla_1)")
+    st.write(f"**********************************************{value(zona_amarilla_1)}")
     value(zona_rojabase_1),
     value(zona_rojaalta_1),
     value(zona_verde_1)
