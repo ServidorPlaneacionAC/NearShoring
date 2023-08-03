@@ -203,7 +203,7 @@ def uodi(valores,valores_2,tasa):
     zona_verde=max(moq,frecuencia*adu,lt_completo_1*adu*factor_lt)
     inv_prom=zona_rojabase+zona_rojaalta+(zona_verde/2)
     inv_prom_sem=inv_prom/adu
-    diferencial=lt_logistico-semanas_cxp
+    diferencial=lt_completo-semanas_cxp
     taf_gz=0.07*precio_compra
     
     costo_inv=precio_compra*inv_prom
