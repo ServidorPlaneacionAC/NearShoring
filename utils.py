@@ -257,7 +257,7 @@ def uodi(valores,valores_2,tasa):
     # st.write(f"{value(lt_completo)} lt_completo")
     st.write(f"*********************")
     st.write(f"{value(costo_ebitda)} costo_ebitda internacional  {value(costo_ebitda_1)} costo_ebitda nacional")
-   st.write(f"{value(costo_total)} costo_ebitda internacional  {value(costo_total_1)} costo_ebitda nacional")
+    st.write(f"{value(costo_total)} costo_ebitda internacional  {value(costo_total_1)} costo_ebitda nacional")
 
 
 
