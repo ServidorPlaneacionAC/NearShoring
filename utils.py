@@ -115,7 +115,26 @@ def eva(valores,valores_2,tasa):
     prob += eva == 0
     status = prob.solve()
 #     return (p_1.value())
-    return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct),value(capital_invertido_1)]
+
+    value(zona_amarilla),
+    value(zona_rojabase),
+    value(zona_rojaalta),
+    value(zona_verde),
+
+    value(zona_amarilla_1),
+    value(zona_rojabase_1),
+    value(zona_rojaalta_1),
+    value(zona_verde_1)
+
+    return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct),value(capital_invertido_1),    value(zona_amarilla),
+    value(zona_rojabase),
+    value(zona_rojaalta),
+    value(zona_verde),
+
+    value(zona_amarilla_1),
+    value(zona_rojabase_1),
+    value(zona_rojaalta_1),
+    value(zona_verde_1)]
 # nombres
     
 def uodi(valores,valores_2,tasa):
@@ -230,7 +249,15 @@ def uodi(valores,valores_2,tasa):
     prob += uodi == 0
     status = prob.solve()
 #     return (p_1.value())
-    return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct),value(capital_invertido_1)]
+    return [p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct),value(capital_invertido_1)    value(zona_amarilla),
+    value(zona_rojabase),
+    value(zona_rojaalta),
+    value(zona_verde),
+
+    value(zona_amarilla_1),
+    value(zona_rojabase_1),
+    value(zona_rojaalta_1),
+    value(zona_verde_1)]
 
 
 def valores_eva(valores,valores_2,nuevo_precio,tasa):
