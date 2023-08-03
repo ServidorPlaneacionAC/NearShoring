@@ -261,7 +261,7 @@ def uodi(valores,valores_2,tasa):
 
 
     st.write(f"*********************")
-    st.write(f"{value(costo_inv)} costo_inv internacional  {value(costo_inv_1)} costo_inv nacional")
+    st.write(f"{value(costo_transportegz_planta)} costo_transportegz_planta internacional  {value(costo_transportegz_planta_1)} costo_transportegz_planta nacional")
     st.write(f"{value(costo_inv)} costo_inv internacional  {value(costo_inv_1)} costo_inv nacional")
     st.write(f"{value(inv_prom)} inv_prom internacional  {value(inv_prom_1)} inv_prom nacional")
     st.write(f"{value(diferencial)} diferencial internacional  {value(diferencial_1)} diferencial nacional")
