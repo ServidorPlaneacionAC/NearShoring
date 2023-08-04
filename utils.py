@@ -32,7 +32,7 @@ def eva(valores,valores_2,tasa):    # Aquí va tu método m
     taf_gz_1=0
     costo_inv_1=precio_compra_1*inv_prom_1
     costo_nacionalizacion_1=taf_gz_1*cantidad_1
-    costo_transportegz_planta_1=200*cantidad_1
+    costo_transportegz_planta_1=(4.1)*cantidad_1
     costo_cap_1=(diferencial_1+inv_prom_sem_1)*adu_1*(((1+tasa)**(1/52))-1)*precio_compra_1
     costo_maninv_1=(inv_prom_1)*(tarifa_alm_1/4.3)*(inv_prom_sem_1)
     costo_compra_1=precio_compra_1*cantidad_1
