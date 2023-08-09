@@ -653,7 +653,7 @@ def valores_uodi(valores,valores_2,nuevo_precio,tasa):
     zona_verde_1=max(moq_1,frecuencia_1*adu_1,lt_completo_1*adu_1*factor_lt_1)
     inv_prom_1=zona_rojabase_1+zona_rojaalta_1+(zona_verde_1/2)
     inv_prom_sem_1=inv_prom_1/adu_1
-    diferencial_1=lt_completo-semanas_cxp_1
+    diferencial_1=lt_completo_1-semanas_cxp_1
     
     taf_gz_1=0
     costo_inv_1=precio_compra_1*inv_prom_1
