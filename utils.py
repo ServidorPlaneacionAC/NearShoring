@@ -716,7 +716,7 @@ def valores_uodi(valores,valores_2,nuevo_precio,tasa):
 
     #calculo variables financieras
 
-    ebitda=costo_ebitda_1-costo_ebitda
+    ebitda=-costo_ebitda_1+costo_ebitda
     impuestos=ebitda*0.26
     uodi=ebitda-impuestos
     diferencial_ct=capital_invertido-capital_invertido_1
