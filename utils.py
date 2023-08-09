@@ -1,6 +1,9 @@
 from pulp import *
 import streamlit as st
 
+
+#Falta cambiar el orden en la variabe ebitda
+
 def eva(valores,valores_2,tasa):    # Aquí va tu método m
     # Crear problema de minimización
     prob = LpProblem("Mi problema de optimización", LpMinimize)
