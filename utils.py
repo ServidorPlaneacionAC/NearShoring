@@ -728,6 +728,9 @@ def valores_uodi(valores,valores_2,nuevo_precio,tasa):
     p_0= precio_compra
 
     st.write(f"{diferencial_ct}  diferencial_ct")
+    st.write(f"{uodi}  uodi")
+    st.write(f"{ebitda}  ebitda")
+    st.write(f"{costo_ebitda_1}  costo_ebitda_1")
     st.write(f"{costo_capital}  costo_capital")
 #     return (p_1.value())
     return [p_1,(uodi),(ebitda),(eva),(diferencial_ct),(capital_invertido_1)]
