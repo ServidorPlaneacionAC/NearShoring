@@ -653,7 +653,7 @@ def valores_uodi(valores,valores_2,nuevo_precio,tasa):
     zona_verde_1=max(moq_1,frecuencia_1*adu_1,lt_completo_1*adu_1*factor_lt_1)
     inv_prom_1=zona_rojabase_1+zona_rojaalta_1+(zona_verde_1/2)
     inv_prom_sem_1=inv_prom_1/adu_1
-    diferencial_1=lt_logistico_1-semanas_cxp_1
+    diferencial_1=lt_completo-semanas_cxp_1
     
     taf_gz_1=0
     costo_inv_1=precio_compra_1*inv_prom_1
@@ -726,6 +726,9 @@ def valores_uodi(valores,valores_2,nuevo_precio,tasa):
     c_0 = costo_unitario_0  # Costo del producto 0
     c_1 = costo_unitario_1  # Costo del producto 1
     p_0= precio_compra
+
+    st.write(f"{diferencial_ct}  diferencial_ct")
+    st.write(f"{costo_capital}  costo_capital")
 #     return (p_1.value())
     return [p_1,(uodi),(ebitda),(eva),(diferencial_ct),(capital_invertido_1)]
 
