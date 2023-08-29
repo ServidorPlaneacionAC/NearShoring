@@ -26,29 +26,29 @@ def eva(valores,valores_2,tasa):    # Aquí va tu método m
     tarifa_alm_1 = valores[9]  # Tarifa de almacenamiento
 
     
-    #campos_1 calculados
+    lt_completo_1 = lt_plantapuerto_1  # Tiempo de tránsito completo igual a tiempo de planta a puerto
+    lt_logistico_1 = lt_plantapuerto_1  # Tiempo de tránsito logístico igual a tiempo de planta a puerto
+    zona_amarilla_1 = lt_completo_1 * adu_1  # Zona amarilla: Tiempo de tránsito completo multiplicado por adu_1
+    zona_rojabase_1 = zona_amarilla_1 * factor_lt_1  # Zona roja base: Zona amarilla multiplicada por factor_lt_1
+    zona_rojaalta_1 = zona_rojabase_1 * factor_var_1  # Zona roja alta: Zona roja base multiplicada por factor_var_1
+    zona_verde_1 = max(moq_1, frecuencia_1 * adu_1, lt_completo_1 * adu_1 * factor_lt_1)  # Zona verde: Máximo entre moq_1, frecuencia_1 * adu_1 y lt_completo_1 * adu_1 * factor_lt_1
+    inv_prom_1 = zona_rojabase_1 + zona_rojaalta_1 + (zona_verde_1 / 2)  # Inventario promedio: Suma de zonas más mitad de zona verde
+    inv_prom_sem_1 = inv_prom_1 / adu_1  # Inventario promedio por semana: Inventario promedio dividido por adu_1
+    diferencial_1 = lt_logistico_1 - semanas_cxp_1  # Diferencial: Tiempo de tránsito logístico menos semanas de crédito proveedor
     
-    lt_completo_1=lt_plantapuerto_1
-    lt_logistico_1=lt_plantapuerto_1
-    zona_amarilla_1=lt_completo_1*adu_1
-    zona_rojabase_1=zona_amarilla_1*factor_lt_1
-    zona_rojaalta_1=zona_rojabase_1*factor_var_1
-    zona_verde_1=max(moq_1,frecuencia_1*adu_1,lt_completo_1*adu_1*factor_lt_1)
-    inv_prom_1=zona_rojabase_1+zona_rojaalta_1+(zona_verde_1/2)
-    inv_prom_sem_1=inv_prom_1/adu_1
-    diferencial_1=lt_logistico_1-semanas_cxp_1
-    
-    taf_gz_1=0
-    costo_inv_1=precio_compra_1*inv_prom_1
-    costo_nacionalizacion_1=taf_gz_1*cantidad_1
-    costo_transportegz_planta_1=(0)*cantidad_1
-    costo_cap_1=(diferencial_1+inv_prom_sem_1)*adu_1*(((1+tasa)**(1/52))-1)*precio_compra_1
-    costo_maninv_1=(inv_prom_1)*(tarifa_alm_1/4.3)*(inv_prom_sem_1)
-    costo_compra_1=precio_compra_1*cantidad_1
-    costo_total_1=costo_maninv_1+costo_compra_1+costo_cap_1 +costo_transportegz_planta_1
-    costo_ebitda_1=costo_maninv_1+costo_compra_1+costo_transportegz_planta_1
-    costo_unitario_1=costo_total_1/cantidad_1
-    capital_invertido_1=((diferencial_1+inv_prom_sem_1)*(adu_1))*(precio_compra_1)
+    taf_gz_1 = 0  # TAF GZ: Valor fijo en 0
+    costo_inv_1 = precio_compra_1 * inv_prom_1  # Costo de inventario: Precio de compra por inventario promedio
+    costo_nacionalizacion_1 = taf_gz_1 * cantidad_1  # Costo de nacionalización: TAF GZ multiplicado por cantidad_1
+    costo_transportegz_planta_1 = (0) * cantidad_1  # Costo de transporte GZ a planta: Valor fijo en 0 multiplicado por cantidad_1
+    costo_cap_1 = (diferencial_1 + inv_prom_sem_1) * adu_1 * (((1 + tasa) ** (1/52)) - 1) * precio_compra_1  # Costo de capital: Cálculo con diferenciales, tasa, adu_1 y precio_compra_1
+    costo_maninv_1 = (inv_prom_1) * (tarifa_alm_1 / 4.3) * (inv_prom_sem_1)  # Costo de manipulación de inventario: Producto de factores por inventario promedio semanal
+    costo_compra_1 = precio_compra_1 * cantidad_1  # Costo de compra: Precio de compra por cantidad
+    costo_total_1 = costo_maninv_1 + costo_compra_1 + costo_cap_1 + costo_transportegz_planta_1  # Costo total: Suma de varios costos
+    costo_ebitda_1 = costo_maninv_1 + costo_compra_1 + costo_transportegz_planta_1  # Costo EBITDA: Suma de costos relevantes
+    costo_unitario_1 = costo_total_1 / cantidad_1  # Costo unitario: Costo total dividido por cantidad
+    capital_invertido_1 = ((diferencial_1 + inv_prom_sem_1) * (adu_1)) * (precio_compra_1)  # Capital invertido: Cálculo basado en diferenciales, inventario semanal y precio de compra
+
+    #Escenario actual
     
     cantidad=valores_2[0]
     frecuencia=valores_2[1]
@@ -97,20 +97,6 @@ def eva(valores,valores_2,tasa):    # Aquí va tu método m
     capital_invertido=((diferencial+inv_prom_sem)*(adu)*(precio_compra))+(costo_nacionalizacion)
 
 
-
-    # prob = LpProblem("Mi problema de optimización", LpMinimize)
-    # p_1 = LpVariable("p_1", lowBound=0)
-    # precio_compra_1=p_1
-    # cantidad_1=valores[0]
-    # frecuencia_1=valores[1]
-    # lt_plantapuerto_1=valores[2]
-    # semanas_cxp_1=valores[3]
-    # moq_1=valores[4]
-    # adu_1=valores[5]
-    # factor_lt_1=valores[6]
-    # factor_var_1=valores[7]
-    # estandar_pos_1=valores[8]
-    # tarifa_alm_1=valores[9]
 
     #calculo variables financieras
 
