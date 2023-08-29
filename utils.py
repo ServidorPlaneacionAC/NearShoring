@@ -50,51 +50,64 @@ def eva(valores,valores_2,tasa):    # Aquí va tu método m
 
     #Escenario actual
     
-    cantidad=valores_2[0]
-    frecuencia=valores_2[1]
-    icoterm = valores_2[2]
-    lt_plantapuerto=valores_2[3]
-    semanas_cxp=valores_2[4]
-    moq=valores_2[5]
-    adu=valores_2[6]
-    factor_lt=valores_2[7]
-    factor_var=valores_2[8]
-    estandar_pos=valores_2[9]
-    lt_tiempoadmon=valores_2[10]
-    lt_puertopuerto=valores_2[11]
-    lt_gz=valores_2[12]
-    lt_gzplanta=valores_2[13]
-    tarifa_alm=valores_2[14]
-    precio_compra=valores_2[15]
-    #campos calculados
-    
-    lt_completo=lt_tiempoadmon+lt_puertopuerto+lt_plantapuerto+lt_gz+lt_gzplanta
-    lt_logistico= icoterm  
+    cantidad = valores_2[0]  # Cantidad de producto
+    frecuencia = valores_2[1]  # Frecuencia de acción
+    icoterm = valores_2[2]  # Término de entrega internacional
+    lt_plantapuerto = valores_2[3]  # Tiempo de planta a puerto
+    semanas_cxp = valores_2[4]  # Semanas de crédito proveedor
+    moq = valores_2[5]  # Cantidad mínima de pedido
+    adu = valores_2[6]  # Días de almacenamiento en inventario
+    factor_lt = valores_2[7]  # Factor de tiempo de tránsito
+    factor_var = valores_2[8]  # Factor de variabilidad
+    estandar_pos = valores_2[9]  # Estándar de posición
+    lt_tiempoadmon = valores_2[10]  # Tiempo de tránsito de aduana
+    lt_puertopuerto = valores_2[11]  # Tiempo de puerto a puerto
+    lt_gz = valores_2[12]  # Tiempo de tránsito GZ
+    lt_gzplanta = valores_2[13]  # Tiempo de tránsito GZ a planta
+    tarifa_alm = valores_2[14]  # Tarifa de almacenamiento
+    precio_compra = valores_2[15]  # Precio de compra
+
+    # Campos calculados
+
+    # Calcula el tiempo logístico completo sumando los diferentes tiempos involucrados en el proceso.
+    lt_completo = lt_tiempoadmon + lt_puertopuerto + lt_plantapuerto + lt_gz + lt_gzplanta
+    # Calcula el tiempo logístico basado en el término de entrega internacional (icoterm).
+    lt_logistico = icoterm
     if icoterm == "EXWORK":
-        lt_logistico = lt_plantapuerto+lt_puertopuerto+lt_gzplanta+lt_gz
+        lt_logistico = lt_plantapuerto + lt_puertopuerto + lt_gzplanta + lt_gz
     elif icoterm == "FOB":
-        lt_logistico = lt_puertopuerto+lt_gzplanta+lt_gz
+        lt_logistico = lt_puertopuerto + lt_gzplanta + lt_gz
     else:
-        lt_logistico = lt_gzplanta+lt_gz
-    zona_amarilla=lt_completo*adu
-    zona_rojabase=zona_amarilla*factor_lt
-    zona_rojaalta=zona_rojabase*factor_var
-    zona_verde=max(moq,frecuencia*adu,lt_completo_1*adu*factor_lt)
-    inv_prom=zona_rojabase+zona_rojaalta+(zona_verde/2)
-    inv_prom_sem=inv_prom/adu
-    diferencial=lt_completo-semanas_cxp
-    taf_gz=0.07*precio_compra
+        lt_logistico = lt_gzplanta + lt_gz
+    # Calcula el valor para la zona amarilla multiplicando el tiempo logístico completo por los días de almacenamiento.
+    zona_amarilla = lt_completo * adu
+    # Calcula la base para la zona roja multiplicando la zona amarilla por el factor de tiempo de tránsito.
+    zona_rojabase = zona_amarilla * factor_lt
+    # Calcula la zona roja alta multiplicando la base de la zona roja por el factor de variabilidad.
+    zona_rojaalta = zona_rojabase * factor_var
+    # Calcula la zona verde tomando el valor máximo entre moq, la frecuencia multiplicada por los días de almacenamiento y el tiempo logístico completo multiplicado por el factor de tiempo de tránsito.
+    zona_verde = max(moq, frecuencia * adu, lt_completo * adu * factor_lt)
+    # Calcula el inventario promedio sumando la base de la zona roja, la zona roja alta y la mitad de la zona verde.
+    inv_prom = zona_rojabase + zona_rojaalta + (zona_verde / 2)
+    # Calcula el inventario promedio por semana dividiendo el inventario promedio entre los días de almacenamiento.
+    inv_prom_sem = inv_prom / adu
+    # Calcula el diferencial entre el tiempo logístico completo y las semanas de crédito proveedor.
+    diferencial = lt_completo - semanas_cxp
+    # Calcula el valor de taf_gz multiplicando el 7% del precio de compra.
+    taf_gz = 0.07 * precio_compra
+
     
-    costo_inv=precio_compra*inv_prom
-    costo_nacionalizacion=taf_gz*cantidad
-    costo_transportegz_planta=2*cantidad
-    costo_cap=(diferencial+inv_prom_sem)*adu*(((1+tasa)**(1/52))-1)*precio_compra
-    costo_maninv=(inv_prom)*(tarifa_alm/4.3)*(inv_prom_sem)
-    costo_compra=precio_compra*cantidad
-    costo_total=costo_maninv+costo_compra+costo_cap+costo_nacionalizacion+costo_transportegz_planta
-    costo_ebitda=costo_maninv+costo_compra+costo_nacionalizacion+costo_transportegz_planta
-    costo_unitario_0=costo_total/cantidad
-    capital_invertido=((diferencial+inv_prom_sem)*(adu)*(precio_compra))+(costo_nacionalizacion)
+    costo_inv = precio_compra * inv_prom  # Calcula el costo de inventario multiplicando el precio de compra por el inventario promedio.
+    costo_nacionalizacion = taf_gz * cantidad  # Calcula el costo de nacionalización multiplicando la tarifa de GZ por la cantidad.
+    costo_transportegz_planta = 2 * cantidad  # Calcula el costo de transporte de GZ a planta, considerando dos veces la cantidad.
+    costo_cap = (diferencial + inv_prom_sem) * adu * (((1 + tasa) ** (1 / 52)) - 1) * precio_compra  # Calcula el costo de capital tomando en cuenta el diferencial, el inventario promedio por semana, la tasa de interés y el precio de compra.
+    costo_maninv = (inv_prom) * (tarifa_alm / 4.3) * (inv_prom_sem)  # Calcula el costo de manipulación de inventario utilizando el inventario promedio, la tarifa de almacenamiento y el inventario promedio por semana.
+    costo_compra = precio_compra * cantidad  # Calcula el costo de compra multiplicando el precio de compra por la cantidad.
+    costo_total = costo_maninv + costo_compra + costo_cap + costo_nacionalizacion + costo_transportegz_planta  # Calcula el costo total sumando los diferentes costos involucrados.
+    costo_ebitda = costo_maninv + costo_compra + costo_nacionalizacion + costo_transportegz_planta  # Calcula el costo EBITDA sumando los costos de manipulación, compra, nacionalización y transporte de GZ a planta.
+    costo_unitario_0 = costo_total / cantidad  # Calcula el costo unitario inicial dividiendo el costo total entre la cantidad.
+    capital_invertido = ((diferencial + inv_prom_sem) * (adu) * (precio_compra)) + (costo_nacionalizacion)  # Calcula el capital invertido considerando el diferencial, el inventario promedio por semana, los días de almacenamiento y el precio de compra.
+
 
 
 
