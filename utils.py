@@ -5,20 +5,26 @@ import streamlit as st
 #Falta cambiar el orden en la variabe ebitda
 
 def eva(valores,valores_2,tasa):    # Aquí va tu método m
-    # Crear problema de minimización
+    # Creamos un objeto de problema de optimización llamado "prob" con objetivo de minimización
+    # "Mi problema de optimización" es el nombre del problema, y LpMinimize indica que estamos minimizando
     prob = LpProblem("Mi problema de optimización", LpMinimize)
+    # Creamos una variable de optimización llamada "p_1" con límite inferior de 0
+    # "p_1" es el nombre de la variable, y lowBound=0 establece el límite inferior en 0
     p_1 = LpVariable("p_1", lowBound=0)
+    # Asignamos el valor de la variable de optimización "p_1" a la variable "precio_compra_1"
     precio_compra_1=p_1
-    cantidad_1=valores[0]
-    frecuencia_1=valores[1]
-    lt_plantapuerto_1=valores[2]
-    semanas_cxp_1=valores[3]
-    moq_1=valores[4]
-    adu_1=valores[5]
-    factor_lt_1=valores[6]
-    factor_var_1=valores[7]
-    estandar_pos_1=valores[8]
-    tarifa_alm_1=valores[9]
+    # Los siguientes son parámetros que el usuario ingresa     
+    cantidad_1 = valores[0]  # Cantidad de producto
+    frecuencia_1 = valores[1]  # Frecuencia de acción
+    lt_plantapuerto_1 = valores[2]  # Tiempo planta a puerto
+    semanas_cxp_1 = valores[3]  # Semanas de crédito proveedor
+    moq_1 = valores[4]  # Cantidad mínima de pedido
+    adu_1 = valores[5]  # Días almacenamiento inventario
+    factor_lt_1 = valores[6]  # Factor tiempo de tránsito
+    factor_var_1 = valores[7]  # Factor de variabilidad
+    estandar_pos_1 = valores[8]  # Estándar de posición
+    tarifa_alm_1 = valores[9]  # Tarifa de almacenamiento
+
     
     #campos_1 calculados
     
