@@ -113,17 +113,22 @@ def eva(valores,valores_2,tasa):    # Aquí va tu método m
 
     #calculo variables financieras
 
-    ebitda=costo_ebitda_1-costo_ebitda
-    impuestos=ebitda*0.26
-    uodi=ebitda-impuestos
-    diferencial_ct=capital_invertido-capital_invertido_1
-    costo_capital=(diferencial_ct)*(((1+tasa)**(1/52))-1)
-    eva=uodi-costo_capital
-    #roic=uodi/diferencial_ct
+    # Cálculo del EBITDA
+    ebitda = costo_ebitda_1 - costo_ebitda
+    # Cálculo de Impuestos
+    impuestos = ebitda * 0.26
+    # Cálculo de UODI (Utilidad Operativa Después de Impuestos)
+    uodi = ebitda - impuestos
+    # Cálculo del Diferencial de Capital Invertido
+    diferencial_ct = capital_invertido - capital_invertido_1
+    # Cálculo del Costo de Capital
+    costo_capital = diferencial_ct * (((1 + tasa) ** (1 / 52)) - 1)
+    # Cálculo de EVA (Valor Económico Agregado)
+    eva = uodi - costo_capital
 
-    c_0 = costo_unitario_0  # Costo del producto 0
-    c_1 = costo_unitario_1  # Costo del producto 1
-    p_0= precio_compra
+
+    
+    
     # Define las variables de cambio de precio
     #p_0 = LpVariable("p_0", lowBound=0)
 
