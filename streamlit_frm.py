@@ -88,6 +88,13 @@ class streamlit_frm:
     #inicializo variables locales para uso posterior
     costo_dolares=0.0
     checkbox_operacion_dolarizado=False
+    lead_time_que_no_se_usan = [
+    "lead time planta-puerto: tiempo estimado desde que el material sale de la planta proveedor, hasta el puerto del país origen",
+    "lead time tiempo-admon: (Semanas)",
+    # "lead time puerto-puerto: tiempo estimado desde que el material sale del puerto proveedor, hasta el puerto del país destino",
+    "lead time gestión cargo: tiempo estimado de nacionalización del país origen",
+    "lead time gz-planta: tiempo estimado dedesde GZ a planta del país origen"]
+            
     st.title(titulo)
     st.write("* Todos los plazos temporales deben ser en términos de semanas")
     st.write("* El negociador debe seleccionar una unidad de medida, sean Kg, Lt, Unds y sobre esta unidad desarrollar todo el ejecicio")
@@ -257,8 +264,11 @@ class streamlit_frm:
         if transaccion_internacional  and not('Nuevo Escenario'==titulo):
             for i in range(int(len(nombres)/2), len(nombres)-6):
             #va hasta el -6 poque los valores(-6-5-4-3) son campos asociados a transacciones internacionales
-                #y estos tienen un tratamiento especial                             
-                valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
+                #y estos tienen un tratamiento especial 
+                if nombres[i] in lead_time_que_no_se_usan:
+                    valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]],disabled=True))
+                else:                            
+                    valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
             #Genero validacion para el iconterm, reconocer en que valores aplica todos los campos y cuando no
             checkbox_factor_importacion = st.checkbox("Usar el factor de importacion")
             #se usa el factor de importacion o las variables de importacion indivuales que son nombres[-6 hasta -2]
