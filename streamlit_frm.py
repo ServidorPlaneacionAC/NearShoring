@@ -15,7 +15,8 @@ class streamlit_frm:
         self.tasa=tasa
     
   def resultados(self,resultado,valores,valores_2,costo_capital,escenario_retador):
-    
+    st.write(valores)
+    st.write(valores2)
     st.subheader("Resultado óptimo")    
     tabla_resultado=pd.DataFrame(
                                  [[resultado[0][0],
@@ -244,7 +245,7 @@ class streamlit_frm:
                 opcion_iconterm=valores[-1]
             else:    
                 if nombres[i] in lead_time_que_no_se_usan:
-                    valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]],disabled=True))
+                    valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=1000000000.0, value=formulario1[nombres[i]],disabled=True))
                 else:
                     valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=1000000000.0, value=formulario1[nombres[i]]))
         
