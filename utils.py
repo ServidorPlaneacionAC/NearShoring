@@ -1042,6 +1042,25 @@ def uodi_int(valores,valores_2,tasa):
     lt_gzplanta=valores_2[13]
     tarifa_alm=valores_2[14]
     precio_compra=valores_2[15]
+
+    # cantidad=valores_2[0]
+    # frecuencia=valores_2[1]
+    # icoterm = valores_2[2]
+    # lt_plantapuerto=valores_2[3]
+    # semanas_cxp=valores_2[4]
+    # moq=valores_2[5]
+    # adu=valores_2[6]
+    # factor_lt=valores_2[7]
+    # factor_var=valores_2[8]
+    # estandar_pos=valores_2[9]
+    # lt_tiempoadmon=valores_2[10]
+    # lt_puertopuerto=valores_2[11]
+    # lt_gz=valores_2[12]
+    # lt_gzplanta=valores_2[13]
+    # tarifa_alm=valores_2[14]
+    # precio_compra=valores_2[15]
+    # #campos calculados
+
     #campos calculados
     
     lt_completo=lt_tiempoadmon+lt_puertopuerto+lt_plantapuerto+lt_gz+lt_gzplanta

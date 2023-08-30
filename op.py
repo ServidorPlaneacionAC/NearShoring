@@ -131,8 +131,10 @@ def main():
                         resultado.append(calculos.valores_eva_int(valores,valores_2,resultado[0][0]+(i*(resultado[0][0]/15)),frm.tasa))
                 else:
                     
-                    st.write(valores_2)    
-                    st.write(valores)         
+                    st.write('valores')    
+                    st.write(valores)    
+                    st.write('valores_2')    
+                    st.write(valores_2)         
                     resultado.append(calculos.uodi_int(valores,valores_2,frm.tasa))
                     for i in range(-5,6,1):
                        resultado.append(calculos.valores_uodi_int(valores,valores_2,resultado[0][0]+(i*(resultado[0][0]/15)),frm.tasa))

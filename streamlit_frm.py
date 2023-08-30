@@ -15,8 +15,8 @@ class streamlit_frm:
         self.tasa=tasa
     
   def resultados(self,resultado,valores,valores_2,costo_capital,escenario_retador):
-    st.write(valores)
-    st.write(valores_2)
+    # st.write(valores)
+    # st.write(valores_2)
     st.subheader("Resultado óptimo")    
     tabla_resultado=pd.DataFrame(
                                  [[resultado[0][0],
