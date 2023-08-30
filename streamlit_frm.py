@@ -243,7 +243,10 @@ class streamlit_frm:
                 valores.append(st.selectbox("Selecciona un Incoterm:", opciones,index=opciones.index(formulario1[nombres[i]]), key="Incoterm"))
                 opcion_iconterm=valores[-1]
             else:    
-                valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=1000000000.0, value=formulario1[nombres[i]]))
+                if nombres[i] in lead_time_que_no_se_usan:
+                    valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]],disabled=True))
+                else:
+                    valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=1000000000.0, value=formulario1[nombres[i]]))
         
         if transaccion_internacional==True and not('Nuevo Escenario'==titulo):
             #genero proceso extra para transformar de dolares a pesos y pesos a dolares
@@ -297,7 +300,10 @@ class streamlit_frm:
                 valores.append(st.number_input(nombres[-1],key=nombres[-1], step=0.1, min_value=0.000, max_value=10000000.0, value=self.valor_en_pesos,disabled=True))
         else:
             for i in range(int(len(nombres)/2), len(nombres)):
-                valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.000, max_value=1000000.0, value=formulario1[nombres[i]]))
+                if nombres[i] in lead_time_que_no_se_usan:
+                    valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]],disabled=True))
+                else:
+                    valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.000, max_value=1000000.0, value=formulario1[nombres[i]]))
 
           
     if st.button("Guardar"): 
