@@ -73,7 +73,7 @@ def eva(valores,valores_2,tasa):    # Aquí va tu método m
     lt_completo = lt_tiempoadmon + lt_puertopuerto + lt_plantapuerto + lt_gz + lt_gzplanta
     # Calcula el tiempo logístico basado en el término de entrega internacional (icoterm).
     lt_logistico = icoterm
-    if icoterm == "EXWORK":
+    if icoterm == "F":
         lt_logistico = lt_plantapuerto + lt_puertopuerto + lt_gzplanta + lt_gz
     elif icoterm == "FOB":
         lt_logistico = lt_puertopuerto + lt_gzplanta + lt_gz
