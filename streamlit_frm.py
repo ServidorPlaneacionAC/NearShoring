@@ -152,8 +152,8 @@ class streamlit_frm:
             else:
                 formulario1={ 
                         
-                        "Cantidad: unidades negociadas, independiente del periodo de tiempo establecido (unidad de medida determinada por el negociador)":30000.0,
-                        "Frecuencia: Tiempo estimaddo para recalcular o recibir el próximo envío":1,
+                        "Cantidad: unidades negociadas, independiente del periodo de tiempo establecido (unidad de medida determinada por el negociador)":40000.0,
+                        "Frecuencia: Tiempo estimaddo para recalcular o recibir el próximo envío":1.0,
                         "lead time entrega en planta: tiempo estimado para entregar en planta (si se consideran varias plantas, tomar el tiempo mayor)":1.0,
                         "condición de pago: tiempo en semanas estimado para pagar alproveedor el pedido actual":8.57,
                         "Cantidad mínima a pedir: Cantidad dada en unidad de medida determinada por el negociador":1200.0,
@@ -178,8 +178,8 @@ class streamlit_frm:
         else:
             formulario1={
    
-            "Cantidad: unidades negociadas, independiente del periodo de tiempo establecido (unidad de medida determinada por el negociador)":30000.0,
-            "Frecuencia: Tiempo estimaddo para recalcular o recibir el próximo envío":4,
+            "Cantidad: unidades negociadas, independiente del periodo de tiempo establecido (unidad de medida determinada por el negociador)":34000.0,
+            "Frecuencia: Tiempo estimaddo para recalcular o recibir el próximo envío":4.0,
             "Incoterm":"FOB", 
             "lead time planta-puerto: tiempo estimado desde que el material sale de la planta proveedor, hasta el puerto del país origen":5.0,
             "condición de pago: tiempo en semanas estimado para pagar alproveedor el pedido actual":12.86,
@@ -229,7 +229,6 @@ class streamlit_frm:
     valores = []
     opcion_iconterm="FOB"
     importacion=0.0
-    st.write(nombres)
     formulario1["Frecuencia: Tiempo (Semanas) estimaddo para recalcular próximo envío"]=0.0
     with col1_1:
         for i in range(int(len(nombres)/2)):
@@ -242,7 +241,7 @@ class streamlit_frm:
                 if nombres[i] in lead_time_que_no_se_usan:
                     valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=1000000000.0, value=formulario1[nombres[i]],disabled=True))
                 else:
-                  
+                    st.write(f"{nombres[i]} {formulario1[nombres[i]]})
                     valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=1000000000.0, value=formulario1[nombres[i]]))
         
         if transaccion_internacional==True and not('Nuevo Escenario'==titulo):
