@@ -229,7 +229,7 @@ class streamlit_frm:
     valores = []
     opcion_iconterm="FOB"
     importacion=0.0
-    
+    str.write(nombres)
     with col1_1:
         for i in range(int(len(nombres)/2)):
             if "Incoterm"==nombres[i]:              
