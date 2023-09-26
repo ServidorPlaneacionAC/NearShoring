@@ -111,7 +111,7 @@ class streamlit_frm:
 
    
                     "Cantidad: unidades negociadas, independiente del periodo de tiempo establecido (unidad de medida determinada por el negociador)":3000,
-                    "Frecuencia: Tiempo estimado para recalcular o recibir el próximo envío":4.0,
+                    "Frecuencia: Tiempo estimado para recalcular o recibir el próximo envío":6,
                     "lead time: tiempo estimado para entregar en planta":1.0,
                     "condición de pago: tiempo en semanas estimado para pagar alproveedor el pedido actual":12.87,
                     "Consumo promedio Semanal: Cantidad dada en unidad de medida determinada por el negociador (la suma de consumos promedio de las plantas en análisis)":125,
@@ -153,7 +153,7 @@ class streamlit_frm:
                 formulario1={ 
                         
                         "Cantidad: unidades negociadas, independiente del periodo de tiempo establecido (unidad de medida determinada por el negociador)":30000.0,
-                        "Frecuencia: Tiempo estimaddo para recalcular o recibir el próximo envío":1.0,
+                        "Frecuencia: Tiempo estimaddo para recalcular o recibir el próximo envío":1,
                         "lead time entrega en planta: tiempo estimado para entregar en planta (si se consideran varias plantas, tomar el tiempo mayor)":1.0,
                         "condición de pago: tiempo en semanas estimado para pagar alproveedor el pedido actual":8.57,
                         "Cantidad mínima a pedir: Cantidad dada en unidad de medida determinada por el negociador":1200.0,
@@ -179,7 +179,7 @@ class streamlit_frm:
             formulario1={
    
             "Cantidad: unidades negociadas, independiente del periodo de tiempo establecido (unidad de medida determinada por el negociador)":30000.0,
-            "Frecuencia: Tiempo estimaddo para recalcular o recibir el próximo envío":4.0,
+            "Frecuencia: Tiempo estimaddo para recalcular o recibir el próximo envío":4,
             "Incoterm":"FOB", 
             "lead time planta-puerto: tiempo estimado desde que el material sale de la planta proveedor, hasta el puerto del país origen":5.0,
             "condición de pago: tiempo en semanas estimado para pagar alproveedor el pedido actual":12.86,
