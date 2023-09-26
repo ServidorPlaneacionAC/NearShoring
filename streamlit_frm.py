@@ -113,7 +113,7 @@ class streamlit_frm:
                     "Cantidad: unidades negociadas, independiente del periodo de tiempo establecido (unidad de medida determinada por el negociador)":3000,
                     "Frecuencia: Tiempo estimado para recalcular o recibir el próximo envío":4.0,
                     "lead time: tiempo estimado para entregar en planta":1.0,
-                    "condición de pago: tiempo en semanas estimado para pagar alproveedor el pedido actual":12,87,
+                    "condición de pago: tiempo en semanas estimado para pagar alproveedor el pedido actual":12.87,
                     "Consumo promedio Semanal: Cantidad dada en unidad de medida determinada por el negociador (la suma de consumos promedio de las plantas en análisis)":125,
                     "Inventario promedio:":2600,
                     "Tarifa gestion cargo:"0.05,
