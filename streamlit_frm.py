@@ -241,7 +241,7 @@ class streamlit_frm:
                 if nombres[i] in lead_time_que_no_se_usan:
                     valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=1000000000.0, value=formulario1[nombres[i]],disabled=True))
                 else:
-                    st.write(f"{nombres[i]} {formulario1[nombres[i]]})
+                    st.write(f"{nombres[i]} {formulario1[nombres[i]]}")
                     valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=1000000000.0, value=formulario1[nombres[i]]))
         
         if transaccion_internacional==True and not('Nuevo Escenario'==titulo):
