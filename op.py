@@ -37,7 +37,7 @@ def main():
         "Tarifa gestion cargo:",
         "Costo de transporte: Costo por unidad en un camion",
         "Tarifa almacenamiento por cada unidad de medida determinada por el negociador")
-        "Flete internacional: por cada unidad de medida determinada por el negociador",
+        #"Flete internacional: por cada unidad de medida determinada por el negociador",
         "Arancel: por cada unidad de medida determinada por el negociador",
         "Costo por servir: por cada unidad de medida determinada por el negociador",
         "Flete nacional: por cada unidad de medida determinada por el negociador",
