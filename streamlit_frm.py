@@ -116,7 +116,7 @@ class streamlit_frm:
                     "condición de pago: tiempo en semanas estimado para pagar alproveedor el pedido actual":12.87,
                     "Consumo promedio Semanal: Cantidad dada en unidad de medida determinada por el negociador (la suma de consumos promedio de las plantas en análisis)":125,
                     "Inventario promedio:":2600,
-                    "Tarifa gestion cargo:"0.05,
+                    "Tarifa gestion cargo":0.05,
                     "Costo de transporte: Costo por unidad en un camion":4.5,
                     "Tarifa almacenamiento por cada unidad de medida determinada por el negociador":11.6,
                     "Flete internacional: por cada unidad de medida determinada por el negociador":0.0,
@@ -124,7 +124,7 @@ class streamlit_frm:
                     "Costo por servir: por cada unidad de medida determinada por el negociador":0.0,
                     "Flete nacional: por cada unidad de medida determinada por el negociador":0.0,
                     "Factor de importacion":1.0,
-                    "Precio compra: no incluye aranceles:234"
+                    "Precio compra: no incluye aranceles":234
 
                     # "Cantidad: unidades (unidad determinada por el negociador) a pedir en el periodo de tiempo establecido":30000.0,
                     # "Frecuencia: Tiempo (Semanas) estimaddo para recalcular próximo envío":4.0,
