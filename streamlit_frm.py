@@ -137,7 +137,7 @@ class streamlit_frm:
     valores = []
     opcion_iconterm="FOB"
     importacion=0.0
-    st.write(formulario1)
+    
    
     with col1_1:
         for i in range(int(len(nombres)/2)):
