@@ -229,7 +229,7 @@ class streamlit_frm:
     valores = []
     opcion_iconterm="FOB"
     importacion=0.0
-    formulario1["Frecuencia: Tiempo (Semanas) estimaddo para recalcular próximo envío"]=0.0
+    st.write(formulario1)
     with col1_1:
         for i in range(int(len(nombres)/2)):
             if "Incoterm"==nombres[i]:              
@@ -241,7 +241,7 @@ class streamlit_frm:
                 if nombres[i] in lead_time_que_no_se_usan:
                     valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=1000000000.0, value=formulario1[nombres[i]],disabled=True))
                 else:
-                    st.write(f"******{nombres[i]} {formulario1[nombres[i]]}")
+                    
                     valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=1000000000.0, value=formulario1[nombres[i]]))
         
         if transaccion_internacional==True and not('Nuevo Escenario'==titulo):
