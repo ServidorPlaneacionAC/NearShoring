@@ -116,7 +116,7 @@ class streamlit_frm:
                     "condición de pago: tiempo en semanas estimado para pagar alproveedor el pedido actual":12.87,
                     "Consumo promedio Semanal: Cantidad dada en unidad de medida determinada por el negociador (la suma de consumos promedio de las plantas en análisis)":125.0,
                     "Inventario promedio:":2600.0,
-                    "Tarifa gestion cargo":0.05,
+                    "Tarifa gestion cargo:":0.05,
                     "Costo de transporte: Costo por unidad en un camion":4.5,
                     "Tarifa almacenamiento por cada unidad de medida determinada por el negociador":11.6,
                     "Flete internacional: por cada unidad de medida determinada por el negociador":0.0,
