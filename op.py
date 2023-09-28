@@ -25,7 +25,8 @@ def main():
         "Inventario promedio:",
         "Tarifa gestion cargo:",
         "Costo de transporte: Costo por unidad en un camion",
-        "Tarifa almacenamiento por cada unidad de medida determinada por el negociador")
+        "Tarifa almacenamiento por cada unidad de medida determinada por el negociador",
+        "Factor de importacion")
     
     nombres_2=(        
         "Cantidad: unidades negociadas, independiente del periodo de tiempo establecido (unidad de medida determinada por el negociador)",
