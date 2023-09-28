@@ -110,12 +110,12 @@ class streamlit_frm:
                 formulario1={
 
    
-                    "Cantidad: unidades negociadas, independiente del periodo de tiempo establecido (unidad de medida determinada por el negociador)":3000,
-                    "Frecuencia: Tiempo estimado para recalcular o recibir el próximo envío":6,
+                    "Cantidad: unidades negociadas, independiente del periodo de tiempo establecido (unidad de medida determinada por el negociador)":3000.0,
+                    "Frecuencia: Tiempo estimado para recalcular o recibir el próximo envío":6.0,
                     "lead time: tiempo estimado para entregar en planta":1.0,
                     "condición de pago: tiempo en semanas estimado para pagar alproveedor el pedido actual":12.87,
-                    "Consumo promedio Semanal: Cantidad dada en unidad de medida determinada por el negociador (la suma de consumos promedio de las plantas en análisis)":125,
-                    "Inventario promedio:":2600,
+                    "Consumo promedio Semanal: Cantidad dada en unidad de medida determinada por el negociador (la suma de consumos promedio de las plantas en análisis)":125.0,
+                    "Inventario promedio:":2600.0,
                     "Tarifa gestion cargo":0.05,
                     "Costo de transporte: Costo por unidad en un camion":4.5,
                     "Tarifa almacenamiento por cada unidad de medida determinada por el negociador":11.6,
@@ -124,7 +124,7 @@ class streamlit_frm:
                     "Costo por servir: por cada unidad de medida determinada por el negociador":0.0,
                     "Flete nacional: por cada unidad de medida determinada por el negociador":0.0,
                     "Factor de importacion":1.0,
-                    "Precio compra: no incluye aranceles":234
+                    "Precio compra: no incluye aranceles":234.0
 
                 
                             }
