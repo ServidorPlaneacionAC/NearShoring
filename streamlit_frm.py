@@ -139,77 +139,77 @@ class streamlit_frm:
     importacion=0.0
     st.write(formulario1)
    
-#     with col1_1:
-#         for i in range(int(len(nombres)/2)):
-#             if "Incoterm"==nombres[i]:              
-#                 opciones = ["FOB", "COSTO Y FLETE", "EXWORK"]
-#                 # Muestra una lista desplegable
-#                 valores.append(st.selectbox("Selecciona un Incoterm:", opciones,index=opciones.index(formulario1[nombres[i]]), key="Incoterm"))
-#                 opcion_iconterm=valores[-1]
-#             else:    
-#                 if nombres[i] in lead_time_que_no_se_usan:
-#                     valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=1000000000.0, value=formulario1[nombres[i]],disabled=True))
-#                 else:
+    with col1_1:
+        for i in range(int(len(nombres)/2)):
+            if "Incoterm"==nombres[i]:              
+                opciones = ["FOB", "COSTO Y FLETE", "EXWORK"]
+                # Muestra una lista desplegable
+                valores.append(st.selectbox("Selecciona un Incoterm:", opciones,index=opciones.index(formulario1[nombres[i]]), key="Incoterm"))
+                opcion_iconterm=valores[-1]
+            else:    
+                if nombres[i] in lead_time_que_no_se_usan:
+                    valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=1000000000.0, value=formulario1[nombres[i]],disabled=True))
+                else:
                     
-#                     valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=1000000000.0, value=formulario1[nombres[i]]))
+                    valores.append(st.number_input(nombres[i], step=0.1, min_value=0.0, max_value=1000000000.0, value=formulario1[nombres[i]]))
         
-#         if transaccion_internacional==True and not('Nuevo Escenario'==titulo):
-#             #genero proceso extra para transformar de dolares a pesos y pesos a dolares
-#             checkbox_operacion_dolarizado = st.checkbox("indicar el precio en dolares")
-#             if checkbox_operacion_dolarizado:
-# #                 si se selecciono el checkbox_operacion_dolarizado entonces ingresa y hace la variable 
-# #                     costo_dolares=session_state.valor_en_pesos(inicializada en el main con valor 0.0)/session_state.trm(inicializada en el main con valor 4.800) 
-# #                     luego genero un campo para indicar trm al momento de la negociación, igual que el campo para indicar el precio en dolares,
-# #                     luego hago guardo en la variable de estado valor_en_pesos el valor en pesos de la transaccion indicada
+        if transaccion_internacional==True and not('Nuevo Escenario'==titulo):
+            #genero proceso extra para transformar de dolares a pesos y pesos a dolares
+            checkbox_operacion_dolarizado = st.checkbox("indicar el precio en dolares")
+            if checkbox_operacion_dolarizado:
+#                 si se selecciono el checkbox_operacion_dolarizado entonces ingresa y hace la variable 
+#                     costo_dolares=session_state.valor_en_pesos(inicializada en el main con valor 0.0)/session_state.trm(inicializada en el main con valor 4.800) 
+#                     luego genero un campo para indicar trm al momento de la negociación, igual que el campo para indicar el precio en dolares,
+#                     luego hago guardo en la variable de estado valor_en_pesos el valor en pesos de la transaccion indicada
                     
-#                 costo_dolares=self.valor_en_pesos/self.trm
-#                 self.trm=st.number_input("Valor TRM", step=0.1000, min_value=0.0, max_value=100000.0, value=self.trm) 
-#                 costo_dolares=st.number_input("Precio compra en dolares", step=0.001, min_value=0.0, max_value=100000.0, value=costo_dolares) 
-#                 self.valor_en_pesos=costo_dolares*self.trm  
+                costo_dolares=self.valor_en_pesos/self.trm
+                self.trm=st.number_input("Valor TRM", step=0.1000, min_value=0.0, max_value=100000.0, value=self.trm) 
+                costo_dolares=st.number_input("Precio compra en dolares", step=0.001, min_value=0.0, max_value=100000.0, value=costo_dolares) 
+                self.valor_en_pesos=costo_dolares*self.trm  
     
-#     with col1_2:
-# #         '''Si la transaccion no es dolarizada se traen todos los campos del formulario y ya'''
+    with col1_2:
+#         '''Si la transaccion no es dolarizada se traen todos los campos del formulario y ya'''
     
-#         if transaccion_internacional  and not('Nuevo Escenario'==titulo):
-#             for i in range(int(len(nombres)/2), len(nombres)-6):
-#             #va hasta el -6 poque los valores(-6-5-4-3) son campos asociados a transacciones internacionales
-#                 #y estos tienen un tratamiento especial 
-#                 if nombres[i] in lead_time_que_no_se_usan:
-#                     valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]],disabled=True))
-#                 else:                            
-#                     valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
-#             #Genero validacion para el iconterm, reconocer en que valores aplica todos los campos y cuando no
-#             checkbox_factor_importacion = st.checkbox("Usar el factor de importacion")
-#             #se usa el factor de importacion o las variables de importacion indivuales que son nombres[-6 hasta -2]
-#             if checkbox_factor_importacion:
-#                 for i in range(len(nombres)-6, len(nombres)-2):                              
-#                     valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=0.0,disabled=True))
-#                 valores.append(st.number_input(nombres[-2],key=nombres[-2], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[-2]]))  
-#             else:
-#                 for i in range(len(nombres)-6, len(nombres)-2):                              
-#                     valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]])) 
-#                 valores.append(st.number_input(nombres[-2],key=nombres[-2], step=0.1, min_value=0.0, max_value=100000.0, value=1.0,disabled=True))    
-#                 #si los otros valores son myores a 0 esto se habce igual a 0
+        if transaccion_internacional  and not('Nuevo Escenario'==titulo):
+            for i in range(int(len(nombres)/2), len(nombres)-6):
+            #va hasta el -6 poque los valores(-6-5-4-3) son campos asociados a transacciones internacionales
+                #y estos tienen un tratamiento especial 
+                if nombres[i] in lead_time_que_no_se_usan:
+                    valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]],disabled=True))
+                else:                            
+                    valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]]))
+            #Genero validacion para el iconterm, reconocer en que valores aplica todos los campos y cuando no
+            checkbox_factor_importacion = st.checkbox("Usar el factor de importacion")
+            #se usa el factor de importacion o las variables de importacion indivuales que son nombres[-6 hasta -2]
+            if checkbox_factor_importacion:
+                for i in range(len(nombres)-6, len(nombres)-2):                              
+                    valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=0.0,disabled=True))
+                valores.append(st.number_input(nombres[-2],key=nombres[-2], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[-2]]))  
+            else:
+                for i in range(len(nombres)-6, len(nombres)-2):                              
+                    valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]])) 
+                valores.append(st.number_input(nombres[-2],key=nombres[-2], step=0.1, min_value=0.0, max_value=100000.0, value=1.0,disabled=True))    
+                #si los otros valores son myores a 0 esto se habce igual a 0
             
                           
           
                             
-#             importacion=valores[-2]
-#             if not checkbox_operacion_dolarizado:
-# #                 Si no se ha seleccionado la alternativa de operacion dolarizda indico que el valor de la ultima variable puesta en nombre es lo que esta
-# #                     en la variable de estado valor_en_pesos(inicializada en el main con valor 0.0 y modificada cuando selecciono la operacion dolarizada
-# #                     y llevo a valor_en_pesos el valor que se escriba en este campo)
-#                 valores.append(st.number_input(nombres[-1],key=nombres[-1], step=0.1, min_value=0.000, max_value=10000000.0, value=self.valor_en_pesos))
-#                 self.valor_en_pesos=valores[-1]
-#             else:            
-#                 #traigo valor_en_pesos pero no permito su edicion
-#                 valores.append(st.number_input(nombres[-1],key=nombres[-1], step=0.1, min_value=0.000, max_value=10000000.0, value=self.valor_en_pesos,disabled=True))
-#         else:
-#             for i in range(int(len(nombres)/2), len(nombres)):
-#                 if nombres[i] in lead_time_que_no_se_usan:
-#                     valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]],disabled=True))
-#                 else:
-#                     valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.000, max_value=1000000.0, value=formulario1[nombres[i]]))
+            importacion=valores[-2]
+            if not checkbox_operacion_dolarizado:
+#                 Si no se ha seleccionado la alternativa de operacion dolarizda indico que el valor de la ultima variable puesta en nombre es lo que esta
+#                     en la variable de estado valor_en_pesos(inicializada en el main con valor 0.0 y modificada cuando selecciono la operacion dolarizada
+#                     y llevo a valor_en_pesos el valor que se escriba en este campo)
+                valores.append(st.number_input(nombres[-1],key=nombres[-1], step=0.1, min_value=0.000, max_value=10000000.0, value=self.valor_en_pesos))
+                self.valor_en_pesos=valores[-1]
+            else:            
+                #traigo valor_en_pesos pero no permito su edicion
+                valores.append(st.number_input(nombres[-1],key=nombres[-1], step=0.1, min_value=0.000, max_value=10000000.0, value=self.valor_en_pesos,disabled=True))
+        else:
+            for i in range(int(len(nombres)/2), len(nombres)):
+                if nombres[i] in lead_time_que_no_se_usan:
+                    valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.0, max_value=100000.0, value=formulario1[nombres[i]],disabled=True))
+                else:
+                    valores.append(st.number_input(nombres[i],key=nombres[i], step=0.1, min_value=0.000, max_value=1000000.0, value=formulario1[nombres[i]]))
       
           
     if st.button("Guardar"): 
