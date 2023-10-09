@@ -59,8 +59,10 @@ def main ():
              'Valor': -1}
     }
     Dicc_Variables = mostrar_valores(Dicc_Variables)
-
-    print(Dicc_Variables)
+    if Dicc_Variables:
+        print(Dicc_Variables)
+    else:
+        print('no')
 
 def mostrar_valores(diccionario, ind=''):
     st.title('Editar Valores')
@@ -88,10 +90,11 @@ def mostrar_valores(diccionario, ind=''):
         for key, value in enumerate(diccionario):
             if estados_checkboxes[key]:
                 diccionario[value]['Valor'] = valores_editados[key]
-    st.success('Valores guardados con éxito.')
+        st.success('Valores guardados con éxito.')
+        return diccionario
         
 
-    return diccionario
+    return False
 
 
 if __name__ == '__main__':
