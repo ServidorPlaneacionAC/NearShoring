@@ -6,7 +6,6 @@ def main ():
     Inicializa las variables, propone escenarios, genera posibles combinaciones de datos
     invoca funciones de impresion de de datos y funciones que permiten la optimizacion de resultados
     '''
-
     session_state.Dicc_Variables = {
          0: {'Nombre': "Cantidad: unidades negociadas, independiente del periodo de tiempo establecido (unidad de medida determinada por el negociador)",
              'Tipo': "Obligatorio",
@@ -59,8 +58,14 @@ def main ():
              'Tipo_Dato': "int",
              'Valor': -1}
     }
-    session_state.Dicc_Variables = mostrar_valores(session_state.Dicc_Variables)
-
+    
+    
+    col1_1, col1_2 = st.columns(2)
+    
+    with col1_1:
+        session_state.Dicc_Variables = mostrar_valores(session_state.Dicc_Variables)
+    with col1_2:
+        session_state.Dicc_Variables2 = mostrar_valores(session_state.Dicc_Variables)
 
     st.write(session_state.Dicc_Variables)
 
@@ -71,16 +76,13 @@ def mostrar_valores(diccionario, ind=''):
     # Crear una lista para almacenar los valores editados y los estados de los checkboxes
     valores_editados = []
     estados_checkboxes = []
-    valores=[]
 
     # Iterar a través del diccionario y mostrar campos de entrada de texto y checkboxes para editar los valores
     for key, value in diccionario.items():
         nombre = value['Nombre']
         valor = value['Valor']
         editar_valor = st.checkbox(f'editar {key}')
-        
-        # valores.append(st.number_input(nombre, step=0.1, min_value=0.000, max_value=1000000.0, value=valor))
-
+              
         if editar_valor:
             valor = st.text_input(f'Nombre: {nombre} ', valor,disabled=False)
         else:
