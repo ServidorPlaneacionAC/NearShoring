@@ -79,7 +79,7 @@ def mostrar_valores(diccionario):
     for key, value in diccionario.items():
         nombre = value['Nombre']
         valor = value['Valor']
-        editar_valor = st.checkbox()
+        editar_valor = st.checkbox(key)
 
         if editar_valor:
             valor = st.text_input(f'Nombre: {nombre}', valor,disabled=True)
