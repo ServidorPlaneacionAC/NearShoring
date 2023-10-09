@@ -6,7 +6,7 @@ def main ():
     invoca funciones de impresion de de datos y funciones que permiten la optimizacion de resultados
     '''
 
-    Dicc_Variables = {
+    session_state.Dicc_Variables = {
          0: {'Nombre': "Cantidad: unidades negociadas, independiente del periodo de tiempo establecido (unidad de medida determinada por el negociador)",
              'Tipo': "Obligatorio",
              'Esenario': "todos",
@@ -58,11 +58,16 @@ def main ():
              'Tipo_Dato': "int",
              'Valor': -1}
     }
-    Dicc_Variables = mostrar_valores(Dicc_Variables)
-    if Dicc_Variables:
-        print(Dicc_Variables)
-    else:
-        print('no')
+    Dicc_Variables = mostrar_valores(session_state.Dicc_Variables)
+
+    if st.button(f'Guardar Valores'):
+    # Imprimir los valores editados en el diccionario
+        for key, value in enumerate(session_state.Dicc_Variables):
+            if estados_checkboxes[key]:
+                session_state.Dicc_Variables[value]['Valor'] = valores_editados[key]
+        st.success('Valores guardados con éxito.')
+        st.write(session_state.Dicc_Variables)
+
 
 def mostrar_valores(diccionario, ind=''):
     st.title('Editar Valores')
@@ -85,16 +90,10 @@ def mostrar_valores(diccionario, ind=''):
         valores_editados.append(valor)
         estados_checkboxes.append(editar_valor)
 
-    if st.button(f'Guardar Valores  {ind}'):
-    # Imprimir los valores editados en el diccionario
-        for key, value in enumerate(diccionario):
-            if estados_checkboxes[key]:
-                diccionario[value]['Valor'] = valores_editados[key]
-        st.success('Valores guardados con éxito.')
-        return diccionario
-        
+    
+       
 
-    return False
+    return valores_editados,estados_checkboxes
 
 
 if __name__ == '__main__':
