@@ -92,9 +92,10 @@ def mostrar_valores(diccionario, ind=''):
             if estados_checkboxes[key]:
                 diccionario[value]['Valor'] = valores_editados[key]
         st.success('Valores guardados con éxito.')
+        return diccionario
        
 
-    return diccionario
+    return {}
 
 
 if __name__ == '__main__':
