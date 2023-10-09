@@ -76,23 +76,22 @@ def mostrar_valores(diccionario, ind=''):
     for key, value in diccionario.items():
         nombre = value['Nombre']
         valor = value['Valor']
-        editar_valor = st.checkbox(f'editar {key} {ind}')
+        editar_valor = st.checkbox(f'editar {key}')
 
         if editar_valor:
-            valor = st.text_input(f'Nombre: {nombre} {ind}', valor,disabled=True)
+            valor = st.text_input(f'Nombre: {nombre} ', valor,disabled=True)
         else:
-            valor = st.text_input(f'Nombre: {nombre} {ind}', valor,disabled=False)
+            valor = st.text_input(f'Nombre: {nombre}', valor,disabled=False)
 
         valores_editados.append(valor)
         estados_checkboxes.append(editar_valor)
 
     if st.button(f'Guardar Valores'):
     # Imprimir los valores editados en el diccionario
-        for key, value in enumerate(diccionario):
+        for key, value in diccionario.items():
             if estados_checkboxes[key]:
                 diccionario[value]['Valor'] = valores_editados[key]
         st.success('Valores guardados con éxito.')
-        diccionario[9]['Valor']=8999
         return diccionario
        
 
