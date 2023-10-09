@@ -60,7 +60,7 @@ def main ():
     }
     
     
-    col1_0, col1_1, col1_2 = st.columns(2)
+    col1_0, col1_1, col1_2 = st.columns(3)
     
     with col1_1:
         estados_checkboxes=[True for i  in diccionario.items()]
