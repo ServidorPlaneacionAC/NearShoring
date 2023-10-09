@@ -60,7 +60,7 @@ def main ():
     }
     Dicc_Variables = mostrar_valores(Dicc_Variables)
 
-    mostrar_valores(Dicc_Variables,'2')
+    print(Dicc_Variables)
 
 def mostrar_valores(diccionario, ind=''):
     st.title('Editar Valores')
