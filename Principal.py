@@ -91,7 +91,7 @@ def mostrar_valores(diccionario, ind=''):
     st.success('Valores guardados con éxito.')
         
 
-    return valores_editados,estados_checkboxes
+    return diccionario
 
 
 if __name__ == '__main__':
