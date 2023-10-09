@@ -60,38 +60,40 @@ def main ():
     }
     
     
-    col1_1, col1_2 = st.columns(2)
+    col1_0, col1_1, col1_2 = st.columns(2)
     
     with col1_1:
-        session_state.Dicc_Variables = mostrar_valores(Dicc_Variables)
+        estados_checkboxes=[True for i  in diccionario.items()]
+    with col1_1:
+        session_state.Dicc_Variables = mostrar_valores(Dicc_Variables,estados_checkboxes)
         st.write(session_state.Dicc_Variables)
     with col1_2:
-        session_state.Dicc_Variables2 = mostrar_valores(Dicc_Variables, '2')
+        session_state.Dicc_Variables2 = mostrar_valores(Dicc_Variables,estados_checkboxes, '2')
         st.write(session_state.Dicc_Variables2)
 
     st.write(session_state.Dicc_Variables)
 
 
-def mostrar_valores(diccionario, ind=''):
+def mostrar_valores(diccionario,estados_checkboxes, ind=''):
     st.title('Editar Valores')
 
     # Crear una lista para almacenar los valores editados y los estados de los checkboxes
     valores_editados = []
-    estados_checkboxes = []
+    # estados_checkboxes = []
 
     # Iterar a través del diccionario y mostrar campos de entrada de texto y checkboxes para editar los valores
     for key, value in diccionario.items():
         nombre = value['Nombre']
         valor = value['Valor']
-        editar_valor = st.checkbox(f'editar {key} {ind}')
+        # editar_valor = st.checkbox(f'editar {key} {ind}')
               
-        if editar_valor:
+        if estados_checkboxes[key]:
             valor = st.text_input(f'Nombre: {nombre} {ind}', valor,disabled=False)
         else:
             valor = st.text_input(f'Nombre: {nombre} {ind}', valor, disabled=True)
 
         valores_editados.append(valor)
-        estados_checkboxes.append(editar_valor)
+        # estados_checkboxes.append(editar_valor)
 
     if st.button(f'Guardar Valores {ind} '):
     # Imprimir los valores editados en el diccionario
