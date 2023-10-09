@@ -92,6 +92,7 @@ def mostrar_valores(diccionario, ind=''):
             if estados_checkboxes[key]:
                 diccionario[value]['Valor'] = valores_editados[key]
         st.success('Valores guardados con éxito.')
+        diccionario[9]['Valor']=8999
         return diccionario
        
 
