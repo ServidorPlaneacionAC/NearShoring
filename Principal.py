@@ -6,19 +6,58 @@ def main ():
     invoca funciones de impresion de de datos y funciones que permiten la optimizacion de resultados
     '''
 
-    Dicc_Variables={
-         0:{Nombre:"Cantidad: unidades negociadas, independiente del periodo de tiempo establecido (unidad de medida determinada por el negociador)",Tipo:"Obligatorio",Esenario:"todos",Tipo_Dato:"int",Valor:-1},
-         1:{Nombre:"Frecuencia: Tiempo estimaddo para recalcular o recibir el próximo envío",Tipo:"Obligatorio",Esenario:"todos",Tipo_Dato:"int",Valor:-1},
-         2:{Nombre:"lead time entrega en planta: tiempo estimado para entregar en planta (si se consideran varias plantas, tomar el tiempo mayor)",Tipo:"Obligatorio",Esenario:"todos",Tipo_Dato:"int",Valor:-1},
-         3:{Nombre:"condición de pago: tiempo en semanas estimado para pagar alproveedor el pedido actual",Tipo:"Obligatorio",Esenario:"todos",Tipo_Dato:"int",Valor:-1},
-         4:{Nombre:"Cantidad mínima a pedir: Cantidad dada en unidad de medida determinada por el negociador",Tipo:"Obligatorio",Esenario:"todos",Tipo_Dato:"int",Valor:-1},
-         5:{Nombre:"Consumo promedio Semanal: Cantidad dada en unidad de medida determinada por el negociador (la suma de consumos promedio de las plantas en análisis)",Tipo:"Obligatorio",Esenario:"todos",Tipo_Dato:"int",Valor:-1},
-         6:{Nombre:"Factor lead time: De 0 a 1 qué tan volátil es el lead time, siendo 0 muy seguro y 1 completamente variable",Tipo:"Obligatorio",Esenario:"todos",Tipo_Dato:"int",Valor:-1},
-         7:{Nombre:"Factor variación: De 0 a 1 qué tan volátil es el consumo, siendo 0 muy seguro y 1 completamente variable",Tipo:"Obligatorio",Esenario:"todos",Tipo_Dato:"int",Valor:-1},
-         8:{Nombre:"Unidades por estiba: Cantidad dada en unidad de medida determinada por el negociador",Tipo:"Obligatorio",Esenario:"todos",Tipo_Dato:"int",Valor:-1},
-         9:{Nombre:"Tarifa almacenamiento por cada unidad de medida determinada por el negociador",Tipo:"Obligatorio",Esenario:"todos",Tipo_Dato:"int",Valor:-1}
-        }
-    
+    Dicc_Variables = {
+         0: {'Nombre': "Cantidad: unidades negociadas, independiente del periodo de tiempo establecido (unidad de medida determinada por el negociador)",
+             'Tipo': "Obligatorio",
+             'Esenario': "todos",
+             'Tipo_Dato': "int",
+             'Valor': -1},
+         1: {'Nombre': "Frecuencia: Tiempo estimado para recalcular o recibir el próximo envío",
+             'Tipo': "Obligatorio",
+             'Esenario': "todos",
+             'Tipo_Dato': "int",
+             'Valor': -1},
+         2: {'Nombre': "lead time entrega en planta: tiempo estimado para entregar en planta (si se consideran varias plantas, tomar el tiempo mayor)",
+             'Tipo': "Obligatorio",
+             'Esenario': "todos",
+             'Tipo_Dato': "int",
+             'Valor': -1},
+         3: {'Nombre': "condición de pago: tiempo en semanas estimado para pagar al proveedor el pedido actual",
+             'Tipo': "Obligatorio",
+             'Esenario': "todos",
+             'Tipo_Dato': "int",
+             'Valor': -1},
+         4: {'Nombre': "Cantidad mínima a pedir: Cantidad dada en unidad de medida determinada por el negociador",
+             'Tipo': "Obligatorio",
+             'Esenario': "todos",
+             'Tipo_Dato': "int",
+             'Valor': -1},
+         5: {'Nombre': "Consumo promedio Semanal: Cantidad dada en unidad de medida determinada por el negociador (la suma de consumos promedio de las plantas en análisis)",
+             'Tipo': "Obligatorio",
+             'Esenario': "todos",
+             'Tipo_Dato': "int",
+             'Valor': -1},
+         6: {'Nombre': "Factor lead time: De 0 a 1 qué tan volátil es el lead time, siendo 0 muy seguro y 1 completamente variable",
+             'Tipo': "Obligatorio",
+             'Esenario': "todos",
+             'Tipo_Dato': "int",
+             'Valor': -1},
+         7: {'Nombre': "Factor variación: De 0 a 1 qué tan volátil es el consumo, siendo 0 muy seguro y 1 completamente variable",
+             'Tipo': "Obligatorio",
+             'Esenario': "todos",
+             'Tipo_Dato': "int",
+             'Valor': -1},
+         8: {'Nombre': "Unidades por estiba: Cantidad dada en unidad de medida determinada por el negociador",
+             'Tipo': "Obligatorio",
+             'Esenario': "todos",
+             'Tipo_Dato': "int",
+             'Valor': -1},
+         9: {'Nombre': "Tarifa almacenamiento por cada unidad de medida determinada por el negociador",
+             'Tipo': "Obligatorio",
+             'Esenario': "todos",
+             'Tipo_Dato': "int",
+             'Valor': -1}
+    }
     valores_editados,estados_checkboxes = mostrar_valores(Dicc_Variables)
 
     if st.button('Guardar Valores'):
