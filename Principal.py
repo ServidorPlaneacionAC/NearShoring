@@ -65,7 +65,7 @@ def main ():
     with col1_1:
         session_state.Dicc_Variables = mostrar_valores(session_state.Dicc_Variables)
     with col1_2:
-        session_state.Dicc_Variables2 = mostrar_valores(session_state.Dicc_Variables)
+        session_state.Dicc_Variables2 = mostrar_valores(session_state.Dicc_Variables, ' ')
 
     st.write(session_state.Dicc_Variables)
 
@@ -84,9 +84,9 @@ def mostrar_valores(diccionario, ind=''):
         editar_valor = st.checkbox(f'editar {key}')
               
         if editar_valor:
-            valor = st.text_input(f'Nombre: {nombre} ', valor,disabled=False)
+            valor = st.text_input(f'Nombre: {nombre} {key}', valor,disabled=False)
         else:
-            valor = st.text_input(f'Nombre: {nombre}', valor,disabled=True)
+            valor = st.text_input(f'Nombre: {nombre} {key}', valor, disabled=True)
 
         valores_editados.append(valor)
         estados_checkboxes.append(editar_valor)
