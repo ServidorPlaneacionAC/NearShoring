@@ -62,7 +62,7 @@ def main ():
     
     col1_0, col1_1, col1_2 = st.columns(3)
     
-    with col1_1:
+    with col1_0:
         estados_checkboxes=[True for i  in Dicc_Variables.items()]
         for i, checkbox_value in enumerate(estados_checkboxes):
             checkbox_label = f"Checkbox {i + 1}"
