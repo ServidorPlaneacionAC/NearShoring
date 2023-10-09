@@ -59,15 +59,10 @@ def main ():
              'Tipo_Dato': "int",
              'Valor': -1}
     }
-    Dicc_Variables = mostrar_valores(session_state.Dicc_Variables)
+    session_state.Dicc_Variables = mostrar_valores(session_state.Dicc_Variables)
 
-    if st.button(f'Guardar Valores'):
-    # Imprimir los valores editados en el diccionario
-        for key, value in enumerate(session_state.Dicc_Variables):
-            if estados_checkboxes[key]:
-                session_state.Dicc_Variables[value]['Valor'] = valores_editados[key]
-        st.success('Valores guardados con éxito.')
-        st.write(session_state.Dicc_Variables)
+
+    st.write(session_state.Dicc_Variables)
 
 
 def mostrar_valores(diccionario, ind=''):
@@ -91,10 +86,15 @@ def mostrar_valores(diccionario, ind=''):
         valores_editados.append(valor)
         estados_checkboxes.append(editar_valor)
 
-    
+    if st.button(f'Guardar Valores'):
+    # Imprimir los valores editados en el diccionario
+        for key, value in enumerate(diccionario):
+            if estados_checkboxes[key]:
+                diccionario[value]['Valor'] = valores_editados[key]
+        st.success('Valores guardados con éxito.')
        
 
-    return valores_editados,estados_checkboxes
+    return diccionario
 
 
 if __name__ == '__main__':
