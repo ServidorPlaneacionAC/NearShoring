@@ -6,7 +6,7 @@ def main ():
     Inicializa las variables, propone escenarios, genera posibles combinaciones de datos
     invoca funciones de impresion de de datos y funciones que permiten la optimizacion de resultados
     '''
-    session_state.Dicc_Variables = {
+    Dicc_Variables = {
          0: {'Nombre': "Cantidad: unidades negociadas, independiente del periodo de tiempo establecido (unidad de medida determinada por el negociador)",
              'Tipo': "Obligatorio",
              'Esenario': "todos",
@@ -63,10 +63,10 @@ def main ():
     col1_1, col1_2 = st.columns(2)
     
     with col1_1:
-        session_state.Dicc_Variables = mostrar_valores(session_state.Dicc_Variables)
+        session_state.Dicc_Variables = mostrar_valores(Dicc_Variables)
         st.write(session_state.Dicc_Variables)
     with col1_2:
-        session_state.Dicc_Variables2 = mostrar_valores(session_state.Dicc_Variables, '2')
+        session_state.Dicc_Variables2 = mostrar_valores(Dicc_Variables, '2')
         st.write(session_state.Dicc_Variables2)
 
     st.write(session_state.Dicc_Variables)
