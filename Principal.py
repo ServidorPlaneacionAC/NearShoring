@@ -90,7 +90,7 @@ def mostrar_valores(diccionario, ind=''):
     # Imprimir los valores editados en el diccionario
         for key, value in diccionario.items():
             if estados_checkboxes[key]:
-                diccionario[value]['Valor'] = valores_editados[key]
+                diccionario[key]['Valor'] = valores_editados[key]
         st.success('Valores guardados con éxito.')
         return diccionario
        
