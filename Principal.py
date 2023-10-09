@@ -58,9 +58,9 @@ def main ():
              'Tipo_Dato': "int",
              'Valor': -1}
     }
-    valores_editados,estados_checkboxes = mostrar_valores(Dicc_Variables)
+    Dicc_Variables = mostrar_valores(Dicc_Variables)
 
-    # mostrar_valores(Dicc_Variables,'2')
+    mostrar_valores(Dicc_Variables,'2')
 
 def mostrar_valores(diccionario, ind=''):
     st.title('Editar Valores')
