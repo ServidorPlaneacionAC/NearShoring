@@ -65,7 +65,7 @@ def main ():
     with col1_1:
         session_state.Dicc_Variables = mostrar_valores(session_state.Dicc_Variables)
     with col1_2:
-        session_state.Dicc_Variables2 = mostrar_valores(session_state.Dicc_Variables, ' ')
+        session_state.Dicc_Variables2 = mostrar_valores(session_state.Dicc_Variables, '2')
 
     st.write(session_state.Dicc_Variables)
 
