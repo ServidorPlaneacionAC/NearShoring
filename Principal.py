@@ -64,8 +64,10 @@ def main ():
     
     with col1_1:
         session_state.Dicc_Variables = mostrar_valores(session_state.Dicc_Variables)
+        st.write(session_state.Dicc_Variables)
     with col1_2:
         session_state.Dicc_Variables2 = mostrar_valores(session_state.Dicc_Variables, '2')
+        st.write(session_state.Dicc_Variables2)
 
     st.write(session_state.Dicc_Variables)
 
@@ -91,7 +93,7 @@ def mostrar_valores(diccionario, ind=''):
         valores_editados.append(valor)
         estados_checkboxes.append(editar_valor)
 
-    if st.button(f'Guardar Valores'):
+    if st.button(f'Guardar Valores {key} '):
     # Imprimir los valores editados en el diccionario
         for key, value in diccionario.items():
             if estados_checkboxes[key]:
