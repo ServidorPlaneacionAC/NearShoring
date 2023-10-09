@@ -66,7 +66,7 @@ def main ():
             if estados_checkboxes[key]:
                 Dicc_Variables[value]['Valor'] = valores_editados[key]
         st.success('Valores guardados con éxito.')
-        mostrar_valores(Dicc_Variables)
+        mostrar_valores(Dicc_Variables,2)
 
 def mostrar_valores(diccionario, ind=0):
     st.title('Editar Valores')
