@@ -83,7 +83,7 @@ def mostrar_valores(diccionario, ind=''):
         valores_editados.append(valor)
         estados_checkboxes.append(editar_valor)
 
-    if st.button('Guardar Valores'):
+    if st.button(f'Guardar Valores  {ind}'):
     # Imprimir los valores editados en el diccionario
         for key, value in enumerate(diccionario):
             if estados_checkboxes[key]:
