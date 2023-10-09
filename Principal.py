@@ -63,7 +63,7 @@ def main ():
     col1_0, col1_1, col1_2 = st.columns(3)
     
     with col1_1:
-        estados_checkboxes=[i==i for i  in diccionario.items()]
+        estados_checkboxes=[True for i  in Dicc_Variables.items()]
     with col1_1:
         session_state.Dicc_Variables = mostrar_valores(Dicc_Variables,estados_checkboxes)
         st.write(session_state.Dicc_Variables)
