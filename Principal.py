@@ -60,7 +60,7 @@ def main ():
     }
     valores_editados,estados_checkboxes = mostrar_valores(Dicc_Variables)
 
-    mostrar_valores(Dicc_Variables,'2')
+    # mostrar_valores(Dicc_Variables,'2')
 
 def mostrar_valores(diccionario, ind=''):
     st.title('Editar Valores')
@@ -83,12 +83,12 @@ def mostrar_valores(diccionario, ind=''):
         valores_editados.append(valor)
         estados_checkboxes.append(editar_valor)
 
-        if st.button('Guardar Valores'):
-        # Imprimir los valores editados en el diccionario
-            for key, value in enumerate(diccionario):
-                if estados_checkboxes[key]:
-                    diccionario[value]['Valor'] = valores_editados[key]
-        st.success('Valores guardados con éxito.')
+    if st.button('Guardar Valores'):
+    # Imprimir los valores editados en el diccionario
+        for key, value in enumerate(diccionario):
+            if estados_checkboxes[key]:
+                diccionario[value]['Valor'] = valores_editados[key]
+    st.success('Valores guardados con éxito.')
         
 
     return valores_editados,estados_checkboxes
