@@ -66,9 +66,9 @@ def main ():
             if estados_checkboxes[key]:
                 Dicc_Variables[value]['Valor'] = valores_editados[key]
         st.success('Valores guardados con éxito.')
-        mostrar_valores(Dicc_Variables,2)
+        mostrar_valores(Dicc_Variables,'2')
 
-def mostrar_valores(diccionario, ind=0):
+def mostrar_valores(diccionario, ind=''):
     st.title('Editar Valores')
 
     # Crear una lista para almacenar los valores editados y los estados de los checkboxes
@@ -82,9 +82,9 @@ def mostrar_valores(diccionario, ind=0):
         editar_valor = st.checkbox(f'editar {key} {ind}')
 
         if editar_valor:
-            valor = st.text_input(f'Nombre: {nombre}', valor,disabled=True)
+            valor = st.text_input(f'Nombre: {nombre} {ind}', valor,disabled=True)
         else:
-            valor = st.text_input(f'Nombre: {nombre}', valor,disabled=False)
+            valor = st.text_input(f'Nombre: {nombre} {ind}', valor,disabled=False)
 
         valores_editados.append(valor)
         estados_checkboxes.append(editar_valor)
