@@ -57,7 +57,7 @@ def main ():
              'Esenario': "todos",
              'Tipo_Dato': "int",
              'Valor': -1},
-         10: {'Nombre': "Tarifa almacenamiento por cada unidad de medida determinada por el negociador",
+         10: {'Nombre': "Precio a pagar",
              'Tipo': "Obligatorio",
              'Esenario': "Actual",
              'Tipo_Dato': "int",
