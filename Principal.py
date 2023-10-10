@@ -59,7 +59,6 @@ def main ():
              'Valor': -1}
     }
     
-    
     col1_0, col1_1, col1_2 = st.columns(3)
     
     with col1_0:
@@ -74,31 +73,23 @@ def main ():
         session_state.Dicc_Variables2 = mostrar_valores(Dicc_Variables,estados_checkboxes, '2')
         st.write(session_state.Dicc_Variables2)
 
-    st.write(session_state.Dicc_Variables)
-
-
 def mostrar_valores(diccionario,estados_checkboxes, ind=''):
     st.title('Editar Valores')
     valores_editados = []
     for key, value in diccionario.items():
         nombre = value['Nombre']
-        valor = value['Valor']
-              
+        valor = value['Valor']              
         if estados_checkboxes[key]:
             valor = st.text_input(f'Nombre: {nombre} {ind}', valor,disabled=False)
         else:
             valor = st.text_input(f'Nombre: {nombre} {ind}', valor, disabled=True)
-
         valores_editados.append(valor)
-
     if st.button(f'Guardar Valores {ind} '):
         for key, value in diccionario.items():
             if estados_checkboxes[key]:
                 diccionario[key]['Valor'] = valores_editados[key]
         st.success('Valores guardados con éxito.')
         return diccionario
-       
-
     return {}
 
 
