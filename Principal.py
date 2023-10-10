@@ -73,13 +73,8 @@ def main ():
             estados_checkboxes[i] = st.checkbox(checkbox_label, value=checkbox_value)
     with col1_1:
         session_state.Dicc_Variables = mostrar_valores(Dicc_Variables,estados_checkboxes)
-        st.write(session_state.Dicc_Variables)
     with col1_2:
         session_state.Dicc_Variables2 = mostrar_valores(Dicc_Variables,estados_checkboxes, '2','Retador')
-        st.write(session_state.Dicc_Variables2)
-
-    st.write(session_state.Dicc_Variables2)
-    st.write(session_state.Dicc_Variables)
 
 def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
     st.write(escenario)
@@ -98,8 +93,7 @@ def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
             if estados_checkboxes[key]:
                 diccionario[key]['Valor'] = valores_editados[key]
         st.success('Valores guardados con éxito.')
-        return diccionario
-    return {}
+    return diccionario
 
 
 if __name__ == '__main__':
