@@ -56,11 +56,16 @@ def main ():
              'Tipo': "Obligatorio",
              'Esenario': "todos",
              'Tipo_Dato': "int",
+             'Valor': -1},
+         10: {'Nombre': "Tarifa almacenamiento por cada unidad de medida determinada por el negociador",
+             'Tipo': "Obligatorio",
+             'Esenario': "Actual",
+             'Tipo_Dato': "int",
              'Valor': -1}
     }
     
     col1_0, col1_1, col1_2 = st.columns(3)
-    
+    st.title('Nearshoring')
     with col1_0:
         estados_checkboxes=[True for i  in Dicc_Variables.items()]
         for i, checkbox_value in enumerate(estados_checkboxes):
@@ -70,23 +75,24 @@ def main ():
         session_state.Dicc_Variables = mostrar_valores(Dicc_Variables,estados_checkboxes)
         st.write(session_state.Dicc_Variables)
     with col1_2:
-        session_state.Dicc_Variables2 = mostrar_valores(Dicc_Variables,estados_checkboxes, '2')
+        session_state.Dicc_Variables2 = mostrar_valores(Dicc_Variables,estados_checkboxes, '2','Retador')
         st.write(session_state.Dicc_Variables2)
 
     st.write(session_state.Dicc_Variables2)
     st.write(session_state.Dicc_Variables)
 
-def mostrar_valores(diccionario,estados_checkboxes, ind=''):
-    st.title('Editar Valores')
+def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
+    st.subtitle(escenario)
     valores_editados = []
     for key, value in diccionario.items():
         nombre = value['Nombre']
         valor = value['Valor']              
-        if estados_checkboxes[key]:
-            valor = st.text_input(f'Nombre: {nombre} {ind}', valor,disabled=False)
-        else:
-            valor = st.text_input(f'Nombre: {nombre} {ind}', valor, disabled=True)
-        valores_editados.append(valor)
+        if escenario==value['Esenario'] or 'todos'==value['Esenario']:        
+            if estados_checkboxes[key]:
+                valor = st.text_input(f'Nombre: {nombre} {ind}', valor,disabled=False)
+            else:
+                valor = st.text_input(f'Nombre: {nombre} {ind}', valor, disabled=True)
+            valores_editados.append(valor)
     if st.button(f'Guardar Valores {ind} '):
         for key, value in diccionario.items():
             if estados_checkboxes[key]:
