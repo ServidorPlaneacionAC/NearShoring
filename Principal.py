@@ -64,8 +64,8 @@ def main ():
              'Valor': -1}
     }
     
-    col1_0, col1_1, col1_2 = st.columns(3)
     st.title('Nearshoring')
+    col1_0, col1_1, col1_2 = st.columns(3)
     with col1_0:
         estados_checkboxes=[True for i  in Dicc_Variables.items()]
         for i, checkbox_value in enumerate(estados_checkboxes):
@@ -82,7 +82,7 @@ def main ():
     st.write(session_state.Dicc_Variables)
 
 def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
-    st.subtitle(escenario)
+    st.write(escenario)
     valores_editados = []
     for key, value in diccionario.items():
         nombre = value['Nombre']
