@@ -73,6 +73,9 @@ def main ():
         session_state.Dicc_Variables2 = mostrar_valores(Dicc_Variables,estados_checkboxes, '2')
         st.write(session_state.Dicc_Variables2)
 
+    st.write(session_state.Dicc_Variables2)
+    st.write(session_state.Dicc_Variables)
+
 def mostrar_valores(diccionario,estados_checkboxes, ind=''):
     st.title('Editar Valores')
     valores_editados = []
