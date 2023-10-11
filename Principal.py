@@ -76,6 +76,9 @@ def main ():
     with col1_2:
         session_state.Dicc_Variables2 = mostrar_valores(Dicc_Variables,estados_checkboxes, '2','Retador')
 
+def calcular_campos():    
+    pass
+
 def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
     st.write(escenario)
     valores_editados = []
