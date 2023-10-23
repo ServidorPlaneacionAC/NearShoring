@@ -70,8 +70,10 @@ def main ():
         session_state.Dicc_Variables = mostrar_valores(Dicc_Variables,estados_checkboxes)
     with col1_2:
         session_state.Dicc_Variables2 = mostrar_valores(Dicc_Variables,estados_checkboxes, '2','Retador')
-    organizar_campos(session_state.Dicc_Variables)
-    optimizacion(organizar_campos(session_state.Dicc_Variables),session_state.Dicc_Variables[9]["Valor"],organizar_campos(session_state.Dicc_Variables2))
+    if st.button(f'lucas'):
+        optimizacion(organizar_campos(session_state.Dicc_Variables),session_state.Dicc_Variables[9]["Valor"],organizar_campos(session_state.Dicc_Variables2))
+    st.write(session_state.Dicc_Variables)
+    st.write(session_state.Dicc_Variables2)
 def organizar_campos(Diccionario): 
     '''
     Asigna los valores a los variables desde el diccionario
