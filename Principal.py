@@ -165,7 +165,7 @@ def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
             valores_editados.append(valor)
     if st.button(f'Guardar Valores {ind} '):
         for key, value in diccionario.items():
-            if estados_checkboxes[key]:
+            if estados_checkboxes[key] and (escenario==value['Esenario'] or 'todos'==value['Esenario']):
                 diccionario[key]['Valor'] = valores_editados[key]
         st.success('Valores guardados con éxito.')
     return diccionario
