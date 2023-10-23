@@ -87,7 +87,7 @@ def organizar_campos(Diccionario):
     tarifa_alm = Diccionario[8]['Valor']
  
 def optimizacion(cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarifa_gz,costo_transporte,tarifa_alm,precio,
-                 cantidad_1,frecuencia_1,lead_time_1,condicion_pago_1,inv_prom_1,asu_1,tarifa_gz_1,costo_transporte_1,tarifa_alm_1)
+                 cantidad_1,frecuencia_1,lead_time_1,condicion_pago_1,inv_prom_1,asu_1,tarifa_gz_1,costo_transporte_1,tarifa_alm_1):
     '''
     Me calcula los costos y me realiza la optimización
     '''
