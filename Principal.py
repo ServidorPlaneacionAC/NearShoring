@@ -71,6 +71,7 @@ def main ():
     with col1_2:
         session_state.Dicc_Variables2 = mostrar_valores(Dicc_Variables,estados_checkboxes, '2','Retador')
     organizar_campos(session_state.Dicc_Variables)
+    optimizacion(organizar_campos(session_state.Dicc_Variables),organizar_campos(session_state.Dicc_Variables2))
 def organizar_campos(Diccionario): 
     '''
     Asigna los valores a los variables desde el diccionario
@@ -90,7 +91,61 @@ def optimizacion(cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarif
     '''
     Me calcula los costos y me realiza la optimización
     '''
-    
+    # Creamos un objeto de problema de optimización llamado "prob" con objetivo de minimización
+    # "Mi problema de optimización" es el nombre del problema, y LpMinimize indica que estamos minimizando
+    prob = LpProblem("Mi problema de optimización", LpMinimize)
+    # Creamos una variable de optimización llamada "p_1" con límite inferior de 0
+    # "p_1" es el nombre de la variable, y lowBound=0 establece el límite inferior en 0
+    p_1 = LpVariable("p_1", lowBound=0)
+    # Asignamos el valor de la variable de optimización "p_1" a la variable "precio_compra_1"
+    precio_compra_1=p_1  
+    inv_prom_sem_1 = inv_prom_1 / adu_1  # Inventario promedio por semana: Inventario promedio dividido por adu_1
+    diferencial_1 = lt_1 - semanas_cxp_1  # Diferencial: Tiempo de tránsito logístico menos semanas de crédito proveedor
+    costo_inv_1 = precio_compra_1 * inv_prom_1  # Costo de inventario: Precio de compra por inventario promedio
+    costo_nacionalizacion_1 = taf_gz_1 * cantidad_1 * precio_compra_1 # Costo de nacionalización: TAF GZ multiplicado por cantidad_1 y por el precio
+    costo_cap_1 = (diferencial_1 + inv_prom_sem_1) * adu_1 * (((1 + tasa) ** (1/52)) - 1) * precio_compra_1  # Costo de capital: Cálculo con diferenciales, tasa, adu_1 y precio_compra_1
+    costo_maninv_1 = (inv_prom_1) * (tarifa_alm_1 / 4.3) * (inv_prom_sem_1)  # Costo de manipulación de inventario: Producto de factores por inventario promedio semanal
+    costo_compra_1 = precio_compra_1 * cantidad_1  # Costo de compra: Precio de compra por cantidad
+    costo_total_1 = costo_maninv_1 + costo_compra_1 + costo_cap_1 + costo_transporte_1 + costo_nacionalizacion_1 # Costo total: Suma de varios costos
+    costo_ebitda_1 = costo_total_1# Costo EBITDA: Suma de costos relevantes
+    costo_unitario_1 = costo_total_1 / cantidad_1  # Costo unitario: Costo total dividido por cantidad
+    capital_invertido_1 = ((diferencial_1 + inv_prom_sem_1) * (adu_1)) * (precio_compra_1)
+
+
+    #calculos otro escenario
+    inv_prom_sem = inv_prom / adu  # Inventario promedio por semana: Inventario promedio dividido por adu_1
+    diferencial = lt - semanas_cxp  # Diferencial: Tiempo de tránsito logístico menos semanas de crédito proveedor
+    costo_inv = precio_compra * inv_prom  # Costo de inventario: Precio de compra por inventario promedio
+    costo_nacionalizacion = taf_gz * cantidad * precio_compra # Costo de nacionalización: TAF GZ multiplicado por cantidad_1 y por el precio
+    costo_cap = (diferencial + inv_prom_sem) * adu * (((1 + tasa) ** (1/52)) - 1) * precio_compra  # Costo de capital: Cálculo con diferenciales, tasa, adu_1 y precio_compra_1
+    costo_maninv = (inv_prom) * (tarifa_alm / 4.3) * (inv_prom_sem)  # Costo de manipulación de inventario: Producto de factores por inventario promedio semanal
+    costo_compra = precio_compra * cantidad  # Costo de compra: Precio de compra por cantidad
+    costo_total = costo_maninv + costo_compra + costo_cap + costo_transporte + costo_nacionalizacion # Costo total: Suma de varios costos
+    costo_ebitda = costo_total# Costo EBITDA: Suma de costos relevantes
+    costo_unitario = costo_total / cantidad  # Costo unitario: Costo total dividido por cantidad
+    capital_invertido = ((diferencial + inv_prom_sem) * (adu)) * (precio_compra)
+
+    #calculo variables financieras
+    # Cálculo del EBITDA
+    ebitda = costo_ebitda_1 - costo_ebitda
+    # Cálculo de Impuestos
+    impuestos = ebitda * 0.26
+    # Cálculo de UODI (Utilidad Operativa Después de Impuestos)
+    uodi = ebitda - impuestos
+    # Cálculo del Diferencial de Capital Invertido
+    diferencial_ct = capital_invertido - capital_invertido_1
+    # Cálculo del Costo de Capital
+    costo_capital = diferencial_ct * (((1 + tasa) ** (1 / 52)) - 1)
+    # Cálculo de EVA (Valor Económico Agregado)
+    eva = uodi - costo_capital
+
+
+    # Define las variables de cambio de precio
+    # Agrega restricciones
+    prob += eva >= 0
+    # Define la función objetivo
+    prob += eva == 0
+    status = prob.solve()
 
 def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
     st.write(escenario)
