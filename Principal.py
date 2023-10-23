@@ -71,7 +71,7 @@ def main ():
     with col1_2:
         session_state.Dicc_Variables2 = mostrar_valores(Dicc_Variables,estados_checkboxes, '2','Retador')
     organizar_campos(session_state.Dicc_Variables)
-    optimizacion(organizar_campos(session_state.Dicc_Variables),organizar_campos(session_state.Dicc_Variables2))
+    optimizacion(organizar_campos(session_state.Dicc_Variables),session_state.Dicc_Variables[9]["Valor"],organizar_campos(session_state.Dicc_Variables2))
 def organizar_campos(Diccionario): 
     '''
     Asigna los valores a los variables desde el diccionario
@@ -85,6 +85,8 @@ def organizar_campos(Diccionario):
     tarifa_gz = Diccionario[6]['Valor']
     costo_transporte=Diccionario[7]['Valor']
     tarifa_alm = Diccionario[8]['Valor']
+
+    return cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarifa_gz,costo_transporte,tarifa_alm
  
 def optimizacion(cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarifa_gz,costo_transporte,tarifa_alm,precio,
                  cantidad_1,frecuencia_1,lead_time_1,condicion_pago_1,inv_prom_1,asu_1,tarifa_gz_1,costo_transporte_1,tarifa_alm_1):
