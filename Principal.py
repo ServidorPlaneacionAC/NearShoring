@@ -63,61 +63,25 @@ def main ():
     session_state.Dicc_Variables2=copy.deepcopy(Dicc_Variables)
 
     st.title('Nearshoring')
-    # col1_0, col1_1, col1_2 = st.columns(3)
-    # with col1_0:
-    #     estados_checkboxes=[True for i  in Dicc_Variables.items()]
-    #     for i, checkbox_value in enumerate(estados_checkboxes):
-    #         checkbox_label = f"Checkbox {i + 1}"
-    #         estados_checkboxes[i] = st.checkbox(checkbox_label, value=checkbox_value)
-    # with col1_1:
-    #     session_state.Dicc_Variables = mostrar_valores(session_state.Dicc_Variables,estados_checkboxes)
-    #     st.write(session_state.Dicc_Variables)
-    # with col1_2:
-    #     session_state.Dicc_Variables2 = mostrar_valores(session_state.Dicc_Variables2,estados_checkboxes, '2','Retador')
-    #     st.write(session_state.Dicc_Variables2)
-
     col1_0, col1_1, col1_2 = st.columns(3)
     with col1_0:
-        estados_checkboxes = [True for _ in Dicc_Variables]  # Usar _ para indicar una variable no utilizada
+        estados_checkboxes=[True for i  in Dicc_Variables.items()]
         for i, checkbox_value in enumerate(estados_checkboxes):
             checkbox_label = f"Checkbox {i + 1}"
             estados_checkboxes[i] = st.checkbox(checkbox_label, value=checkbox_value)
     with col1_1:
-        session_state.Dicc_Variables = mostrar_valores(session_state.Dicc_Variables, estados_checkboxes)
+        session_state.Dicc_Variables = copy.deepcopy(mostrar_valores(session_state.Dicc_Variables,estados_checkboxes))
         st.write(session_state.Dicc_Variables)
     with col1_2:
-        session_state.Dicc_Variables2 = mostrar_valores(session_state.Dicc_Variables2, estados_checkboxes, '2', 'Retador')
+        session_state.Dicc_Variables2 = copy.deepcopy(mostrar_valores(session_state.Dicc_Variables2,estados_checkboxes, '2','Retador'))
         st.write(session_state.Dicc_Variables2)
+
 
     if st.button(f'lucas'):
         optimizacion(organizar_campos(session_state.Dicc_Variables),session_state.Dicc_Variables[9]["Valor"],organizar_campos(session_state.Dicc_Variables2))
     
     
-def mostrar_valores(diccionario, estados_checkboxes, ind='', escenario='Actual'):
-    # Crea una copia independiente del diccionario
-    diccionario = copy.deepcopy(diccionario)
-    
-    st.write(escenario)
-    valores_editados = []
-    
-    for key, value in diccionario.items():
-        nombre = value['Nombre']
-        valor = value['Valor']
-        
-        if escenario == value['Esenario'] or 'todos' == value['Esenario']:
-            if estados_checkboxes[key]:
-                valor = st.text_input(f'Nombre: {nombre} {ind}', valor, disabled=False)
-            else:
-                valor = st.text_input(f'Nombre: {nombre} {ind}', valor, disabled=True)
-            valores_editados.append(valor)
 
-    if st.button(f'Guardar Valores {ind}'):
-        for key, value in diccionario.items():
-            if estados_checkboxes[key] and (escenario == value['Esenario'] or 'todos' == value['Esenario']):
-                diccionario[key]['Valor'] = valores_editados[key]
-        st.success('Valores guardados con éxito.')
-    
-    return diccionario
 
 def organizar_campos(Diccionario): 
     '''
@@ -196,25 +160,24 @@ def optimizacion(cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarif
     prob += eva == 0
     status = prob.solve()
 
-# def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
-#     st.write(escenario)
-#     diccionario = copy.deepcopy(diccionario)
-#     valores_editados = []
-#     for key, value in diccionario.items():
-#         nombre = value['Nombre']
-#         valor = value['Valor']              
-#         if escenario==value['Esenario'] or 'todos'==value['Esenario']:        
-#             if estados_checkboxes[key]:
-#                 valor = st.text_input(f'Nombre: {nombre} {ind}', valor,disabled=False)
-#             else:
-#                 valor = st.text_input(f'Nombre: {nombre} {ind}', valor, disabled=True)
-#             valores_editados.append(valor)
-#     if st.button(f'Guardar Valores {ind} '):
-#         for key, value in diccionario.items():
-#             if estados_checkboxes[key] and (escenario==value['Esenario'] or 'todos'==value['Esenario']):
-#                 diccionario[key]['Valor'] = valores_editados[key]
-#         st.success('Valores guardados con éxito.')
-#     return diccionario
+def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
+    st.write(escenario)
+    valores_editados = []
+    for key, value in diccionario.items():
+        nombre = value['Nombre']
+        valor = value['Valor']              
+        if escenario==value['Esenario'] or 'todos'==value['Esenario']:        
+            if estados_checkboxes[key]:
+                valor = st.text_input(f'Nombre: {nombre} {ind}', valor,disabled=False)
+            else:
+                valor = st.text_input(f'Nombre: {nombre} {ind}', valor, disabled=True)
+            valores_editados.append(valor)
+    if st.button(f'Guardar Valores {ind} '):
+        for key, value in diccionario.items():
+            if estados_checkboxes[key] and (escenario==value['Esenario'] or 'todos'==value['Esenario']):
+                diccionario[key]['Valor'] = valores_editados[key]
+        st.success('Valores guardados con éxito.')
+    return diccionario
 
 
 if __name__ == '__main__':
