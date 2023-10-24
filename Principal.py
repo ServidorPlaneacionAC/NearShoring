@@ -79,9 +79,9 @@ def main ():
     with col1_2:
         editado2=False
         if editado2:
-            session_state.Dicc_Variables,editado2 = (mostrar_valores(session_state.Dicc_Variables,estados_checkboxes))
+            session_state.Dicc_Variables2,editado2 = mostrar_valores(session_state.Dicc_Variables2, estados_checkboxes, '2', 'Retador')
         else:
-            session_state.Dicc_Variables,editado2 = (mostrar_valores(session_state.Dicc_Variables,estados_checkboxes))
+            session_state.Dicc_Variables2,editado2 = mostrar_valores(session_state.Dicc_Variables2, estados_checkboxes, '2', 'Retador')
         st.write(session_state.Dicc_Variables)
 
 
