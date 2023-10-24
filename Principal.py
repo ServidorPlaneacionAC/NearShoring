@@ -58,8 +58,8 @@ def main ():
              'Tipo_Dato': "int",
              'Valor': -1}
     }
-    session_state.Dicc_Variables=Dicc_Variables
-    session_state.Dicc_Variables2=Dicc_Variables
+    session_state.Dicc_Variables=Dicc_Variables.copy
+    session_state.Dicc_Variables2=Dicc_Variables.copy
     st.title('Nearshoring')
     col1_0, col1_1, col1_2 = st.columns(3)
     with col1_0:
