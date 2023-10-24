@@ -76,7 +76,7 @@ def main ():
         # else:  
         respuesta,editado = (mostrar_valores(session_state.Dicc_Variables,estados_checkboxes))
         if editado:
-            session_state.Dicc_Variables = copy.deepcopy(session_state.Dicc_Variables)
+            session_state.Dicc_Variables = copy.deepcopy(respuesta)
         st.write(editado)
         st.write(session_state.Dicc_Variables)
     with col1_2:
