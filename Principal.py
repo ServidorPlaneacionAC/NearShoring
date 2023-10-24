@@ -161,6 +161,7 @@ def optimizacion(cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarif
     status = prob.solve()
 
 def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
+    diccionario=copy.deepcopy(diccionario)
     st.write(escenario)
     valores_editados = []
     for key, value in diccionario.items():
