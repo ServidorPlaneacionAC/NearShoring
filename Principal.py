@@ -71,11 +71,6 @@ def main ():
             checkbox_label = f"Checkbox {i + 1}"
             estados_checkboxes[i] = st.checkbox(checkbox_label, value=checkbox_value)
     with col1_1:
-        # editado=False
-        # if editado:
-        #     session_state.Dicc_Variables,editado = (mostrar_valores(session_state.Dicc_Variables,estados_checkboxes))
-        # else:  
-        # respuesta1,editado = (mostrar_valores(copy.deepcopy(session_state.Dicc_Variables),estados_checkboxes))        
         if "Dicc_Variables" not in session_state :            
             session_state.Dicc_Variables,editado = (mostrar_valores(copy.deepcopy(Dicc_Variables),estados_checkboxes))       
         else:
@@ -197,13 +192,15 @@ def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
             else:
                 valor = st.text_input(f'Nombre: {nombre} {ind}', valor, disabled=True)
             valores_editados.append(valor)
-    if st.button(f'Guardar Valores {ind} '):
-        for key, value in diccionario.items():
-            if estados_checkboxes[key] and (escenario==value['Esenario'] or 'todos'==value['Esenario']):
-                diccionario[key]['Valor'] = valores_editados[key]
-        st.success('Valores guardados con éxito.')
-        return diccionario, True
-    return diccionario, False
+
+    # if st.button(f'Guardar Valores {ind} '):
+
+    for key, value in diccionario.items():
+        if estados_checkboxes[key] and (escenario==value['Esenario'] or 'todos'==value['Esenario']):
+            diccionario[key]['Valor'] = valores_editados[key]
+    st.success('Valores guardados con éxito.')
+    return diccionario, True
+    # return diccionario, False
 
 if __name__ == '__main__':
     main()
