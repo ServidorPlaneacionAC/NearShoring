@@ -160,6 +160,7 @@ def optimizacion(cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarif
 
 def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
     st.write(escenario)
+    diccionario = copy.deepcopy(diccionario)
     valores_editados = []
     for key, value in diccionario.items():
         nombre = value['Nombre']
