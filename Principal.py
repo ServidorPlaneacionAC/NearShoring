@@ -62,7 +62,7 @@ def main ():
     session_state.Dicc_Variables=copy.deepcopy(Dicc_Variables)
     session_state.Dicc_Variables2=copy.deepcopy(Dicc_Variables)
     editado = editado2 = False
-    respuesta3=respuesta2 = None
+    session_state.respuesta3=session_state.respuesta2 = None
     st.title('Nearshoring')
     col1_0, col1_1, col1_2 = st.columns(3)
     with col1_0:
@@ -79,9 +79,9 @@ def main ():
         if editado:
             st.write('copia1')
             session_state.Dicc_Variables = copy.deepcopy(respuesta1)
-            respuesta2=copy.deepcopy(respuesta1)
+            session_state.respuesta2=copy.deepcopy(respuesta1)
         else:
-            session_state.Dicc_Variables=respuesta2
+            session_state.Dicc_Variables=session_state.respuesta2
         st.write(editado)
         st.write(session_state.Dicc_Variables)
     with col1_2:
@@ -94,9 +94,9 @@ def main ():
         if editado2:
             st.write('copia2')
             session_state.Dicc_Variables2=copy.deepcopy(respuesta)
-            respuesta3=copy.deepcopy(respuesta1)
+            session_state.respuesta3=copy.deepcopy(respuesta1)
         else:  
-            session_state.Dicc_Variables2=respuesta3          
+            session_state.Dicc_Variables2=session_state.respuesta3          
         st.write(editado2)
         st.write(session_state.Dicc_Variables2)
 
