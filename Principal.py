@@ -58,7 +58,8 @@ def main ():
              'Tipo_Dato': "int",
              'Valor': -1}
     }
-    
+    session_state.Dicc_Variables=Dicc_Variables
+    session_state.Dicc_Variables2=Dicc_Variables
     st.title('Nearshoring')
     col1_0, col1_1, col1_2 = st.columns(3)
     with col1_0:
@@ -67,13 +68,17 @@ def main ():
             checkbox_label = f"Checkbox {i + 1}"
             estados_checkboxes[i] = st.checkbox(checkbox_label, value=checkbox_value)
     with col1_1:
-        session_state.Dicc_Variables = mostrar_valores(Dicc_Variables,estados_checkboxes)
+        session_state.Dicc_Variables = mostrar_valores(session_state.Dicc_Variables,estados_checkboxes)
+        st.write(session_state.Dicc_Variables)
     with col1_2:
-        session_state.Dicc_Variables2 = mostrar_valores(Dicc_Variables,estados_checkboxes, '2','Retador')
+        session_state.Dicc_Variables2 = mostrar_valores(session_state.Dicc_Variables2,estados_checkboxes, '2','Retador')
+        st.write(session_state.Dicc_Variables2)
     if st.button(f'lucas'):
         optimizacion(organizar_campos(session_state.Dicc_Variables),session_state.Dicc_Variables[9]["Valor"],organizar_campos(session_state.Dicc_Variables2))
-    st.write(session_state.Dicc_Variables)
-    st.write(session_state.Dicc_Variables2)
+    
+    
+
+
 def organizar_campos(Diccionario): 
     '''
     Asigna los valores a los variables desde el diccionario
