@@ -81,7 +81,7 @@ def main ():
         if "Dicc_Variables2" not in session_state :            
             session_state.Dicc_Variables2,editado = (mostrar_valores(copy.deepcopy(Dicc_Variables),estados_checkboxes))       
         else:
-            session_state.Dicc_Variables2,editado = (mostrar_valores(copy.deepcopy(session_state.Dicc_Variables2),estados_checkboxes))       
+            session_state.Dicc_Variables2,editado = (mostrar_valores(copy.deepcopy(session_state.Dicc_Variables2),estados_checkboxes),'2','Retador')       
         # st.write(editado)
         st.write(session_state.Dicc_Variables2)
 
