@@ -80,10 +80,11 @@ def main ():
         session_state.Dicc_Variables,editado = (mostrar_valores(copy.deepcopy(Dicc_Variables),estados_checkboxes))       
         if editado:
             st.write('copia1')
-            session_state.Dicc_Variables = copy.deepcopy(respuesta1)
-            respuesta2=copy.deepcopy(respuesta1)
+            # session_state.Dicc_Variables = copy.deepcopy(respuesta1)
+            # respuesta2=copy.deepcopy(respuesta1)
         else:
-            session_state.Dicc_Variables=respuesta2
+            pass
+            # session_state.Dicc_Variables=respuesta2
         st.write(editado)
         st.write(session_state.Dicc_Variables)
     with col1_2:
