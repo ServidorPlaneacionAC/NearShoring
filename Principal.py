@@ -1,5 +1,6 @@
 import streamlit as st
 from streamlit import session_state
+import copy
 
 def main ():    
     ''' 
@@ -58,8 +59,8 @@ def main ():
              'Tipo_Dato': "int",
              'Valor': -1}
     }
-    session_state.Dicc_Variables=Dicc_Variables
-    session_state.Dicc_Variables2=Dicc_Variables.copy()
+    session_state.Dicc_Variables=copy.deepcopy(Dicc_Variables)
+    session_state.Dicc_Variables2=copy.deepcopy(Dicc_Variables)
 
     session_state.Dicc_Variables[0]['Valor']=1
     session_state.Dicc_Variables2[0]['Valor']=330
