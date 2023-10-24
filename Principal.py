@@ -70,10 +70,10 @@ def main ():
             checkbox_label = f"Checkbox {i + 1}"
             estados_checkboxes[i] = st.checkbox(checkbox_label, value=checkbox_value)
     with col1_1:
-        session_state.Dicc_Variables = copy.deepcopy(mostrar_valores(session_state.Dicc_Variables,estados_checkboxes))
+        session_state.Dicc_Variables = (mostrar_valores(session_state.Dicc_Variables,estados_checkboxes))
         st.write(session_state.Dicc_Variables)
     with col1_2:
-        session_state.Dicc_Variables2 = copy.deepcopy(mostrar_valores(session_state.Dicc_Variables2,estados_checkboxes, '2','Retador'))
+        session_state.Dicc_Variables2 = (mostrar_valores(session_state.Dicc_Variables2,estados_checkboxes, '2','Retador'))
         st.write(session_state.Dicc_Variables2)
 
 
