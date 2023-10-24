@@ -69,14 +69,15 @@ def main ():
             estados_checkboxes[i] = st.checkbox(checkbox_label, value=checkbox_value)
     with col1_1:
         session_state.Dicc_Variables = mostrar_valores(session_state.Dicc_Variables,estados_checkboxes)
-        st.write(session_state.Dicc_Variables)
+        
     with col1_2:
         session_state.Dicc_Variables2 = mostrar_valores(session_state.Dicc_Variables2,estados_checkboxes, '2','Retador')
-        st.write(session_state.Dicc_Variables2)
+
     if st.button(f'lucas'):
         optimizacion(organizar_campos(session_state.Dicc_Variables),session_state.Dicc_Variables[9]["Valor"],organizar_campos(session_state.Dicc_Variables2))
     
-    
+    st.write(session_state.Dicc_Variables)
+    st.write(session_state.Dicc_Variables2)
 
 
 def organizar_campos(Diccionario): 
