@@ -59,7 +59,7 @@ def main ():
              'Valor': -1}
     }
     session_state.Dicc_Variables=Dicc_Variables.copy()
-    session_state.Dicc_Variables2=Dicc_Variables.copy()
+    session_state.Dicc_Variables2=session_state.Dicc_Variables.copy()
 
     session_state.Dicc_Variables[0]['Valor']=33
     session_state.Dicc_Variables2[0]['Valor']=1
