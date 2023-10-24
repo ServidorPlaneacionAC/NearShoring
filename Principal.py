@@ -74,25 +74,15 @@ def main ():
         if "Dicc_Variables" not in session_state :            
             session_state.Dicc_Variables,editado = (mostrar_valores(copy.deepcopy(Dicc_Variables),estados_checkboxes))       
         else:
-            session_state.Dicc_Variables,editado = (mostrar_valores(copy.deepcopy(Dicc_Variables),estados_checkboxes))       
-        
-            # session_state.Dicc_Variables=respuesta2
-        st.write(editado)
+            session_state.Dicc_Variables,editado = (mostrar_valores(copy.deepcopy(session_state.Dicc_Variables),estados_checkboxes))       
+        # st.write(editado)
         st.write(session_state.Dicc_Variables)
     with col1_2:
-        # editado2=False
-        # if editado2:
-        #     session_state.Dicc_Variables2,editado2 = mostrar_valores(session_state.Dicc_Variables2, estados_checkboxes, '2', 'Retador')
-        # else:
-        #     
-        respuesta,editado2 = mostrar_valores(copy.deepcopy(Dicc_Variables), estados_checkboxes, '2', 'Retador')
-        if editado2:
-            st.write('copia2')
-            session_state.Dicc_Variables2=copy.deepcopy(respuesta)
-            respuesta3=copy.deepcopy(respuesta1)
-        else:  
-            session_state.Dicc_Variables2=respuesta3          
-        st.write(editado2)
+        if "Dicc_Variables2" not in session_state :            
+            session_state.Dicc_Variables,editado = (mostrar_valores(copy.deepcopy(Dicc_Variables),estados_checkboxes))       
+        else:
+            session_state.Dicc_Variables2,editado = (mostrar_valores(copy.deepcopy(session_state.Dicc_Variables2),estados_checkboxes))       
+        # st.write(editado)
         st.write(session_state.Dicc_Variables2)
 
 
