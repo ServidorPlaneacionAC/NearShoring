@@ -75,6 +75,7 @@ def main ():
             session_state.Dicc_Variables,editado = (mostrar_valores(session_state.Dicc_Variables,estados_checkboxes))
         else:
             session_state.Dicc_Variables,editado = (mostrar_valores(session_state.Dicc_Variables,estados_checkboxes))
+        st.write(editado)
         st.write(session_state.Dicc_Variables)
     with col1_2:
         editado2=False
@@ -82,7 +83,8 @@ def main ():
             session_state.Dicc_Variables2,editado2 = mostrar_valores(session_state.Dicc_Variables2, estados_checkboxes, '2', 'Retador')
         else:
             session_state.Dicc_Variables2,editado2 = mostrar_valores(session_state.Dicc_Variables2, estados_checkboxes, '2', 'Retador')
-        st.write(session_state.Dicc_Variables)
+        st.write(editado2)
+        st.write(session_state.Dicc_Variables2)
 
 
     if st.button(f'lucas'):
