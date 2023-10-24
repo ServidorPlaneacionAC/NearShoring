@@ -61,7 +61,7 @@ def main ():
     }
     session_state.Dicc_Variables=copy.deepcopy(Dicc_Variables)
     session_state.Dicc_Variables2=copy.deepcopy(Dicc_Variables)
-
+    editado = editado2 = False
     st.title('Nearshoring')
     col1_0, col1_1, col1_2 = st.columns(3)
     with col1_0:
@@ -70,19 +70,24 @@ def main ():
             checkbox_label = f"Checkbox {i + 1}"
             estados_checkboxes[i] = st.checkbox(checkbox_label, value=checkbox_value)
     with col1_1:
-        editado=False
+        # editado=False
+        # if editado:
+        #     session_state.Dicc_Variables,editado = (mostrar_valores(session_state.Dicc_Variables,estados_checkboxes))
+        # else:  
+        respuesta,editado = (mostrar_valores(session_state.Dicc_Variables,estados_checkboxes))
         if editado:
-            session_state.Dicc_Variables,editado = (mostrar_valores(session_state.Dicc_Variables,estados_checkboxes))
-        else:
-            session_state.Dicc_Variables,editado = (mostrar_valores(session_state.Dicc_Variables,estados_checkboxes))
+            session_state.Dicc_Variables = copy.deepcopy(session_state.Dicc_Variables)
         st.write(editado)
         st.write(session_state.Dicc_Variables)
     with col1_2:
-        editado2=False
+        # editado2=False
+        # if editado2:
+        #     session_state.Dicc_Variables2,editado2 = mostrar_valores(session_state.Dicc_Variables2, estados_checkboxes, '2', 'Retador')
+        # else:
+        #     
+        respuesta,editado2 = mostrar_valores(session_state.Dicc_Variables2, estados_checkboxes, '2', 'Retador')
         if editado2:
-            session_state.Dicc_Variables2,editado2 = mostrar_valores(session_state.Dicc_Variables2, estados_checkboxes, '2', 'Retador')
-        else:
-            session_state.Dicc_Variables2,editado2 = mostrar_valores(session_state.Dicc_Variables2, estados_checkboxes, '2', 'Retador')
+            session_state.Dicc_Variables2=copy.deepcopy(respuesta)
         st.write(editado2)
         st.write(session_state.Dicc_Variables2)
 
