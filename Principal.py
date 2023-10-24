@@ -62,7 +62,7 @@ def main ():
     session_state.Dicc_Variables2=Dicc_Variables.copy()
 
     session_state.Dicc_Variables[0]['Valor']=1
-    session_state.Dicc_Variables2[0]['Valor']=33
+    session_state.Dicc_Variables2[0]['Valor']=330
     st.title('Nearshoring')
     col1_0, col1_1, col1_2 = st.columns(3)
     with col1_0:
