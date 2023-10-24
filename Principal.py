@@ -59,10 +59,10 @@ def main ():
              'Tipo_Dato': "int",
              'Valor': -1}
     }
-    session_state.Dicc_Variables=copy.deepcopy(Dicc_Variables)
-    session_state.Dicc_Variables2=copy.deepcopy(Dicc_Variables)
+    # session_state.Dicc_Variables=copy.deepcopy(Dicc_Variables)
+    # session_state.Dicc_Variables2=copy.deepcopy(Dicc_Variables)
     editado = editado2 = False
-    session_state.respuesta3=session_state.respuesta2 = None
+    respuesta3=respuesta2 = None
     st.title('Nearshoring')
     col1_0, col1_1, col1_2 = st.columns(3)
     with col1_0:
@@ -75,13 +75,15 @@ def main ():
         # if editado:
         #     session_state.Dicc_Variables,editado = (mostrar_valores(session_state.Dicc_Variables,estados_checkboxes))
         # else:  
-        respuesta1,editado = (mostrar_valores(copy.deepcopy(session_state.Dicc_Variables),estados_checkboxes))
+        # respuesta1,editado = (mostrar_valores(copy.deepcopy(session_state.Dicc_Variables),estados_checkboxes))        
+        # if "Dicc_Variables" not in session_state :
+        session_state.Dicc_Variables,editado = (mostrar_valores(copy.deepcopy(Dicc_Variables),estados_checkboxes))       
         if editado:
             st.write('copia1')
             session_state.Dicc_Variables = copy.deepcopy(respuesta1)
-            session_state.respuesta2=copy.deepcopy(respuesta1)
+            respuesta2=copy.deepcopy(respuesta1)
         else:
-            session_state.Dicc_Variables=session_state.respuesta2
+            session_state.Dicc_Variables=respuesta2
         st.write(editado)
         st.write(session_state.Dicc_Variables)
     with col1_2:
@@ -90,13 +92,13 @@ def main ():
         #     session_state.Dicc_Variables2,editado2 = mostrar_valores(session_state.Dicc_Variables2, estados_checkboxes, '2', 'Retador')
         # else:
         #     
-        respuesta,editado2 = mostrar_valores(copy.deepcopy(session_state.Dicc_Variables2), estados_checkboxes, '2', 'Retador')
+        respuesta,editado2 = mostrar_valores(copy.deepcopy(Dicc_Variables), estados_checkboxes, '2', 'Retador')
         if editado2:
             st.write('copia2')
             session_state.Dicc_Variables2=copy.deepcopy(respuesta)
-            session_state.respuesta3=copy.deepcopy(respuesta1)
+            respuesta3=copy.deepcopy(respuesta1)
         else:  
-            session_state.Dicc_Variables2=session_state.respuesta3          
+            session_state.Dicc_Variables2=respuesta3          
         st.write(editado2)
         st.write(session_state.Dicc_Variables2)
 
@@ -203,7 +205,6 @@ def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
                 diccionario[key]['Valor'] = valores_editados[key]
         st.success('Valores guardados con éxito.')
         return diccionario, True
-    return diccionario, False
 
 
 if __name__ == '__main__':
