@@ -205,7 +205,7 @@ def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
                 diccionario[key]['Valor'] = valores_editados[key]
         st.success('Valores guardados con éxito.')
         return diccionario, True
-
+    return diccionario, False
 
 if __name__ == '__main__':
     main()
