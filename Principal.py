@@ -97,9 +97,9 @@ def organizar_campos(Diccionario):
     condicion_pago= int(Diccionario[3]['Valor'])
     inv_prom = int(Diccionario[4]['Valor'])
     asu = int(Diccionario[5]['Valor'])
-    tarifa_gz = Diccionario[6]['Valor']
-    costo_transporte=Diccionario[7]['Valor']
-    tarifa_alm = Diccionario[8]['Valor']
+    tarifa_gz = int(Diccionario[6]['Valor'])
+    costo_transporte=int(Diccionario[7]['Valor'])
+    tarifa_alm = int(Diccionario[8]['Valor'])
 
     return [cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarifa_gz,costo_transporte,tarifa_alm]
  
