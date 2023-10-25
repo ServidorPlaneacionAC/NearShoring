@@ -59,10 +59,6 @@ def main ():
              'Tipo_Dato': "int",
              'Valor': -1}
     }
-    # session_state.Dicc_Variables=copy.deepcopy(Dicc_Variables)
-    # session_state.Dicc_Variables2=copy.deepcopy(Dicc_Variables)
-    editado = editado2 = False
-    respuesta3=respuesta2 = None
     st.title('Nearshoring')
     col1_0, col1_1, col1_2 = st.columns(3)
     with col1_0:
@@ -72,24 +68,20 @@ def main ():
             estados_checkboxes[i] = st.checkbox(checkbox_label, value=checkbox_value)
     with col1_1:
         if "Dicc_Variables" not in session_state :            
-            session_state.Dicc_Variables,editado = (mostrar_valores(copy.deepcopy(Dicc_Variables),estados_checkboxes))       
+            session_state.Dicc_Variables = (mostrar_valores(copy.deepcopy(Dicc_Variables),estados_checkboxes))       
         else:
-            session_state.Dicc_Variables,editado = (mostrar_valores(copy.deepcopy(session_state.Dicc_Variables),estados_checkboxes))       
-        # st.write(editado)
-        st.write(session_state.Dicc_Variables)
+            session_state.Dicc_Variables = (mostrar_valores(copy.deepcopy(session_state.Dicc_Variables),estados_checkboxes))       
     with col1_2:
         if "Dicc_Variables2" not in session_state :            
-            session_state.Dicc_Variables2,editado = mostrar_valores(copy.deepcopy(Dicc_Variables),estados_checkboxes,'2','Retador')       
+            session_state.Dicc_Variables2 = mostrar_valores(copy.deepcopy(Dicc_Variables),estados_checkboxes,'2','Retador')       
         else: 
-            session_state.Dicc_Variables2,editado = mostrar_valores(copy.deepcopy(session_state.Dicc_Variables2),estados_checkboxes,'2','Retador')       
-        # st.write(editado)
-        st.write(session_state.Dicc_Variables2)
+            session_state.Dicc_Variables2 = mostrar_valores(copy.deepcopy(session_state.Dicc_Variables2),estados_checkboxes,'2','Retador')       
+
 
 
     if st.button(f'lucas'):
         valores_dicc_1 = organizar_campos(session_state.Dicc_Variables)
         valores_dicc_2 = organizar_campos(session_state.Dicc_Variables2)
-        st.write(*organizar_campos(session_state.Dicc_Variables))
         optimizacion(*valores_dicc_1, session_state.Dicc_Variables[9]["Valor"], *valores_dicc_2)
     
 
@@ -188,7 +180,7 @@ def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
     for key, value in diccionario.items():
         if estados_checkboxes[key] and (escenario==value['Esenario'] or 'todos'==value['Esenario']):
             diccionario[key]['Valor'] = valores_editados[key]
-    return diccionario, True
+    return diccionario
     
 
 if __name__ == '__main__':
