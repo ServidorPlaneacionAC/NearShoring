@@ -59,6 +59,11 @@ def main ():
              'Esenario': "Actual",
              'Tipo_Dato': "int",
              'Valor': -1}
+         10: {'Nombre': "Precio a pagar",
+             'Tipo': "Obligatorio",
+             'Esenario': "Actual",
+             'Tipo_Dato': "int",
+             'Valor': -1}
     }
     st.title('Nearshoring')
     col1_0, col1_1, col1_2 = st.columns(3)
@@ -100,11 +105,12 @@ def organizar_campos(Diccionario):
     tarifa_gz = int(Diccionario[6]['Valor'])
     costo_transporte=int(Diccionario[7]['Valor'])
     tarifa_alm = int(Diccionario[8]['Valor'])
+    tasa = int(Diccionario[9]['Valor'])
 
     return [cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarifa_gz,costo_transporte,tarifa_alm]
  
-def optimizacion(cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarifa_gz,costo_transporte,tarifa_alm,precio,
-                 cantidad_1,frecuencia_1,lead_time_1,condicion_pago_1,inv_prom_1,asu_1,tarifa_gz_1,costo_transporte_1,tarifa_alm_1):
+def optimizacion(cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarifa_gz,costo_transporte,tarifa_alm,tasa,precio,
+                 cantidad_1,frecuencia_1,lead_time_1,condicion_pago_1,inv_prom_1,asu_1,tarifa_gz_1,costo_transporte_1,tarifa_alm_1,tasa_1):
     '''
     Me calcula los costos y me realiza la optimización
     '''
