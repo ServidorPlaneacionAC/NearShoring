@@ -56,7 +56,7 @@ def main ():
              'Valor': -1},
          9: {'Nombre': "Tasa",
              'Tipo': "Obligatorio",
-             'Esenario': "Todos",
+             'Esenario': "todos",
              'Tipo_Dato': "int",
              'Valor': -1},
          10: {'Nombre': "Precio a pagar",
@@ -88,7 +88,7 @@ def main ():
     if st.button(f'lucas'):
         valores_dicc_1 = organizar_campos(session_state.Dicc_Variables)
         valores_dicc_2 = organizar_campos(session_state.Dicc_Variables2)
-        optimizacion(*valores_dicc_1, session_state.Dicc_Variables[9]["Valor"], *valores_dicc_2)
+        optimizacion(*valores_dicc_1, session_state.Dicc_Variables[10]["Valor"], *valores_dicc_2)
     
 
 
