@@ -87,8 +87,8 @@ def main ():
 
 
     if st.button(f'lucas'):
-        st.write(organizar_campos(session_state.Dicc_Variables).type())
-        optimizacion(organizar_campos(session_state.Dicc_Variables),session_state.Dicc_Variables[9]["Valor"],organizar_campos(session_state.Dicc_Variables2))
+        st.write(i for i in organizar_campos(session_state.Dicc_Variables))
+        optimizacion(i for i in organizar_campos(session_state.Dicc_Variables),session_state.Dicc_Variables[9]["Valor"],organizar_campos(session_state.Dicc_Variables2))
     
     
 
@@ -107,7 +107,7 @@ def organizar_campos(Diccionario):
     costo_transporte=Diccionario[7]['Valor']
     tarifa_alm = Diccionario[8]['Valor']
 
-    return cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarifa_gz,costo_transporte,tarifa_alm
+    return [cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarifa_gz,costo_transporte,tarifa_alm]
  
 def optimizacion(cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarifa_gz,costo_transporte,tarifa_alm,precio,
                  cantidad_1,frecuencia_1,lead_time_1,condicion_pago_1,inv_prom_1,asu_1,tarifa_gz_1,costo_transporte_1,tarifa_alm_1):
