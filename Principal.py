@@ -91,11 +91,11 @@ def organizar_campos(Diccionario):
     '''
     Asigna los valores a los variables desde el diccionario
     '''
-    cantidad = Diccionario[0]['Valor'] 
-    frecuencia = Diccionario[1]['Valor']
-    lead_time=Diccionario[2]['Valor']
-    condicion_pago= Diccionario[3]['Valor']
-    inv_prom = Diccionario[4]['Valor']
+    cantidad = int(Diccionario[0]['Valor']) 
+    frecuencia = int(Diccionario[1]['Valor'])
+    lead_time=int(Diccionario[2]['Valor'])
+    condicion_pago= int(Diccionario[3]['Valor'])
+    inv_prom = int(Diccionario[4]['Valor'])
     asu = int(Diccionario[5]['Valor'])
     tarifa_gz = Diccionario[6]['Valor']
     costo_transporte=Diccionario[7]['Valor']
