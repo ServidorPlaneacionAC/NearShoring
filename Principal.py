@@ -10,57 +10,68 @@ def main ():
     invoca funciones de impresion de de datos y funciones que permiten la optimizacion de resultados
     '''
     Dicc_Variables = {
-         0: {'Nombre': "Cantidad: unidades negociadas, independiente del periodo de tiempo establecido (unidad de medida determinada por el negociador)",
+         0: {'Nombre': "Cantidad",
+             'Descripcion': ': unidades negociadas, independiente del periodo de tiempo establecido (unidad de medida determinada por el negociador)' ,
              'Tipo': "Obligatorio",
              'Esenario': "todos",
              'Tipo_Dato': "int",
              'Valor': 2},
-         1: {'Nombre': "Frecuencia: Tiempo estimado para recalcular o recibir el próximo envío",
+         1: {'Nombre': "Frecuencia",
+             'Descripcion':  ': Tiempo estimado para recalcular o recibir el próximo envío',
              'Tipo': "Obligatorio",
              'Esenario': "todos",
              'Tipo_Dato': "int",
              'Valor': 1},
-         2: {'Nombre': "lead time entrega en planta: tiempo estimado para entregar en planta (si se consideran varias plantas, tomar el tiempo mayor)",
+         2: {'Nombre': "lead time entrega en planta",
+             'Descripcion': ': tiempo estimado para entregar en planta (si se consideran varias plantas, tomar el tiempo mayor)' ,
              'Tipo': "Obligatorio",
              'Esenario': "todos",
              'Tipo_Dato': "int",
              'Valor': 3},
-         3: {'Nombre': "condición de pago: tiempo en semanas estimado para pagar al proveedor el pedido actual",
+         3: {'Nombre': "condición de pago", 
+             'Descripcion': ': tiempo en semanas estimado para pagar al proveedor el pedido actual' ,
              'Tipo': "Obligatorio",
              'Esenario': "todos",
              'Tipo_Dato': "int",
              'Valor': 4},
-         4: {'Nombre': "Inventario promedio: Inventario promedio del material",
+         4: {'Nombre': "Inventario promedio",
+             'Descripcion':  '',
              'Tipo': "Obligatorio",
              'Esenario': "todos",
              'Tipo_Dato': "int",
              'Valor': 60},
-         5: {'Nombre': "Consumo promedio Semanal: Cantidad dada en unidad de medida determinada por el negociador (la suma de consumos promedio de las plantas en análisis)",
+         5: {'Nombre': "Consumo promedio Semanal",
+             'Descripcion': ': Cantidad dada en unidad de medida determinada por el negociador (la suma de consumos promedio de las plantas en análisis)'  ,
              'Tipo': "Obligatorio",
              'Esenario': "todos",
              'Tipo_Dato': "int",
              'Valor': 2},
-         6: {'Nombre': "Tarifa gestion cargo: Cobro del material en gestion cargo",
+         6: {'Nombre': "Tarifa gestion cargo",
+             'Descripcion': ': Cobro del material en gestion carg' ,
              'Tipo': "Obligatorio",
              'Esenario': "todos",
              'Tipo_Dato': "int",
              'Valor': 1},
-         7: {'Nombre': "Costo transporte: Costo por unidad en el camion",
+         7: {'Nombre': "Costo transporte",
+             'Descripcion': ': Costo por unidad en el camion' ,
              'Tipo': "Obligatorio",
              'Esenario': "todos",
              'Tipo_Dato': "int",
              'Valor': 1},
-         8: {'Nombre': "Tarifa almacenamiento por cada unidad de medida determinada por el negociador",
+         8: {'Nombre': "Tarifa almacenamiento",
+             'Descripcion': ': por cada unidad de medida determinada por el negociador' ,
              'Tipo': "Obligatorio",
              'Esenario': "todos",
              'Tipo_Dato': "int",
              'Valor': 1},
-         9: {'Nombre': "Tasa",
+         9: {'Nombre': "Tasa Costo de capital",
+             'Descripcion': '' ,
              'Tipo': "Obligatorio",
              'Esenario': "todos",
              'Tipo_Dato': "int",
              'Valor': 10},
          10: {'Nombre': "Precio a pagar",
+             'Descripcion': '' ,
              'Tipo': "Obligatorio",
              'Esenario': "Actual",
              'Tipo_Dato': "int",
@@ -71,7 +82,7 @@ def main ():
     with col1_0:
         estados_checkboxes=[True for i  in Dicc_Variables.items()]
         for i, checkbox_value in enumerate(estados_checkboxes):
-            checkbox_label = f"{i + 1}"
+            checkbox_label = f"{Dicc_Variables[i]['Descripcion']}"
             estados_checkboxes[i] = st.checkbox(checkbox_label, value=checkbox_value)
     with col1_1:
         if "Dicc_Variables" not in session_state :            
@@ -190,12 +201,13 @@ def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
     valores_editados = []
     for key, value in diccionario.items():
         nombre = value['Nombre']
-        valor = value['Valor']              
+        valor = value['Valor']    
+        Descripcion = value['Descripcion']              
         if escenario==value['Esenario'] or 'todos'==value['Esenario']:        
             if estados_checkboxes[key]:
-                valor = st.text_input(f'{nombre} {ind}', valor,disabled=False)
+                valor = st.text_input(f'Nombre: {nombre}{Descripcion} {ind}', valor,disabled=False)
             else:
-                valor = st.text_input(f'{nombre} {ind}', valor, disabled=True)
+                valor = st.text_input(f'Nombre: {nombre}{Descripcion} {ind}', valor, disabled=True)
             valores_editados.append(valor)
 
     for key, value in diccionario.items():
