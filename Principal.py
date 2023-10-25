@@ -83,13 +83,17 @@ def main ():
         else: 
             session_state.Dicc_Variables2 = mostrar_valores(copy.deepcopy(session_state.Dicc_Variables2),estados_checkboxes,'2','Retador')       
 
-
-
-    if st.button(f'lucas'):
+    if st.button(f'Optimizar EVA'):
+        valores_dicc_1 = organizar_campos(session_state.Dicc_Variables)
+        valores_dicc_2 = organizar_campos(session_state.Dicc_Variables2)
+        optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'EVA')
+    
+    if st.button(f'Optimizar UODI'):
         valores_dicc_1 = organizar_campos(session_state.Dicc_Variables)
         valores_dicc_2 = organizar_campos(session_state.Dicc_Variables2)
         optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2)
     
+
 
 
 def organizar_campos(Diccionario): 
@@ -110,7 +114,7 @@ def organizar_campos(Diccionario):
     return [cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarifa_gz,costo_transporte,tarifa_alm,tasa]
  
 def optimizacion(cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarifa_gz,costo_transporte,tarifa_alm,tasa,precio_compra,
-                 cantidad_1,frecuencia_1,lead_time_1,condicion_pago_1,inv_prom_1,asu_1,tarifa_gz_1,costo_transporte_1,tarifa_alm_1,tasa_1):
+                 cantidad_1,frecuencia_1,lead_time_1,condicion_pago_1,inv_prom_1,asu_1,tarifa_gz_1,costo_transporte_1,tarifa_alm_1,tasa_1,Variable_a_optimizar='UODI'):
     '''
     Me calcula los costos y me realiza la optimización
     '''
@@ -166,10 +170,17 @@ def optimizacion(cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarif
 
     # Define las variables de cambio de precio
     # Agrega restricciones
-    prob += eva >= 0
-    # Define la función objetivo
-    prob += eva == 0
+    if Variable_a_optimizar=='EVA':
+        prob += eva >= 0
+        # Define la función objetivo
+        prob += eva == 0
+    else:
+        prob += uodi >= 0
+        # Define la función objetivo
+        prob += uodi == 0
+
     status = prob.solve()
+    return p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct),value(capital_invertido_1)
 
 def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
     diccionario=copy.deepcopy(diccionario)
