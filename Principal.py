@@ -117,7 +117,7 @@ def optimizacion(cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarif
     # Asignamos el valor de la variable de optimización "p_1" a la variable "precio_compra_1"
     precio_compra_1=p_1  
     inv_prom_sem_1 = inv_prom_1 / asu_1  # Inventario promedio por semana: Inventario promedio dividido por adu_1
-    diferencial_1 = lead_time - semanas_cxp_1  # Diferencial: Tiempo de tránsito logístico menos semanas de crédito proveedor
+    diferencial_1 = lead_time_1 - semanas_cxp_1  # Diferencial: Tiempo de tránsito logístico menos semanas de crédito proveedor
     costo_inv_1 = precio_compra_1 * inv_prom_1  # Costo de inventario: Precio de compra por inventario promedio
     costo_nacionalizacion_1 = tarifa_gz_1 * cantidad_1 * precio_compra_1 # Costo de nacionalización: TAF GZ multiplicado por cantidad_1 y por el precio
     costo_cap_1 = (diferencial_1 + inv_prom_sem_1) * asu_1 * (((1 + tasa) ** (1/52)) - 1) * precio_compra_1  # Costo de capital: Cálculo con diferenciales, tasa, adu_1 y precio_compra_1
