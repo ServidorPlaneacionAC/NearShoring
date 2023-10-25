@@ -116,7 +116,7 @@ def optimizacion(cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarif
     p_1 = LpVariable("p_1", lowBound=0)
     # Asignamos el valor de la variable de optimización "p_1" a la variable "precio_compra_1"
     precio_compra_1=p_1  
-    inv_prom_sem_1 = inv_prom_1 / adu_1  # Inventario promedio por semana: Inventario promedio dividido por adu_1
+    inv_prom_sem_1 = inv_prom_1 / asu_1  # Inventario promedio por semana: Inventario promedio dividido por adu_1
     diferencial_1 = lt_1 - semanas_cxp_1  # Diferencial: Tiempo de tránsito logístico menos semanas de crédito proveedor
     costo_inv_1 = precio_compra_1 * inv_prom_1  # Costo de inventario: Precio de compra por inventario promedio
     costo_nacionalizacion_1 = taf_gz_1 * cantidad_1 * precio_compra_1 # Costo de nacionalización: TAF GZ multiplicado por cantidad_1 y por el precio
@@ -130,7 +130,7 @@ def optimizacion(cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarif
 
 
     #calculos otro escenario
-    inv_prom_sem = inv_prom / adu  # Inventario promedio por semana: Inventario promedio dividido por adu_1
+    inv_prom_sem = inv_prom / asu  # Inventario promedio por semana: Inventario promedio dividido por adu_1
     diferencial = lt - semanas_cxp  # Diferencial: Tiempo de tránsito logístico menos semanas de crédito proveedor
     costo_inv = precio_compra * inv_prom  # Costo de inventario: Precio de compra por inventario promedio
     costo_nacionalizacion = taf_gz * cantidad * precio_compra # Costo de nacionalización: TAF GZ multiplicado por cantidad_1 y por el precio
