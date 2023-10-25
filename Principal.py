@@ -82,16 +82,16 @@ def main ():
             session_state.Dicc_Variables2 = mostrar_valores(copy.deepcopy(Dicc_Variables),estados_checkboxes,'2','Retador')       
         else: 
             session_state.Dicc_Variables2 = mostrar_valores(copy.deepcopy(session_state.Dicc_Variables2),estados_checkboxes,'2','Retador')       
-    
+
     if st.button(f'Optimizar EVA'):
         valores_dicc_1 = organizar_campos(session_state.Dicc_Variables)
         valores_dicc_2 = organizar_campos(session_state.Dicc_Variables2)
-        optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'EVA')
+        st.write(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'EVA'))
     
     if st.button(f'Optimizar UODI'):
         valores_dicc_1 = organizar_campos(session_state.Dicc_Variables)
         valores_dicc_2 = organizar_campos(session_state.Dicc_Variables2)
-        optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2)
+        st.write(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2))
     
 
 
@@ -141,8 +141,7 @@ def optimizacion(cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarif
 
     #calculos otro escenario
     inv_prom_sem = inv_prom / asu  # Inventario promedio por semana: Inventario promedio dividido por adu_1
-    diferencial = lead_time - condicion_pago  # Diferencial: Tiempo de tránsito logístico menos semanas de crédito proveedor
-    st.write(precio_compra,inv_prom)                
+    diferencial = lead_time - condicion_pago  # Diferencial: Tiempo de tránsito logístico menos semanas de crédito proveedor           
     costo_inv = precio_compra * inv_prom  # Costo de inventario: Precio de compra por inventario promedio
     costo_nacionalizacion = tarifa_gz * cantidad * precio_compra # Costo de nacionalización: TAF GZ multiplicado por cantidad_1 y por el precio
     costo_cap = (diferencial + inv_prom_sem) * asu * (((1 + tasa) ** (1/52)) - 1) * precio_compra  # Costo de capital: Cálculo con diferenciales, tasa, adu_1 y precio_compra_1
