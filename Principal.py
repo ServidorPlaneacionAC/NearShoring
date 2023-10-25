@@ -87,9 +87,10 @@ def main ():
 
 
     if st.button(f'lucas'):
-        st.write([i for i in organizar_campos(session_state.Dicc_Variables)])
-        optimizacion(organizar_campos(session_state.Dicc_Variables),session_state.Dicc_Variables[9]["Valor"],organizar_campos(session_state.Dicc_Variables2))
-    
+        valores_dicc_1 = organizar_campos(session_state.Dicc_Variables)
+        valores_dicc_2 = organizar_campos(session_state.Dicc_Variables2)
+        st.write(*organizar_campos(session_state.Dicc_Variables))
+        optimizacion(*valores_dicc_1, session_state.Dicc_Variables[9]["Valor"], *valores_dicc_2)
     
 
 
