@@ -96,16 +96,16 @@ def organizar_campos(Diccionario):
     '''
     Asigna los valores a los variables desde el diccionario
     '''
-    cantidad = int(Diccionario[0]['Valor']) 
-    frecuencia = int(Diccionario[1]['Valor'])
-    lead_time=int(Diccionario[2]['Valor'])
-    condicion_pago= int(Diccionario[3]['Valor'])
-    inv_prom = int(Diccionario[4]['Valor'])
-    asu = int(Diccionario[5]['Valor'])
-    tarifa_gz = int(Diccionario[6]['Valor'])
-    costo_transporte=int(Diccionario[7]['Valor'])
-    tarifa_alm = int(Diccionario[8]['Valor'])
-    tasa = int(Diccionario[9]['Valor'])
+    cantidad = float(Diccionario[0]['Valor']) 
+    frecuencia = float(Diccionario[1]['Valor'])
+    lead_time=float(Diccionario[2]['Valor'])
+    condicion_pago= float(Diccionario[3]['Valor'])
+    inv_prom = float(Diccionario[4]['Valor'])
+    asu = float(Diccionario[5]['Valor'])
+    tarifa_gz = float(Diccionario[6]['Valor'])
+    costo_transporte=float(Diccionario[7]['Valor'])
+    tarifa_alm = float(Diccionario[8]['Valor'])
+    tasa = float(Diccionario[9]['Valor'])
 
     return [cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarifa_gz,costo_transporte,tarifa_alm,tasa]
  
