@@ -1,6 +1,7 @@
 import streamlit as st
 from streamlit import session_state
 import copy
+from pulp import *
 
 def main ():    
     ''' 
