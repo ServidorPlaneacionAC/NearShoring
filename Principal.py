@@ -71,7 +71,7 @@ def main ():
     with col1_0:
         estados_checkboxes=[True for i  in Dicc_Variables.items()]
         for i, checkbox_value in enumerate(estados_checkboxes):
-            checkbox_label = f"Checkbox {i + 1}"
+            checkbox_label = f"{i + 1}"
             estados_checkboxes[i] = st.checkbox(checkbox_label, value=checkbox_value)
     with col1_1:
         if "Dicc_Variables" not in session_state :            
@@ -80,7 +80,7 @@ def main ():
             session_state.Dicc_Variables = (mostrar_valores(copy.deepcopy(session_state.Dicc_Variables),estados_checkboxes))       
     with col1_2:
         if "Dicc_Variables2" not in session_state :            
-            session_state.Dicc_Variables2 = mostrar_valores(copy.deepcopy(Dicc_Variables),estados_checkboxes,'2','Retador')       
+            session_state.Dicc_Variables2 = mostrar_valores(copy.deepcopy(Dicc_Variables),estados_checkboxes,' ','Retador')       
         else: 
             session_state.Dicc_Variables2 = mostrar_valores(copy.deepcopy(session_state.Dicc_Variables2),estados_checkboxes,'2','Retador')       
 
@@ -193,9 +193,9 @@ def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
         valor = value['Valor']              
         if escenario==value['Esenario'] or 'todos'==value['Esenario']:        
             if estados_checkboxes[key]:
-                valor = st.text_input(f'Nombre: {nombre} {ind}', valor,disabled=False)
+                valor = st.text_input(f'{nombre} {ind}', valor,disabled=False)
             else:
-                valor = st.text_input(f'Nombre: {nombre} {ind}', valor, disabled=True)
+                valor = st.text_input(f'{nombre} {ind}', valor, disabled=True)
             valores_editados.append(valor)
 
     for key, value in diccionario.items():
