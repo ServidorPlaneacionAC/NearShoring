@@ -82,7 +82,7 @@ def main ():
     with col1_0:
         estados_checkboxes=[True for i  in Dicc_Variables.items()]
         for i, checkbox_value in enumerate(estados_checkboxes):
-            checkbox_label = f"{Dicc_Variables[i]['Descripcion']}   "
+            checkbox_label = f"{Dicc_Variables[i]['Nombre']}   "
             estados_checkboxes[i] = st.checkbox(checkbox_label, value=checkbox_value)
     with col1_1:
         if "Dicc_Variables" not in session_state :            
