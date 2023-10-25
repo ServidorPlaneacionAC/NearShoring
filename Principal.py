@@ -96,7 +96,7 @@ def organizar_campos(Diccionario):
     lead_time=Diccionario[2]['Valor']
     condicion_pago= Diccionario[3]['Valor']
     inv_prom = Diccionario[4]['Valor']
-    asu = Diccionario[5]['Valor']
+    asu = int(Diccionario[5]['Valor'])
     tarifa_gz = Diccionario[6]['Valor']
     costo_transporte=Diccionario[7]['Valor']
     tarifa_alm = Diccionario[8]['Valor']
