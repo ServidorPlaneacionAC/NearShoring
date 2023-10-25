@@ -92,7 +92,8 @@ def main ():
     if st.button(f'Optimizar UODI'):
         valores_dicc_1 = organizar_campos(session_state.Dicc_Variables)
         valores_dicc_2 = organizar_campos(session_state.Dicc_Variables2)
-        st.write(pd.DataFrame(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2)))
+        resultado=optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2)
+        st.write(pd.DataFrame(resultado[:4], columns=['Precio','UODI','EBITDA','EVA']))
     
 
 
