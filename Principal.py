@@ -120,7 +120,7 @@ def main ():
         Linea_Base=[0 for i in range(len(valores_cercanos))]
         grafica_lineas([df['Precio'].tolist(),Linea_Base,df['EVA'].tolist(),df['EBITDA'].tolist()],df['UODI'].tolist(),["Precios por unidad"],["UODI"])
 
-def grafica_lineas(self,eje_x,eje_y,titulo_x,titulo_y,nuevo_precio=0.0):         
+def grafica_lineas(eje_x,eje_y,titulo_x,titulo_y,nuevo_precio=0.0):         
     precios=eje_x[0]
     linea_base=eje_x[1]
     EVA=eje_x[2]
