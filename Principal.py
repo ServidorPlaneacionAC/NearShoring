@@ -130,7 +130,7 @@ def grafica_lineas(eje_x,eje_y,titulo_x,titulo_y,nuevo_precio=0.0):
     linea_base=eje_x[1]
     EVA=eje_x[2]
     EBITDA=eje_x[3]
-    UODI=eje_y[0] 
+    UODI=eje_y 
     
 #     Resultado_Compras = Resultado[Resultado['Variable']=="Compra"]
 #     Resultado_Inventario = Resultado[Resultado['Variable']=="Inventario"]
