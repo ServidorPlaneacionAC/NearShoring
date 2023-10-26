@@ -124,16 +124,13 @@ def main ():
         Linea_Base=[0 for i in range(len(valores_cercanos))]
         grafica_lineas([df['Precio'].tolist(),Linea_Base,df['EVA'].tolist(),df['EBITDA'].tolist()],df['UODI'].tolist(),["Precios por unidad"],["UODI"])
 
-def grafica_lineas(eje_x,eje_y,titulo_x,titulo_y,nuevo_precio=0.0):         
+def grafica_lineas(eje_x,eje_y,titulo_x,titulo_y,nuevo_precio=0.0):  
+    ''' Metodo que recibe una lista de elementos que varian en funcion del eje y '''       
     precios=eje_x[0]
     linea_base=eje_x[1]
     EVA=eje_x[2]
     EBITDA=eje_x[3]
     UODI=eje_y 
-    
-#     Resultado_Compras = Resultado[Resultado['Variable']=="Compra"]
-#     Resultado_Inventario = Resultado[Resultado['Variable']=="Inventario"]
-#     Resultado_CostoTotal = Resultado[Resultado['Variable']=="CostoTotal"]
     
     fig = make_subplots(specs=[[{"secondary_y": True}]])
 
