@@ -214,7 +214,7 @@ def optimizacion(cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarif
     costo_total_1 = costo_maninv_1 + costo_compra_1 + costo_cap_1 + costo_transporte_1 + costo_nacionalizacion_1 # Costo total: Suma de varios costos
     costo_ebitda_1 = costo_total_1# Costo EBITDA: Suma de costos relevantes
     costo_unitario_1 = costo_total_1 / cantidad_1  # Costo unitario: Costo total dividido por cantidad
-    capital_invertido_1 = ((diferencial_1 + inv_prom_sem_1) * (asu_1)) * (precio_compra_1)
+    capital_invertido_1 = ((diferencial_1 + inv_prom_sem_1) * (asu_1)) * (precio_compra_1)#capital que se invierte en el escenario
 
 
     #calculos otro escenario
@@ -228,7 +228,7 @@ def optimizacion(cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarif
     costo_total = costo_maninv + costo_compra + costo_cap + costo_transporte + costo_nacionalizacion # Costo total: Suma de varios costos
     costo_ebitda = costo_total# Costo EBITDA: Suma de costos relevantes
     costo_unitario = costo_total / cantidad  # Costo unitario: Costo total dividido por cantidad
-    capital_invertido = ((diferencial + inv_prom_sem) * (asu)) * (precio_compra)
+    capital_invertido = ((diferencial + inv_prom_sem) * (asu)) * (precio_compra)#capital que se invierte en el escenario
 
     #calculo variables financieras
     # Cálculo del EBITDA
