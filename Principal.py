@@ -103,7 +103,8 @@ def main ():
         valores_cercanos=[]
         for i in range(-5,6,1): 
             valores_cercanos.append(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'EVA',resultado[0]+(i*(resultado[0]/15)))[:4])
-        st.write(pd.DataFrame(valores_cercanos, columns=['Precio','UODI','EBITDA','EVA']))
+        df=pd.DataFrame(valores_cercanos, columns=['Precio','UODI','EBITDA','EVA'])
+        st.write(df)
     
     
     if st.button(f'Optimizar UODI'):
@@ -116,7 +117,57 @@ def main ():
             valores_cercanos.append(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'UODI',resultado[0]+(i*(resultado[0]/15)))[:4])
         df=pd.DataFrame(valores_cercanos, columns=['Precio','UODI','EBITDA','EVA'])
         st.write(df) 
-        st.write(df['Precio'].tolist())
+        grafica_lineas([df['Precio'].tolist(),df['EVA'].tolist(),df['EBITDA'].tolist()],df['UDOI'].tolist(),["Precios por unidad"],["UODI"])
+
+def grafica_lineas(self,eje_x,eje_y,titulo_x,titulo_y,nuevo_precio=0.0):         
+    precios=eje_x[0]
+    linea_base=eje_x[1]
+    EVA=eje_x[2]
+    EBITDA=eje_x[3]
+    UODI=eje_y[0] 
+    
+#     Resultado_Compras = Resultado[Resultado['Variable']=="Compra"]
+#     Resultado_Inventario = Resultado[Resultado['Variable']=="Inventario"]
+#     Resultado_CostoTotal = Resultado[Resultado['Variable']=="CostoTotal"]
+    
+    fig = make_subplots(specs=[[{"secondary_y": True}]])
+
+#     fig.add_trace(go.Scatter(x=precios, y=UODI, name='Compras'))
+
+    fig.add_trace(go.Scatter(x=precios, y=UODI, 
+                             name='UODI', mode='lines', line=dict(color='green'), legendrank=True))
+  
+    fig.add_trace(go.Scatter(x=precios, y=EVA, 
+                             name='EVA', mode='lines', line=dict(color='Orange'), legendrank=True))
+  
+    fig.add_trace(go.Scatter(x=precios, y=EBITDA, 
+                             name='EBITDA', mode='lines', line=dict(color='Red'), legendrank=True))
+    
+    fig.add_trace(go.Scatter(x=precios, y=linea_base, 
+                             name='linea base', mode='lines', line=dict(color='Yellow'), legendrank=True))
+
+#     fig.add_trace(go.Scatter(x=Resultado_Compras['Semana'], y=Resultado_Compras['Precios'], 
+#                              name='Precios', mode='lines', line=dict(color='orange'), legendrank=True), secondary_y=True)
+    if nuevo_precio>0:
+        fig.add_shape(
+            type="line",
+            x0=nuevo_precio, y0=min(UODI), x1=nuevo_precio, y1=max(UODI),
+            line=dict(color="blue", width=2, dash="dash"),
+        )
+
+    fig.update_layout(title='Variación de indicadores financieros en funcion del precio',
+                      xaxis=dict(title='Precios'),
+                      yaxis=dict(title='Valor'),
+#                       yaxis2=dict(title='Precios', overlaying='y', side='right'),
+                     legend=dict(
+                    orientation="h",
+                    yanchor="bottom",
+                    y=1.02,
+                    xanchor="right",
+                    x=1
+                ))
+
+    st.write(fig)
 
 def organizar_campos(Diccionario): 
     '''
