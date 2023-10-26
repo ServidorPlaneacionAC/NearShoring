@@ -108,8 +108,9 @@ def main ():
             valores_cercanos.append(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'EVA',resultado[0]+(i*(resultado[0]/15)))[:4])
         df=pd.DataFrame(valores_cercanos, columns=['Precio','UODI','EBITDA','EVA'])
         st.write(df)
-    
-    
+        Linea_Base=[0 for i in range(len(valores_cercanos))]
+        grafica_lineas([df['Precio'].tolist(),Linea_Base,df['EVA'].tolist(),df['EBITDA'].tolist()],df['UODI'].tolist(),["Precios por unidad"],["UODI"])
+   
     if st.button(f'Optimizar UODI'):
         valores_dicc_1 = organizar_campos(session_state.Dicc_Variables)
         valores_dicc_2 = organizar_campos(session_state.Dicc_Variables2)
@@ -121,8 +122,6 @@ def main ():
         df=pd.DataFrame(valores_cercanos, columns=['Precio','UODI','EBITDA','EVA'])
         st.write(df) 
         Linea_Base=[0 for i in range(len(valores_cercanos))]
-        st.write(df['UODI'].tolist())
-        st.write(df['UODI'])
         grafica_lineas([df['Precio'].tolist(),Linea_Base,df['EVA'].tolist(),df['EBITDA'].tolist()],df['UODI'].tolist(),["Precios por unidad"],["UODI"])
 
 def grafica_lineas(eje_x,eje_y,titulo_x,titulo_y,nuevo_precio=0.0):         
