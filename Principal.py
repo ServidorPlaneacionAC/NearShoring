@@ -117,7 +117,7 @@ def main ():
             valores_cercanos.append(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'UODI',resultado[0]+(i*(resultado[0]/15)))[:4])
         df=pd.DataFrame(valores_cercanos, columns=['Precio','UODI','EBITDA','EVA'])
         st.write(df) 
-        grafica_lineas([df['Precio'].tolist(),df['EVA'].tolist(),df['EBITDA'].tolist()],df['UDOI'].tolist(),["Precios por unidad"],["UODI"])
+        grafica_lineas([df['Precio'].tolist(),df['EVA'].tolist(),df['EBITDA'].tolist()],df['UODI'].tolist(),["Precios por unidad"],["UODI"])
 
 def grafica_lineas(self,eje_x,eje_y,titulo_x,titulo_y,nuevo_precio=0.0):         
     precios=eje_x[0]
