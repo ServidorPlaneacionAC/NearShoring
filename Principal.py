@@ -121,6 +121,8 @@ def main ():
         df=pd.DataFrame(valores_cercanos, columns=['Precio','UODI','EBITDA','EVA'])
         st.write(df) 
         Linea_Base=[0 for i in range(len(valores_cercanos))]
+        st.write(df['UODI'].tolist())
+        st.write(df['UODI'])
         grafica_lineas([df['Precio'].tolist(),Linea_Base,df['EVA'].tolist(),df['EBITDA'].tolist()],df['UODI'].tolist(),["Precios por unidad"],["UODI"])
 
 def grafica_lineas(eje_x,eje_y,titulo_x,titulo_y,nuevo_precio=0.0):         
