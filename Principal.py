@@ -3,6 +3,8 @@ from streamlit import session_state
 import copy
 from pulp import *
 import pandas as pd
+import mplcursors
+from plotly.subplots import make_subplots
 
 def main ():    
     ''' 
