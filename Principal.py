@@ -108,7 +108,7 @@ def main ():
         st.write(pd.DataFrame([resultado[:4]], columns=['Precio','UODI','EBITDA','EVA']))
         valores_cercanos=[]
         for i in range(-5,6,1): 
-            valores_cercanos.append(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'UODI',resultado[0]+(i*(resultado[0]/15))))
+            valores_cercanos.append(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'UODI',resultado[0]+(i*(resultado[0]/15)))[:4])
         st.write(pd.DataFrame(valores_cercanos[:4], columns=['Precio','UODI','EBITDA','EVA']))
     
 
