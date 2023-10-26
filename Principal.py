@@ -197,10 +197,12 @@ def optimizacion(cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarif
             prob += uodi >= 0
             # Define la función objetivo
             prob += uodi == 0
-    
-    status = prob.solve()
-    return p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct),value(capital_invertido_1)
+        status = prob.solve()
+        return p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct),value(capital_invertido_1)
+    else:
+        return p_1,(uodi),(ebitda),(eva),(diferencial_ct),(capital_invertido_1)
 
+    
 def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
     diccionario=copy.deepcopy(diccionario)
     st.write(escenario)
