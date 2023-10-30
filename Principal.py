@@ -188,7 +188,7 @@ def organizar_campos(Diccionario):
 
     return [cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarifa_gz,costo_transporte,tarifa_alm,tasa]
  
-def optimizacion(cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarifa_gz,costo_transporte,tarifa_alm,tasa,precio_compra,
+def optimizacion2(cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarifa_gz,costo_transporte,tarifa_alm,tasa,precio_compra,
                  cantidad_1,frecuencia_1,lead_time_1,condicion_pago_1,inv_prom_1,asu_1,tarifa_gz_1,costo_transporte_1,tarifa_alm_1,tasa_1,Variable_a_optimizar,precio=0):
     '''
     Me calcula los costos y me realiza la optimización
@@ -281,7 +281,85 @@ def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
         if estados_checkboxes[key] and (escenario==value['Esenario'] or 'todos'==value['Esenario']):
             diccionario[key]['Valor'] = valores_editados[key]
     return diccionario
+
+
+def optimizacion(cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarifa_gz,costo_transporte,tarifa_alm,tasa,precio_compra,
+                 cantidad_1,frecuencia_1,lead_time_1,condicion_pago_1,inv_prom_1,asu_1,tarifa_gz_1,costo_transporte_1,tarifa_alm_1,tasa_1,Variable_a_optimizar,precio=0):
+    '''
+    Me calcula los costos y me realiza la optimización
+    '''
+    # Creamos un objeto de problema de optimización llamado "prob" con objetivo de minimización
+    # "Mi problema de optimización" es el nombre del problema, y LpMinimize indica que estamos minimizando
+    prob = LpProblem("Mi problema de optimización", LpMinimize)
+    # Creamos una variable de optimización llamada "p_1" con límite inferior de 0
+    # "p_1" es el nombre de la variable, y lowBound=0 establece el límite inferior en 0
+    p_1 = LpVariable("p_1", lowBound=0)
+    # Asignamos el valor de la variable de optimización "p_1" a la variable "precio_compra_1"
+    precio_compra_1=p_1  
+    inv_prom_sem_1 = inv_prom_1 / asu_1  # Inventario promedio por semana: Inventario promedio dividido por adu_1
+    diferencial_1 = lead_time_1 - condicion_pago_1  # Diferencial: Tiempo de tránsito logístico menos semanas de crédito proveedor
+    costo_inv_1 = precio_compra_1 * inv_prom_1  # Costo de inventario: Precio de compra por inventario promedio
+    costo_nacionalizacion_1 = tarifa_gz_1 * cantidad_1 * precio_compra_1 # Costo de nacionalización: TAF GZ multiplicado por cantidad_1 y por el precio
+    costo_cap_1 = (diferencial_1 + inv_prom_sem_1) * asu_1 * (((1 + tasa) ** (1/52)) - 1) * precio_compra_1  # Costo de capital: Cálculo con diferenciales, tasa, adu_1 y precio_compra_1
+    costo_maninv_1 = (inv_prom_1) * (tarifa_alm_1 / 4.3) * (inv_prom_sem_1)  # Costo de manipulación de inventario: Producto de factores por inventario promedio semanal
+    costo_compra_1 = precio_compra_1 * cantidad_1  # Costo de compra: Precio de compra por cantidad
+    costo_total_1 = costo_maninv_1 + costo_compra_1 + costo_cap_1 + costo_transporte_1 + costo_nacionalizacion_1 # Costo total: Suma de varios costos
+    costo_ebitda_1 = costo_total_1# Costo EBITDA: Suma de costos relevantes
+    costo_unitario_1 = costo_total_1 / cantidad_1  # Costo unitario: Costo total dividido por cantidad
+    capital_invertido_1 = ((diferencial_1 + inv_prom_sem_1) * (asu_1)) * (precio_compra_1)#capital que se invierte en el escenario
+
+
+    #calculos otro escenario
+    inv_prom_sem = inv_prom / asu  # Inventario promedio por semana: Inventario promedio dividido por adu_1
+    diferencial = lead_time - condicion_pago  # Diferencial: Tiempo de tránsito logístico menos semanas de crédito proveedor           
+    costo_inv = precio_compra * inv_prom  # Costo de inventario: Precio de compra por inventario promedio
+    costo_nacionalizacion = tarifa_gz * cantidad * precio_compra # Costo de nacionalización: TAF GZ multiplicado por cantidad_1 y por el precio
+    costo_cap = (diferencial + inv_prom_sem) * asu * (((1 + tasa) ** (1/52)) - 1) * precio_compra  # Costo de capital: Cálculo con diferenciales, tasa, adu_1 y precio_compra_1
+    costo_maninv = (inv_prom) * (tarifa_alm / 4.3) * (inv_prom_sem)  # Costo de manipulación de inventario: Producto de factores por inventario promedio semanal
+    costo_compra = precio_compra * cantidad  # Costo de compra: Precio de compra por cantidad
+    costo_total = costo_maninv + costo_compra + costo_cap + costo_transporte + costo_nacionalizacion # Costo total: Suma de varios costos
+    costo_ebitda = costo_total# Costo EBITDA: Suma de costos relevantes
+    costo_unitario = costo_total / cantidad  # Costo unitario: Costo total dividido por cantidad
+    capital_invertido = ((diferencial + inv_prom_sem) * (asu)) * (precio_compra)#capital que se invierte en el escenario
+
+    #calculo variables financieras
+    # Cálculo del EBITDA
+    ebitda = costo_ebitda_1 - costo_ebitda
+    # Cálculo de Impuestos
+    impuestos = ebitda * 0.26
+    # Cálculo de UODI (Utilidad Operativa Después de Impuestos)
+    uodi = ebitda - impuestos
+    # Cálculo del Diferencial de Capital Invertido
+    diferencial_ct = capital_invertido - capital_invertido_1
+    # Cálculo del Costo de Capital
+    costo_capital = diferencial_ct * (((1 + tasa) ** (1 / 52)) - 1)
+    # Cálculo de EVA (Valor Económico Agregado)
+    eva = uodi - costo_capital
+
+
+    # Define las variables de cambio de precio
+    # Agrega restricciones
+    # if precio==0:
+    #     if Variable_a_optimizar=='EVA':
+    #         prob += eva >= 0
+    #         # Define la función objetivo
+    #         prob += eva == 0
+    #     else:
+        #     prob += uodi >= 0
+        #     # Define la función objetivo
+        #     prob += uodi == 0
+        # status = prob.solve()
+        # return p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct),value(capital_invertido_1)
+    # else:
+    #     return p_1,(uodi),(ebitda),(eva),(diferencial_ct),(capital_invertido_1)
+
+    prob += uodi >= 0
+        # Define la función objetivo
+    prob += uodi == 0
+    status = prob.solve()
     
+    return p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct),value(capital_invertido_1)
+   
 
 if __name__ == '__main__':
     main()
