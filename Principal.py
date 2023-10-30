@@ -207,7 +207,7 @@ def optimizacion(cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarif
     inv_prom_sem_1 = inv_prom_1 / asu_1  # Inventario promedio por semana: Inventario promedio dividido por adu_1
     diferencial_1 = lead_time_1 - condicion_pago_1  # Diferencial: Tiempo de tránsito logístico menos semanas de crédito proveedor
     costo_inv_1 = precio_compra_1 * inv_prom_1  # Costo de inventario: Precio de compra por inventario promedio
-    costo_nacionalizacion_1 = tarifa_gz_1 * cantidad_1 * precio_compra_1 # Costo de nacionalización: TAF GZ multiplicado por cantidad_1 y por el precio
+    costo_nacionalizacion_1 = tarifa_gz_1 * cantidad_1  # Costo de nacionalización: TAF GZ multiplicado por cantidad_1 y por el precio
     costo_cap_1 = (diferencial_1 + inv_prom_sem_1) * asu_1 * (((1 + tasa) ** (1/52)) - 1) * precio_compra_1  # Costo de capital: Cálculo con diferenciales, tasa, adu_1 y precio_compra_1
     costo_maninv_1 = (inv_prom_1) * (tarifa_alm_1 / 4.3) * (inv_prom_sem_1)  # Costo de manipulación de inventario: Producto de factores por inventario promedio semanal
     costo_compra_1 = precio_compra_1 * cantidad_1  # Costo de compra: Precio de compra por cantidad
@@ -221,7 +221,7 @@ def optimizacion(cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarif
     inv_prom_sem = inv_prom / asu  # Inventario promedio por semana: Inventario promedio dividido por adu_1
     diferencial = lead_time - condicion_pago  # Diferencial: Tiempo de tránsito logístico menos semanas de crédito proveedor           
     costo_inv = precio_compra * inv_prom  # Costo de inventario: Precio de compra por inventario promedio
-    costo_nacionalizacion = tarifa_gz * cantidad * precio_compra # Costo de nacionalización: TAF GZ multiplicado por cantidad_1 y por el precio
+    costo_nacionalizacion = tarifa_gz * cantidad  # Costo de nacionalización: TAF GZ multiplicado por cantidad_1 y por el precio
     costo_cap = (diferencial + inv_prom_sem) * asu * (((1 + tasa) ** (1/52)) - 1) * precio_compra  # Costo de capital: Cálculo con diferenciales, tasa, adu_1 y precio_compra_1
     costo_maninv = (inv_prom) * (tarifa_alm / 4.3) * (inv_prom_sem)  # Costo de manipulación de inventario: Producto de factores por inventario promedio semanal
     costo_compra = precio_compra * cantidad  # Costo de compra: Precio de compra por cantidad
