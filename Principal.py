@@ -272,9 +272,9 @@ def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
         Descripcion = value['Descripcion']              
         if escenario==value['Esenario'] or 'todos'==value['Esenario']:        
             if estados_checkboxes[key]:
-                valor = st.text_input(f' **{nombre}**{Descripcion} {ind}', valor,disabled=False, step=0.1, min_value=0.0, max_value=1000000000.0,)
+                valor = st.text_input(f' **{nombre}**{Descripcion} {ind}', value=valor,disabled=False, step=0.1, min_value=0.0, max_value=1000000000.0,)
             else:
-                valor = st.text_input(f' **{nombre}**{Descripcion} {ind}', valor, disabled=True , step=0.1, min_value=0.0, max_value=1000000000.0,)
+                valor = st.text_input(f' **{nombre}**{Descripcion} {ind}', value=valor, disabled=True , step=0.1, min_value=0.0, max_value=1000000000.0,)
             valores_editados.append(valor)
 
     for key, value in diccionario.items():
