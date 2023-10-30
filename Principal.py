@@ -18,7 +18,7 @@ def main ():
              'Tipo': "Obligatorio",
              'Esenario': "todos",
              'Tipo_Dato': "int",
-             'Valor': 125.0},
+             'Valor': 120},
          1: {'Nombre': "Frecuencia",
              'Descripcion':  ': Tiempo estimado para recalcular o recibir el próximo envío',
              'Tipo': "Obligatorio",
