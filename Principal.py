@@ -257,31 +257,6 @@ def optimizacion(cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarif
             # Define la función objetivo
             prob += uodi == 0
         status = prob.solve()
-        precio_compra_1
-        st.write(f'inv_prom_sem_1 {inv_prom_sem_1}')
-        st.write(f'diferencial_1 {diferencial_1}')
-        st.write(f'costo_inv_1 {costo_inv_1}')
-        st.write(f'costo_nacionalizacion_1 {costo_nacionalizacion_1}')
-        st.write(f'costo_cap_1 {costo_cap_1}')
-        st.write(f'costo_maninv_1 {costo_maninv_1}')
-        st.write(f'costo_compra_1 {costo_compra_1}')
-        st.write(f'costo_total_1 {costo_total_1}')
-        st.write(f'costo_ebitda_1 {costo_ebitda_1}')
-        st.write(f'costo_unitario_1 {costo_unitario_1}')
-        st.write(f'capital_invertido_1 {capital_invertido_1}')
-
-        st.write(f'inv_prom_sem {inv_prom_sem}')
-        st.write(f'diferencial {diferencial}')
-        st.write(f'costo_inv {costo_inv}')
-        st.write(f'costo_nacionalizacion {costo_nacionalizacion}')
-        st.write(f'costo_cap {costo_cap}')
-        st.write(f'costo_maninv {costo_maninv}')
-        st.write(f'costo_compra {costo_compra}')
-        st.write(f'costo_total {costo_total}')
-        st.write(f'costo_ebitda {costo_ebitda}')
-        st.write(f'costo_unitario {costo_unitario}')
-        st.write(f'capital_invertido {capital_invertido}')
-
         return p_1.value(),value(uodi),value(ebitda),value(eva),value(diferencial_ct),value(capital_invertido_1)
     else:
         return p_1,(uodi),(ebitda),(eva),(diferencial_ct),(capital_invertido_1)
