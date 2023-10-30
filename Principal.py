@@ -18,7 +18,7 @@ def main ():
              'Tipo': "Obligatorio",
              'Esenario': "todos",
              'Tipo_Dato': "int",
-             'Valor': 120},
+             'Valor': 125.0},
          1: {'Nombre': "Frecuencia",
              'Descripcion':  ': Tiempo estimado para recalcular o recibir el próximo envío',
              'Tipo': "Obligatorio",
@@ -274,7 +274,7 @@ def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
             if estados_checkboxes[key]:
                 valor = st.text_input(f' **{nombre}**{Descripcion} {ind}',value=valor,disabled=False)
             else:
-                valor = st.text_input(f' **{nombre}**{Descripcion} {ind}', step=0.1, min_value=0.0, max_value=1000000000.0, value=valor, disabled=True)
+                valor = st.text_input(f' **{nombre}**{Descripcion} {ind}', value=valor, disabled=True)
             valores_editados.append(valor)
 
     for key, value in diccionario.items():
