@@ -18,67 +18,67 @@ def main ():
              'Tipo': "Obligatorio",
              'Esenario': "todos",
              'Tipo_Dato': "int",
-             'Valor': 2},
+             'Valor': 125.0},
          1: {'Nombre': "Frecuencia",
              'Descripcion':  ': Tiempo estimado para recalcular o recibir el próximo envío',
              'Tipo': "Obligatorio",
              'Esenario': "todos",
              'Tipo_Dato': "int",
-             'Valor': 1},
+             'Valor': 4.0},
          2: {'Nombre': "lead time entrega en planta",
              'Descripcion': ': tiempo estimado para entregar en planta (si se consideran varias plantas, tomar el tiempo mayor)' ,
              'Tipo': "Obligatorio",
              'Esenario': "todos",
              'Tipo_Dato': "int",
-             'Valor': 3},
+             'Valor': 1.0},
          3: {'Nombre': "condición de pago", 
              'Descripcion': ': tiempo en semanas estimado para pagar al proveedor el pedido actual' ,
              'Tipo': "Obligatorio",
              'Esenario': "todos",
              'Tipo_Dato': "int",
-             'Valor': 4},
+             'Valor': 12.86},
          4: {'Nombre': "Inventario promedio",
              'Descripcion':  '',
              'Tipo': "Obligatorio",
              'Esenario': "todos",
              'Tipo_Dato': "int",
-             'Valor': 60},
+             'Valor': 2700.0},
          5: {'Nombre': "Consumo promedio Semanal",
              'Descripcion': ': Cantidad dada en unidad de medida determinada por el negociador (la suma de consumos promedio de las plantas en análisis)'  ,
              'Tipo': "Obligatorio",
              'Esenario': "todos",
              'Tipo_Dato': "int",
-             'Valor': 2},
+             'Valor': 125.0},
          6: {'Nombre': "Tarifa gestion cargo",
              'Descripcion': ': Cobro del material en gestion carg' ,
              'Tipo': "Obligatorio",
              'Esenario': "todos",
              'Tipo_Dato': "int",
-             'Valor': 1},
+             'Valor': 44000.0},
          7: {'Nombre': "Costo transporte",
              'Descripcion': ': Costo por unidad en el camion' ,
              'Tipo': "Obligatorio",
              'Esenario': "todos",
              'Tipo_Dato': "int",
-             'Valor': 1},
+             'Valor': 0.0},
          8: {'Nombre': "Tarifa almacenamiento",
              'Descripcion': ': por cada unidad de medida determinada por el negociador' ,
              'Tipo': "Obligatorio",
              'Esenario': "todos",
              'Tipo_Dato': "int",
-             'Valor': 1},
+             'Valor': 0.0},
          9: {'Nombre': "Tasa Costo de capital",
              'Descripcion': '' ,
              'Tipo': "Obligatorio",
              'Esenario': "todos",
              'Tipo_Dato': "int",
-             'Valor': 10},
+             'Valor': 0.12},
          10: {'Nombre': "Precio a pagar",
              'Descripcion': '' ,
              'Tipo': "Obligatorio",
              'Esenario': "Actual",
              'Tipo_Dato': "int",
-             'Valor': 20}
+             'Valor': 400000.0}
     }
     st.title('Nearshoring')
     col1_0, col1_1, col1_2 = st.columns(3)
@@ -272,9 +272,9 @@ def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
         Descripcion = value['Descripcion']              
         if escenario==value['Esenario'] or 'todos'==value['Esenario']:        
             if estados_checkboxes[key]:
-                valor = st.text_input(f' **{nombre}**{Descripcion} {ind}', valor,disabled=False)
+                valor = st.text_input(f' **{nombre}**{Descripcion} {ind}', valor,disabled=False, step=0.1, min_value=0.0, max_value=1000000000.0,)
             else:
-                valor = st.text_input(f' **{nombre}**{Descripcion} {ind}', valor, disabled=True)
+                valor = st.text_input(f' **{nombre}**{Descripcion} {ind}', valor, disabled=True , step=0.1, min_value=0.0, max_value=1000000000.0,)
             valores_editados.append(valor)
 
     for key, value in diccionario.items():
