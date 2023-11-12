@@ -191,7 +191,7 @@ def organizar_campos(Diccionario):
 def optimizacion(cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarifa_gz,costo_transporte,tarifa_alm,tasa,precio_compra,
                  cantidad_1,frecuencia_1,lead_time_1,condicion_pago_1,inv_prom_1,asu_1,tarifa_gz_1,costo_transporte_1,tarifa_alm_1,tasa_1,Variable_a_optimizar,precio=0):
     '''
-    Me calcula los costos y me realiza la optimización
+    Me calcula los costos y me realiza la optimización (obligatroio todos los campos)
     '''
     # Creamos un objeto de problema de optimización llamado "prob" con objetivo de minimización
     # "Mi problema de optimización" es el nombre del problema, y LpMinimize indica que estamos minimizando
@@ -263,6 +263,10 @@ def optimizacion(cantidad,frecuencia,lead_time,condicion_pago,inv_prom,asu,tarif
 
     
 def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
+    '''
+        Recibe los diccionarios de datos y permite su edición dependiendo de los estados_Checboxes, 
+        para datos obligatorios no permite desactivarlos, para los opcionales permite su desactivación y lo deja en 0 
+    '''
     diccionario=copy.deepcopy(diccionario)
     st.write(escenario)
     valores_editados = []
