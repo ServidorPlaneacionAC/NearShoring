@@ -51,19 +51,19 @@ def main ():
              'Valor': 125.0},
          6: {'Nombre': "Tarifa gestion cargo",
              'Descripcion': ': Cobro del material en gestion carg' ,
-             'Tipo': "Obligatorio",
+             'Tipo': "Opcional",
              'Esenario': "todos",
              'Tipo_Dato': "int",
              'Valor': 44000.0},
          7: {'Nombre': "Costo transporte",
              'Descripcion': ': Costo por unidad en el camion' ,
-             'Tipo': "Obligatorio",
+             'Tipo': "Opcional",
              'Esenario': "todos",
              'Tipo_Dato': "int",
              'Valor': 0.0},
          8: {'Nombre': "Tarifa almacenamiento",
              'Descripcion': ': por cada unidad de medida determinada por el negociador' ,
-             'Tipo': "Obligatorio",
+             'Tipo': "Opcional",
              'Esenario': "todos",
              'Tipo_Dato': "int",
              'Valor': 0.0},
@@ -271,14 +271,17 @@ def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
         valor = value['Valor']    
         Descripcion = value['Descripcion']              
         if escenario==value['Esenario'] or 'todos'==value['Esenario']:        
-            if estados_checkboxes[key]:
+            if estados_checkboxes[key] :
                 valor = st.text_input(f' **{nombre}**{Descripcion} {ind}',value=valor,disabled=False)
             else:
-                valor = st.text_input(f' **{nombre}**{Descripcion} {ind}', value=valor, disabled=True)
+                if(value['Valor']=='Obligatorio'):
+                    st.error(f"**{nombre}** es Obligatorio")
+                else:
+                    valor = st.text_input(f' **{nombre}**{Descripcion} {ind}', value=0, disabled=True)
             valores_editados.append(valor)
 
     for key, value in diccionario.items():
-        if estados_checkboxes[key] and (escenario==value['Esenario'] or 'todos'==value['Esenario']):
+        if (escenario==value['Esenario'] or 'todos'==value['Esenario']):
             diccionario[key]['Valor'] = valores_editados[key]
     return diccionario
 
