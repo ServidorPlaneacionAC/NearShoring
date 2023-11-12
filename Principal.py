@@ -277,7 +277,7 @@ def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
                 if(value['Tipo']=='Obligatorio'):
                     st.error(f"**{nombre}** es Obligatorio")
                 else:
-                    valor = st.text_input(f' **{nombre}**{Descripcion} {ind}', value=0, disabled=True)
+                    valor = st.text_input(f' **{nombre}**{Descripcion} {ind}', value=0.0, disabled=True)
             valores_editados.append(valor)
 
     for key, value in diccionario.items():
