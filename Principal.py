@@ -106,6 +106,7 @@ def main ():
             session_state.Dicc_Variables2 = mostrar_valores(copy.deepcopy(session_state.Dicc_Variables2),estados_checkboxes,'2','Retador')       
 
     if st.button(f'Optimizar EVA'):
+        st.write(int((session_state.Dicc_Variables2[11]['Valor'])))
         valores_dicc_1 = organizar_campos(session_state.Dicc_Variables)
         valores_dicc_2 = organizar_campos(session_state.Dicc_Variables2)
         if (session_state.Dicc_Variables2[11]['Valor'])=='0.0':
