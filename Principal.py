@@ -78,7 +78,13 @@ def main ():
              'Tipo': "Obligatorio",
              'Esenario': "Actual",
              'Tipo_Dato': "int",
-             'Valor': 400000.0}
+             'Valor': 400000.0},
+         11: {'Nombre': "Precio ofrecido",
+             'Descripcion': '' ,
+             'Tipo': "Opcional",
+             'Esenario': "Retador",
+             'Tipo_Dato': "int",
+             'Valor': 0.0}
     }
     st.title('Nearshoring')
     col1_0, col1_1, col1_2 = st.columns(3)
