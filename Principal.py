@@ -139,9 +139,6 @@ def grafica_lineas(eje_x,eje_y,titulo_x,titulo_y,nuevo_precio=0.0):
     UODI=eje_y 
     
     fig = make_subplots(specs=[[{"secondary_y": True}]])
-
-#     fig.add_trace(go.Scatter(x=precios, y=UODI, name='Compras'))
-
     fig.add_trace(go.Scatter(x=precios, y=UODI, 
                              name='UODI', mode='lines', line=dict(color='green'), legendrank=True))
   
@@ -154,8 +151,6 @@ def grafica_lineas(eje_x,eje_y,titulo_x,titulo_y,nuevo_precio=0.0):
     fig.add_trace(go.Scatter(x=precios, y=linea_base, 
                              name='linea base', mode='lines', line=dict(color='Yellow'), legendrank=True))
 
-#     fig.add_trace(go.Scatter(x=Resultado_Compras['Semana'], y=Resultado_Compras['Precios'], 
-#                              name='Precios', mode='lines', line=dict(color='orange'), legendrank=True), secondary_y=True)
     if nuevo_precio>0:
         fig.add_shape(
             type="line",
@@ -166,7 +161,6 @@ def grafica_lineas(eje_x,eje_y,titulo_x,titulo_y,nuevo_precio=0.0):
     fig.update_layout(title='Variación de indicadores financieros en funcion del precio',
                       xaxis=dict(title='Precios'),
                       yaxis=dict(title='Valor'),
-#                       yaxis2=dict(title='Precios', overlaying='y', side='right'),
                      legend=dict(
                     orientation="h",
                     yanchor="bottom",
