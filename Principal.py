@@ -67,24 +67,24 @@ def main ():
              'Esenario': "todos",
              'Tipo_Dato': "int",
              'Valor': 0.0},
-         9: {'Nombre': "Tasa Costo de capital",
+        9: {'Nombre': "Precio ofrecido",
+             'Descripcion': '' ,
+             'Tipo': "Opcional",
+             'Esenario': "todos",
+             'Tipo_Dato': "int",
+             'Valor': 0.0},
+         10: {'Nombre': "Tasa Costo de capital",
              'Descripcion': '' ,
              'Tipo': "Obligatorio",
              'Esenario': "Actual",
              'Tipo_Dato': "int",
              'Valor': 0.12},
-         10: {'Nombre': "Precio a pagar",
+         11: {'Nombre': "Precio a pagar",
              'Descripcion': '' ,
              'Tipo': "Obligatorio",
              'Esenario': "Actual",
              'Tipo_Dato': "int",
-             'Valor': 400000.0},
-        11: {'Nombre': "Precio ofrecido",
-             'Descripcion': '' ,
-             'Tipo': "Opcional",
-             'Esenario': "todos",
-             'Tipo_Dato': "int",
-             'Valor': 0.0}
+             'Valor': 400000.0}
          
     }
     st.title('Nearshoring')
