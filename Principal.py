@@ -82,7 +82,7 @@ def main ():
         11: {'Nombre': "Precio ofrecido",
              'Descripcion': '' ,
              'Tipo': "Opcional",
-             'Esenario': "todos",
+             'Esenario': "Retador",
              'Tipo_Dato': "int",
              'Valor': 0.0}
          
