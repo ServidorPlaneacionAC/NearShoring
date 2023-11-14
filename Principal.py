@@ -106,7 +106,7 @@ def main ():
             session_state.Dicc_Variables2 = mostrar_valores(copy.deepcopy(session_state.Dicc_Variables2),estados_checkboxes,'2','Retador')       
 
     if st.button(f'Optimizar EVA'):
-        st.write(int((session_state.Dicc_Variables2[11]['Valor'])))
+        # st.write(int((session_state.Dicc_Variables2[11]['Valor'])))
         valores_dicc_1 = organizar_campos(session_state.Dicc_Variables)
         valores_dicc_2 = organizar_campos(session_state.Dicc_Variables2)
         if (session_state.Dicc_Variables2[11]['Valor'])=='0.0':
@@ -120,7 +120,7 @@ def main ():
             Linea_Base=[0 for i in range(len(valores_cercanos))]
             grafica_lineas([df['Precio'].tolist(),Linea_Base,df['EVA'].tolist(),df['EBITDA'].tolist()],df['UODI'].tolist(),["Precios por unidad"],["UODI"])
         else:
-            resultado=(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'EVA',session_state.Dicc_Variables2[11]['Valor']))
+            resultado=(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'EVA',int(session_state.Dicc_Variables2[11]['Valor'])))
             st.write(pd.DataFrame([resultado[:4]], columns=['Precio','UODI','EBITDA','EVA']))
             
 
