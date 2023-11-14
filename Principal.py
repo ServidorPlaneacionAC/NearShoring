@@ -67,12 +67,6 @@ def main ():
              'Esenario': "todos",
              'Tipo_Dato': "int",
              'Valor': 0.0},
-        11: {'Nombre': "Precio ofrecido",
-             'Descripcion': '' ,
-             'Tipo': "Opcional",
-             'Esenario': "todos",
-             'Tipo_Dato': "int",
-             'Valor': 0.0},
          9: {'Nombre': "Tasa Costo de capital",
              'Descripcion': '' ,
              'Tipo': "Obligatorio",
@@ -84,7 +78,13 @@ def main ():
              'Tipo': "Obligatorio",
              'Esenario': "Actual",
              'Tipo_Dato': "int",
-             'Valor': 400000.0}
+             'Valor': 400000.0},
+        11: {'Nombre': "Precio ofrecido",
+             'Descripcion': '' ,
+             'Tipo': "Opcional",
+             'Esenario': "todos",
+             'Tipo_Dato': "int",
+             'Valor': 0.0}
          
     }
     st.title('Nearshoring')
@@ -287,6 +287,7 @@ def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
 
     for key, value in diccionario.items():
         if (escenario==value['Esenario'] or 'todos'==value['Esenario']):
+            st.write(f ' {key}  {valores_editados[key]} ')
             diccionario[key]['Valor'] = valores_editados[key]
     return diccionario
 
