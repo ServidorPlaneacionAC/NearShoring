@@ -287,7 +287,7 @@ def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
 
     for key, value in diccionario.items():
         if (escenario==value['Esenario'] or 'todos'==value['Esenario']):
-            st.write(f' {key}  {valores_editados[key]} ')
+            st.write(f' {key}   ')
             diccionario[key]['Valor'] = valores_editados[key]
     return diccionario
 
