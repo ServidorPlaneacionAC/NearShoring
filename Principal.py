@@ -270,7 +270,7 @@ def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
     '''
     diccionario=copy.deepcopy(diccionario)
     st.write(escenario)
-    valores_editados = []
+    valores_editados = {}
     for key, value in diccionario.items():
         nombre = value['Nombre']
         valor = value['Valor']    
@@ -283,8 +283,9 @@ def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
                     st.error(f"**{nombre}** es Obligatorio")
                 else:
                     valor = st.text_input(f' **{nombre}**{Descripcion} {ind}', value=0.0, disabled=True)
-            valores_editados.append(valor)
-
+            # valores_editados.append(valor)
+            valores_editados[key] = valor
+            
     for key, value in diccionario.items():
         if (escenario==value['Esenario'] or 'todos'==value['Esenario']):
             st.write(f' {key}   ')
