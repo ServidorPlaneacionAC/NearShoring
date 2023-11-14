@@ -108,15 +108,17 @@ def main ():
     if st.button(f'Optimizar EVA'):
         valores_dicc_1 = organizar_campos(session_state.Dicc_Variables)
         valores_dicc_2 = organizar_campos(session_state.Dicc_Variables2)
-        resultado=(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'EVA'))
-        st.write(pd.DataFrame([resultado[:4]], columns=['Precio','UODI','EBITDA','EVA']))
-        valores_cercanos=[]
-        for i in range(-5,6,1): 
-            valores_cercanos.append(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'EVA',resultado[0]+(i*(resultado[0]/15)))[:4])
-        df=pd.DataFrame(valores_cercanos, columns=['Precio','UODI','EBITDA','EVA'])
-        st.write(df)
-        Linea_Base=[0 for i in range(len(valores_cercanos))]
-        grafica_lineas([df['Precio'].tolist(),Linea_Base,df['EVA'].tolist(),df['EBITDA'].tolist()],df['UODI'].tolist(),["Precios por unidad"],["UODI"])
+        if session_state.Dicc_Variables2[11]['Valor']!=0:
+            st.write(1)
+            resultado=(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'EVA'))
+            st.write(pd.DataFrame([resultado[:4]], columns=['Precio','UODI','EBITDA','EVA']))
+            valores_cercanos=[]
+            for i in range(-5,6,1): 
+                valores_cercanos.append(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'EVA',resultado[0]+(i*(resultado[0]/15)))[:4])
+            df=pd.DataFrame(valores_cercanos, columns=['Precio','UODI','EBITDA','EVA'])
+            st.write(df)
+            Linea_Base=[0 for i in range(len(valores_cercanos))]
+            grafica_lineas([df['Precio'].tolist(),Linea_Base,df['EVA'].tolist(),df['EBITDA'].tolist()],df['UODI'].tolist(),["Precios por unidad"],["UODI"])
    
     if st.button(f'Optimizar UODI'):
         valores_dicc_1 = organizar_campos(session_state.Dicc_Variables)
@@ -288,7 +290,6 @@ def mostrar_valores(diccionario,estados_checkboxes, ind='', escenario='Actual'):
 
     for key, value in diccionario.items():
         if (escenario==value['Esenario'] or 'todos'==value['Esenario']):
-            st.write(f' {key}   ')
             diccionario[key]['Valor'] = valores_editados[key]
     return diccionario
 
