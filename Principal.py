@@ -108,9 +108,7 @@ def main ():
     if st.button(f'Optimizar EVA'):
         valores_dicc_1 = organizar_campos(session_state.Dicc_Variables)
         valores_dicc_2 = organizar_campos(session_state.Dicc_Variables2)
-        st.write(session_state.Dicc_Variables2[11]['Valor']) 
-        if (int(session_state.Dicc_Variables2[11]['Valor'])==0.0):
-            st.write(1)
+        if (session_state.Dicc_Variables2[11]['Valor'])=='0.0':
             resultado=(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'EVA'))
             st.write(pd.DataFrame([resultado[:4]], columns=['Precio','UODI','EBITDA','EVA']))
             valores_cercanos=[]
@@ -120,7 +118,11 @@ def main ():
             st.write(df)
             Linea_Base=[0 for i in range(len(valores_cercanos))]
             grafica_lineas([df['Precio'].tolist(),Linea_Base,df['EVA'].tolist(),df['EBITDA'].tolist()],df['UODI'].tolist(),["Precios por unidad"],["UODI"])
-   
+        else:
+            resultado=(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'EVA',session_state.Dicc_Variables2[11]['Valor']))
+            st.write(pd.DataFrame([resultado[:4]], columns=['Precio','UODI','EBITDA','EVA']))
+            
+
     if st.button(f'Optimizar UODI'):
         valores_dicc_1 = organizar_campos(session_state.Dicc_Variables)
         valores_dicc_2 = organizar_campos(session_state.Dicc_Variables2)
