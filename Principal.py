@@ -72,7 +72,7 @@ def main ():
              'Tipo': "Opcional",
              'Esenario': "todos",
              'Tipo_Dato': "int",
-             'Valor': 0.0}
+             'Valor': 0.0},
          9: {'Nombre': "Tasa Costo de capital",
              'Descripcion': '' ,
              'Tipo': "Obligatorio",
