@@ -106,7 +106,6 @@ def main ():
             session_state.Dicc_Variables2 = mostrar_valores(copy.deepcopy(session_state.Dicc_Variables2),estados_checkboxes,'2','Retador')       
 
     if st.button(f'Optimizar EVA'):
-        # st.write(int((session_state.Dicc_Variables2[11]['Valor'])))
         valores_dicc_1 = organizar_campos(session_state.Dicc_Variables)
         valores_dicc_2 = organizar_campos(session_state.Dicc_Variables2)
         if (session_state.Dicc_Variables2[11]['Valor'])=='0.0':
@@ -127,15 +126,19 @@ def main ():
     if st.button(f'Optimizar UODI'):
         valores_dicc_1 = organizar_campos(session_state.Dicc_Variables)
         valores_dicc_2 = organizar_campos(session_state.Dicc_Variables2)
-        resultado=optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'UODI')
-        st.write(pd.DataFrame([resultado[:4]], columns=['Precio','UODI','EBITDA','EVA']))
-        valores_cercanos=[]
-        for i in range(-5,6,1): 
-            valores_cercanos.append(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'UODI',resultado[0]+(i*(resultado[0]/15)))[:4])
-        df=pd.DataFrame(valores_cercanos, columns=['Precio','UODI','EBITDA','EVA'])
-        st.write(df) 
-        Linea_Base=[0 for i in range(len(valores_cercanos))]
-        grafica_lineas([df['Precio'].tolist(),Linea_Base,df['EVA'].tolist(),df['EBITDA'].tolist()],df['UODI'].tolist(),["Precios por unidad"],["UODI"])
+        if (session_state.Dicc_Variables2[11]['Valor'])=='0.0':
+            resultado=optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'UODI')
+            st.write(pd.DataFrame([resultado[:4]], columns=['Precio','UODI','EBITDA','EVA']))
+            valores_cercanos=[]
+            for i in range(-5,6,1): 
+                valores_cercanos.append(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'UODI',resultado[0]+(i*(resultado[0]/15)))[:4])
+            df=pd.DataFrame(valores_cercanos, columns=['Precio','UODI','EBITDA','EVA'])
+            st.write(df) 
+            Linea_Base=[0 for i in range(len(valores_cercanos))]
+            grafica_lineas([df['Precio'].tolist(),Linea_Base,df['EVA'].tolist(),df['EBITDA'].tolist()],df['UODI'].tolist(),["Precios por unidad"],["UODI"])
+        else:
+            valores_cercanos.append(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'UODI',int(session_state.Dicc_Variables2[11]['Valor']))[:4])
+            df=pd.DataFrame(valores_cercanos, columns=['Precio','UODI','EBITDA','EVA'])
 
 def grafica_lineas(eje_x,eje_y,titulo_x,titulo_y,nuevo_precio=0.0):  
     ''' Metodo que recibe una lista de elementos que varian en funcion del eje y '''       
