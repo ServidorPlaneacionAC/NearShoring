@@ -70,7 +70,7 @@ def main ():
          9: {'Nombre': "Tasa Costo de capital",
              'Descripcion': '' ,
              'Tipo': "Obligatorio",
-             'Esenario': "todos",
+             'Esenario': "Actual",
              'Tipo_Dato': "int",
              'Valor': 0.12},
          10: {'Nombre': "Precio a pagar",
