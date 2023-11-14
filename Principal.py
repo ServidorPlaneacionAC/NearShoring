@@ -138,7 +138,7 @@ def main ():
             grafica_lineas([df['Precio'].tolist(),Linea_Base,df['EVA'].tolist(),df['EBITDA'].tolist()],df['UODI'].tolist(),["Precios por unidad"],["UODI"])
         else:
             resultado=(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'UODI',int(session_state.Dicc_Variables2[11]['Valor'])))
-            df=pd.DataFrame(valores_cercanos, columns=['Precio','UODI','EBITDA','EVA'])
+            st.write(pd.DataFrame([resultado[:4]], columns=['Precio','UODI','EBITDA','EVA']))
 
 def grafica_lineas(eje_x,eje_y,titulo_x,titulo_y,nuevo_precio=0.0):  
     ''' Metodo que recibe una lista de elementos que varian en funcion del eje y '''       
