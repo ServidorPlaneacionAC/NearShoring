@@ -108,6 +108,7 @@ def main ():
     if st.button(f'Optimizar EVA'):
         valores_dicc_1 = organizar_campos(session_state.Dicc_Variables)
         valores_dicc_2 = organizar_campos(session_state.Dicc_Variables2)
+        st.write(session_state.Dicc_Variables2[11]['Valor'])
         if session_state.Dicc_Variables2[11]['Valor']==0.0:
             st.write(1)
             resultado=(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'EVA'))
