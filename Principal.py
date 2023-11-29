@@ -110,6 +110,7 @@ def main ():
         valores_dicc_2 = organizar_campos(session_state.Dicc_Variables2)
         if (session_state.Dicc_Variables2[11]['Valor'])=='0.0':
             resultado=(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'EVA'))
+            st.success(f' El siguiente recuadro representa el punto de equilibrio donde no se utilidad ni pérdida desde la óptica del indicador EVA')
             st.write(pd.DataFrame([resultado[:4]], columns=['Precio','UODI','EBITDA','EVA']))
             valores_cercanos=[]
             for i in range(-5,6,1): 
@@ -132,6 +133,7 @@ def main ():
         valores_dicc_2 = organizar_campos(session_state.Dicc_Variables2)
         if (session_state.Dicc_Variables2[11]['Valor'])=='0.0':
             resultado=optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'UODI')
+            st.success(f' El siguiente recuadro representa el punto de equilibrio donde no se utilidad ni pérdida desde la óptica del indicador EVA')
             st.write(pd.DataFrame([resultado[:4]], columns=['Precio','UODI','EBITDA','EVA']))
             valores_cercanos=[]
             for i in range(-5,6,1): 
