@@ -110,12 +110,15 @@ def main ():
         valores_dicc_2 = organizar_campos(session_state.Dicc_Variables2)
         if (session_state.Dicc_Variables2[11]['Valor'])=='0.0':
             resultado=(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'EVA'))
-            st.success(f' El siguiente recuadro representa el punto de equilibrio donde no se utilidad ni pérdida desde la óptica del indicador EVA')
+            st.info(f' El siguiente recuadro representa el punto de equilibrio donde no se utilidad ni pérdida desde la óptica del indicador EVA')
             st.write(pd.DataFrame([resultado[:4]], columns=['Precio','UODI','EBITDA','EVA']))
             valores_cercanos=[]
             for i in range(-5,6,1): 
                 valores_cercanos.append(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'EVA',resultado[0]+(i*(resultado[0]/15)))[:4])
             df=pd.DataFrame(valores_cercanos, columns=['Precio','UODI','EBITDA','EVA'])
+            st.info('''El siguiente recuadro muestra el comportamiento de las variables financieras considerando valores cercanos por encia y por debajo del punto de equilibrio,
+                     si el valor de estas variables financieras es negativo se puede concluir que estamos dejando de ganar un beneficio al quedarnos con el proveedor actual, y si es positivo el escenario
+                      actual representa un beneficio frente al retador''')
             st.write(df)
             Linea_Base=[0 for i in range(len(valores_cercanos))]
             grafica_lineas([df['Precio'].tolist(),Linea_Base,df['EVA'].tolist(),df['EBITDA'].tolist()],df['UODI'].tolist(),["Precios por unidad"],["UODI"])
@@ -133,7 +136,7 @@ def main ():
         valores_dicc_2 = organizar_campos(session_state.Dicc_Variables2)
         if (session_state.Dicc_Variables2[11]['Valor'])=='0.0':
             resultado=optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'UODI')
-            st.success(f' El siguiente recuadro representa el punto de equilibrio donde no se utilidad ni pérdida desde la óptica del indicador UODI')
+            st.info(f' El siguiente recuadro representa el punto de equilibrio donde no se utilidad ni pérdida desde la óptica del indicador UODI')
             st.write(pd.DataFrame([resultado[:4]], columns=['Precio','UODI','EBITDA','EVA']))
             valores_cercanos=[]
             for i in range(-5,6,1): 
