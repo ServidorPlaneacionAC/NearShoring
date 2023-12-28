@@ -116,7 +116,7 @@ def main ():
             for i in range(-5,6,1): 
                 valores_cercanos.append(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'EVA',resultado[0]+(i*(resultado[0]/15)))[:4])
             df=pd.DataFrame(valores_cercanos, columns=['Precio','UODI','EBITDA','EVA'])
-            st.info('''El siguiente recuadro muestra el comportamiento de las variables financieras considerando valores cercanos por encia y por debajo del punto de equilibrio,
+            st.info('''El siguiente recuadro muestra el comportamiento de las variables financieras considerando valores cercanos por encima y por debajo del punto de equilibrio,
                      si el valor de estas variables financieras es negativo se puede concluir que estamos dejando de ganar un beneficio al quedarnos con el proveedor actual, y si es positivo el escenario
                       actual representa un beneficio frente al retador''')
             st.write(df)
@@ -142,7 +142,7 @@ def main ():
             for i in range(-5,6,1): 
                 valores_cercanos.append(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'UODI',resultado[0]+(i*(resultado[0]/15)))[:4])
             df=pd.DataFrame(valores_cercanos, columns=['Precio','UODI','EBITDA','EVA'])
-            st.info('''El siguiente recuadro muestra el comportamiento de las variables financieras considerando valores cercanos por encia y por debajo del punto de equilibrio,
+            st.info('''El siguiente recuadro muestra el comportamiento de las variables financieras considerando valores cercanos por encima y por debajo del punto de equilibrio,
                      si el valor de estas variables financieras es negativo se puede concluir que estamos dejando de ganar un beneficio al quedarnos con el proveedor actual, y si es positivo el escenario
                       actual representa un beneficio frente al retador''')
             st.write(df) 
@@ -150,6 +150,11 @@ def main ():
             grafica_lineas([df['Precio'].tolist(),Linea_Base,df['EVA'].tolist(),df['EBITDA'].tolist()],df['UODI'].tolist(),["Precios por unidad"],["UODI"])
         else:
             resultado=(optimizacion(*valores_dicc_1, float(session_state.Dicc_Variables[10]["Valor"]), *valores_dicc_2,'UODI',int(session_state.Dicc_Variables2[11]['Valor'])))
+            if resultado[1]>0:
+                st.error(f'Si aceptamos la propuesta del nuevo proveedor estariamos perdiendo {resultado[1]} en UODI')
+            else:
+                st.success(f'Si **NO** aceptamos la propuesta del nuevo proveedor estariamos perdiendo {-resultado[1]} en UODI ')
+            
             st.write(pd.DataFrame([resultado[:4]], columns=['Precio','UODI','EBITDA','EVA']))
 
 def grafica_lineas(eje_x,eje_y,titulo_x,titulo_y,nuevo_precio=0.0):  
